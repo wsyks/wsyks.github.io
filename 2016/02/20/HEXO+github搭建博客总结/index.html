@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>零の杂货铺</title>
+  <title>HEXO+github搭建博客总结 | 零の杂货铺</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -86,7 +86,7 @@
 </head>
 
 <!--
-<body class="home-template">
+<body class="post-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -220,17 +220,12 @@
         <!-- // End height spacing helper -->
 
         <!-- ============================ END Hero Image =========================== -->
-      <!-- ============================ Content =========================== -->
-
+      
 <section id="intro">
     <div class="container">
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/02/20/HEXO+github搭建博客总结/">HEXO+github搭建博客总结</a></h3>
-                    <span>
-                        <span class="post-meta">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
       <time datetime="2016-02-20T08:21:27.000Z" itemprop="datePublished">
           2016-02-20
       </time>
@@ -243,189 +238,97 @@
     
     
 </span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        0x00 前言用hexo+github搭建个人博客，有许多坑值得去填，这里就把从各个博客学到的填坑方式在这里说一下。
-另外，有许多资料都是针对hexo2.x版本的，我现在的版本是3.1.1。查找资料的时候一定要注意。这里只是列出问题查找的方向，根据这个方向更便于在网上找到解决的方法。
-0x01 准备1.github账号：安装git，申请github账号，设置好ssh。再新建一个项目，然后在项目的setting中设置为个人页面。
-2.安装
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/02/20/HEXO+github搭建博客总结/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
+                <h1>HEXO+github搭建博客总结</h1>
             </div>
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/02/19/MHN开源蜜罐项目学习笔记（一）——基本架构/">MHN开源蜜罐项目学习笔记（一）——基本架构</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-02-19T09:13:55.000Z" itemprop="datePublished">
-          2016-02-19
-      </time>
-    
-    
-    | 
-    <a href='/tags/安全，蜜罐，原创/'>安全，蜜罐，原创</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        0x00  前言MHN是一个开源的蜜网部署项目，通过简单的脚本编译，可以快速部署蜜网服务器以及蜜罐节点，想玩的，详细的部署过程参考这篇文章http://drops.wooyun.org/papers/5968
-怎么安装上面说的很详细，但是网上对这个开源项目架构介绍的比较少，因为毕业论文打算写这方面，所以我在这里写写我的收获。
-特别提醒：MHN的honeymap需要VPN才能安装成功~~
-0x01 基本架构之前也说过了，mhn是由两部分组
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/02/19/MHN开源蜜罐项目学习笔记（一）——基本架构/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<h2 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h2><p>用hexo+github搭建个人博客，有许多坑值得去填，这里就把从各个博客学到的填坑方式在这里说一下。</p>
+<p>另外，有许多资料都是针对hexo2.x版本的，我现在的版本是3.1.1。查找资料的时候一定要注意。这里只是列出问题查找的方向，根据这个方向更便于在网上找到解决的方法。</p>
+<h2 id="0x01-准备"><a href="#0x01-准备" class="headerlink" title="0x01 准备"></a>0x01 准备</h2><p>1.github账号：安装git，申请github账号，设置好ssh。再新建一个项目，然后在项目的setting中设置为个人页面。</p>
+<p>2.安装node.js，使用npm命令安装hexo，后面还会大量的用到npm来安装。</p>
+<pre><code>npm install -g hexo
+</code></pre><h2 id="0x02-搭建基本框架"><a href="#0x02-搭建基本框架" class="headerlink" title="0x02 搭建基本框架"></a>0x02 搭建基本框架</h2><p>在本地电脑新建一个文件夹a，在a里使用git bash初始化一个hexo项目。</p>
+<pre><code>hexo init
+</code></pre><p>这时会生成许多文件夹，在输入</p>
+<pre><code>npm install
+</code></pre><p>安装一些必要包。</p>
+<p>执行</p>
+<pre><code>hexo generate
+hexo server -p 8080
+</code></pre><p>这时候应该可以在本地用<a href="http://localhost:8080打开原始框架页面了" target="_blank" rel="external">http://localhost:8080打开原始框架页面了</a></p>
+<p>注意：</p>
+<p>-p后面的端口要根据自己的情况来写，网上大多使用默认的4000，可是我的4000端口已经用了，这样就会导致网页打不开。</p>
+<p>在本地打开成功后，就可以开始上传到github上了。</p>
+<p>打开a里的_config.yml,推荐使用sublime，如果使用其他工具，请注意要保存时格式应为<strong>utf-8</strong></p>
+<p>找到deploy一栏，修改如下：</p>
+<pre><code>deploy:
+  type: git
+  repository: https://github.com/你的github名/你的github名.github.io.git
+  branch: master
+</code></pre><p>注意，这里作为个人页面的github项目一定要和用户名相同。</p>
+<p>然后在git bash中输入</p>
+<pre><code>hexo deploy
+</code></pre><p>这里注意有两种deploy的方式，<a href="https://的方式会要求你输入github的账号密码；ssh的方式只要事先设置好密钥就不再需要多余的操作了。" target="_blank" rel="external">https://的方式会要求你输入github的账号密码；ssh的方式只要事先设置好密钥就不再需要多余的操作了。</a></p>
+<p>这时，就可以用<strong>你的github名.github.io</strong>来访问</p>
+<h2 id="0x03-打磨博客"><a href="#0x03-打磨博客" class="headerlink" title="0x03 打磨博客"></a>0x03 打磨博客</h2><p>1.发表博文<br>使用</p>
+<pre><code>hexo new “文章名”
+</code></pre><p>新建博文，这时会在a/source/_post下生成相应的.md文件，打开编辑。<br>在——下面就可以使用markdown语法写博文。</p>
+<p>写好后，保存，执行</p>
+<pre><code>hexo generate
+</code></pre><p>就可以在a/public中相应的位置生成博文。</p>
+<p>那么以后的程式化操作就是</p>
+<pre><code>hexo new “  ” 写博文
+hexo clean 清除public
+hexo generate 编译
+hexo server -p 8080 本地测试
+hexo deploy 部署到远程服务器
+</code></pre><p>2.装饰博客<br>基本框架布置好，装饰的事大家就各显神通了。</p>
+<p>通常会在以下几个点进行修改</p>
+<p>a/_config.yml</p>
+<p>这里修改博客主页的名字，源信息，子页面url格式等</p>
+<p>最重要的是主题的选用，插件的使用都在这里编辑完成。<br>如果你要使用rss、sitemap、更改deploy的对象就需要在这里修改</p>
+<p>a/themes/<br>存放你找来的各种主题b、c、d……</p>
+<p>a/themes/b/_config.yml<br>负责单个主题的框架修改，<br>包括网页的logo图片选择、框架中主菜单显示的文本及连接</p>
+<p>a/public<br>静态生成的网页，也就是会上传到github上的文件。</p>
+<p>网上有很多教程，而且如果前面都部署成功了，后面就可以自己慢慢geek了</p>
+<h2 id="0x04-其他的一些坑"><a href="#0x04-其他的一些坑" class="headerlink" title="0x04 其他的一些坑"></a>0x04 其他的一些坑</h2><p>github的博客可以被google站长收录，但是baidu被禁止爬去github，所以，如果想让baidu也能搜得到你，就部署在gitcafe上。</p>
+<p>如果hexo generate报错，多半是两个地方的_config.yml更改的有问题，所以一是要备份yml文件或者从git上拉取之前部署成功的文件，二是要边改边generate在本地查看，一点点琢磨不同位置的属性。</p>
+<p>a/_config.yml中的url设置如果没有购买域名的话，看似没有作用，但会影响生成的sitemap中的路径，所以在多个平台（github、gitcafe）部署的时候，不仅要修改deploy，还要根据需要修改url。</p>
+<p>否则，即便sitemap能被百度站长工具访问到，也会提示说 <strong>主域验证错误</strong></p>
+<p>因为是事后总结，暂时想到的就这么多，其他还有什么安装过程中的问题可以直接博客留言，<strong>见即回 </strong>  ：）</p>
+<p>原创文章，转载请注明： 转载自零の杂货铺</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
         </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/02/19/PyMongo官方文档翻译/">PyMongo官方文档翻译</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-02-19T09:00:36.000Z" itemprop="datePublished">
-          2016-02-19
-      </time>
-    
-    
-    | 
-    <a href='/tags/python/'>python</a>,
-    
-    <a href='/tags/翻译，原创/'>翻译，原创</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        最近做的几个项目都用到了Python+MongoDB，好像更新一版的Mongo刚刚发布。既然是使用python，肯定是绕不过Pymongo库了，先从官方文档看起。
-想练习英语的戳这里~http://api.mongodb.org/python/current/tutorial.html
-教程本教程旨在介绍使用MongoDB和PyMongo
-准备安装PyMongo模块，MongoDB数据库。恩，在python的shell里，下面这句话没报
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/02/19/PyMongo官方文档翻译/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/02/19/博客纪元，写在前面/">博客纪元，写在前面</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-02-19T08:51:02.000Z" itemprop="datePublished">
-          2016-02-19
-      </time>
-    
-    
-    | 
-    <a href='/tags/感悟/'>感悟</a>
-    
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        其实很早之前就希望能够开通一个个人博客，在这里分享所见、所学，将头脑里零碎的知识和感悟整理成系统的结构。
-最初，是打算用wp搭建博客，然后再买个阿里云的服务器和独立域名。wp的博客年前就已经搭好了，但是谁知买服务器的时候，提示说大四不能享受学生优惠~啊摔
-没办法，又折腾起github的个人页面来了，用的是hexo+github，折腾了一天，解决了各种奇葩的问题，终于能够勉强运行了。
-先简单的从之前wp的博客上搬几篇文章过来填白，话说如果
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/02/19/博客纪元，写在前面/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-4">
-                    <h3><a href="/2016/02/19/hello-world/">Hello World</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2016-02-19T06:24:13.982Z" itemprop="datePublished">
-          2016-02-19
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-8">
-                    <p>
-                      
-                        Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new p
-                      
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/2016/02/19/hello-world/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
         <nav class="pagination" role="pagination">
-          
-          
-        </nav>
+    
+    
+    <a class="pull-right" href="/2016/02/19/MHN开源蜜罐项目学习笔记（一）——基本架构/">
+        MHN开源蜜罐项目学习笔记（一）——基本架构 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo">
+<div class="ds-thread" data-thread-key="2016/02/20/HEXO+github搭建博客总结/" data-title="HEXO+github搭建博客总结" data-url="http://phantom0307.gitcafe.io/2016/02/20/HEXO+github搭建博客总结/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"phantom0301"};
+(function() {
+	var ds = document.createElement('script');
+	ds.type = 'text/javascript';ds.async = true;
+	ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	ds.charset = 'UTF-8';
+	(document.getElementsByTagName('head')[0] 
+	 || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+</script>
+
+
+</div>
     </div>
 </section>
-<section id="statement">
-    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
-        <div class="row">
-            <p>虽然还没想好写点什么，但是总觉得这里放句话比较和谐。</p>
-        </div>
-    </div>
-</section>
-<!-- ============================ END Content =========================== -->
+
 
       
 <!-- ============================ Footer =========================== -->

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phantom0307.gitcafe.io/"/>
-  <updated>2016-02-19T09:19:13.276Z</updated>
+  <updated>2016-02-20T08:23:05.048Z</updated>
   <id>http://phantom0307.gitcafe.io/</id>
   
   <author>
@@ -14,6 +14,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HEXO+github搭建博客总结</title>
+    <link href="http://phantom0307.gitcafe.io/2016/02/20/HEXO+github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/"/>
+    <id>http://phantom0307.gitcafe.io/2016/02/20/HEXO+github搭建博客总结/</id>
+    <published>2016-02-20T08:21:27.000Z</published>
+    <updated>2016-02-20T08:23:05.048Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h2&gt;&lt;p&gt;用hexo+github搭建个人博客，有许多坑值得去填，这里就把从各个博客学到的填坑方式在这里说一下。&lt;/p&gt;
+&lt;p&gt;另外，有许多资料都是针对hexo2.x版本的，我现在的版本是3.1.1。查找资料的时候一定要注意。这里只是列出问题查找的方向，根据这个方向更便于在网上找到解决的方法。&lt;/p&gt;
+&lt;h2 id=&quot;0x01-准备&quot;&gt;&lt;a href=&quot;#0x01-准备&quot; class=&quot;headerlink&quot; title=&quot;0x01 准备&quot;&gt;&lt;/a&gt;0x01 准备&lt;/h2&gt;&lt;p&gt;1.github账号：安装git，申请github账号，设置好ssh。再新建一个项目，然后在项目的setting中设置为个人页面。&lt;/p&gt;
+&lt;p&gt;2.安装node.js，使用npm命令安装hexo，后面还会大量的用到npm来安装。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install -g hexo
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;0x02-搭建基本框架&quot;&gt;&lt;a href=&quot;#0x02-搭建基本框架&quot; class=&quot;headerlink&quot; title=&quot;0x02 搭建基本框架&quot;&gt;&lt;/a&gt;0x02 搭建基本框架&lt;/h2&gt;&lt;p&gt;在本地电脑新建一个文件夹a，在a里使用git bash初始化一个hexo项目。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo init
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这时会生成许多文件夹，在输入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;安装一些必要包。&lt;/p&gt;
+&lt;p&gt;执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo generate
+hexo server -p 8080
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这时候应该可以在本地用&lt;a href=&quot;http://localhost:8080打开原始框架页面了&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:8080打开原始框架页面了&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;注意：&lt;/p&gt;
+&lt;p&gt;-p后面的端口要根据自己的情况来写，网上大多使用默认的4000，可是我的4000端口已经用了，这样就会导致网页打不开。&lt;/p&gt;
+&lt;p&gt;在本地打开成功后，就可以开始上传到github上了。&lt;/p&gt;
+&lt;p&gt;打开a里的_config.yml,推荐使用sublime，如果使用其他工具，请注意要保存时格式应为&lt;strong&gt;utf-8&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;找到deploy一栏，修改如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deploy:
+  type: git
+  repository: https://github.com/你的github名/你的github名.github.io.git
+  branch: master
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;注意，这里作为个人页面的github项目一定要和用户名相同。&lt;/p&gt;
+&lt;p&gt;然后在git bash中输入&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo deploy
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里注意有两种deploy的方式，&lt;a href=&quot;https://的方式会要求你输入github的账号密码；ssh的方式只要事先设置好密钥就不再需要多余的操作了。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://的方式会要求你输入github的账号密码；ssh的方式只要事先设置好密钥就不再需要多余的操作了。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这时，就可以用&lt;strong&gt;你的github名.github.io&lt;/strong&gt;来访问&lt;/p&gt;
+&lt;h2 id=&quot;0x03-打磨博客&quot;&gt;&lt;a href=&quot;#0x03-打磨博客&quot; class=&quot;headerlink&quot; title=&quot;0x03 打磨博客&quot;&gt;&lt;/a&gt;0x03 打磨博客&lt;/h2&gt;&lt;p&gt;1.发表博文&lt;br&gt;使用&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo new “文章名”
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;新建博文，这时会在a/source/_post下生成相应的.md文件，打开编辑。&lt;br&gt;在——下面就可以使用markdown语法写博文。&lt;/p&gt;
+&lt;p&gt;写好后，保存，执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo generate
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;就可以在a/public中相应的位置生成博文。&lt;/p&gt;
+&lt;p&gt;那么以后的程式化操作就是&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo new “  ” 写博文
+hexo clean 清除public
+hexo generate 编译
+hexo server -p 8080 本地测试
+hexo deploy 部署到远程服务器
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;2.装饰博客&lt;br&gt;基本框架布置好，装饰的事大家就各显神通了。&lt;/p&gt;
+&lt;p&gt;通常会在以下几个点进行修改&lt;/p&gt;
+&lt;p&gt;a/_config.yml&lt;/p&gt;
+&lt;p&gt;这里修改博客主页的名字，源信息，子页面url格式等&lt;/p&gt;
+&lt;p&gt;最重要的是主题的选用，插件的使用都在这里编辑完成。&lt;br&gt;如果你要使用rss、sitemap、更改deploy的对象就需要在这里修改&lt;/p&gt;
+&lt;p&gt;a/themes/&lt;br&gt;存放你找来的各种主题b、c、d……&lt;/p&gt;
+&lt;p&gt;a/themes/b/_config.yml&lt;br&gt;负责单个主题的框架修改，&lt;br&gt;包括网页的logo图片选择、框架中主菜单显示的文本及连接&lt;/p&gt;
+&lt;p&gt;a/public&lt;br&gt;静态生成的网页，也就是会上传到github上的文件。&lt;/p&gt;
+&lt;p&gt;网上有很多教程，而且如果前面都部署成功了，后面就可以自己慢慢geek了&lt;/p&gt;
+&lt;h2 id=&quot;0x04-其他的一些坑&quot;&gt;&lt;a href=&quot;#0x04-其他的一些坑&quot; class=&quot;headerlink&quot; title=&quot;0x04 其他的一些坑&quot;&gt;&lt;/a&gt;0x04 其他的一些坑&lt;/h2&gt;&lt;p&gt;github的博客可以被google站长收录，但是baidu被禁止爬去github，所以，如果想让baidu也能搜得到你，就部署在gitcafe上。&lt;/p&gt;
+&lt;p&gt;如果hexo generate报错，多半是两个地方的_config.yml更改的有问题，所以一是要备份yml文件或者从git上拉取之前部署成功的文件，二是要边改边generate在本地查看，一点点琢磨不同位置的属性。&lt;/p&gt;
+&lt;p&gt;a/_config.yml中的url设置如果没有购买域名的话，看似没有作用，但会影响生成的sitemap中的路径，所以在多个平台（github、gitcafe）部署的时候，不仅要修改deploy，还要根据需要修改url。&lt;/p&gt;
+&lt;p&gt;否则，即便sitemap能被百度站长工具访问到，也会提示说 &lt;strong&gt;主域验证错误&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;因为是事后总结，暂时想到的就这么多，其他还有什么安装过程中的问题可以直接博客留言，&lt;strong&gt;见即回 &lt;/strong&gt;  ：）&lt;/p&gt;
+&lt;p&gt;原创文章，转载请注明： 转载自零の杂货铺&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h2&gt;&lt;p&gt;用hexo+github搭建个人博客，有许多坑值得去填，这里就把从各个博客学到的填坑方式在这里说一下
+    
+    </summary>
+    
+    
+      <category term="HEXO" scheme="http://phantom0307.gitcafe.io/tags/HEXO/"/>
+    
+      <category term="个人博客" scheme="http://phantom0307.gitcafe.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>MHN开源蜜罐项目学习笔记（一）——基本架构</title>

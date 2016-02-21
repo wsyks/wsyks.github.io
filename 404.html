@@ -1,12 +1,46 @@
----
-layout: default
----
-<html>
-    <head>
-         <meta charset="UTF-8" />
-         <title>404</title>                                                                                                                                        
-    </head>
-    <body>
-         <script type="text/javascript" src="http://www.qq.com/404/search_children.js" charset="utf-8"></script>
-    </body>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Page couldn't be found.</title>
+		<link rel="stylesheet" media="screen" href="style1.css">
+		
+		<script language="JavaScript">
+			function dosearch() {
+			var sf=document.searchform;
+			var submitto = sf.sengine.value + escape(sf.searchterms.value);
+			window.location.href = submitto;
+			return false;
+			}
+		</script>
+	</head>
+	<body>
+		
+		<div class="header">
+			<img src="/images/Logo_sample.png" />
+		</div>
+		
+		<p class="error">404</p>
+		
+		<div class="content">
+			<h2>page coulnd't be found</h2>
+			
+			<p class="text">
+				Oooooops… it looks like the page you were looking for does not exist anymore or is temporarily unavailable. 
+			
+				<form name="searchform" onSubmit="return dosearch();">
+					<input type="hidden" name="sengine" value="http://www.baidu.com/s?wd=" />
+					<input type="text" name="searchterms" class="inputform">
+					<input type="submit" name="SearchSubmit" value="Search" class="button"> 
+				</form>
+				<!-- Change www.yoursite.com to your website domain -->
+			</p>
+				
+			<p class="links">
+				<a id="button" href="http://www.cssmoban.com/">&larr; Back</a> <a href="./">Homepage</a> <a href="./archives/">Archives</a> <a href="./about">About Me</a> 
+				<!--These are links. You can change it to a page you want to by replacing the '#' with your url.-->
+			</p>
+		</div>
+		
+	</body>
 </html>

@@ -4,9 +4,9 @@
   <subtitle>Free and Share</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://phantom0301.github.io/"/>
+  <link href="http://phantom0301.gitcafe.io/"/>
   <updated>2016-02-21T04:45:32.306Z</updated>
-  <id>http://phantom0301.github.io/</id>
+  <id>http://phantom0301.gitcafe.io/</id>
   
   <author>
     <name>Phantom</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>HEXO+github搭建博客总结</title>
-    <link href="http://phantom0301.github.io/2016/02/20/HEXO+github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/"/>
-    <id>http://phantom0301.github.io/2016/02/20/HEXO+github搭建博客总结/</id>
+    <link href="http://phantom0301.gitcafe.io/2016/02/20/HEXO+github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/"/>
+    <id>http://phantom0301.gitcafe.io/2016/02/20/HEXO+github搭建博客总结/</id>
     <published>2016-02-20T08:21:27.000Z</published>
     <updated>2016-02-21T04:45:32.306Z</updated>
     
@@ -85,21 +85,21 @@ hexo deploy 部署到远程服务器
     
     </summary>
     
-      <category term="HEXO" scheme="http://phantom0301.github.io/categories/HEXO/"/>
+      <category term="HEXO" scheme="http://phantom0301.gitcafe.io/categories/HEXO/"/>
     
     
-      <category term="HEXO" scheme="http://phantom0301.github.io/tags/HEXO/"/>
+      <category term="HEXO" scheme="http://phantom0301.gitcafe.io/tags/HEXO/"/>
     
-      <category term="个人博客" scheme="http://phantom0301.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+      <category term="个人博客" scheme="http://phantom0301.gitcafe.io/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
   <entry>
     <title>MHN开源蜜罐项目学习笔记（一）——基本架构</title>
-    <link href="http://phantom0301.github.io/2016/02/19/MHN%E5%BC%80%E6%BA%90%E8%9C%9C%E7%BD%90%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84/"/>
-    <id>http://phantom0301.github.io/2016/02/19/MHN开源蜜罐项目学习笔记（一）——基本架构/</id>
+    <link href="http://phantom0301.gitcafe.io/2016/02/19/MHN%E5%BC%80%E6%BA%90%E8%9C%9C%E7%BD%90%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84/"/>
+    <id>http://phantom0301.gitcafe.io/2016/02/19/MHN开源蜜罐项目学习笔记（一）——基本架构/</id>
     <published>2016-02-19T09:13:55.000Z</published>
-    <updated>2016-02-21T04:45:46.595Z</updated>
+    <updated>2016-02-21T07:28:42.493Z</updated>
     
     <content type="html">&lt;h2 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00  前言&quot;&gt;&lt;/a&gt;0x00  前言&lt;/h2&gt;&lt;p&gt;MHN是一个开源的蜜网部署项目，通过简单的脚本编译，可以快速部署蜜网服务器以及蜜罐节点，想玩的，详细的部署过程参考这篇文章&lt;br&gt;&lt;a href=&quot;http://drops.wooyun.org/papers/5968&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://drops.wooyun.org/papers/5968&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;怎么安装上面说的很详细，但是网上对这个开源项目架构介绍的比较少，因为毕业论文打算写这方面，所以我在这里写写我的收获。&lt;/p&gt;
@@ -120,11 +120,11 @@ publish (3): client id, channelname, payload
 subscribe (4): client id, channelname
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;认证过程：&lt;br&gt;服务器为每一个连接生成一个标志&lt;br&gt;客户端发送id和标志+key组成的sha1&lt;br&gt;服务器检查id和sha1&lt;br&gt;服务器检查数据类型，是要发布还是要订阅&lt;/p&gt;
 &lt;h2 id=&quot;0x03-使用&quot;&gt;&lt;a href=&quot;#0x03-使用&quot; class=&quot;headerlink&quot; title=&quot;0x03 使用&quot;&gt;&lt;/a&gt;0x03 使用&lt;/h2&gt;&lt;p&gt;下载完成，运行setup.py build+setup.py install后的hpfeeds有如下文件：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://192.168.21.44/phantom/wp-content/uploads/2016/01/B31FCD2B6E14487BA0E14BBE77821FEC.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xr3oj.com1.z0.glb.clouddn.com/B31FCD2B6E14487BA0E14BBE77821FEC.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;第一个文件夹里面是支持的应用，git上的没有蜜网项目上的多&lt;/p&gt;
 &lt;p&gt;第二个是中间服务器，在这里就称作服务器&lt;/p&gt;
 &lt;p&gt;第四个是客户端&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://192.168.21.44/phantom/wp-content/uploads/2016/01/B31FCD2B6E14487BA0E14BBE77821FEC-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xr3oj.com1.z0.glb.clouddn.com/B31FCD2B6E14487BA0E14BBE77821FEC-1.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;p&gt;使用broker时，先要安装mongoDB和pymongo以及gevent库，且需要SSH的模块，暂时只在LINUX下运行成功&lt;br&gt;运行broker前，运行add_user.py在数据库中增加验证用户信息，设置key和id&lt;br&gt;服务器host和port可以在config中设置&lt;br&gt;其他设置在README中都有详细说明&lt;br&gt;客户端运行较简单，按照说明文件设置参数即可&lt;/p&gt;
 &lt;p&gt;原创文章，转载请注明： 转载自零の杂货铺&lt;/p&gt;
 </content>
@@ -135,19 +135,19 @@ subscribe (4): client id, channelname
     
     </summary>
     
-      <category term="蜜罐" scheme="http://phantom0301.github.io/categories/%E8%9C%9C%E7%BD%90/"/>
+      <category term="蜜罐" scheme="http://phantom0301.gitcafe.io/categories/%E8%9C%9C%E7%BD%90/"/>
     
     
-      <category term="MHN" scheme="http://phantom0301.github.io/tags/MHN/"/>
+      <category term="MHN" scheme="http://phantom0301.gitcafe.io/tags/MHN/"/>
     
-      <category term="蜜罐" scheme="http://phantom0301.github.io/tags/%E8%9C%9C%E7%BD%90/"/>
+      <category term="蜜罐" scheme="http://phantom0301.gitcafe.io/tags/%E8%9C%9C%E7%BD%90/"/>
     
   </entry>
   
   <entry>
     <title>PyMongo官方文档翻译</title>
-    <link href="http://phantom0301.github.io/2016/02/19/PyMongo%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91/"/>
-    <id>http://phantom0301.github.io/2016/02/19/PyMongo官方文档翻译/</id>
+    <link href="http://phantom0301.gitcafe.io/2016/02/19/PyMongo%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91/"/>
+    <id>http://phantom0301.gitcafe.io/2016/02/19/PyMongo官方文档翻译/</id>
     <published>2016-02-19T09:00:36.000Z</published>
     <updated>2016-02-21T04:45:56.579Z</updated>
     
@@ -280,19 +280,19 @@ document = client.db.collection.find_one({&amp;apos;_id&amp;apos;: ObjectId(post
     
     </summary>
     
-      <category term="python" scheme="http://phantom0301.github.io/categories/python/"/>
+      <category term="python" scheme="http://phantom0301.gitcafe.io/categories/python/"/>
     
     
-      <category term="pymongo" scheme="http://phantom0301.github.io/tags/pymongo/"/>
+      <category term="pymongo" scheme="http://phantom0301.gitcafe.io/tags/pymongo/"/>
     
-      <category term="python" scheme="http://phantom0301.github.io/tags/python/"/>
+      <category term="python" scheme="http://phantom0301.gitcafe.io/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>博客纪元，写在前面</title>
-    <link href="http://phantom0301.github.io/2016/02/19/%E5%8D%9A%E5%AE%A2%E7%BA%AA%E5%85%83%EF%BC%8C%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/"/>
-    <id>http://phantom0301.github.io/2016/02/19/博客纪元，写在前面/</id>
+    <link href="http://phantom0301.gitcafe.io/2016/02/19/%E5%8D%9A%E5%AE%A2%E7%BA%AA%E5%85%83%EF%BC%8C%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/"/>
+    <id>http://phantom0301.gitcafe.io/2016/02/19/博客纪元，写在前面/</id>
     <published>2016-02-19T08:51:02.000Z</published>
     <updated>2016-02-21T04:46:10.754Z</updated>
     
@@ -309,10 +309,10 @@ document = client.db.collection.find_one({&amp;apos;_id&amp;apos;: ObjectId(post
     
     </summary>
     
-      <category term="感悟" scheme="http://phantom0301.github.io/categories/%E6%84%9F%E6%82%9F/"/>
+      <category term="感悟" scheme="http://phantom0301.gitcafe.io/categories/%E6%84%9F%E6%82%9F/"/>
     
     
-      <category term="感悟" scheme="http://phantom0301.github.io/tags/%E6%84%9F%E6%82%9F/"/>
+      <category term="感悟" scheme="http://phantom0301.gitcafe.io/tags/%E6%84%9F%E6%82%9F/"/>
     
   </entry>
   

@@ -285,10 +285,10 @@ input#delivery {
 .headerfade,
 .videofade {
 	width: 100%;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	-khtml-opacity: 0;
-	-moz-opacity: 0;
-	opacity: 0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+	-khtml-opacity: .8;
+	-moz-opacity: .8;
+	opacity: .8;
 	height: 100%;
 	top: 0;
 	position: absolute;

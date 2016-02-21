@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://phantom0301.gitcafe.io/"/>
-  <updated>2016-02-20T08:23:05.048Z</updated>
+  <updated>2016-02-21T04:45:32.306Z</updated>
   <id>http://phantom0301.gitcafe.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://phantom0301.gitcafe.io/2016/02/20/HEXO+github%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%80%BB%E7%BB%93/"/>
     <id>http://phantom0301.gitcafe.io/2016/02/20/HEXO+github搭建博客总结/</id>
     <published>2016-02-20T08:21:27.000Z</published>
-    <updated>2016-02-20T08:23:05.048Z</updated>
+    <updated>2016-02-21T04:45:32.306Z</updated>
     
     <content type="html">&lt;h2 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h2&gt;&lt;p&gt;用hexo+github搭建个人博客，有许多坑值得去填，这里就把从各个博客学到的填坑方式在这里说一下。&lt;/p&gt;
 &lt;p&gt;另外，有许多资料都是针对hexo2.x版本的，我现在的版本是3.1.1。查找资料的时候一定要注意。这里只是列出问题查找的方向，根据这个方向更便于在网上找到解决的方法。&lt;/p&gt;
@@ -85,6 +85,8 @@ hexo deploy 部署到远程服务器
     
     </summary>
     
+      <category term="HEXO" scheme="http://phantom0301.gitcafe.io/categories/HEXO/"/>
+    
     
       <category term="HEXO" scheme="http://phantom0301.gitcafe.io/tags/HEXO/"/>
     
@@ -97,7 +99,7 @@ hexo deploy 部署到远程服务器
     <link href="http://phantom0301.gitcafe.io/2016/02/19/MHN%E5%BC%80%E6%BA%90%E8%9C%9C%E7%BD%90%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84/"/>
     <id>http://phantom0301.gitcafe.io/2016/02/19/MHN开源蜜罐项目学习笔记（一）——基本架构/</id>
     <published>2016-02-19T09:13:55.000Z</published>
-    <updated>2016-02-19T09:19:13.276Z</updated>
+    <updated>2016-02-21T04:45:46.595Z</updated>
     
     <content type="html">&lt;h2 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00  前言&quot;&gt;&lt;/a&gt;0x00  前言&lt;/h2&gt;&lt;p&gt;MHN是一个开源的蜜网部署项目，通过简单的脚本编译，可以快速部署蜜网服务器以及蜜罐节点，想玩的，详细的部署过程参考这篇文章&lt;br&gt;&lt;a href=&quot;http://drops.wooyun.org/papers/5968&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://drops.wooyun.org/papers/5968&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;怎么安装上面说的很详细，但是网上对这个开源项目架构介绍的比较少，因为毕业论文打算写这方面，所以我在这里写写我的收获。&lt;/p&gt;
@@ -133,8 +135,12 @@ subscribe (4): client id, channelname
     
     </summary>
     
+      <category term="蜜罐" scheme="http://phantom0301.gitcafe.io/categories/%E8%9C%9C%E7%BD%90/"/>
     
-      <category term="安全，蜜罐，原创" scheme="http://phantom0301.gitcafe.io/tags/%E5%AE%89%E5%85%A8%EF%BC%8C%E8%9C%9C%E7%BD%90%EF%BC%8C%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="MHN" scheme="http://phantom0301.gitcafe.io/tags/MHN/"/>
+    
+      <category term="蜜罐" scheme="http://phantom0301.gitcafe.io/tags/%E8%9C%9C%E7%BD%90/"/>
     
   </entry>
   
@@ -143,7 +149,7 @@ subscribe (4): client id, channelname
     <link href="http://phantom0301.gitcafe.io/2016/02/19/PyMongo%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3%E7%BF%BB%E8%AF%91/"/>
     <id>http://phantom0301.gitcafe.io/2016/02/19/PyMongo官方文档翻译/</id>
     <published>2016-02-19T09:00:36.000Z</published>
-    <updated>2016-02-19T09:20:31.629Z</updated>
+    <updated>2016-02-21T04:45:56.579Z</updated>
     
     <content type="html">&lt;p&gt;最近做的几个项目都用到了Python+MongoDB，好像更新一版的Mongo刚刚发布。既然是使用python，肯定是绕不过Pymongo库了，先从官方文档看起。&lt;/p&gt;
 &lt;p&gt;想练习英语的戳这里~&lt;a href=&quot;http://api.mongodb.org/python/current/tutorial.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://api.mongodb.org/python/current/tutorial.html&lt;/a&gt;&lt;/p&gt;
@@ -274,10 +280,12 @@ document = client.db.collection.find_one({&amp;apos;_id&amp;apos;: ObjectId(post
     
     </summary>
     
+      <category term="python" scheme="http://phantom0301.gitcafe.io/categories/python/"/>
+    
+    
+      <category term="pymongo" scheme="http://phantom0301.gitcafe.io/tags/pymongo/"/>
     
       <category term="python" scheme="http://phantom0301.gitcafe.io/tags/python/"/>
-    
-      <category term="翻译，原创" scheme="http://phantom0301.gitcafe.io/tags/%E7%BF%BB%E8%AF%91%EF%BC%8C%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
@@ -286,7 +294,7 @@ document = client.db.collection.find_one({&amp;apos;_id&amp;apos;: ObjectId(post
     <link href="http://phantom0301.gitcafe.io/2016/02/19/%E5%8D%9A%E5%AE%A2%E7%BA%AA%E5%85%83%EF%BC%8C%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/"/>
     <id>http://phantom0301.gitcafe.io/2016/02/19/博客纪元，写在前面/</id>
     <published>2016-02-19T08:51:02.000Z</published>
-    <updated>2016-02-19T08:59:44.453Z</updated>
+    <updated>2016-02-21T04:46:10.754Z</updated>
     
     <content type="html">&lt;p&gt;其实很早之前就希望能够开通一个个人博客，在这里分享所见、所学，将头脑里零碎的知识和感悟整理成系统的结构。&lt;/p&gt;
 &lt;p&gt;最初，是打算用wp搭建博客，然后再买个阿里云的服务器和独立域名。wp的博客年前就已经搭好了，但是谁知买服务器的时候，提示说大四不能享受学生优惠~啊摔&lt;/p&gt;
@@ -301,35 +309,10 @@ document = client.db.collection.find_one({&amp;apos;_id&amp;apos;: ObjectId(post
     
     </summary>
     
+      <category term="感悟" scheme="http://phantom0301.gitcafe.io/categories/%E6%84%9F%E6%82%9F/"/>
+    
     
       <category term="感悟" scheme="http://phantom0301.gitcafe.io/tags/%E6%84%9F%E6%82%9F/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://phantom0301.gitcafe.io/2016/02/19/hello-world/"/>
-    <id>http://phantom0301.gitcafe.io/2016/02/19/hello-world/</id>
-    <published>2016-02-19T06:24:13.982Z</published>
-    <updated>2016-02-19T06:24:13.982Z</updated>
-    
-    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;http://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;More info: &lt;a href=&quot;http://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;http://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;http://hexo.io
-    
-    </summary>
-    
     
   </entry>
   

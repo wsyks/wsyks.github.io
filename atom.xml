@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-03-02T02:33:07.368Z</updated>
+  <updated>2016-03-30T14:10:32.660Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -16,18 +16,66 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://wsyks.github.io/2016/03/02/11/"/>
-    <id>http://wsyks.github.io/2016/03/02/11/</id>
-    <published>2016-03-02T02:33:07.368Z</published>
-    <updated>2016-03-02T02:33:07.368Z</updated>
+    <title>hexo博客搭建</title>
+    <link href="http://wsyks.github.io/2016/03/30/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <id>http://wsyks.github.io/2016/03/30/hexo博客搭建/</id>
+    <published>2016-03-30T14:08:38.000Z</published>
+    <updated>2016-03-30T14:10:32.660Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;h1 id=&quot;0X00-Hexo简介&quot;&gt;&lt;a href=&quot;#0X00-Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 Hexo简介&quot;&gt;&lt;/a&gt;0X00 Hexo简介&lt;/h1&gt;&lt;p&gt;hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。。&lt;/p&gt;
+&lt;h1 id=&quot;0X01-部署过程&quot;&gt;&lt;a href=&quot;#0X01-部署过程&quot; class=&quot;headerlink&quot; title=&quot;0X01 部署过程&quot;&gt;&lt;/a&gt;0X01 部署过程&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;Git安装和Github设置&lt;/li&gt;
+&lt;li&gt;Node.js安装&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Hexo安装与设置&lt;br&gt;Node, npm和Git都安装成功, 开始安装hexo&lt;/p&gt;
+&lt;p&gt;安装命令：&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;npm install hexo -g  #-g表示全局安装, npm默认为当前项目安装
+hexo init            #执行init命令初始化hexo到你指定的目录
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  再执行以下命令：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo generate       #自动根据当前目录下文件,生成静态网页
+hexo server         #运行本地服务
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;浏览器输入&lt;a href=&quot;http://localhost:4000就可以看到效果。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000就可以看到效果。&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;打开_config.yml,找到deploy一栏，修改如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;deploy:
+  type: git
+  repository: https://github.com/你的github名/你的github名.github.io.git
+  branch: master
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;再执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo deploy  #部署到远程
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后就可以使用Github用户名.github.io进行访问&lt;/p&gt;
+&lt;h1 id=&quot;0X02-添加博文&quot;&gt;&lt;a href=&quot;#0X02-添加博文&quot; class=&quot;headerlink&quot; title=&quot;0X02 添加博文&quot;&gt;&lt;/a&gt;0X02 添加博文&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;hexo new &amp;quot;postName&amp;quot;  #新建博文,其中postName是博文题目
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;【注】文件自动生成格式:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;title: &amp;quot;first&amp;quot;  #博文题目
+date: 2016-3-30 21:25:38  #生成时间
+tags: Paper     #标签, 多个标签使用格式[Paper1, Paper2,Paper3,...]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加“&lt;code&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt;”，此处及以上的内容会在首页显示。“&lt;code&gt;&amp;lt;!--more--&amp;gt;&lt;/code&gt;” 以下是在首页隐藏的部分。&lt;/p&gt;
+&lt;p&gt;写好文章后，执行：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;hexo g       #hexo generate简写
+hexo s       #hexo server简写
+hexo deploy  #部署到远程
+&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;0X03-主题更改&quot;&gt;&lt;a href=&quot;#0X03-主题更改&quot; class=&quot;headerlink&quot; title=&quot;0X03 主题更改&quot;&gt;&lt;/a&gt;0X03 主题更改&lt;/h1&gt;&lt;p&gt;Hexo提供了官网的主题, 初始化hexo时也会自动生成一个主题, Hexo还支持个性定制主题, 可以根据自己的喜好对&lt;a href=&quot;https://github.com/hexojs/hexo/wiki/Themes&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;主题&lt;/a&gt;进行修改, &lt;/p&gt;
+&lt;p&gt;我这里采用的yilia这个主题，如果你想使用这个主题，直接clone&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
+
+并修改hexo根目录下的 _config.yml ： theme: yilia
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里要说的，笔者在该头像时入坑了一下，在主题根目录下的_config.yml 文件中&lt;br&gt;    其中 avatar: 可以选择头像路径。&lt;/p&gt;
+&lt;p&gt;这里笔者一开始选择本地的图片，发现首页头像可以设置成功，但是点击到具体文章里头像便没了，后来发现是头像路径的问题，故后来直接使用网络图片，采用网络路径，以免每次文章中都要设置头像。&lt;/p&gt;
+&lt;p&gt;大家想要在文章里使用图片时，也可以使用七牛，将图片上传到他的云服务器，这样它会给你产生一个url链接，比较方便&lt;/p&gt;
+&lt;p&gt;酱，先写到这里。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
+      &lt;h1 id=&quot;0X00-Hexo简介&quot;&gt;&lt;a href=&quot;#0X00-Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 Hexo简介&quot;&gt;&lt;/a&gt;0X00 Hexo简介&lt;/h1&gt;&lt;p&gt;hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网
+    
     </summary>
     
+    
+      <category term="hexo" scheme="http://wsyks.github.io/tags/hexo/"/>
+    
+      <category term="博客" scheme="http://wsyks.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>我是_一棵树_</title>
-  <subtitle>Free and Share</subtitle>
+  <subtitle>记录，分享，回忆</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
@@ -9,7 +9,7 @@
   <id>http://wsyks.github.io/</id>
   
   <author>
-    <name>wsyks</name>
+    <name>我是_一棵树_</name>
     
   </author>
   

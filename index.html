@@ -238,39 +238,7 @@
 </ol>
 <pre><code>npm install hexo -g  #-g表示全局安装, npm默认为当前项目安装
 hexo init            #执行init命令初始化hexo到你指定的目录
-</code></pre><p>  再执行以下命令：</p>
-<pre><code>hexo generate       #自动根据当前目录下文件,生成静态网页
-hexo server         #运行本地服务
-</code></pre><p>浏览器输入<a href="http://localhost:4000就可以看到效果。" target="_blank" rel="external">http://localhost:4000就可以看到效果。</a></p>
-<hr>
-<p>打开_config.yml,找到deploy一栏，修改如下：</p>
-<pre><code>deploy:
-  type: git
-  repository: https://github.com/你的github名/你的github名.github.io.git
-  branch: master
-</code></pre><p>再执行：</p>
-<pre><code>hexo deploy  #部署到远程
-</code></pre><p>然后就可以使用Github用户名.github.io进行访问</p>
-<h1 id="0X02-添加博文"><a href="#0X02-添加博文" class="headerlink" title="0X02 添加博文"></a>0X02 添加博文</h1><pre><code>hexo new &quot;postName&quot;  #新建博文,其中postName是博文题目
-</code></pre><p>【注】文件自动生成格式:</p>
-<pre><code>title: &quot;first&quot;  #博文题目
-date: 2016-3-30 21:25:38  #生成时间
-tags: Paper     #标签, 多个标签使用格式[Paper1, Paper2,Paper3,...]
-</code></pre><p>如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加“<code>&lt;!--more--&gt;</code>”，此处及以上的内容会在首页显示。“<code>&lt;!--more--&gt;</code>” 以下是在首页隐藏的部分。</p>
-<p>写好文章后，执行：</p>
-<pre><code>hexo g       #hexo generate简写
-hexo s       #hexo server简写
-hexo deploy  #部署到远程
-</code></pre><h1 id="0X03-主题更改"><a href="#0X03-主题更改" class="headerlink" title="0X03 主题更改"></a>0X03 主题更改</h1><p>Hexo提供了官网的主题, 初始化hexo时也会自动生成一个主题, Hexo还支持个性定制主题, 可以根据自己的喜好对<a href="https://github.com/hexojs/hexo/wiki/Themes" target="_blank" rel="external">主题</a>进行修改, </p>
-<p>我这里采用的yilia这个主题，如果你想使用这个主题，直接clone</p>
-<pre><code>$ git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia
-
-并修改hexo根目录下的 _config.yml ： theme: yilia
-</code></pre><p>这里要说的，笔者在该头像时入坑了一下，在主题根目录下的_config.yml 文件中<br>    其中 avatar: 可以选择头像路径。</p>
-<p>这里笔者一开始选择本地的图片，发现首页头像可以设置成功，但是点击到具体文章里头像便没了，后来发现是头像路径的问题，故后来直接使用网络图片，采用网络路径，以免每次文章中都要设置头像。</p>
-<p>大家想要在文章里使用图片时，也可以使用七牛，将图片上传到他的云服务器，这样它会给你产生一个url链接，比较方便</p>
-<p>酱，先写到这里。</p>
-
+</code></pre>
       
     </div>
     
@@ -283,6 +251,10 @@ hexo deploy  #部署到远程
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/03/30/hexo博客搭建/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -332,10 +304,6 @@ hexo deploy  #部署到远程
 <pre><code>index.html//登录页面
 login_auth.php//验证页面
 index.php//登录成功页面
-</code></pre><h3 id="2、数据库结构："><a href="#2、数据库结构：" class="headerlink" title="2、数据库结构："></a>2、数据库结构：</h3><pre><code>user:数据库
-  =》username表
-    =&gt;username 字段名
-    =&gt;password 字段名
 </code></pre>
       
     </div>

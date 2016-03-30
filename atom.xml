@@ -36,7 +36,7 @@
     <link href="http://wsyks.github.io/2016/03/01/PHP%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%EF%BC%88%E7%AC%AC%E4%B8%80%E7%BA%A7%EF%BC%89/"/>
     <id>http://wsyks.github.io/2016/03/01/PHP学习——登录验证（第一级）/</id>
     <published>2016-03-01T13:39:31.000Z</published>
-    <updated>2016-03-01T14:03:30.493Z</updated>
+    <updated>2016-03-30T11:38:17.525Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。&lt;/p&gt;
 &lt;h1 id=&quot;0X01-代码结构&quot;&gt;&lt;a href=&quot;#0X01-代码结构&quot; class=&quot;headerlink&quot; title=&quot;0X01 代码结构&quot;&gt;&lt;/a&gt;0X01 代码结构&lt;/h1&gt;&lt;p&gt;话不多说，上代码先~~~&lt;/p&gt;

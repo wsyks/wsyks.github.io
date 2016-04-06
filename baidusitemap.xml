@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://wsyks.github.io/2016/03/30/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</loc>
-    <lastmod>2016-03-30T14:17:00.234Z</lastmod>
+    <lastmod>2016-04-06T14:37:28.055Z</lastmod>
     <data>
         <display>
         <title>hexo博客搭建</title>
@@ -14,6 +14,25 @@
         <tag>hexo</tag>
          
         <tag>博客</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://wsyks.github.io/2016/04/06/php-mongodb%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/</loc>
+    <lastmod>2016-04-06T14:35:57.349Z</lastmod>
+    <data>
+        <display>
+        <title>php mongodb扩展安装</title>
+        <pubTime>2016-04-06T14:03:35.000Z</pubTime>
+        
+        <tag>mongodb</tag>
+         
+        <tag>php</tag>
          
          
            

@@ -30,7 +30,7 @@ Hexo安装与设置Node, npm和Git都安装成功, 开始安装hexo
 
 npm install hexo -g  #-g表示全局安装, npm默认为当前项目安装
 hexo ini">
-<meta property="og:updated_time" content="2016-03-30T14:17:00.234Z">
+<meta property="og:updated_time" content="2016-04-06T14:37:28.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo博客搭建">
 <meta name="twitter:description" content="0X00 Hexo简介hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。。
@@ -142,7 +142,7 @@ hexo ini">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/php/" style="font-size: 10px;">php</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a>
+						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a>
 					</div>
 				</section>
 				
@@ -294,7 +294,8 @@ hexo server         #运行本地服务
 <pre><code>title: &quot;first&quot;  #博文题目
 date: 2016-3-30 21:25:38  #生成时间
 tags: Paper     #标签, 多个标签使用格式[Paper1, Paper2,Paper3,...]
-</code></pre><p>如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加“<code>&lt;!--more--&gt;</code>”，此处及以上的内容会在首页显示。“<code>&lt;!--more--&gt;</code>” 以下是在首页隐藏的部分。</p>
+</code></pre><p>【注】这里title，date，tags冒号后一定要有一个空格，才能写具体的内容，否则会报错。</p>
+<p>如果不想博文在首页全部显示, 并能出现阅读全文按钮效果, 需要在你想在首页显示的部分下添加“<code>&lt;!--more--&gt;</code>”，此处及以上的内容会在首页显示。“<code>&lt;!--more--&gt;</code>” 以下是在首页隐藏的部分。</p>
 <p>写好文章后，执行：</p>
 <pre><code>hexo g       #hexo generate简写
 hexo s       #hexo server简写
@@ -316,6 +317,15 @@ hexo deploy  #部署到远程
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/04/06/php-mongodb扩展安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          php mongodb扩展安装
+        
+      </div>
+    </a>
   
   
     <a href="/2016/03/01/PHP学习——登录验证（第一级）/" id="article-nav-older" class="article-nav-link-wrap">

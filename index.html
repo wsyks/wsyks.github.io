@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 10px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a>
+						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a>
 					</div>
 				</section>
 				
@@ -201,6 +201,68 @@
 </nav>
 
       <div class="body-wrap">
+  
+    <article id="post-php-mongodb操作笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/06/php-mongodb操作笔记/" class="article-date">
+  	<time datetime="2016-04-06T14:43:41.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/04/06/php-mongodb操作笔记/">php mongodb操作笔记</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p> 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。</p>
+<hr>
+<h1 id="0X01-操作语法"><a href="#0X01-操作语法" class="headerlink" title="0X01 操作语法"></a>0X01 操作语法</h1><h2 id="一、连接"><a href="#一、连接" class="headerlink" title="一、连接"></a>一、连接</h2><h3 id="1、基础连接"><a href="#1、基础连接" class="headerlink" title="1、基础连接"></a>1、基础连接</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> MongoClient(); <span class="comment">#默认本地的连接</span></span><br><span class="line"><span class="variable">$db</span> = <span class="variable">$conn</span>-&gt;db;           <span class="comment">#选择名为db的数据库</span></span><br><span class="line"><span class="variable">$db</span>=<span class="variable">$conn</span>-&gt;selectDB(<span class="string">"mydb"</span>);                  <span class="comment">#第二种写法</span></span><br><span class="line"><span class="variable">$collection</span> = <span class="variable">$db</span>-&gt;collection <span class="comment">#选择一个数据库表（集合）</span></span><br><span class="line"><span class="variable">$collection</span>=<span class="variable">$db</span>-&gt;selectCollection(<span class="string">'column'</span>);  <span class="comment">#第二种写法</span></span><br><span class="line"><span class="variable">$collection</span>=<span class="variable">$conn</span>-&gt;mydb-&gt;column;              <span class="comment">#更简洁的写法</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/06/php-mongodb操作笔记/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
   
     <article id="post-php-mongodb扩展安装" class="article article-type-post" itemscope itemprop="blogPost">
   

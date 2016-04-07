@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>php mongodb操作笔记 | 我是_一棵树_</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。
+
+0X01 操作语法一、连接1、基础连接123456$conn = new MongoClient(); #默认本地的连接$db = $conn-&amp;gt;db;           #选择名为db的数据库$db=$conn-&amp;gt;selectDB(&quot;mydb&quot;);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php mongodb操作笔记">
+<meta property="og:url" content="http://wsyks.github.io/2016/04/06/php-mongodb操作笔记/index.html">
+<meta property="og:site_name" content="我是_一棵树_">
+<meta property="og:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。
+
+0X01 操作语法一、连接1、基础连接123456$conn = new MongoClient(); #默认本地的连接$db = $conn-&amp;gt;db;           #选择名为db的数据库$db=$conn-&amp;gt;selectDB(&quot;mydb&quot;);">
+<meta property="og:updated_time" content="2016-04-07T13:10:23.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="php mongodb操作笔记">
+<meta name="twitter:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。
+
+0X01 操作语法一、连接1、基础连接123456$conn = new MongoClient(); #默认本地的连接$db = $conn-&amp;gt;db;           #选择名为db的数据库$db=$conn-&amp;gt;selectDB(&quot;mydb&quot;);">
+  
+    <link rel="alternative" href="/atom.xml" title="我是_一棵树_" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xsgg1.com1.z0.glb.clouddn.com/1.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">我是_一棵树_</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">记录，分享，回忆</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/2949528583" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://phantom0301.coding.io/">零の杂货铺</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blackwolf.coding.io/">blackwolf</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ohroot.com/">半饱和</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sccsec.com/">胖胖的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jinglingshu.org/">精灵鼠</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wps2015.jinglingshu.org/">wps2015</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.pang0lin.com/">穿山甲</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.ourren.com/">ourren</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">我是_一棵树_</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xsgg1.com1.z0.glb.clouddn.com/1.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">我是_一棵树_</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">记录，分享，回忆</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/2949528583" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-php-mongodb操作笔记" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/04/06/php-mongodb操作笔记/" class="article-date">
+  	<time datetime="2016-04-06T14:43:41.000Z" itemprop="datePublished">2016-04-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      php mongodb操作笔记
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p> 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。</p>
+<hr>
+<h1 id="0X01-操作语法"><a href="#0X01-操作语法" class="headerlink" title="0X01 操作语法"></a>0X01 操作语法</h1><h2 id="一、连接"><a href="#一、连接" class="headerlink" title="一、连接"></a>一、连接</h2><h3 id="1、基础连接"><a href="#1、基础连接" class="headerlink" title="1、基础连接"></a>1、基础连接</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> MongoClient(); <span class="comment">#默认本地的连接</span></span><br><span class="line"><span class="variable">$db</span> = <span class="variable">$conn</span>-&gt;db;           <span class="comment">#选择名为db的数据库</span></span><br><span class="line"><span class="variable">$db</span>=<span class="variable">$conn</span>-&gt;selectDB(<span class="string">"mydb"</span>);                  <span class="comment">#第二种写法</span></span><br><span class="line"><span class="variable">$collection</span> = <span class="variable">$db</span>-&gt;collection <span class="comment">#选择一个数据库表（集合）</span></span><br><span class="line"><span class="variable">$collection</span>=<span class="variable">$db</span>-&gt;selectCollection(<span class="string">'column'</span>);  <span class="comment">#第二种写法</span></span><br><span class="line"><span class="variable">$collection</span>=<span class="variable">$conn</span>-&gt;mydb-&gt;column;              <span class="comment">#更简洁的写法</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>【注：】</p>
+<h3 id="2、连接"><a href="#2、连接" class="headerlink" title="2、连接"></a>2、连接</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">格式：<span class="keyword">new</span> MongoClient(<span class="string">"mongodb://用户名:密码@地址:端口/默认指定数据库"</span>,参数)</span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> MongoClient(<span class="string">"mongodb://localhost"</span>);</span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> MongoClient(<span class="string">"mongodb://localhost:27017"</span>);</span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> MongoClient(<span class="string">"mongodb://localhost:$port"</span>);  <span class="comment">#mongo对应端口</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://localhost"</span>,<span class="keyword">array</span>(<span class="string">"replicaSet"</span>=&gt;<span class="keyword">true</span>)); <span class="comment">#负载均衡</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://localhost"</span>,<span class="keyword">array</span>(<span class="string">"persist"</span>=&gt;<span class="string">"t"</span>));     <span class="comment">#持久连接</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://sa:123@localhost"</span>);    <span class="comment">#带用户名密码</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://localhost:27017,localhost:27018"</span>); <span class="comment">#连接多个服务器</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb:///tmp/mongo-27017.sock"</span>);   <span class="comment">#域套接字</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://admin:admin@localhost:27017/test"</span>,<span class="keyword">array</span>(<span class="string">'persist'</span>=&gt;<span class="string">'p'</span>,<span class="string">"replicaSet"</span>=&gt;<span class="keyword">true</span>));   <span class="comment">#完整</span></span><br></pre></td></tr></table></figure>
+<p>【注：】由于我的php版本是5.4类型，mongodb是3.0.7版本，好像由于php版本太低，导致和mongdb有些不兼容，连接带有用户名密码的服务器时会报错，目前这个问题还没得到解决，只能先不加认证。</p>
+<hr>
+<h2 id="二、查询"><a href="#二、查询" class="headerlink" title="二、查询"></a>二、查询</h2><h3 id="1、基础查询"><a href="#1、基础查询" class="headerlink" title="1、基础查询"></a>1、基础查询</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'port'</span>=&gt;<span class="number">80</span>,<span class="string">'ip'</span>=&gt;<span class="string">'192.168.1.1'</span>));</span><br><span class="line"><span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'port'</span>=&gt;<span class="keyword">array</span>(<span class="string">'$gt'</span>=&gt;<span class="number">80</span>,<span class="string">'$lt'</span>=&gt;<span class="number">5555</span>)));</span><br><span class="line"><span class="variable">$cursor</span> = <span class="variable">$collection</span>-&gt;findOne();<span class="comment">#查询一条结果</span></span><br></pre></td></tr></table></figure>
+<pre><code>【注：】
+1、$gt为大于、$gte为大于等于、$lt为小于、$lte为小于等于、$ne为不等于、$exists不存在；
+2、findOne()获得结果集后不能使用snapshot(),fields()等函数;
+</code></pre><h3 id="2、处理查询"><a href="#2、处理查询" class="headerlink" title="2、处理查询"></a>2、处理查询</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'port'</span>=&gt;<span class="number">80</span>))-&gt;sort(<span class="keyword">array</span>(<span class="string">'timestamp'</span>=&gt;-<span class="number">1</span>,<span class="string">'type'</span>=&gt;<span class="number">1</span>)); <span class="comment">#sort排序，-1表示降序，1表示升序 ,参数的先后影响排序</span></span><br><span class="line"><span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'port'</span>=&gt;<span class="number">80</span>))-&gt;skip(n);<span class="comment">#跳过n条数据</span></span><br><span class="line"><span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'port'</span>=&gt;<span class="number">80</span>))-&gt;limit(n);<span class="comment">#获得n条数据</span></span><br><span class="line"><span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find()-&gt;fields(<span class="keyword">array</span>(“user”=&gt;<span class="keyword">true</span>));<span class="comment">#只显示user 列</span></span><br><span class="line"><span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find()-&gt;fields(<span class="keyword">array</span>(“user”=&gt;<span class="keyword">false</span>));<span class="comment">#只不显示user 列</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/*使用.号来查询子嵌套文档 */</span></span><br><span class="line">&#123; </span><br><span class="line">    name : <span class="string">"Gordon Freeman"</span>, </span><br><span class="line">    address : &#123; </span><br><span class="line">        city : <span class="string">"Springfield"</span>, </span><br><span class="line">        state : <span class="string">"Florida"</span> </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="variable">$data</span>=<span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'address.city'</span> =&gt; <span class="string">'Springfield'</span>));</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="三、获取数量"><a href="#三、获取数量" class="headerlink" title="三、获取数量"></a>三、获取数量</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$count</span> = <span class="variable">$collection</span>-&gt;count();<span class="comment">//得到总数</span></span><br><span class="line"><span class="variable">$count</span> =<span class="variable">$collection</span>-&gt;find(<span class="variable">$select_query</span>)-&gt;count();<span class="comment">//筛选后总数</span></span><br><span class="line">或者：</span><br><span class="line"><span class="variable">$count</span> =<span class="variable">$collection</span>-&gt;count(<span class="variable">$select_query</span>)；</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="四、针对mongodb的一些格式"><a href="#四、针对mongodb的一些格式" class="headerlink" title="四、针对mongodb的一些格式"></a>四、针对mongodb的一些格式</h2><h3 id="1、日期"><a href="#1、日期" class="headerlink" title="1、日期"></a>1、日期</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   MongoDate类型格式如下：</span><br><span class="line">   [timestamp] =&gt; MongoDate Object</span><br><span class="line">   (</span><br><span class="line">    [sec] =&gt; <span class="number">1379495520</span>  <span class="comment">#表当前时间</span></span><br><span class="line">    [usec] =&gt; <span class="number">0</span>          <span class="comment">#时间精确到微秒 </span></span><br><span class="line">   )</span><br><span class="line">   <span class="variable">$timestamp</span> = date(<span class="string">"Y-m-d H:i"</span>, <span class="variable">$start</span>-&gt;sec); <span class="comment">#print 2016-4-7 16:00</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">/*查询某个时间段内的数据*/</span></span><br><span class="line">   <span class="variable">$start</span> = <span class="keyword">new</span> MongoDate(<span class="variable">$startRaw</span>); <span class="comment">#创建MongoDate类型，$startRaw可为时间戳类型</span></span><br><span class="line">   如：</span><br><span class="line">   <span class="variable">$start</span> = <span class="keyword">new</span> MongoDate(strtotime(<span class="string">'2016-4-7 12:00:00'</span>));</span><br><span class="line"><span class="variable">$end</span> = <span class="keyword">new</span> MongoDate(strtotime(<span class="string">'2016-4-8 12:00:00'</span>));</span><br><span class="line">   <span class="variable">$time</span>=<span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'timestamp'</span>=&gt;<span class="keyword">array</span>(<span class="string">'$gt'</span>=&gt;<span class="variable">$start</span>,<span class="string">'$lte'</span>=&gt;<span class="variable">$end</span>))) </span><br><span class="line">   </span><br><span class="line">   <span class="comment">/*查询一星期内的数据*/</span></span><br><span class="line">   <span class="variable">$lastweek</span> = <span class="keyword">new</span> MongoDate(strtotime(<span class="string">'-1 week'</span>));   </span><br><span class="line">   <span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'timestamp'</span> =&gt; <span class="keyword">array</span>(<span class="string">'$gt'</span> =&gt; <span class="variable">$lastweek</span>)));</span><br></pre></td></tr></table></figure>
+<h3 id="2、id"><a href="#2、id" class="headerlink" title="2、id"></a>2、id</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*使用下面的方法来匹配&#123;"_id":ObjectId("56df8bbed7bc8d047cc7dfa7")&#125;,查询、更新也一样</span><br><span class="line">$id = new MongoId("56df8bbed7bc8d047cc7dfa7");</span><br><span class="line">$data = $collection-&gt;find(array('_id'=&gt;(object)$id));</span><br><span class="line">或者</span><br><span class="line">$data = $collection-&gt;find(array('_id'=&gt;$id));</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>未完待续。。。。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/04/06/php-mongodb扩展安装/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">php mongodb扩展安装</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="php-mongodb操作笔记" data-title="php mongodb操作笔记" data-url="http://wsyks.github.io/2016/04/06/php-mongodb操作笔记/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 我是_一棵树_
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

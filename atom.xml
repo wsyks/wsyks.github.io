@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-04-07T13:10:23.558Z</updated>
+  <updated>2016-04-09T14:04:42.337Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>分享两篇游记</title>
+    <link href="http://wsyks.github.io/2016/04/09/%E5%88%86%E4%BA%AB%E4%B8%A4%E7%AF%87%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://wsyks.github.io/2016/04/09/分享两篇游记/</id>
+    <published>2016-04-09T13:56:41.000Z</published>
+    <updated>2016-04-09T14:04:42.337Z</updated>
+    
+    <content type="html">&lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;所谓身未动，心已远大抵便是如此吧。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写了一篇游记，给大家~，还有一篇是今年寒假去厦门的，可以对比，我的摄影功力简直大增。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.mafengwo.cn/i/5452843.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;西游记之女儿国———泸沽湖，西昌邛海之旅&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.mafengwo.cn/i/5452321.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;漫漫浪——厦门篇（鼓浪屿，曾厝垵，厦大，南普陀）&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;所谓身未动，心已远大抵便是如此吧。
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写
+    
+    </summary>
+    
+    
+      <category term="生活，旅游，回忆" scheme="http://wsyks.github.io/tags/%E7%94%9F%E6%B4%BB%EF%BC%8C%E6%97%85%E6%B8%B8%EF%BC%8C%E5%9B%9E%E5%BF%86/"/>
+    
+  </entry>
   
   <entry>
     <title>php mongodb操作笔记</title>

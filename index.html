@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/前端，AngularJS/" style="font-size: 10px;">前端，AngularJS</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/生活，旅游，回忆/" style="font-size: 10px;">生活，旅游，回忆</a>
+						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/前端，AngularJS/" style="font-size: 15px;">前端，AngularJS</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/生活，旅游，回忆/" style="font-size: 10px;">生活，旅游，回忆</a>
 					</div>
 				</section>
 				
@@ -220,6 +220,166 @@
   
     <h1 itemprop="name">
       <a class="article-title" href="/2016/07/08/AngularJS学习笔记（一）/">AngularJS学习笔记（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="0X00-AngularJS-简介"><a href="#0X00-AngularJS-简介" class="headerlink" title="0X00 AngularJS 简介"></a>0X00 AngularJS 简介</h1><pre><code>AngularJS 是一个 JavaScript 框架。它可通过 `&lt;script&gt;` 标签添加到 HTML 页面。
+AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
+</code></pre><ol>
+<li>AngularJS 通过 ng-directives 扩展了 HTML。 </li>
+<li>ng-app 指令定义一个 AngularJS 应用程序。</li>
+<li>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。 </li>
+<li>ng-bind 指令把应用程序数据绑定到 HTML 视图。</li>
+</ol>
+<p>【例子1】</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;!DOCTYPE html&#62;&#10;&#60;html&#62;&#10;&#60;head&#62;&#10;&#60;meta charset=&#34;utf-8&#34;&#62;&#10;&#60;script src=&#34;http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js&#34;&#62;&#60;/script&#62;&#10;&#60;/head&#62;&#10;&#60;body&#62;&#10;&#10;&#60;div ng-app=&#34;&#34;&#62;&#10;  &#60;p&#62;&#21517;&#23383; : &#60;input type=&#34;text&#34; ng-model=&#34;name&#34;&#62;&#60;/p&#62;&#10;  &#60;h1&#62;Hello &#123;&#123;name&#125;&#125;&#60;/h1&#62;&#10;&#60;/div&#62;&#10;&#10;&#60;/body&#62;&#10;&#60;/html&#62;</span><br></pre></td></tr></table></figure>
+<p>【解释】</p>
+<pre><code>ng-app 指令告诉 AngularJS，&lt;div&gt; 元素是 AngularJS 应用程序 的&quot;所有者&quot;。
+ng-model 指令把输入域的值绑定到应用程序变量 name。
+ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。
+</code></pre><h1 id="0X01-AngularJS-指令"><a href="#0X01-AngularJS-指令" class="headerlink" title="0X01 AngularJS 指令"></a>0X01 AngularJS 指令</h1><ol>
+<li>ng-app 指令定义一个 AngularJS 应用程序，即应用程序的根元素</li>
+<li>ng-init 指令初始化应用程序数据，定义了初始值</li>
+<li>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。还可以：<br>为应用程序数据提供类型验证（number、email、required）。<br>为应用程序数据提供状态（invalid、dirty、touched、error）。<br>为 HTML 元素提供 CSS 类。<br>绑定 HTML 元素到 HTML 表单。</li>
+<li>ng-bind 指令把应用程序数据绑定到 HTML 视图。</li>
+<li>ng-repeat 指令会重复一个 HTML 元素，可以用在数组对象上</li>
+<li>自定义指令，可以使用 .directive 函数来添加自定义的指令</li>
+</ol>
+<p>【例子2】</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;firstName=&#39;John&#39;&#34;&#62;&#10;&#10;  &#60;p&#62;&#22312;&#36755;&#20837;&#26694;&#20013;&#23581;&#35797;&#36755;&#20837;&#65306;&#60;/p&#62;&#10;  &#60;p&#62;&#22995;&#21517;&#65306;&#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;/p&#62;&#10;  &#60;p&#62;&#20320;&#36755;&#20837;&#30340;&#20026;&#65306; &#123;&#123; firstName &#125;&#125;&#60;/p&#62;&#60;!--&#30456;&#24403;&#20110;&#19979;&#21477;&#25968;&#25454;&#30340;&#32465;&#23450;--&#62;&#10;  &#60;p&#62;&#20320;&#36755;&#20837;&#30340;&#20026;&#65306; &#60;span ng-bind=&#34;firstName&#34;&#62;&#60;/span&#62;&#60;/p&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<p>【例子3】</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;names=[&#39;Jani&#39;,&#39;Hege&#39;,&#39;Kai&#39;]&#34;&#62;&#10;  &#60;p&#62;&#20351;&#29992; ng-repeat &#26469;&#24490;&#29615;&#25968;&#32452;&#60;/p&#62;&#10;  &#60;ul&#62;&#10;    &#60;li ng-repeat=&#34;x in names&#34;&#62;&#10;      &#123;&#123; x &#125;&#125;&#10;    &#60;/li&#62;&#10;  &#60;/ul&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<p>【例子4】</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;body ng-app=&#34;myApp&#34;&#62;&#10;&#10;&#60;runoob-directive&#62;&#60;/runoob-directive&#62;&#10;/*&#29992;&#39548;&#23792;&#27861;&#26469;&#21629;&#21517;&#19968;&#20010;&#25351;&#20196;&#65292; runoobDirective, &#20294;&#22312;&#20351;&#29992;&#23427;&#26102;&#38656;&#35201;&#20197;&#34;-&#34;&#20998;&#21106;, runoob-directive:*/&#10;&#60;script&#62;&#10;var app = angular.module(&#34;myApp&#34;, []);&#10;app.directive(&#34;runoobDirective&#34;, function() &#123;&#10;    return &#123;&#10;        &#60;!--restrict:&#34;E&#34;,--&#62;&#10;        template : &#34;&#60;h1&#62;&#33258;&#23450;&#20041;&#25351;&#20196;!&#60;/h1&#62;&#34;&#10;    &#125;;&#10;&#125;);&#10;&#60;/script&#62;&#10;&#10;&#60;/body&#62;</span><br></pre></td></tr></table></figure>
+<p>【注】：可以通过以下方式调用指令：</p>
+<ol>
+<li>元素名:<code>&lt;runoob-directive&gt;&lt;/runoob-directive&gt;</code></li>
+<li>属性   :<code>&lt;div runoob-directive&gt;&lt;/div&gt;</code></li>
+<li>类名   :<code>&lt;div class=&quot;runoob-directive&quot;&gt;&lt;/div&gt;</code></li>
+<li><p>注释   :<code>&lt;!-- 指令: runoob-directive --&gt;</code></p>
+<p>通过restrict 值可以限制你的指令只能通过特定的方式来调用。值有以下几种:</p>
+</li>
+</ol>
+<ul>
+<li>E 只限元素名使用 </li>
+<li>A 只限属性使用 </li>
+<li>C 只限类名使用 </li>
+<li>M 只限注释使用</li>
+</ul>
+<h1 id="0X02-AngularJS-表达式"><a href="#0X02-AngularJS-表达式" class="headerlink" title="0X02 AngularJS 表达式"></a>0X02 AngularJS 表达式</h1><ul>
+<li>AngularJS 表达式写在双大括号内：。</li>
+<li>AngularJS 表达式把数据绑定到 HTML，这与ng-bind 指令有异曲同工之妙。</li>
+<li>AngularJS 将在表达式书写的位置”输出”数据。 </li>
+<li>AngularJS 表达式 很像JavaScript 表达式：它们可以包含文字、运算符和变量。</li>
+<li>实例 10 或 undefined undefined</li>
+</ul>
+<p>【注：】</p>
+<ul>
+<li>类似于 JavaScript 表达式，AngularJS 表达式可以包含字母，操作符，变量。 </li>
+<li>与 JavaScript表达式不同，AngularJS 表达式可以写在 HTML 中。 </li>
+<li>与 JavaScript 表达式不同，AngularJS表达式不支持条件判断，循环及异常。 </li>
+<li>与 JavaScript 表达式不同，AngularJS 表达式支持过滤器。</li>
+</ul>
+<p>【例子5】<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34;&#62;&#10;&#9;&#60;!-- AngularJS &#25968;&#23383; --&#62;&#10;&#9;&#60;div ng-init=&#34;quantity=1;cost=5&#34;&#62;&#10;&#9;&#60;p&#62;&#24635;&#20215;&#65306; &#123;&#123; quantity * cost &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#10;&#9;&#10;&#9;&#60;!-- AngularJS &#23383;&#31526;&#20018; --&#62;&#10;&#9;&#60;div ng-init=&#34;firstName=&#39;John&#39;;lastName=&#39;Doe&#39;&#34;&#62;&#10;&#9;&#60;p&#62;&#22995;&#21517;&#65306; &#123;&#123; firstName + &#34; &#34; + lastName &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#10;&#9;&#10;&#9;&#60;!-- AngularJS &#23545;&#35937; --&#62;&#10;&#9;&#60;div ng-init=&#34;person=&#123;firstName:&#39;John&#39;,lastName:&#39;Doe&#39;&#125;&#34;&#62;&#10;&#9;&#60;p&#62;&#22995;&#20026; &#123;&#123; person.lastName &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#10;&#10;&#9;&#60;!-- AngularJS &#25968;&#32452; --&#62;&#10;&#10;&#9;&#60;div ng-model=&#34;points=[1,15,19,2,40]&#34;&#62;&#10;&#9;&#60;p&#62;&#31532;&#19977;&#20010;&#20540;&#20026; &#123;&#123; points[2] &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#10;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure></p>
+<h1 id="0X03-AngularJS-模型（ng-model指令）"><a href="#0X03-AngularJS-模型（ng-model指令）" class="headerlink" title="0X03 AngularJS 模型（ng-model指令）"></a>0X03 AngularJS 模型（ng-model指令）</h1><p>ng-model 指令用于绑定应用程序数据到 HTML 控制器(input, select, textarea)的值。<br>ng-model 指令可以将输入域的值与 AngularJS 创建的变量绑定。<br>双向绑定，在修改输入域的值时， AngularJS 属性的值也将修改：<br>验证用户输入<br>ng-model 指令可以为应用数据提供状态值(invalid, dirty, touched, error):<br>ng-model 指令基于它们的状态为 HTML 元素提供了 CSS 类：</p>
+<h1 id="0X04-AngularJS-过滤器"><a href="#0X04-AngularJS-过滤器" class="headerlink" title="0X04 AngularJS 过滤器"></a>0X04 AngularJS 过滤器</h1><p>过滤器可以使用一个管道字符（|）添加到表达式和指令中。</p>
+<table>
+<thead>
+<tr>
+<th>过滤器</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filter</td>
+<td>从数组项中选择一个子集</td>
+</tr>
+<tr>
+<td>lowercase</td>
+<td>格式化字符串为小写</td>
+</tr>
+<tr>
+<td>orderBy</td>
+<td>根据某个表达式排列数组</td>
+</tr>
+<tr>
+<td>uppercase</td>
+<td>格式化字符串为大写</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>格式化数字为货币格式</td>
+</tr>
+</tbody>
+</table>
+<p>【例子6】<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;personCtrl&#34;&#62;&#10;=====================================&#10;=====================================&#10;&#60;/br&#62;&#10;//&#22823;&#23567;&#20889;&#10;    &#60;div&#62;&#10;    &#9;/*&#21407;&#20808;*/&#10;&#9;&#9;&#60;p&#62;&#22995;&#21517;&#20026; &#123;&#123; lastName &#125;&#125;&#60;/p&#62;&#10;&#9;&#9;/*&#22823;&#20889;*/&#10;&#9;&#9;&#60;p&#62;&#22995;&#21517;&#20026; &#123;&#123; lastName | uppercase &#125;&#125;&#60;/p&#62;&#10;&#9;&#9;/*&#23567;&#20889;*/&#10;&#9;&#9;&#60;p&#62;&#22995;&#21517;&#20026; &#123;&#123; lastName | lowercase &#125;&#125;&#60;/p&#62;&#10;&#9;&#60;/div&#62;&#10;=====================================&#10;=====================================&#10;&#60;/br&#62;&#10;//&#36135;&#24065;&#10;&#9;&#60;div&#62;&#10;&#10;&#9;&#9;&#25968;&#37327;: &#60;input type=&#34;number&#34; ng-model=&#34;quantity&#34;&#62;&#10;&#9;&#9;&#20215;&#26684;: &#60;input type=&#34;number&#34; ng-model=&#34;price&#34;&#62;&#10;&#9;&#9;&#60;p&#62;&#24635;&#20215; = &#123;&#123; (quantity * price) | currency &#125;&#125;&#60;/p&#62;&#10;&#10;&#9;&#60;/div&#62;&#10;=====================================&#10;=====================================&#10;&#60;/br&#62;&#10;//&#25490;&#24207;&#10;&#9;&#60;ul&#62;&#10;  &#9;&#9;&#60;li ng-repeat=&#34;x in names | orderBy:&#39;country&#39;&#34;&#62;&#10;    &#9;&#9;&#123;&#123; x.name + &#39;, &#39; + x.country &#125;&#125;&#10;  &#9;&#9;&#60;/li&#62;&#10;&#9;&#60;/ul&#62;&#10;&#10;=====================================&#10;=====================================&#10;&#60;/br&#62;&#10;//&#36755;&#20837;&#36807;&#28388;&#10;&#60;p&#62;&#60;input type=&#34;text&#34; ng-model=&#34;test&#34;&#62;&#60;/p&#62;&#10;&#10;&#60;ul&#62;&#10;  &#60;li ng-repeat=&#34;x in names | filter:test | orderBy:&#39;country&#39;&#34;&#62;&#10;    &#123;&#123; (x.name | uppercase) + &#39;, &#39; + x.country &#125;&#125;&#10;  &#60;/li&#62;&#10;&#60;/ul&#62;&#10;&#60;/div&#62;&#10;&#60;script&#62;&#10;&#10;&#9;angular.module(&#39;myApp&#39;, []).controller(&#39;personCtrl&#39;, function($scope) &#123;&#10;    &#9;$scope.firstName = &#34;John&#34;;&#10;    &#9;$scope.lastName = &#34;Doe&#34;;&#10;    &#9;$scope.quantity = 1;&#10;    &#9;$scope.price = 9.99;&#10;    &#9;$scope.names=[&#10;&#9;&#9;&#9;&#123;name:&#39;Jani&#39;,country:&#39;Norway&#39;&#125;,&#10;&#9;&#9;&#9;&#123;name:&#39;Hege&#39;,country:&#39;Sweden&#39;&#125;,&#10;&#9;&#9;&#9;&#123;name:&#39;Kai&#39;,country:&#39;Denmark&#39;&#125;];&#10;    &#9;$scope.fullName = function() &#123;&#10;        &#9;return $scope.firstName + &#34; &#34; + $scope.lastName;&#10;    &#9;&#125;&#10;&#9;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure></p>
+<h1 id="0X05-AngularJS-服务"><a href="#0X05-AngularJS-服务" class="headerlink" title="0X05 AngularJS 服务"></a>0X05 AngularJS 服务</h1><p>在 AngularJS 中，服务是一个函数或对象，可在你的 AngularJS 应用中使用。</p>
+<ol>
+<li>$location 服务：它可以返回当前页面的 URL 地址</li>
+<li>$http 服务：服务向服务器发送请求，应用响应服务器传送过来的数据</li>
+<li>$timeout 服务：对应了 JS window.setTimeout 函数</li>
+<li>$interval 服务：对应了 JS window.setInterval 函数</li>
+<li>创建自定义的服务</li>
+</ol>
+<p>【注：】AngularJS 会一直监控应用，处理事件变化， AngularJS 使用 $location 服务比使用 window.location 对象更好。</p>
+<p>【例子7】<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62; &#10;&#10;&#60;p&#62;&#29616;&#22312;&#26102;&#38388;&#26159;:&#60;/p&#62;&#10;&#10;&#60;h1&#62;&#123;&#123;theTime&#125;&#125;&#60;/h1&#62;&#10;&#10;&#60;/div&#62;&#10;&#10;&#60;p&#62;$interval &#35775;&#38382;&#22312;&#25351;&#23450;&#30340;&#21608;&#26399;(&#20197;&#27627;&#31186;&#35745;)&#26469;&#35843;&#29992;&#20989;&#25968;&#25110;&#35745;&#31639;&#34920;&#36798;&#24335;&#12290;&#60;/p&#62;&#10;&#10;&#60;script&#62;&#10;var app = angular.module(&#39;myApp&#39;, []);&#10;app.controller(&#39;myCtrl&#39;, function($scope, $interval) &#123;&#10;  $scope.theTime = new Date().toLocaleTimeString();&#10;  $interval(function () &#123;&#10;      $scope.theTime = new Date().toLocaleTimeString();&#10;  &#125;, 1000);&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure></p>
+<p>【例子8】http</p>
+<p>【例子9】<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;myApp&#34; ng-controller=&#34;myCtrl&#34;&#62;&#10;&#60;p&#62;&#22312;&#33719;&#21462;&#25968;&#32452; [255, 251, 200] &#20540;&#26102;&#20351;&#29992;&#36807;&#28388;&#22120;:&#60;/p&#62;&#10;&#10;&#60;ul&#62;&#10;  &#60;li ng-repeat=&#34;x in counts&#34;&#62;&#123;&#123;x | myFormat&#125;&#125;&#60;/li&#62;&#10;&#60;/ul&#62;&#10;&#10;&#60;p&#62;&#36807;&#28388;&#22120;&#20351;&#29992;&#26381;&#21153;&#23558;10&#36827;&#21046;&#36716;&#25442;&#20026;16&#36827;&#21046;&#12290;&#60;/p&#62;&#10;&#60;/div&#62;&#10;&#10;&#60;script&#62;&#10;var app = angular.module(&#39;myApp&#39;, []);&#10;app.service(&#39;hexafy&#39;, function() &#123;&#10;&#9;this.myFunc = function (x) &#123;&#10;        return x.toString(16);&#10;    &#125;&#10;&#125;);&#10;app.filter(&#39;myFormat&#39;,[&#39;hexafy&#39;, function(hexafy) &#123;&#10;    return function(x) &#123;&#10;        return hexafy.myFunc(x);&#10;    &#125;;&#10;&#125;]);&#10;app.controller(&#39;myCtrl&#39;, function($scope) &#123;&#10;    $scope.counts = [255, 251, 200];&#10;&#125;);&#10;&#60;/script&#62;</span><br></pre></td></tr></table></figure></p>
+<p>【参考资料】</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端，AngularJS/">前端，AngularJS</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-AngularJS学习笔记（一）.md" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/08/AngularJS学习笔记（一）.md/" class="article-date">
+  	<time datetime="2016-07-08T03:57:56.000Z" itemprop="datePublished">2016-07-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/AngularJS学习笔记（一）.md/">AngularJS学习笔记（一）</a>
     </h1>
   
 
@@ -519,67 +679,6 @@ ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。
       
         <p class="article-more-link">
           <a  href="/2016/04/06/php-mongodb操作笔记/#more">more >></a>
-        </p>
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-php-mongodb扩展安装" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2016/04/06/php-mongodb扩展安装/" class="article-date">
-  	<time datetime="2016-04-06T14:03:35.000Z" itemprop="datePublished">2016-04-06</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/06/php-mongodb扩展安装/">php mongodb扩展安装</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p>由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。</p>
-<h1 id="0X01-安装前"><a href="#0X01-安装前" class="headerlink" title="0X01 安装前"></a>0X01 安装前</h1><p>首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。<br>
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a  href="/2016/04/06/php-mongodb扩展安装/#more">more >></a>
         </p>
       
       <div class="clearfix"></div>

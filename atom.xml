@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-07-08T07:42:09.442Z</updated>
+  <updated>2016-07-08T07:43:22.073Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记（一）/</id>
     <published>2016-07-08T03:57:56.000Z</published>
-    <updated>2016-07-08T07:42:09.442Z</updated>
+    <updated>2016-07-08T07:43:22.073Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
@@ -30,6 +30,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 &lt;li&gt;ng-model 指令把元素值（比如输入域的值）绑定到应用程序。 &lt;/li&gt;
 &lt;li&gt;ng-bind 指令把应用程序数据绑定到 HTML 视图。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;【例子1】&lt;/p&gt;
 &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ng-app&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;名字 : &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;input&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ng-model&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;name&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;Hello &amp;#123;&amp;#123;name&amp;#125;&amp;#125;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;h1&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;【解释】&lt;/p&gt;
@@ -133,7 +134,14 @@ ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。
     
     <summary type="html">
     
-      &lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;An
+      &lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
+AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
+&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;li&gt;AngularJS 通过 ng-directives 扩展了 HTML。 &lt;/li&gt;
+&lt;li&gt;ng-app 指令定义一个 AngularJS 应用程序。&lt;/li&gt;
+&lt;li&gt;ng-model 指令把元素值（比如输入域的值）绑定到应用程序。 &lt;/li&gt;
+&lt;li&gt;ng-bind 指令把应用程序数据绑定到 HTML 视图。&lt;/li&gt;
+&lt;/ol&gt;
     
     </summary>
     

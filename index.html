@@ -238,18 +238,6 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 <li>双向数据绑定</li>
 <li>指令</li>
 </ol>
-<p>下面是angular中关于MVVM模式的运用：<br><img src="http://greengerong.github.io/images/blog_img/angular-mvvm.png" alt="Angular的mvvm"></p>
-<p>在angular中MVVM模式主要分为四部分：</p>
-<ul>
-<li>View：它专注于界面的显示和渲染，在angular中则是包含一堆声明式Directive的视图模板。</li>
-<li>ViewModel：它是View和Model的粘合体，负责View和Model的交互和协作，它负责给View提供显示的数据，以及提供了View中Command事件操作Model的途径；在angular中$scope对象充当了这个ViewModel的角色；</li>
-<li>Model：它是与应用程序的业务逻辑相关的数据的封装载体，它是业务领域的对象，Model并不关心会被如何显示或操作，所以模型也不会包含任何界面显示相关的逻辑。在web页面中，大部分Model都是来自Ajax的服务端返回数据或者是全局的配置对象；而angular中的service则是封装和处理这些与Model相关的业务逻辑的场所，这类的业务服务是可以被多个Controller或者其他service复用的领域服务。</li>
-<li>Controller：这并不是MVVM模式的核心元素，但它负责ViewModel对象的初始化，它将组合一个或者多个service来获取业务领域Model放在ViewModel对象上，使得应用界面在启动加载的时候达到一种可用的状态。</li>
-</ul>
-<p>【注】：</p>
-<blockquote>
-<p><strong>单页面应用</strong> (single-page application 简称为 SPA) 是一种特殊的 Web应用。它将所有的活动局限于一个Web页面中，仅在该Web页面初始化时加载相应的HTML、JavaScript 和CSS。一旦页面加载完成了，SPA不会因为用户的操作而进行页面的重新加载或跳转。取而代之的是利用 JavaScript动态的变换HTML的内容，从而实现UI与用户的交互。由于避免了页面的重新加载，SPA 可以提供较为流畅的用户体验。</p>
-</blockquote>
       
     </div>
     

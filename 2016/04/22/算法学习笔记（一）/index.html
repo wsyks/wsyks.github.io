@@ -12,7 +12,7 @@
 <meta property="og:url" content="http://wsyks.github.io/2016/04/22/算法学习笔记（一）/index.html">
 <meta property="og:site_name" content="我是_一棵树_">
 <meta property="og:description" content="0X00 前言虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常">
-<meta property="og:updated_time" content="2016-07-08T07:54:08.244Z">
+<meta property="og:updated_time" content="2016-07-08T07:56:01.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法学习笔记（一）">
 <meta name="twitter:description" content="0X00 前言虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常">
@@ -238,7 +238,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p>虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。</p>
+        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p>虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。<br><a id="more"></a></p>
 <h1 id="0X01-贪婪法"><a href="#0X01-贪婪法" class="headerlink" title="0X01 贪婪法"></a>0X01 贪婪法</h1><h2 id="1、贪婪法简介"><a href="#1、贪婪法简介" class="headerlink" title="1、贪婪法简介"></a>1、贪婪法简介</h2><p>贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对<strong>局部最有利</strong>的选择。<br>贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。</p>
 <p>与其他算法比较：</p>
 <ul>

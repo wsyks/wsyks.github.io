@@ -232,10 +232,24 @@
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
 </code></pre><ol>
 <li>AngularJS 通过 ng-directives 扩展了 HTML。 </li>
-<li>ng-app 指令定义一个 AngularJS 应用程序。</li>
-<li>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。 </li>
-<li>ng-bind 指令把应用程序数据绑定到 HTML 视图。</li>
+<li>非常适合做单页面应用</li>
+<li>MVC的思想（或者是MVVM）</li>
+<li>模块化和依赖注入</li>
+<li>双向数据绑定</li>
+<li>指令</li>
 </ol>
+<p>下面是angular中关于MVVM模式的运用：<br><img src="http://greengerong.github.io/images/blog_img/angular-mvvm.png" alt="Angular的mvvm"></p>
+<p>在angular中MVVM模式主要分为四部分：</p>
+<ul>
+<li>View：它专注于界面的显示和渲染，在angular中则是包含一堆声明式Directive的视图模板。</li>
+<li>ViewModel：它是View和Model的粘合体，负责View和Model的交互和协作，它负责给View提供显示的数据，以及提供了View中Command事件操作Model的途径；在angular中$scope对象充当了这个ViewModel的角色；</li>
+<li>Model：它是与应用程序的业务逻辑相关的数据的封装载体，它是业务领域的对象，Model并不关心会被如何显示或操作，所以模型也不会包含任何界面显示相关的逻辑。在web页面中，大部分Model都是来自Ajax的服务端返回数据或者是全局的配置对象；而angular中的service则是封装和处理这些与Model相关的业务逻辑的场所，这类的业务服务是可以被多个Controller或者其他service复用的领域服务。</li>
+<li>Controller：这并不是MVVM模式的核心元素，但它负责ViewModel对象的初始化，它将组合一个或者多个service来获取业务领域Model放在ViewModel对象上，使得应用界面在启动加载的时候达到一种可用的状态。</li>
+</ul>
+<p>【注】：</p>
+<blockquote>
+<p><strong>单页面应用</strong> (single-page application 简称为 SPA) 是一种特殊的 Web应用。它将所有的活动局限于一个Web页面中，仅在该Web页面初始化时加载相应的HTML、JavaScript 和CSS。一旦页面加载完成了，SPA不会因为用户的操作而进行页面的重新加载或跳转。取而代之的是利用 JavaScript动态的变换HTML的内容，从而实现UI与用户的交互。由于避免了页面的重新加载，SPA 可以提供较为流畅的用户体验。</p>
+</blockquote>
       
     </div>
     
@@ -295,25 +309,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p>虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。</p>
-<h1 id="0X01-贪婪法"><a href="#0X01-贪婪法" class="headerlink" title="0X01 贪婪法"></a>0X01 贪婪法</h1><h2 id="1、贪婪法简介"><a href="#1、贪婪法简介" class="headerlink" title="1、贪婪法简介"></a>1、贪婪法简介</h2><p>贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对<strong>局部最有利</strong>的选择。<br>贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。</p>
-<p>与其他算法比较：</p>
-<ul>
-<li>相同点：对问题进行分解，定义最优解的子结构</li>
-<li>不同点在每一步选择完后就确定了局部最优解，不在进行回溯处理</li>
-</ul>
-<p>特点：</p>
-<ul>
-<li>优点：简单高效，不需穷举，可得到近似最优解</li>
-<li>缺点：选择策略”短视“，错过真正的最优解</li>
-</ul>
-<p>举例：</p>
-<ul>
-<li>题目：有25分、10分、5分、1分四种硬币，要给客户找41分硬币，且硬币个数最少。</li>
-<li>分析：子问题的最优解结构就是在之前的步骤中已经选的硬币上加上当前选择的硬币。即在币值不超过41的前提下选择币值最大的一枚硬币。则根据贪婪法，第一次选25分，之后依次选择10分，5分，1分。需要4枚，确实是最优解。</li>
-<li>但是若换成25分、20分、5分、1分四种硬币，则这时候最优解应该是2枚20分1枚1分。但是根据贪婪法得到的结果则为1枚25分3枚5分1枚1分共5枚硬币。</li>
-</ul>
-
+        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p>虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。<br>
       
     </div>
     
@@ -326,6 +322,10 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 
       
 
+      
+        <p class="article-more-link">
+          <a  href="/2016/04/22/算法学习笔记（一）/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>

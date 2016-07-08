@@ -10,8 +10,9 @@
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
 
 AngularJS 通过 ng-directives 扩展了 HTML。 
-ng-app 指令定义一个 AngularJS 应用程序。
-ng-m">
+非常适合做单页面应用
+MVC的思想（或者是MVVM）
+模块化和依赖注">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AngularJS学习笔记（一）">
 <meta property="og:url" content="http://wsyks.github.io/2016/07/08/AngularJS学习笔记（一）/index.html">
@@ -20,17 +21,20 @@ ng-m">
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
 
 AngularJS 通过 ng-directives 扩展了 HTML。 
-ng-app 指令定义一个 AngularJS 应用程序。
-ng-m">
-<meta property="og:updated_time" content="2016-07-08T07:43:22.073Z">
+非常适合做单页面应用
+MVC的思想（或者是MVVM）
+模块化和依赖注">
+<meta property="og:image" content="http://greengerong.github.io/images/blog_img/angular-mvvm.png">
+<meta property="og:updated_time" content="2016-07-08T09:24:31.181Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习笔记（一）">
 <meta name="twitter:description" content="0X00 AngularJS 简介AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
 
 AngularJS 通过 ng-directives 扩展了 HTML。 
-ng-app 指令定义一个 AngularJS 应用程序。
-ng-m">
+非常适合做单页面应用
+MVC的思想（或者是MVVM）
+模块化和依赖注">
   
     <link rel="alternative" href="/atom.xml" title="我是_一棵树_" type="application/atom+xml">
   
@@ -257,10 +261,24 @@ ng-m">
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
 </code></pre><ol>
 <li>AngularJS 通过 ng-directives 扩展了 HTML。 </li>
-<li>ng-app 指令定义一个 AngularJS 应用程序。</li>
-<li>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。 </li>
-<li>ng-bind 指令把应用程序数据绑定到 HTML 视图。</li>
+<li>非常适合做单页面应用</li>
+<li>MVC的思想（或者是MVVM）</li>
+<li>模块化和依赖注入</li>
+<li>双向数据绑定</li>
+<li>指令</li>
 </ol>
+<p>下面是angular中关于MVVM模式的运用：<br><img src="http://greengerong.github.io/images/blog_img/angular-mvvm.png" alt="Angular的mvvm"></p>
+<p>在angular中MVVM模式主要分为四部分：</p>
+<ul>
+<li>View：它专注于界面的显示和渲染，在angular中则是包含一堆声明式Directive的视图模板。</li>
+<li>ViewModel：它是View和Model的粘合体，负责View和Model的交互和协作，它负责给View提供显示的数据，以及提供了View中Command事件操作Model的途径；在angular中$scope对象充当了这个ViewModel的角色；</li>
+<li>Model：它是与应用程序的业务逻辑相关的数据的封装载体，它是业务领域的对象，Model并不关心会被如何显示或操作，所以模型也不会包含任何界面显示相关的逻辑。在web页面中，大部分Model都是来自Ajax的服务端返回数据或者是全局的配置对象；而angular中的service则是封装和处理这些与Model相关的业务逻辑的场所，这类的业务服务是可以被多个Controller或者其他service复用的领域服务。</li>
+<li>Controller：这并不是MVVM模式的核心元素，但它负责ViewModel对象的初始化，它将组合一个或者多个service来获取业务领域Model放在ViewModel对象上，使得应用界面在启动加载的时候达到一种可用的状态。</li>
+</ul>
+<p>【注】：</p>
+<blockquote>
+<p><strong>单页面应用</strong> (single-page application 简称为 SPA) 是一种特殊的 Web应用。它将所有的活动局限于一个Web页面中，仅在该Web页面初始化时加载相应的HTML、JavaScript 和CSS。一旦页面加载完成了，SPA不会因为用户的操作而进行页面的重新加载或跳转。取而代之的是利用 JavaScript动态的变换HTML的内容，从而实现UI与用户的交互。由于避免了页面的重新加载，SPA 可以提供较为流畅的用户体验。</p>
+</blockquote>
 <a id="more"></a>
 <p>【例子1】</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-app</span>=<span class="value">""</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">p</span>&gt;</span>名字 : <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ng-model</span>=<span class="value">"name"</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello &#123;&#123;name&#125;&#125;<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -269,9 +287,9 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 ng-model 指令把输入域的值绑定到应用程序变量 name。
 ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。
 </code></pre><h1 id="0X01-AngularJS-指令"><a href="#0X01-AngularJS-指令" class="headerlink" title="0X01 AngularJS 指令"></a>0X01 AngularJS 指令</h1><ol>
-<li>ng-app 指令定义一个 AngularJS 应用程序，即应用程序的根元素</li>
+<li>ng-app 指令定义一个 AngularJS 应用程序，即应用程序的根元素，也标记了AngularJS脚本的作用域</li>
 <li>ng-init 指令初始化应用程序数据，定义了初始值</li>
-<li>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。还可以：<br>为应用程序数据提供类型验证（number、email、required）。<br>为应用程序数据提供状态（invalid、dirty、touched、error）。<br>为 HTML 元素提供 CSS 类。<br>绑定 HTML 元素到 HTML 表单。</li>
+<li>ng-model 指令把元素值（比如输入域的值）绑定到应用程序。还可以：<br> 为应用程序数据提供类型验证（number、email、required）。<br> 为应用程序数据提供状态（invalid、dirty、touched、error）。<br> 为 HTML 元素提供 CSS 类。<br> 绑定 HTML 元素到 HTML 表单。</li>
 <li>ng-bind 指令把应用程序数据绑定到 HTML 视图。</li>
 <li>ng-repeat 指令会重复一个 HTML 元素，可以用在数组对象上</li>
 <li>自定义指令，可以使用 .directive 函数来添加自定义的指令</li>
@@ -360,7 +378,13 @@ ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。
 <p>【例子8】http</p>
 <p>【例子9】</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ng-app</span>=<span class="value">"myApp"</span> <span class="attribute">ng-controller</span>=<span class="value">"myCtrl"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>在获取数组 [255, 251, 200] 值时使用过滤器:<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ng-repeat</span>=<span class="value">"x in counts"</span>&gt;</span>&#123;&#123;x | myFormat&#125;&#125;<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>过滤器使用服务将10进制转换为16进制。<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'myApp'</span>, []);</span><br><span class="line">app.service(<span class="string">'hexafy'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.myFunc = <span class="function"><span class="keyword">function</span> <span class="params">(x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> x.toString(<span class="number">16</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line">app.filter(<span class="string">'myFormat'</span>,[<span class="string">'hexafy'</span>, <span class="function"><span class="keyword">function</span><span class="params">(hexafy)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> hexafy.myFunc(x);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;]);</span><br><span class="line">app.controller(<span class="string">'myCtrl'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope)</span> </span>&#123;</span><br><span class="line">    $scope.counts = [<span class="number">255</span>, <span class="number">251</span>, <span class="number">200</span>];</span><br><span class="line">&#125;);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>【参考资料】</p>
+<hr>
+<p>【参考】</p>
+<ol>
+<li><a href="http://www.tuicool.com/articles/IvyYNb" target="_blank" rel="external">http://www.tuicool.com/articles/IvyYNb</a></li>
+<li><a href="http://www.runoob.com/angularjs/angularjs-tutorial.html" target="_blank" rel="external">http://www.runoob.com/angularjs/angularjs-tutorial.html</a></li>
+<li><a href="http://www.apjs.net/" target="_blank" rel="external">http://www.apjs.net/</a></li>
+</ol>
 
       
     </div>

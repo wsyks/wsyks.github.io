@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-07-08T04:04:47.325Z</updated>
+  <updated>2016-07-08T07:20:48.918Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记（一）/</id>
     <published>2016-07-08T03:57:56.000Z</published>
-    <updated>2016-07-08T04:04:47.325Z</updated>
+    <updated>2016-07-08T07:20:48.918Z</updated>
     
     <content type="html">&lt;hr&gt;
 &lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
@@ -46,7 +46,7 @@ ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。
 &lt;li&gt;自定义指令，可以使用 .directive 函数来添加自定义的指令&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;【例子2】&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#60;div ng-app=&amp;#34;&amp;#34; ng-init=&amp;#34;firstName=&amp;#39;John&amp;#39;&amp;#34;&amp;#62;&amp;#10;&amp;#10;  &amp;#60;p&amp;#62;&amp;#22312;&amp;#36755;&amp;#20837;&amp;#26694;&amp;#20013;&amp;#23581;&amp;#35797;&amp;#36755;&amp;#20837;&amp;#65306;&amp;#60;/p&amp;#62;&amp;#10;  &amp;#60;p&amp;#62;&amp;#22995;&amp;#21517;&amp;#65306;&amp;#60;input type=&amp;#34;text&amp;#34; ng-model=&amp;#34;firstName&amp;#34;&amp;#62;&amp;#60;/p&amp;#62;&amp;#10;  &amp;#60;p&amp;#62;&amp;#20320;&amp;#36755;&amp;#20837;&amp;#30340;&amp;#20026;&amp;#65306; &amp;#123;&amp;#123; firstName &amp;#125;&amp;#125;&amp;#60;/p&amp;#62;&amp;#60;!--&amp;#30456;&amp;#24403;&amp;#20110;&amp;#19979;&amp;#21477;&amp;#25968;&amp;#25454;&amp;#30340;&amp;#32465;&amp;#23450;--&amp;#62;&amp;#10;  &amp;#60;p&amp;#62;&amp;#20320;&amp;#36755;&amp;#20837;&amp;#30340;&amp;#20026;&amp;#65306; &amp;#60;span ng-bind=&amp;#34;firstName&amp;#34;&amp;#62;&amp;#60;/span&amp;#62;&amp;#60;/p&amp;#62;&amp;#10;&amp;#60;/div&amp;#62;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#60;div ng-app=&amp;#34;&amp;#34; ng-init=&amp;#34;firstName=&amp;#39;John&amp;#39;&amp;#34;&amp;#62;&amp;#10;&amp;#10;    &amp;#60;p&amp;#62;&amp;#22312;&amp;#36755;&amp;#20837;&amp;#26694;&amp;#20013;&amp;#23581;&amp;#35797;&amp;#36755;&amp;#20837;&amp;#65306;&amp;#60;/p&amp;#62;&amp;#10;    &amp;#60;p&amp;#62;&amp;#22995;&amp;#21517;&amp;#65306;&amp;#60;input type=&amp;#34;text&amp;#34; ng-model=&amp;#34;firstName&amp;#34;&amp;#62;&amp;#60;/p&amp;#62;&amp;#10;    &amp;#60;p&amp;#62;&amp;#20320;&amp;#36755;&amp;#20837;&amp;#30340;&amp;#20026;&amp;#65306; &amp;#123;&amp;#123; firstName &amp;#125;&amp;#125;&amp;#60;/p&amp;#62;&amp;#60;!--&amp;#30456;&amp;#24403;&amp;#20110;&amp;#19979;&amp;#21477;&amp;#25968;&amp;#25454;&amp;#30340;&amp;#32465;&amp;#23450;--&amp;#62;&amp;#10;    &amp;#60;p&amp;#62;&amp;#20320;&amp;#36755;&amp;#20837;&amp;#30340;&amp;#20026;&amp;#65306; &amp;#60;span ng-bind=&amp;#34;firstName&amp;#34;&amp;#62;&amp;#60;/span&amp;#62;&amp;#60;/p&amp;#62;&amp;#10;&amp;#60;/div&amp;#62;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;【例子3】&lt;/p&gt;
 &lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;#60;div ng-app=&amp;#34;&amp;#34; ng-init=&amp;#34;names=[&amp;#39;Jani&amp;#39;,&amp;#39;Hege&amp;#39;,&amp;#39;Kai&amp;#39;]&amp;#34;&amp;#62;&amp;#10;  &amp;#60;p&amp;#62;&amp;#20351;&amp;#29992; ng-repeat &amp;#26469;&amp;#24490;&amp;#29615;&amp;#25968;&amp;#32452;&amp;#60;/p&amp;#62;&amp;#10;  &amp;#60;ul&amp;#62;&amp;#10;    &amp;#60;li ng-repeat=&amp;#34;x in names&amp;#34;&amp;#62;&amp;#10;      &amp;#123;&amp;#123; x &amp;#125;&amp;#125;&amp;#10;    &amp;#60;/li&amp;#62;&amp;#10;  &amp;#60;/ul&amp;#62;&amp;#10;&amp;#60;/div&amp;#62;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;【例子4】&lt;/p&gt;
@@ -135,6 +135,10 @@ ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。
     
     </summary>
     
+    
+      <category term="AngularJS" scheme="http://wsyks.github.io/tags/AngularJS/"/>
+    
+      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

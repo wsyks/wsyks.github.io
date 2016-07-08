@@ -22,7 +22,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 AngularJS 通过 ng-directives 扩展了 HTML。 
 ng-app 指令定义一个 AngularJS 应用程序。
 ng-m">
-<meta property="og:updated_time" content="2016-07-08T04:04:47.325Z">
+<meta property="og:updated_time" content="2016-07-08T07:20:48.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AngularJS学习笔记（一）">
 <meta name="twitter:description" content="0X00 AngularJS 简介AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
@@ -90,12 +90,12 @@ ng-m">
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
 						<li>菜单</li>
-						<li>Tags</li>
+						<li>標籤</li>
 						
 						<li>友情链接</li>
 						
 						
-						<li>Über</li>
+						<li>關於</li>
 						
 					</ul>
 				</div>
@@ -130,7 +130,7 @@ ng-m">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/生活，旅游，回忆/" style="font-size: 10px;">生活，旅游，回忆</a>
+						<a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/前端/" style="font-size: 10px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/生活，旅游，回忆/" style="font-size: 10px;">生活，旅游，回忆</a>
 					</div>
 				</section>
 				
@@ -241,6 +241,10 @@ ng-m">
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/AngularJS/">AngularJS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -273,7 +277,7 @@ ng-bind 指令把应用程序变量 name 绑定到某个段落的 innerHTML。
 <li>自定义指令，可以使用 .directive 函数来添加自定义的指令</li>
 </ol>
 <p>【例子2】</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;firstName=&#39;John&#39;&#34;&#62;&#10;&#10;  &#60;p&#62;&#22312;&#36755;&#20837;&#26694;&#20013;&#23581;&#35797;&#36755;&#20837;&#65306;&#60;/p&#62;&#10;  &#60;p&#62;&#22995;&#21517;&#65306;&#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;/p&#62;&#10;  &#60;p&#62;&#20320;&#36755;&#20837;&#30340;&#20026;&#65306; &#123;&#123; firstName &#125;&#125;&#60;/p&#62;&#60;!--&#30456;&#24403;&#20110;&#19979;&#21477;&#25968;&#25454;&#30340;&#32465;&#23450;--&#62;&#10;  &#60;p&#62;&#20320;&#36755;&#20837;&#30340;&#20026;&#65306; &#60;span ng-bind=&#34;firstName&#34;&#62;&#60;/span&#62;&#60;/p&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;firstName=&#39;John&#39;&#34;&#62;&#10;&#10;    &#60;p&#62;&#22312;&#36755;&#20837;&#26694;&#20013;&#23581;&#35797;&#36755;&#20837;&#65306;&#60;/p&#62;&#10;    &#60;p&#62;&#22995;&#21517;&#65306;&#60;input type=&#34;text&#34; ng-model=&#34;firstName&#34;&#62;&#60;/p&#62;&#10;    &#60;p&#62;&#20320;&#36755;&#20837;&#30340;&#20026;&#65306; &#123;&#123; firstName &#125;&#125;&#60;/p&#62;&#60;!--&#30456;&#24403;&#20110;&#19979;&#21477;&#25968;&#25454;&#30340;&#32465;&#23450;--&#62;&#10;    &#60;p&#62;&#20320;&#36755;&#20837;&#30340;&#20026;&#65306; &#60;span ng-bind=&#34;firstName&#34;&#62;&#60;/span&#62;&#60;/p&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
 <p>【例子3】</p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div ng-app=&#34;&#34; ng-init=&#34;names=[&#39;Jani&#39;,&#39;Hege&#39;,&#39;Kai&#39;]&#34;&#62;&#10;  &#60;p&#62;&#20351;&#29992; ng-repeat &#26469;&#24490;&#29615;&#25968;&#32452;&#60;/p&#62;&#10;  &#60;ul&#62;&#10;    &#60;li ng-repeat=&#34;x in names&#34;&#62;&#10;      &#123;&#123; x &#125;&#125;&#10;    &#60;/li&#62;&#10;  &#60;/ul&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
 <p>【例子4】</p>

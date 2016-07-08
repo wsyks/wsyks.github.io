@@ -155,14 +155,36 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://wsyks.github.io/2016/04/22/算法学习笔记（一）/</id>
     <published>2016-04-22T08:54:34.000Z</published>
-    <updated>2016-04-22T08:54:35.104Z</updated>
+    <updated>2016-07-08T07:54:08.244Z</updated>
     
-    <content type="html"></content>
+    <content type="html">&lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。&lt;/p&gt;
+&lt;h1 id=&quot;0X01-贪婪法&quot;&gt;&lt;a href=&quot;#0X01-贪婪法&quot; class=&quot;headerlink&quot; title=&quot;0X01 贪婪法&quot;&gt;&lt;/a&gt;0X01 贪婪法&lt;/h1&gt;&lt;h2 id=&quot;1、贪婪法简介&quot;&gt;&lt;a href=&quot;#1、贪婪法简介&quot; class=&quot;headerlink&quot; title=&quot;1、贪婪法简介&quot;&gt;&lt;/a&gt;1、贪婪法简介&lt;/h2&gt;&lt;p&gt;贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对&lt;strong&gt;局部最有利&lt;/strong&gt;的选择。&lt;br&gt;贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。&lt;/p&gt;
+&lt;p&gt;与其他算法比较：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;相同点：对问题进行分解，定义最优解的子结构&lt;/li&gt;
+&lt;li&gt;不同点在每一步选择完后就确定了局部最优解，不在进行回溯处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;特点：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;优点：简单高效，不需穷举，可得到近似最优解&lt;/li&gt;
+&lt;li&gt;缺点：选择策略”短视“，错过真正的最优解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;举例：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;题目：有25分、10分、5分、1分四种硬币，要给客户找41分硬币，且硬币个数最少。&lt;/li&gt;
+&lt;li&gt;分析：子问题的最优解结构就是在之前的步骤中已经选的硬币上加上当前选择的硬币。即在币值不超过41的前提下选择币值最大的一枚硬币。则根据贪婪法，第一次选25分，之后依次选择10分，5分，1分。需要4枚，确实是最优解。&lt;/li&gt;
+&lt;li&gt;但是若换成25分、20分、5分、1分四种硬币，则这时候最优解应该是2枚20分1枚1分。但是根据贪婪法得到的结果则为1枚25分3枚5分1枚1分共5枚硬币。&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     
     <summary type="html">
     
+      &lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就
+    
     </summary>
     
+    
+      <category term="算法" scheme="http://wsyks.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   

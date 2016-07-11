@@ -418,6 +418,32 @@ hexo init            #执行init命令初始化hexo到你指定的目录
   </entry>
   
   <entry>
+    <title>读大型网站架构笔记</title>
+    <link href="http://wsyks.github.io/2016/03/12/%E8%AF%BB%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
+    <id>http://wsyks.github.io/2016/03/12/读大型网站架构笔记/</id>
+    <published>2016-03-12T02:08:31.000Z</published>
+    <updated>2016-07-11T02:15:00.450Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;0X00前言&quot;&gt;&lt;a href=&quot;#0X00前言&quot; class=&quot;headerlink&quot; title=&quot;0X00前言&quot;&gt;&lt;/a&gt;0X00前言&lt;/h1&gt;&lt;p&gt;最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。&lt;/p&gt;
+&lt;h1 id=&quot;0X01-大型网站架构演化&quot;&gt;&lt;a href=&quot;#0X01-大型网站架构演化&quot; class=&quot;headerlink&quot; title=&quot;0X01 大型网站架构演化&quot;&gt;&lt;/a&gt;0X01 大型网站架构演化&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png&quot; alt=&quot;架构演化&quot; title=&quot;大型网站技术架构.png&quot;&gt;  &lt;/p&gt;
+&lt;h1 id=&quot;0X02-大型网站架构模式&quot;&gt;&lt;a href=&quot;#0X02-大型网站架构模式&quot; class=&quot;headerlink&quot; title=&quot;0X02 大型网站架构模式&quot;&gt;&lt;/a&gt;0X02 大型网站架构模式&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A8%A1%E5%BC%8F.png&quot; alt=&quot;架构模式&quot; title=&quot;大型网站架构的模式.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;0X03-大型网站核心架构要素&quot;&gt;&lt;a href=&quot;#0X03-大型网站核心架构要素&quot; class=&quot;headerlink&quot; title=&quot;0X03 大型网站核心架构要素&quot;&gt;&lt;/a&gt;0X03 大型网站核心架构要素&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png&quot; alt=&quot;架构要素&quot; title=&quot;架构的要素.png&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;0X04-瞬时响应：网站的高性能架构&quot;&gt;&lt;a href=&quot;#0X04-瞬时响应：网站的高性能架构&quot; class=&quot;headerlink&quot; title=&quot;0X04 瞬时响应：网站的高性能架构&quot;&gt;&lt;/a&gt;0X04 瞬时响应：网站的高性能架构&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E7%BD%91%E7%AB%99%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84.png&quot; alt=&quot;高性能&quot; title=&quot;网站的高性能架构.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;  未完待续&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;0X00前言&quot;&gt;&lt;a href=&quot;#0X00前言&quot; class=&quot;headerlink&quot; title=&quot;0X00前言&quot;&gt;&lt;/a&gt;0X00前言&lt;/h1&gt;&lt;p&gt;最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整
+    
+    </summary>
+    
+    
+      <category term="网站架构，性能优化" scheme="http://wsyks.github.io/tags/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%EF%BC%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PHP学习——登录验证（第一级）</title>
     <link href="http://wsyks.github.io/2016/03/01/PHP%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%EF%BC%88%E7%AC%AC%E4%B8%80%E7%BA%A7%EF%BC%89/"/>
     <id>http://wsyks.github.io/2016/03/01/PHP学习——登录验证（第一级）/</id>

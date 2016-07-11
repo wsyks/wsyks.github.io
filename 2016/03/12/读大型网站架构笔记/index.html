@@ -6,35 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>读大型网站架构笔记 | 我是_一棵树_</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0X00前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。
-0X01 大型网站架构演化  
-0X02 大型网站架构模式
-0X03 大型网站核心架构要素
-0X04 瞬时响应：网站的高性能架构
-  未完待续">
+  <meta name="description" content="0X00前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="读大型网站架构笔记">
 <meta property="og:url" content="http://wsyks.github.io/2016/03/12/读大型网站架构笔记/index.html">
 <meta property="og:site_name" content="我是_一棵树_">
-<meta property="og:description" content="0X00前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。
-0X01 大型网站架构演化  
-0X02 大型网站架构模式
-0X03 大型网站核心架构要素
-0X04 瞬时响应：网站的高性能架构
-  未完待续">
+<meta property="og:description" content="0X00前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。">
 <meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png">
 <meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A8%A1%E5%BC%8F.png">
 <meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png">
 <meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/%E7%BD%91%E7%AB%99%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84.png">
-<meta property="og:updated_time" content="2016-07-11T02:15:00.450Z">
+<meta property="og:updated_time" content="2016-07-11T02:16:53.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="读大型网站架构笔记">
-<meta name="twitter:description" content="0X00前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。
-0X01 大型网站架构演化  
-0X02 大型网站架构模式
-0X03 大型网站核心架构要素
-0X04 瞬时响应：网站的高性能架构
-  未完待续">
+<meta name="twitter:description" content="0X00前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。">
   
     <link rel="alternative" href="/atom.xml" title="我是_一棵树_" type="application/atom+xml">
   
@@ -134,7 +119,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/前端，AngularJS/" style="font-size: 10px;">前端，AngularJS</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/生活，旅游，回忆/" style="font-size: 10px;">生活，旅游，回忆</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构，性能优化/" style="font-size: 10px;">网站架构，性能优化</a>
+						<a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/前端，AngularJS/" style="font-size: 10px;">前端，AngularJS</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/生活，旅游，回忆/" style="font-size: 10px;">生活，旅游，回忆</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构/" style="font-size: 10px;">网站架构</a>
 					</div>
 				</section>
 				
@@ -246,7 +231,7 @@
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站架构，性能优化/">网站架构，性能优化</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/性能优化/">性能优化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站架构/">网站架构</a></li></ul>
 	</div>
 
         
@@ -257,7 +242,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0X00前言"><a href="#0X00前言" class="headerlink" title="0X00前言"></a>0X00前言</h1><p>最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。</p>
+        <h1 id="0X00前言"><a href="#0X00前言" class="headerlink" title="0X00前言"></a>0X00前言</h1><p>最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。<br><a id="more"></a></p>
 <h1 id="0X01-大型网站架构演化"><a href="#0X01-大型网站架构演化" class="headerlink" title="0X01 大型网站架构演化"></a>0X01 大型网站架构演化</h1><p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png" alt="架构演化" title="大型网站技术架构.png">  </p>
 <h1 id="0X02-大型网站架构模式"><a href="#0X02-大型网站架构模式" class="headerlink" title="0X02 大型网站架构模式"></a>0X02 大型网站架构模式</h1><p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A8%A1%E5%BC%8F.png" alt="架构模式" title="大型网站架构的模式.png"></p>
 <h1 id="0X03-大型网站核心架构要素"><a href="#0X03-大型网站核心架构要素" class="headerlink" title="0X03 大型网站核心架构要素"></a>0X03 大型网站核心架构要素</h1><p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png" alt="架构要素" title="架构的要素.png"></p>
@@ -282,7 +267,7 @@
     </a>
   
   
-    <a href="/2016/03/01/PHP学习——登录验证（第一级）/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/03/01/PHP学习——最简单的登录验证/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">PHP学习——登录验证（第一级）</div>
       <strong class="article-nav-caption">></strong>
     </a>

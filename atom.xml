@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-07-08T13:25:23.313Z</updated>
+  <updated>2016-07-11T02:18:52.309Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>AngularJS学习笔记（一）</title>
-    <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记（一）/</id>
+    <title>AngularJS学习笔记</title>
+    <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记/</id>
     <published>2016-07-08T03:57:56.000Z</published>
-    <updated>2016-07-08T13:25:23.313Z</updated>
+    <updated>2016-07-11T02:18:52.309Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
@@ -151,8 +151,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 &lt;p&gt;【例子8】http&lt;/p&gt;
 &lt;p&gt;【例子9】&lt;/p&gt;
 &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ng-app&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;myApp&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ng-controller&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;myCtrl&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;在获取数组 [255, 251, 200] 值时使用过滤器:&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;li&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ng-repeat&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;x in counts&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&amp;#123;&amp;#123;x | myFormat&amp;#125;&amp;#125;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;过滤器使用服务将10进制转换为16进制。&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = angular.module(&lt;span class=&quot;string&quot;&gt;&#39;myApp&#39;&lt;/span&gt;, []);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;app.service(&lt;span class=&quot;string&quot;&gt;&#39;hexafy&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.myFunc = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;(x)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; x.toString(&lt;span class=&quot;number&quot;&gt;16&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;app.filter(&lt;span class=&quot;string&quot;&gt;&#39;myFormat&#39;&lt;/span&gt;,[&lt;span class=&quot;string&quot;&gt;&#39;hexafy&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(hexafy)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(x)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; hexafy.myFunc(x);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;app.controller(&lt;span class=&quot;string&quot;&gt;&#39;myCtrl&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;($scope)&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    $scope.counts = [&lt;span class=&quot;number&quot;&gt;255&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;251&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;200&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;hr&gt;
-&lt;p&gt;【参考】&lt;/p&gt;
+&lt;h2 id=&quot;当然Angular还有很多其他功能，依赖注入、路由等等，初学就暂不学习这些功能了&quot;&gt;&lt;a href=&quot;#当然Angular还有很多其他功能，依赖注入、路由等等，初学就暂不学习这些功能了&quot; class=&quot;headerlink&quot; title=&quot;当然Angular还有很多其他功能，依赖注入、路由等等，初学就暂不学习这些功能了~&quot;&gt;&lt;/a&gt;当然Angular还有很多其他功能，依赖注入、路由等等，初学就暂不学习这些功能了~&lt;/h2&gt;&lt;p&gt;【参考】&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.tuicool.com/articles/IvyYNb&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.tuicool.com/articles/IvyYNb&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://www.runoob.com/angularjs/angularjs-tutorial.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.runoob.com/angularjs/angularjs-tutorial.html&lt;/a&gt;&lt;/li&gt;
@@ -422,9 +421,9 @@ hexo init            #执行init命令初始化hexo到你指定的目录
     <link href="http://wsyks.github.io/2016/03/12/%E8%AF%BB%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/03/12/读大型网站架构笔记/</id>
     <published>2016-03-12T02:08:31.000Z</published>
-    <updated>2016-07-11T02:15:00.450Z</updated>
+    <updated>2016-07-11T02:16:53.840Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;0X00前言&quot;&gt;&lt;a href=&quot;#0X00前言&quot; class=&quot;headerlink&quot; title=&quot;0X00前言&quot;&gt;&lt;/a&gt;0X00前言&lt;/h1&gt;&lt;p&gt;最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;0X00前言&quot;&gt;&lt;a href=&quot;#0X00前言&quot; class=&quot;headerlink&quot; title=&quot;0X00前言&quot;&gt;&lt;/a&gt;0X00前言&lt;/h1&gt;&lt;p&gt;最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X01-大型网站架构演化&quot;&gt;&lt;a href=&quot;#0X01-大型网站架构演化&quot; class=&quot;headerlink&quot; title=&quot;0X01 大型网站架构演化&quot;&gt;&lt;/a&gt;0X01 大型网站架构演化&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png&quot; alt=&quot;架构演化&quot; title=&quot;大型网站技术架构.png&quot;&gt;  &lt;/p&gt;
 &lt;h1 id=&quot;0X02-大型网站架构模式&quot;&gt;&lt;a href=&quot;#0X02-大型网站架构模式&quot; class=&quot;headerlink&quot; title=&quot;0X02 大型网站架构模式&quot;&gt;&lt;/a&gt;0X02 大型网站架构模式&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A8%A1%E5%BC%8F.png&quot; alt=&quot;架构模式&quot; title=&quot;大型网站架构的模式.png&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X03-大型网站核心架构要素&quot;&gt;&lt;a href=&quot;#0X03-大型网站核心架构要素&quot; class=&quot;headerlink&quot; title=&quot;0X03 大型网站核心架构要素&quot;&gt;&lt;/a&gt;0X03 大型网站核心架构要素&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png&quot; alt=&quot;架构要素&quot; title=&quot;架构的要素.png&quot;&gt;&lt;/p&gt;
@@ -434,19 +433,21 @@ hexo init            #执行init命令初始化hexo到你指定的目录
     
     <summary type="html">
     
-      &lt;h1 id=&quot;0X00前言&quot;&gt;&lt;a href=&quot;#0X00前言&quot; class=&quot;headerlink&quot; title=&quot;0X00前言&quot;&gt;&lt;/a&gt;0X00前言&lt;/h1&gt;&lt;p&gt;最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整
+      &lt;h1 id=&quot;0X00前言&quot;&gt;&lt;a href=&quot;#0X00前言&quot; class=&quot;headerlink&quot; title=&quot;0X00前言&quot;&gt;&lt;/a&gt;0X00前言&lt;/h1&gt;&lt;p&gt;最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。&lt;br&gt;
     
     </summary>
     
     
-      <category term="网站架构，性能优化" scheme="http://wsyks.github.io/tags/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%EF%BC%8C%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+      <category term="性能优化" scheme="http://wsyks.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
+    
+      <category term="网站架构" scheme="http://wsyks.github.io/tags/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>PHP学习——登录验证（第一级）</title>
-    <link href="http://wsyks.github.io/2016/03/01/PHP%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81%EF%BC%88%E7%AC%AC%E4%B8%80%E7%BA%A7%EF%BC%89/"/>
-    <id>http://wsyks.github.io/2016/03/01/PHP学习——登录验证（第一级）/</id>
+    <link href="http://wsyks.github.io/2016/03/01/PHP%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81/"/>
+    <id>http://wsyks.github.io/2016/03/01/PHP学习——最简单的登录验证/</id>
     <published>2016-03-01T13:39:31.000Z</published>
     <updated>2016-03-30T14:16:43.251Z</updated>
     

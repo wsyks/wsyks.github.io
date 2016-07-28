@@ -18,31 +18,16 @@ var _hmt = _hmt || [];
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>PHP学习——登录验证（第一级） | 我是_一棵树_</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0x00 前言最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。
-0X01 代码结构话不多说，上代码先~~~
-1、代码目录结构在同一个目录下三个文件：
-index.html//登录页面
-login_auth.php//验证页面
-ind">
+  <meta name="description" content="0x00 前言最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP学习——登录验证（第一级）">
 <meta property="og:url" content="http://wsyks.github.io/2016/03/01/PHP学习——最简单的登录验证/index.html">
 <meta property="og:site_name" content="我是_一棵树_">
-<meta property="og:description" content="0x00 前言最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。
-0X01 代码结构话不多说，上代码先~~~
-1、代码目录结构在同一个目录下三个文件：
-index.html//登录页面
-login_auth.php//验证页面
-ind">
-<meta property="og:updated_time" content="2016-03-30T14:16:44.000Z">
+<meta property="og:description" content="0x00 前言最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。">
+<meta property="og:updated_time" content="2016-07-28T12:04:48.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP学习——登录验证（第一级）">
-<meta name="twitter:description" content="0x00 前言最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。
-0X01 代码结构话不多说，上代码先~~~
-1、代码目录结构在同一个目录下三个文件：
-index.html//登录页面
-login_auth.php//验证页面
-ind">
+<meta name="twitter:description" content="0x00 前言最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。">
   
     <link rel="alternative" href="/atom.xml" title="我是_一棵树_" type="application/atom+xml">
   
@@ -142,7 +127,7 @@ ind">
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/ReactJs/" style="font-size: 10px;">ReactJs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/可视化/" style="font-size: 10px;">可视化</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构/" style="font-size: 10px;">网站架构</a>
+						<a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/ReactJs/" style="font-size: 10px;">ReactJs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/可视化/" style="font-size: 10px;">可视化</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构/" style="font-size: 10px;">网站架构</a>
 					</div>
 				</section>
 				
@@ -265,14 +250,13 @@ ind">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h1><p>最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。</p>
+        <h1 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h1><p>最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。<br><a id="more"></a></p>
 <h1 id="0X01-代码结构"><a href="#0X01-代码结构" class="headerlink" title="0X01 代码结构"></a>0X01 代码结构</h1><p>话不多说，上代码先~~~</p>
 <h3 id="1、代码目录结构"><a href="#1、代码目录结构" class="headerlink" title="1、代码目录结构"></a>1、代码目录结构</h3><p>在同一个目录下三个文件：</p>
 <pre><code>index.html//登录页面
 login_auth.php//验证页面
 index.php//登录成功页面
-</code></pre><a id="more"></a>
-<h3 id="2、数据库结构："><a href="#2、数据库结构：" class="headerlink" title="2、数据库结构："></a>2、数据库结构：</h3><pre><code>user:数据库
+</code></pre><h3 id="2、数据库结构："><a href="#2、数据库结构：" class="headerlink" title="2、数据库结构："></a>2、数据库结构：</h3><pre><code>user:数据库
   =》username表
     =&gt;username 字段名
     =&gt;password 字段名

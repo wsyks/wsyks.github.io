@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-07-28T11:43:06.189Z</updated>
+  <updated>2016-07-28T12:10:50.097Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -16,27 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>s</title>
-    <link href="http://wsyks.github.io/2016/07/28/s/"/>
-    <id>http://wsyks.github.io/2016/07/28/s/</id>
-    <published>2016-07-28T11:43:06.000Z</published>
-    <updated>2016-07-28T11:43:06.189Z</updated>
-    
-    <content type="html"></content>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>HTML5——拖放</title>
-    <link href="http://wsyks.github.io/2016/07/28/HTML5%E2%80%94%E2%80%94%E6%8B%96%E6%94%BE/"/>
-    <id>http://wsyks.github.io/2016/07/28/HTML5——拖放/</id>
-    <published>2016-07-28T09:50:35.000Z</published>
-    <updated>2016-07-28T11:42:22.645Z</updated>
+    <title>HTML5_拖放</title>
+    <link href="http://wsyks.github.io/2016/07/28/HTML5-%E6%8B%96%E6%94%BE/"/>
+    <id>http://wsyks.github.io/2016/07/28/HTML5-拖放/</id>
+    <published>2016-07-28T12:09:38.000Z</published>
+    <updated>2016-07-28T12:10:50.097Z</updated>
     
     <content type="html">&lt;h2 id=&quot;1、-拖放事件&quot;&gt;&lt;a href=&quot;#1、-拖放事件&quot; class=&quot;headerlink&quot; title=&quot;1、 拖放事件&quot;&gt;&lt;/a&gt;1、 拖放事件&lt;/h2&gt;&lt;p&gt;拖动某元素,发生以下事件&lt;/p&gt;
 &lt;ol&gt;
@@ -105,8 +89,6 @@
     </summary>
     
     
-      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
   </entry>
   
   <entry>
@@ -114,11 +96,10 @@
     <link href="http://wsyks.github.io/2016/07/21/%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE/"/>
     <id>http://wsyks.github.io/2016/07/21/瓦片地图/</id>
     <published>2016-07-21T08:39:05.000Z</published>
-    <updated>2016-07-22T01:53:56.000Z</updated>
+    <updated>2016-07-28T12:03:52.753Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;00X0-前言&quot;&gt;&lt;a href=&quot;#00X0-前言&quot; class=&quot;headerlink&quot; title=&quot;00X0 前言&quot;&gt;&lt;/a&gt;00X0 前言&lt;/h2&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;/p&gt;
-&lt;p&gt;【小栗子】&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/css/leaflet.css&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/js/leaflet.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--设置一个div对象用于承载地图 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;leaflet-map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;style&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width:450px;height:300px&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; map = L.map(&lt;span class=&quot;string&quot;&gt;&#39;map&#39;&lt;/span&gt;).setView([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;], &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.tileLayer(&lt;span class=&quot;string&quot;&gt;&#39;http://&amp;#123;s&amp;#125;.tile.osm.org/&amp;#123;z&amp;#125;/&amp;#123;x&amp;#125;/&amp;#123;y&amp;#125;.png&#39;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&lt;span class=&quot;comment&quot;&gt;// attribution: &#39;&amp;amp;copy; &amp;lt;a href=&quot;http://osm.org/copyright&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&amp;#125;).addTo(map);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.marker([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;]).addTo(map)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.bindPopup(&lt;span class=&quot;string&quot;&gt;&#39;A pretty CSS3 popup.&amp;lt;br&amp;gt; Easily customizable.&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.openPopup();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————&lt;strong&gt;瓦片地图&lt;/strong&gt;。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;00X0-前言&quot;&gt;&lt;a href=&quot;#00X0-前言&quot; class=&quot;headerlink&quot; title=&quot;00X0 前言&quot;&gt;&lt;/a&gt;00X0 前言&lt;/h2&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;【小栗子】&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/css/leaflet.css&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/js/leaflet.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--设置一个div对象用于承载地图 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;leaflet-map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;style&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width:450px;height:300px&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; map = L.map(&lt;span class=&quot;string&quot;&gt;&#39;map&#39;&lt;/span&gt;).setView([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;], &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.tileLayer(&lt;span class=&quot;string&quot;&gt;&#39;http://&amp;#123;s&amp;#125;.tile.osm.org/&amp;#123;z&amp;#125;/&amp;#123;x&amp;#125;/&amp;#123;y&amp;#125;.png&#39;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&lt;span class=&quot;comment&quot;&gt;// attribution: &#39;&amp;amp;copy; &amp;lt;a href=&quot;http://osm.org/copyright&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&amp;#125;).addTo(map);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.marker([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;]).addTo(map)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.bindPopup(&lt;span class=&quot;string&quot;&gt;&#39;A pretty CSS3 popup.&amp;lt;br&amp;gt; Easily customizable.&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.openPopup();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————&lt;strong&gt;瓦片地图&lt;/strong&gt;。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&quot;0X01-瓦片地图概念&quot;&gt;&lt;a href=&quot;#0X01-瓦片地图概念&quot; class=&quot;headerlink&quot; title=&quot;0X01 瓦片地图概念&quot;&gt;&lt;/a&gt;0X01 瓦片地图概念&lt;/h2&gt;&lt;p&gt;地图瓦片地址栗子，以google为例：&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://mt2.google.cn/vt/lyrs=m@167000000&amp;amp;hl=zh-CN&amp;amp;gl=cn&amp;amp;x=420&amp;amp;y=193&amp;amp;z=9&amp;amp;s=Galil&quot; alt=&quot;http://mt2.google.cn/vt/lyrs=m@167000000&amp;amp;hl=zh-CN&amp;amp;gl=cn&amp;amp;x=420&amp;amp;y=193&amp;amp;z=9&amp;amp;s=Galil&quot;&gt;&lt;/p&gt;
@@ -235,9 +216,7 @@ distanceY = (startTileY - viewBounds.rightTop.y) / Resolutions[l]
     
     <summary type="html">
     
-      &lt;h2 id=&quot;00X0-前言&quot;&gt;&lt;a href=&quot;#00X0-前言&quot; class=&quot;headerlink&quot; title=&quot;00X0 前言&quot;&gt;&lt;/a&gt;00X0 前言&lt;/h2&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;/p&gt;
-&lt;p&gt;【小栗子】&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/css/leaflet.css&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/js/leaflet.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--设置一个div对象用于承载地图 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;leaflet-map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;style&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width:450px;height:300px&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; map = L.map(&lt;span class=&quot;string&quot;&gt;&#39;map&#39;&lt;/span&gt;).setView([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;], &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.tileLayer(&lt;span class=&quot;string&quot;&gt;&#39;http://&amp;#123;s&amp;#125;.tile.osm.org/&amp;#123;z&amp;#125;/&amp;#123;x&amp;#125;/&amp;#123;y&amp;#125;.png&#39;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&lt;span class=&quot;comment&quot;&gt;// attribution: &#39;&amp;amp;copy; &amp;lt;a href=&quot;http://osm.org/copyright&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&amp;#125;).addTo(map);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.marker([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;]).addTo(map)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.bindPopup(&lt;span class=&quot;string&quot;&gt;&#39;A pretty CSS3 popup.&amp;lt;br&amp;gt; Easily customizable.&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.openPopup();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————&lt;strong&gt;瓦片地图&lt;/strong&gt;。&lt;br&gt;
+      &lt;h2 id=&quot;00X0-前言&quot;&gt;&lt;a href=&quot;#00X0-前言&quot; class=&quot;headerlink&quot; title=&quot;00X0 前言&quot;&gt;&lt;/a&gt;00X0 前言&lt;/h2&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;br&gt;
     
     </summary>
     
@@ -255,10 +234,10 @@ distanceY = (startTileY - viewBounds.rightTop.y) / Resolutions[l]
     <link href="http://wsyks.github.io/2016/07/14/ReactJS%EF%BC%8C%E4%BD%A0%E5%A5%BD/"/>
     <id>http://wsyks.github.io/2016/07/14/ReactJS，你好/</id>
     <published>2016-07-14T02:52:44.000Z</published>
-    <updated>2016-07-14T09:54:22.000Z</updated>
+    <updated>2016-07-28T12:04:35.385Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;00X0-写在前面的话&quot;&gt;&lt;a href=&quot;#00X0-写在前面的话&quot; class=&quot;headerlink&quot; title=&quot;00X0 写在前面的话&quot;&gt;&lt;/a&gt;00X0 写在前面的话&lt;/h1&gt;&lt;p&gt;刚接触Angular不久，还没怎么用过，师兄说更推荐学ReactJS，之前在阮一峰的博客里匆匆浏览过ReactJS的教程，没留下什么深刻的印象，决定好好学习一下，最好能用到现在做的项目中。文章的大部分内容都来自别人的教程，做了一些整合。&lt;/p&gt;
-&lt;h1 id=&quot;00X1-React简介&quot;&gt;&lt;a href=&quot;#00X1-React简介&quot; class=&quot;headerlink&quot; title=&quot;00X1 React简介&quot;&gt;&lt;/a&gt;00X1 React简介&lt;/h1&gt;&lt;p&gt;React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;00X0-写在前面的话&quot;&gt;&lt;a href=&quot;#00X0-写在前面的话&quot; class=&quot;headerlink&quot; title=&quot;00X0 写在前面的话&quot;&gt;&lt;/a&gt;00X0 写在前面的话&lt;/h1&gt;&lt;p&gt;刚接触Angular不久，还没怎么用过，师兄说更推荐学ReactJS，之前在阮一峰的博客里匆匆浏览过ReactJS的教程，没留下什么深刻的印象，决定好好学习一下，最好能用到现在做的项目中。文章的大部分内容都来自别人的教程，做了一些整合。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;00X1-React简介&quot;&gt;&lt;a href=&quot;#00X1-React简介&quot; class=&quot;headerlink&quot; title=&quot;00X1 React简介&quot;&gt;&lt;/a&gt;00X1 React简介&lt;/h1&gt;&lt;p&gt;React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。&lt;/p&gt;
 &lt;p&gt;#00X2 React的特点&lt;/p&gt;
 &lt;h3 id=&quot;1、解释React认识误区：&quot;&gt;&lt;a href=&quot;#1、解释React认识误区：&quot; class=&quot;headerlink&quot; title=&quot;1、解释React认识误区：&quot;&gt;&lt;/a&gt;1、解释React认识误区：&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;React不是一个完整的MVC框架，最多可以认为是MVC中的V（View），甚至React并不非常认可MVC开发模式；&lt;/li&gt;
@@ -371,8 +350,7 @@ distanceY = (startTileY - viewBounds.rightTop.y) / Resolutions[l]
     
     <summary type="html">
     
-      &lt;h1 id=&quot;00X0-写在前面的话&quot;&gt;&lt;a href=&quot;#00X0-写在前面的话&quot; class=&quot;headerlink&quot; title=&quot;00X0 写在前面的话&quot;&gt;&lt;/a&gt;00X0 写在前面的话&lt;/h1&gt;&lt;p&gt;刚接触Angular不久，还没怎么用过，师兄说更推荐学ReactJS，之前在阮一峰的博客里匆匆浏览过ReactJS的教程，没留下什么深刻的印象，决定好好学习一下，最好能用到现在做的项目中。文章的大部分内容都来自别人的教程，做了一些整合。&lt;/p&gt;
-&lt;h1 id=&quot;00X1-React简介&quot;&gt;&lt;a href=&quot;#00X1-React简介&quot; class=&quot;headerlink&quot; title=&quot;00X1 React简介&quot;&gt;&lt;/a&gt;00X1 React简介&lt;/h1&gt;&lt;p&gt;React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。&lt;br&gt;
+      &lt;h1 id=&quot;00X0-写在前面的话&quot;&gt;&lt;a href=&quot;#00X0-写在前面的话&quot; class=&quot;headerlink&quot; title=&quot;00X0 写在前面的话&quot;&gt;&lt;/a&gt;00X0 写在前面的话&lt;/h1&gt;&lt;p&gt;刚接触Angular不久，还没怎么用过，师兄说更推荐学ReactJS，之前在阮一峰的博客里匆匆浏览过ReactJS的教程，没留下什么深刻的印象，决定好好学习一下，最好能用到现在做的项目中。文章的大部分内容都来自别人的教程，做了一些整合。&lt;br&gt;
     
     </summary>
     
@@ -388,11 +366,12 @@ distanceY = (startTileY - viewBounds.rightTop.y) / Resolutions[l]
     <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记/</id>
     <published>2016-07-08T03:57:56.000Z</published>
-    <updated>2016-07-11T02:21:20.000Z</updated>
+    <updated>2016-07-28T12:05:24.150Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
+&lt;/code&gt;&lt;/pre&gt; &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;ol&gt;
 &lt;li&gt;AngularJS 通过 ng-directives 扩展了 HTML。 &lt;/li&gt;
 &lt;li&gt;非常适合做单页面应用&lt;/li&gt;
 &lt;li&gt;MVC的思想（或者是MVVM）&lt;/li&gt;
@@ -400,7 +379,6 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 &lt;li&gt;双向数据绑定&lt;/li&gt;
 &lt;li&gt;指令&lt;/li&gt;
 &lt;/ol&gt;
- &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;下面是angular中关于MVVM模式的运用：&lt;br&gt;&lt;img src=&quot;http://greengerong.github.io/images/blog_img/angular-mvvm.png&quot; alt=&quot;Angular的mvvm&quot;&gt;&lt;/p&gt;
 &lt;p&gt;在angular中MVVM模式主要分为四部分：&lt;/p&gt;
 &lt;ul&gt;
@@ -530,14 +508,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     
       &lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
-&lt;/code&gt;&lt;/pre&gt;&lt;ol&gt;
-&lt;li&gt;AngularJS 通过 ng-directives 扩展了 HTML。 &lt;/li&gt;
-&lt;li&gt;非常适合做单页面应用&lt;/li&gt;
-&lt;li&gt;MVC的思想（或者是MVVM）&lt;/li&gt;
-&lt;li&gt;模块化和依赖注入&lt;/li&gt;
-&lt;li&gt;双向数据绑定&lt;/li&gt;
-&lt;li&gt;指令&lt;/li&gt;
-&lt;/ol&gt;
+&lt;/code&gt;&lt;/pre&gt;
     
     </summary>
     
@@ -613,20 +584,17 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/09/%E5%88%86%E4%BA%AB%E4%B8%A4%E7%AF%87%E6%B8%B8%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/04/09/分享两篇游记/</id>
     <published>2016-04-09T13:56:41.000Z</published>
-    <updated>2016-07-11T02:21:38.000Z</updated>
+    <updated>2016-07-28T12:04:21.961Z</updated>
     
-    <content type="html">&lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;所谓身未动，心已远大抵便是如此吧。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写了一篇游记，给大家~，还有一篇是今年寒假去厦门的，可以对比，我的摄影功力简直大增。&lt;/p&gt;
+    <content type="html">&lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;    所谓身未动，心已远大抵便是如此吧。&lt;/p&gt;
+&lt;p&gt;今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写了一篇游记，给大家~，还有一篇是今年寒假去厦门的，可以对比，我的摄影功力简直大增。&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.mafengwo.cn/i/5452843.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;西游记之女儿国———泸沽湖，西昌邛海之旅&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.mafengwo.cn/i/5452321.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;漫漫浪——厦门篇（鼓浪屿，曾厝垵，厦大，南普陀）&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;所谓身未动，心已远大抵便是如此吧。
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写
+      &lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;br&gt;
     
     </summary>
     
@@ -736,10 +704,11 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/06/php-mongodb%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/"/>
     <id>http://wsyks.github.io/2016/04/06/php-mongodb扩展安装/</id>
     <published>2016-04-06T14:03:35.000Z</published>
-    <updated>2016-04-06T14:35:58.000Z</updated>
+    <updated>2016-07-28T12:05:00.232Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。&lt;/p&gt;
-&lt;h1 id=&quot;0X01-安装前&quot;&gt;&lt;a href=&quot;#0X01-安装前&quot; class=&quot;headerlink&quot; title=&quot;0X01 安装前&quot;&gt;&lt;/a&gt;0X01 安装前&lt;/h1&gt;&lt;p&gt;首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/1-1.png&quot; alt=&quot;php信息&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;0X01-安装前&quot;&gt;&lt;a href=&quot;#0X01-安装前&quot; class=&quot;headerlink&quot; title=&quot;0X01 安装前&quot;&gt;&lt;/a&gt;0X01 安装前&lt;/h1&gt;&lt;p&gt;首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/1-1.png&quot; alt=&quot;php信息&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X02-下载安装&quot;&gt;&lt;a href=&quot;#0X02-下载安装&quot; class=&quot;headerlink&quot; title=&quot;0X02 下载安装&quot;&gt;&lt;/a&gt;0X02 下载安装&lt;/h1&gt;&lt;h3 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h3&gt;&lt;p&gt;知道了自己php的相关信息后，可以去&lt;a href=&quot;http://pecl.php.net/package/mongo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;站下载合适的mongodb扩展文件。&lt;br&gt;【注意】：根据的php版本下载对应的版本，以及选择正确x64还是x86，笔者当时看到php5.4的只有x86版本，心里吐了一口老血，什么鬼，竟然没有，在网上找了半天，终于找到合适的。分享给大家。【&lt;a href=&quot;http://download.csdn.net/detail/tiger520119/6204383#comment&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点击这里&lt;/a&gt;】&lt;/p&gt;
 &lt;h3 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h3&gt;&lt;p&gt;下载完你需要的二进制包后，解压压缩包，将’php_mongo.dll’文件（下载过来的文件由于版本，可能名字有些不同，可以统一改成如上）添加到你的PHP扩展目录中（ext）。ext目录通常在PHP安装目录下的ext目录。&lt;br&gt;打开php配置文件 php.ini 添加以下配置：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;extension=php_mongo.dll //注意不要在前面加“#”号
@@ -749,8 +718,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     
     <summary type="html">
     
-      &lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。&lt;/p&gt;
-&lt;h1 id=&quot;0X01-安装前&quot;&gt;&lt;a href=&quot;#0X01-安装前&quot; class=&quot;headerlink&quot; title=&quot;0X01 安装前&quot;&gt;&lt;/a&gt;0X01 安装前&lt;/h1&gt;&lt;p&gt;首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。&lt;br&gt;
+      &lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。&lt;br&gt;
     
     </summary>
     
@@ -766,9 +734,9 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/03/30/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>http://wsyks.github.io/2016/03/30/hexo博客搭建/</id>
     <published>2016-03-30T14:08:38.000Z</published>
-    <updated>2016-04-06T14:37:30.000Z</updated>
+    <updated>2016-07-28T12:05:15.450Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;0X00-Hexo简介&quot;&gt;&lt;a href=&quot;#0X00-Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 Hexo简介&quot;&gt;&lt;/a&gt;0X00 Hexo简介&lt;/h1&gt;&lt;p&gt;hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;0X00-Hexo简介&quot;&gt;&lt;a href=&quot;#0X00-Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 Hexo简介&quot;&gt;&lt;/a&gt;0X00 Hexo简介&lt;/h1&gt;&lt;p&gt;hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;    &lt;/p&gt;
 &lt;h1 id=&quot;0X01-部署过程&quot;&gt;&lt;a href=&quot;#0X01-部署过程&quot; class=&quot;headerlink&quot; title=&quot;0X01 部署过程&quot;&gt;&lt;/a&gt;0X01 部署过程&lt;/h1&gt;&lt;ol&gt;
 &lt;li&gt;Git安装和Github设置&lt;/li&gt;
 &lt;li&gt;Node.js安装&lt;/li&gt;
@@ -778,8 +746,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 &lt;/ol&gt;
 &lt;pre&gt;&lt;code&gt;npm install hexo -g  #-g表示全局安装, npm默认为当前项目安装
 hexo init            #执行init命令初始化hexo到你指定的目录
-&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;     
-&lt;p&gt;  再执行以下命令：&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;  再执行以下命令：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;hexo generate       #自动根据当前目录下文件,生成静态网页
 hexo server         #运行本地服务
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;浏览器输入&lt;a href=&quot;http://localhost:4000就可以看到效果。&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000就可以看到效果。&lt;/a&gt;&lt;/p&gt;
@@ -816,17 +783,7 @@ hexo deploy  #部署到远程
     
     <summary type="html">
     
-      &lt;h1 id=&quot;0X00-Hexo简介&quot;&gt;&lt;a href=&quot;#0X00-Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 Hexo简介&quot;&gt;&lt;/a&gt;0X00 Hexo简介&lt;/h1&gt;&lt;p&gt;hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。。&lt;/p&gt;
-&lt;h1 id=&quot;0X01-部署过程&quot;&gt;&lt;a href=&quot;#0X01-部署过程&quot; class=&quot;headerlink&quot; title=&quot;0X01 部署过程&quot;&gt;&lt;/a&gt;0X01 部署过程&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;Git安装和Github设置&lt;/li&gt;
-&lt;li&gt;Node.js安装&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Hexo安装与设置&lt;br&gt;Node, npm和Git都安装成功, 开始安装hexo&lt;/p&gt;
-&lt;p&gt;安装命令：&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;npm install hexo -g  #-g表示全局安装, npm默认为当前项目安装
-hexo init            #执行init命令初始化hexo到你指定的目录
-&lt;/code&gt;&lt;/pre&gt;
+      &lt;h1 id=&quot;0X00-Hexo简介&quot;&gt;&lt;a href=&quot;#0X00-Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 Hexo简介&quot;&gt;&lt;/a&gt;0X00 Hexo简介&lt;/h1&gt;&lt;p&gt;hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。。&lt;br&gt;
     
     </summary>
     
@@ -870,16 +827,15 @@ hexo init            #执行init命令初始化hexo到你指定的目录
     <link href="http://wsyks.github.io/2016/03/01/PHP%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81/"/>
     <id>http://wsyks.github.io/2016/03/01/PHP学习——最简单的登录验证/</id>
     <published>2016-03-01T13:39:31.000Z</published>
-    <updated>2016-03-30T14:16:44.000Z</updated>
+    <updated>2016-07-28T12:04:48.400Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X01-代码结构&quot;&gt;&lt;a href=&quot;#0X01-代码结构&quot; class=&quot;headerlink&quot; title=&quot;0X01 代码结构&quot;&gt;&lt;/a&gt;0X01 代码结构&lt;/h1&gt;&lt;p&gt;话不多说，上代码先~~~&lt;/p&gt;
 &lt;h3 id=&quot;1、代码目录结构&quot;&gt;&lt;a href=&quot;#1、代码目录结构&quot; class=&quot;headerlink&quot; title=&quot;1、代码目录结构&quot;&gt;&lt;/a&gt;1、代码目录结构&lt;/h3&gt;&lt;p&gt;在同一个目录下三个文件：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;index.html//登录页面
 login_auth.php//验证页面
 index.php//登录成功页面
-&lt;/code&gt;&lt;/pre&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;2、数据库结构：&quot;&gt;&lt;a href=&quot;#2、数据库结构：&quot; class=&quot;headerlink&quot; title=&quot;2、数据库结构：&quot;&gt;&lt;/a&gt;2、数据库结构：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;user:数据库
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;2、数据库结构：&quot;&gt;&lt;a href=&quot;#2、数据库结构：&quot; class=&quot;headerlink&quot; title=&quot;2、数据库结构：&quot;&gt;&lt;/a&gt;2、数据库结构：&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;user:数据库
   =》username表
     =&amp;gt;username 字段名
     =&amp;gt;password 字段名
@@ -923,13 +879,7 @@ connection 可选。规定 SQL 连接标识符。如果未规定，则使用上�
     
     <summary type="html">
     
-      &lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。&lt;/p&gt;
-&lt;h1 id=&quot;0X01-代码结构&quot;&gt;&lt;a href=&quot;#0X01-代码结构&quot; class=&quot;headerlink&quot; title=&quot;0X01 代码结构&quot;&gt;&lt;/a&gt;0X01 代码结构&lt;/h1&gt;&lt;p&gt;话不多说，上代码先~~~&lt;/p&gt;
-&lt;h3 id=&quot;1、代码目录结构&quot;&gt;&lt;a href=&quot;#1、代码目录结构&quot; class=&quot;headerlink&quot; title=&quot;1、代码目录结构&quot;&gt;&lt;/a&gt;1、代码目录结构&lt;/h3&gt;&lt;p&gt;在同一个目录下三个文件：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;index.html//登录页面
-login_auth.php//验证页面
-index.php//登录成功页面
-&lt;/code&gt;&lt;/pre&gt;
+      &lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。&lt;br&gt;
     
     </summary>
     

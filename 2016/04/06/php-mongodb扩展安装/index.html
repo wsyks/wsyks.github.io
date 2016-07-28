@@ -18,21 +18,18 @@ var _hmt = _hmt || [];
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>php mongodb扩展安装 | 我是_一棵树_</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。
-0X01 安装前首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。">
+  <meta name="description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php mongodb扩展安装">
 <meta property="og:url" content="http://wsyks.github.io/2016/04/06/php-mongodb扩展安装/index.html">
 <meta property="og:site_name" content="我是_一棵树_">
-<meta property="og:description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。
-0X01 安装前首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。">
+<meta property="og:description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。">
 <meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/1-1.png">
 <meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/2.png">
-<meta property="og:updated_time" content="2016-04-06T14:35:58.000Z">
+<meta property="og:updated_time" content="2016-07-28T12:05:00.232Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php mongodb扩展安装">
-<meta name="twitter:description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。
-0X01 安装前首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。">
+<meta name="twitter:description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。">
   
     <link rel="alternative" href="/atom.xml" title="我是_一棵树_" type="application/atom+xml">
   
@@ -132,7 +129,7 @@ var _hmt = _hmt || [];
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/ReactJs/" style="font-size: 10px;">ReactJs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/可视化/" style="font-size: 10px;">可视化</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构/" style="font-size: 10px;">网站架构</a>
+						<a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/ReactJs/" style="font-size: 10px;">ReactJs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/可视化/" style="font-size: 10px;">可视化</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构/" style="font-size: 10px;">网站架构</a>
 					</div>
 				</section>
 				
@@ -255,8 +252,9 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p>由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。</p>
-<h1 id="0X01-安装前"><a href="#0X01-安装前" class="headerlink" title="0X01 安装前"></a>0X01 安装前</h1><p>首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。<br><a id="more"></a><br><img src="http://7xsgg1.com1.z0.glb.clouddn.com/1-1.png" alt="php信息"></p>
+        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p>由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。<br><a id="more"></a></p>
+<h1 id="0X01-安装前"><a href="#0X01-安装前" class="headerlink" title="0X01 安装前"></a>0X01 安装前</h1><p>首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。</p>
+<p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/1-1.png" alt="php信息"></p>
 <h1 id="0X02-下载安装"><a href="#0X02-下载安装" class="headerlink" title="0X02 下载安装"></a>0X02 下载安装</h1><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>知道了自己php的相关信息后，可以去<a href="http://pecl.php.net/package/mongo" target="_blank" rel="external">官网</a>站下载合适的mongodb扩展文件。<br>【注意】：根据的php版本下载对应的版本，以及选择正确x64还是x86，笔者当时看到php5.4的只有x86版本，心里吐了一口老血，什么鬼，竟然没有，在网上找了半天，终于找到合适的。分享给大家。【<a href="http://download.csdn.net/detail/tiger520119/6204383#comment" target="_blank" rel="external">点击这里</a>】</p>
 <h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>下载完你需要的二进制包后，解压压缩包，将’php_mongo.dll’文件（下载过来的文件由于版本，可能名字有些不同，可以统一改成如上）添加到你的PHP扩展目录中（ext）。ext目录通常在PHP安装目录下的ext目录。<br>打开php配置文件 php.ini 添加以下配置：</p>
 <pre><code>extension=php_mongo.dll //注意不要在前面加“#”号

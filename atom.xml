@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-07-28T14:07:07.697Z</updated>
+  <updated>2016-07-28T14:16:07.593Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://wsyks.github.io/2016/07/28/three-js%E5%85%A5%E9%97%A8%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E4%B8%89%E5%A4%A7%E7%BB%84%E5%BB%BA/"/>
     <id>http://wsyks.github.io/2016/07/28/three-js入门笔记（一）——三大组建/</id>
     <published>2016-07-28T13:58:53.000Z</published>
-    <updated>2016-07-28T14:07:07.697Z</updated>
+    <updated>2016-07-28T14:16:07.593Z</updated>
     
     <content type="html">&lt;p&gt;在Three.js中，要渲染物体到网页中，我们需要3个组建：场景（scene）、相机（camera）和渲染器（renderer）。有了这三样东西，才能将物体渲染到网页中去。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -31,17 +31,14 @@
 &lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// show axes in the screen&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var axes = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; THREE.AxisHelper(&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scene.add(axes);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// create the ground plane&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var planeGeometry = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; THREE.PlaneGeometry(&lt;span class=&quot;number&quot;&gt;60&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;20&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var planeMaterial = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; THREE.MeshBasicMaterial(&amp;#123;color: &lt;span class=&quot;number&quot;&gt;0xcccccc&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var plane = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; THREE.Mesh(planeGeometry, planeMaterial);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// rotate and position the plane&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plane.rotation.x = -&lt;span class=&quot;number&quot;&gt;0.5&lt;/span&gt; * Math.PI;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plane.position.x = &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plane.position.y = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;plane.position.z = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// add the plane to the scene&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;scene.add(plane);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;【解读】&lt;/p&gt;
-&lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;首先创建了一个axes（坐标轴）对象，并使用scene.add0函数将这些坐标轴&lt;br&gt;添加到我们的场景中。&lt;/li&gt;
 &lt;li&gt;用THREE.PlaneGeometry(x,y)定义平面的尺寸。&lt;/li&gt;
 &lt;li&gt;使用MeshBasicMaterialO方法创建一个基本的材质，且颜色是Oxcccccc。&lt;/li&gt;
 &lt;li&gt;接下来把定义的平面尺寸与材质对象合并到一个名为plane （平面）的Mesh（网格）对象中。 &lt;/li&gt;
 &lt;li&gt;之后将它放置到合适的位置&lt;/li&gt;
-&lt;li&gt;最后，我们要把这个plane添加到scene。&lt;/li&gt;
+&lt;li&gt;最后，我们要把这个plane添加到scene。&lt;br&gt;可以依照同样的方法添加cube（方块）和sphere（球体），但是要把wireframe（线框）属性设为true。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;可以依照同样的方法添加cube（方块）和sphere（球体），但是要把wireframe（线框）属性设为true。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;&lt;strong&gt;3、添加立方体小栗子&lt;/strong&gt;&lt;br&gt;在上面代码的基础上，再添加一个立方体到场景中&lt;/p&gt;
 &lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;var cubeGeometry = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; THREE.BoxGeometry(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; var cubeMaterial = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; THREE.MeshBasicMaterial(&amp;#123;color: &lt;span class=&quot;number&quot;&gt;0xff0000&lt;/span&gt;, wireframe: &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; var cube = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; THREE.Mesh(cubeGeometry, cubeMaterial);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;comment&quot;&gt;// position the cube&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; cube.position.x = -&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; cube.position.y = &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; cube.position.z = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;comment&quot;&gt;// add the cube to the scene&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; scene.add(cube);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -75,7 +72,7 @@
     <link href="http://wsyks.github.io/2016/07/28/HTML5-%E6%8B%96%E6%94%BE/"/>
     <id>http://wsyks.github.io/2016/07/28/HTML5-拖放/</id>
     <published>2016-07-28T12:09:38.000Z</published>
-    <updated>2016-07-28T12:26:07.821Z</updated>
+    <updated>2016-07-28T14:08:36.073Z</updated>
     
     <content type="html">&lt;h2 id=&quot;1、-拖放事件&quot;&gt;&lt;a href=&quot;#1、-拖放事件&quot; class=&quot;headerlink&quot; title=&quot;1、 拖放事件&quot;&gt;&lt;/a&gt;1、 拖放事件&lt;/h2&gt;&lt;p&gt;拖动某元素,发生以下事件&lt;/p&gt;
 &lt;ol&gt;
@@ -144,6 +141,8 @@
     
     </summary>
     
+    
+      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

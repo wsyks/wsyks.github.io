@@ -18,22 +18,16 @@ var _hmt = _hmt || [];
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <title>php mongodb操作笔记 | 我是_一棵树_</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。
-
-0X01 操作语法一、连接1、基础连接1$conn = new MongoClient(); #&amp;#40664;&amp;#35748;&amp;#26412;&amp;#22320;&amp;#30340;&amp;#36830;&amp;#25509;&amp;#10;$db = $conn-&amp;#62;db;">
+  <meta name="description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php mongodb操作笔记">
 <meta property="og:url" content="http://wsyks.github.io/2016/04/06/php-mongodb操作笔记/index.html">
 <meta property="og:site_name" content="我是_一棵树_">
-<meta property="og:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。
-
-0X01 操作语法一、连接1、基础连接1$conn = new MongoClient(); #&amp;#40664;&amp;#35748;&amp;#26412;&amp;#22320;&amp;#30340;&amp;#36830;&amp;#25509;&amp;#10;$db = $conn-&amp;#62;db;">
-<meta property="og:updated_time" content="2016-07-20T09:34:16.000Z">
+<meta property="og:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。">
+<meta property="og:updated_time" content="2016-07-28T12:13:23.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php mongodb操作笔记">
-<meta name="twitter:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。
-
-0X01 操作语法一、连接1、基础连接1$conn = new MongoClient(); #&amp;#40664;&amp;#35748;&amp;#26412;&amp;#22320;&amp;#30340;&amp;#36830;&amp;#25509;&amp;#10;$db = $conn-&amp;#62;db;">
+<meta name="twitter:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。">
   
     <link rel="alternative" href="/atom.xml" title="我是_一棵树_" type="application/atom+xml">
   
@@ -257,9 +251,7 @@ var _hmt = _hmt || [];
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p> 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。</p>
-<hr>
-<h1 id="0X01-操作语法"><a href="#0X01-操作语法" class="headerlink" title="0X01 操作语法"></a>0X01 操作语法</h1><h2 id="一、连接"><a href="#一、连接" class="headerlink" title="一、连接"></a>一、连接</h2><h3 id="1、基础连接"><a href="#1、基础连接" class="headerlink" title="1、基础连接"></a>1、基础连接</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$conn = new MongoClient(); #&#40664;&#35748;&#26412;&#22320;&#30340;&#36830;&#25509;&#10;$db = $conn-&#62;db;           #&#36873;&#25321;&#21517;&#20026;db&#30340;&#25968;&#25454;&#24211;&#10;$db=$conn-&#62;selectDB(&#34;mydb&#34;);                  #&#31532;&#20108;&#31181;&#20889;&#27861;&#10;$collection = $db-&#62;collection #&#36873;&#25321;&#19968;&#20010;&#25968;&#25454;&#24211;&#34920;&#65288;&#38598;&#21512;&#65289;&#10;$collection=$db-&#62;selectCollection(&#39;column&#39;);  #&#31532;&#20108;&#31181;&#20889;&#27861;&#10;$collection=$conn-&#62;mydb-&#62;column;              #&#26356;&#31616;&#27905;&#30340;&#20889;&#27861;</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h1 id="0X01-操作语法"><a href="#0X01-操作语法" class="headerlink" title="0X01 操作语法"></a>0X01 操作语法</h1><h2 id="一、连接"><a href="#一、连接" class="headerlink" title="一、连接"></a>一、连接</h2><h3 id="1、基础连接"><a href="#1、基础连接" class="headerlink" title="1、基础连接"></a>1、基础连接</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$conn = new MongoClient(); #&#40664;&#35748;&#26412;&#22320;&#30340;&#36830;&#25509;&#10;$db = $conn-&#62;db;           #&#36873;&#25321;&#21517;&#20026;db&#30340;&#25968;&#25454;&#24211;&#10;$db=$conn-&#62;selectDB(&#34;mydb&#34;);                  #&#31532;&#20108;&#31181;&#20889;&#27861;&#10;$collection = $db-&#62;collection #&#36873;&#25321;&#19968;&#20010;&#25968;&#25454;&#24211;&#34920;&#65288;&#38598;&#21512;&#65289;&#10;$collection=$db-&#62;selectCollection(&#39;column&#39;);  #&#31532;&#20108;&#31181;&#20889;&#27861;&#10;$collection=$conn-&#62;mydb-&#62;column;              #&#26356;&#31616;&#27905;&#30340;&#20889;&#27861;</span><br></pre></td></tr></table></figure>
 <p>【注：】</p>
 <h3 id="2、连接"><a href="#2、连接" class="headerlink" title="2、连接"></a>2、连接</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">格式：<span class="keyword">new</span> MongoClient(<span class="string">"mongodb://用户名:密码@地址:端口/默认指定数据库"</span>,参数)</span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> MongoClient(<span class="string">"mongodb://localhost"</span>);</span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> MongoClient(<span class="string">"mongodb://localhost:27017"</span>);</span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> MongoClient(<span class="string">"mongodb://localhost:$port"</span>);  <span class="comment">#mongo对应端口</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://localhost"</span>,<span class="keyword">array</span>(<span class="string">"replicaSet"</span>=&gt;<span class="keyword">true</span>)); <span class="comment">#负载均衡</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://localhost"</span>,<span class="keyword">array</span>(<span class="string">"persist"</span>=&gt;<span class="string">"t"</span>));     <span class="comment">#持久连接</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://sa:123@localhost"</span>);    <span class="comment">#带用户名密码</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://localhost:27017,localhost:27018"</span>); <span class="comment">#连接多个服务器</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb:///tmp/mongo-27017.sock"</span>);   <span class="comment">#域套接字</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="keyword">new</span> Mongo(<span class="string">"mongodb://admin:admin@localhost:27017/test"</span>,<span class="keyword">array</span>(<span class="string">'persist'</span>=&gt;<span class="string">'p'</span>,<span class="string">"replicaSet"</span>=&gt;<span class="keyword">true</span>));   <span class="comment">#完整</span></span><br></pre></td></tr></table></figure>
 <p>【注：】由于我的php版本是5.4类型，mongodb是3.0.7版本，好像由于php版本太低，导致和mongdb有些不兼容，连接带有用户名密码的服务器时会报错，目前这个问题还没得到解决，只能先不加认证。</p>

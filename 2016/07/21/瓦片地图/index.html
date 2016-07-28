@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a752ba5e82dfa1b0ba76d0a4e2dc9dfa";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+</script>
+
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>瓦片地图 | 我是_一棵树_</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="00X0 前言   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。
+【小栗子】12345678910111213141516171819&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/leaflet.cs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="瓦片地图">
+<meta property="og:url" content="http://wsyks.github.io/2016/07/21/瓦片地图/index.html">
+<meta property="og:site_name" content="我是_一棵树_">
+<meta property="og:description" content="00X0 前言   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。
+【小栗子】12345678910111213141516171819&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/leaflet.cs">
+<meta property="og:image" content="http://mt2.google.cn/vt/lyrs=m@167000000&hl=zh-CN&gl=cn&x=420&y=193&z=9&s=Galil">
+<meta property="og:image" content="http://support.supermap.com.cn/DataWarehouse/WebDocHelp/6.1.1/iServerJavaOnlineHelp/API/WMTS/TileMatrixSet.png">
+<meta property="og:image" content="http://mt2.google.cn/vt/x=0&y=0&z=1">
+<meta property="og:image" content="http://mt2.google.cn/vt/x=0&y=1&z=1">
+<meta property="og:image" content="http://mt2.google.cn/vt/x=1&y=0&z=1">
+<meta property="og:image" content="http://mt2.google.cn/vt/x=1&y=1&z=1">
+<meta property="og:image" content="http://images.cnitblog.com/blog/464760/201312/02214059-faf4aed17ee14678bd913aba4c691db1.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20131028160043109">
+<meta property="og:image" content="http://images.cnitblog.com/blog/464760/201312/02214051-757df653dec644279956210f76705d50.jpg">
+<meta property="og:updated_time" content="2016-07-22T01:53:56.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="瓦片地图">
+<meta name="twitter:description" content="00X0 前言   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。
+【小栗子】12345678910111213141516171819&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&amp;lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;assets/css/leaflet.cs">
+  
+    <link rel="alternative" href="/atom.xml" title="我是_一棵树_" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="http://7xsgg1.com1.z0.glb.clouddn.com/1111.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">我是_一棵树_</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">记录，分享，回忆</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>標籤</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>關於</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="http://weibo.com/2949528583" title="weibo">weibo</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/ReactJs/" style="font-size: 10px;">ReactJs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/可视化/" style="font-size: 10px;">可视化</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构/" style="font-size: 10px;">网站架构</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://phantom0301.coding.io/">零の杂货铺</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blackwolfsec.github.io/">blackwolf</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://ohroot.com/">半饱和</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.sccsec.com/">胖胖的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.jinglingshu.org/">精灵鼠</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://wps2015.jinglingshu.org/">wps2015</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://www.pang0lin.com/">穿山甲</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://blog.ourren.com/">ourren</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">身未动，心已远…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">我是_一棵树_</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="http://7xsgg1.com1.z0.glb.clouddn.com/1111.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">我是_一棵树_</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">记录，分享，回忆</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/2949528583" title="weibo">weibo</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-瓦片地图" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/07/21/瓦片地图/" class="article-date">
+  	<time datetime="2016-07-21T08:39:05.000Z" itemprop="datePublished">2016-07-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      瓦片地图
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/可视化/">可视化</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/技术/">技术</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="00X0-前言"><a href="#00X0-前言" class="headerlink" title="00X0 前言"></a>00X0 前言</h2><p>   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。</p>
+<p>【小栗子】<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入leaflet.js和css文件 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"assets/css/leaflet.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"assets/js/leaflet.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--设置一个div对象用于承载地图 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"map"</span> <span class="attribute">class</span>=<span class="value">"leaflet-map"</span> <span class="attribute">style</span>=<span class="value">"width:450px;height:300px"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">    <span class="keyword">var</span> map = L.map(<span class="string">'map'</span>).setView([<span class="number">51.505</span>, -<span class="number">0.09</span>], <span class="number">3</span>);</span><br><span class="line">   	L.tileLayer(<span class="string">'http://&#123;s&#125;.tile.osm.org/&#123;z&#125;/&#123;x&#125;/&#123;y&#125;.png'</span>, &#123;</span><br><span class="line">   	<span class="comment">// attribution: '&amp;copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'</span></span><br><span class="line">   	&#125;).addTo(map);</span><br><span class="line"></span><br><span class="line">   	L.marker([<span class="number">51.505</span>, -<span class="number">0.09</span>]).addTo(map)</span><br><span class="line">   	.bindPopup(<span class="string">'A pretty CSS3 popup.&lt;br&gt; Easily customizable.'</span>)</span><br><span class="line">   	.openPopup();</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————<strong>瓦片地图</strong>。<br><a id="more"></a></p>
+<hr>
+<h2 id="0X01-瓦片地图概念"><a href="#0X01-瓦片地图概念" class="headerlink" title="0X01 瓦片地图概念"></a>0X01 瓦片地图概念</h2><p>地图瓦片地址栗子，以google为例：</p>
+<p><img src="http://mt2.google.cn/vt/lyrs=m@167000000&amp;hl=zh-CN&amp;gl=cn&amp;x=420&amp;y=193&amp;z=9&amp;s=Galil" alt="http://mt2.google.cn/vt/lyrs=m@167000000&amp;hl=zh-CN&amp;gl=cn&amp;x=420&amp;y=193&amp;z=9&amp;s=Galil"></p>
+<p>现在就是要将一张张这类的地图瓦片，在客户端拼接成一幅完整的地图。<br>其中每一片的瓦片大小为：256像素x256像素</p>
+<h3 id="一、瓦片地图金字塔模型"><a href="#一、瓦片地图金字塔模型" class="headerlink" title="一、瓦片地图金字塔模型"></a>一、瓦片地图金字塔模型</h3><p>Q:为什么出现瓦片地图金字塔模型这个概念</p>
+<p>现在，我假设我们的服务器上有一个1G的影像，需要将其在前端进行显示。我们传统的做法就是首先将服务器中的1G影像下载到前端，然后浏览器加载渲染出图。但是大家想想，首先客户端下载1G的影像需要的时间一定是个漫长的过程，其次浏览器加载这么大的文件也多半会导致其崩溃。而最重要的一个问题是，我们的需求仅仅是浏览全图中的某一个区域下的某几个级别，现在却将全图下载完毕了，而这同样还导致了数据的不安全性（下载到本地），同时我们的每一次放大和缩小以及拖拽都将会使浏览器花上足够长的时间去渲染。</p>
+<p>可见，传统的方式是不符合实际需求的。到后来，又有了新的解决方法，比如arcgis的IMS版本中提出了动态出图的概念。也就是当前端发出的请求里包含了需要显示的范围、显示窗口的大小等参数后，后台动态的在原始数据中切出一个符合需求的瓦片，然后将这个数据返回给前台，并且在服务器中对这个瓦片做缓存。</p>
+<p>但是，这个方法前端出图依旧很慢，并且使地图服务器的压力过大。终于，我们的瓦片金字塔模型解决方案出现了。</p>
+<blockquote>
+<p>瓦片地图金字塔模型是一种多分辨率层次模型，从瓦片金字塔的底层到顶层，分辨率越来越低，但表示的地理范围不变。</p>
+</blockquote>
+<p><img src="http://support.supermap.com.cn/DataWarehouse/WebDocHelp/6.1.1/iServerJavaOnlineHelp/API/WMTS/TileMatrixSet.png" alt="enter description here"></p>
+<blockquote>
+<p>地图切图方式：<br>一幅地图由4^n个256*256的正方形组成，n为级别<br>例如：第0级为4^0个，即世界地图由一个256图片表示。<br>      第1级世界地图应由4^1（4）个256图片组成，也就是将世界地图（上一级的单个图片）等分成4块256图片。<br>      往下每一级依此类推……</p>
+</blockquote>
+<h3 id="二、url中关键参数"><a href="#二、url中关键参数" class="headerlink" title="二、url中关键参数"></a>二、url中关键参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mt2.google.cn</td>
+<td>Google瓦片服务服务器，可以尝试mt1.google.cn依然有效。Google提供多台瓦片服务器，减轻服务器负载，提高网络访问效率。</td>
+</tr>
+<tr>
+<td>x</td>
+<td>瓦片的横向索引，起始位置为最左边，数值为0，向右+1递增。</td>
+</tr>
+<tr>
+<td>y</td>
+<td>瓦片的纵向索引，起始位置为最上面，数值为0，向下+1递增。</td>
+</tr>
+<tr>
+<td>z</td>
+<td>地图的级别，以Google为例，最上一级为0，向下依次递增。</td>
+</tr>
+</tbody>
+</table>
+<p>比如说，1级下面，有两行和两列。这四张图片的地址如下：<br><a href="http://mt2.google.cn/vt/x=0&amp;y=0&amp;z=1" target="_blank" rel="external">http://mt2.google.cn/vt/x=0&amp;y=0&amp;z=1</a><br><img src="http://mt2.google.cn/vt/x=0&amp;y=0&amp;z=1" alt="http://mt2.google.cn/vt/x=0&amp;y=0&amp;z=1"><br><a href="http://mt2.google.cn/vt/x=0&amp;y=1&amp;z=1" target="_blank" rel="external">http://mt2.google.cn/vt/x=0&amp;y=1&amp;z=1</a><br><img src="http://mt2.google.cn/vt/x=0&amp;y=1&amp;z=1" alt="enter description here"><br><a href="http://mt2.google.cn/vt/x=1&amp;y=0&amp;z=1" target="_blank" rel="external">http://mt2.google.cn/vt/x=1&amp;y=0&amp;z=1</a><br><img src="http://mt2.google.cn/vt/x=1&amp;y=0&amp;z=1" alt="enter description here"><br><a href="http://mt2.google.cn/vt/x=1&amp;y=1&amp;z=1" target="_blank" rel="external">http://mt2.google.cn/vt/x=1&amp;y=1&amp;z=1</a><br><img src="http://mt2.google.cn/vt/x=1&amp;y=1&amp;z=1" alt="enter description here"><br>如果把这四张图片合在一起的话，就变成如下的图，这就是一个世界的地图了。<br><img src="http://images.cnitblog.com/blog/464760/201312/02214059-faf4aed17ee14678bd913aba4c691db1.png" alt="enter description here"></p>
+<h3 id="2、涉及的一些概念与变量"><a href="#2、涉及的一些概念与变量" class="headerlink" title="2、涉及的一些概念与变量"></a>2、涉及的一些概念与变量</h3><p><strong>1）地图投影方式</strong>： Web墨卡托——互联网地图通用的地图投影方式。</p>
+<p><strong>Q1：什么是墨卡托投影？</strong></p>
+<blockquote>
+<p>墨卡托(Mercator)投影，又名“等角正轴圆柱投影”，荷兰地图学家墨卡托（Mercator）在1569年拟定，假设地球被围在一个中空的圆柱里，其赤道与圆柱相接触，然后再假想地球中心有一盏灯，把球面上的图形投影到圆柱体上，再把圆柱体展开，这就是一幅标准纬线为零度（即赤道）的“墨卡托投影”绘制出的世界地图。<br><img src="http://img.blog.csdn.net/20131028160043109" alt="enter description here"></p>
+</blockquote>
+<p><strong>Q2：Google们为什么选择墨卡托投影？</strong></p>
+<blockquote>
+<p>墨卡托投影的“等角”特性，保证了对象的形状的不变行，正方形的物体投影后不会变为长方形。“等角”也保证了方向和相互位置的正确性，因此在航海和航空中常常应用，而Google们在计算人们查询地物的方向时不会出错。</p>
+<p>墨卡托投影的“圆柱”特性，保证了南北（纬线）和东西（经线）都是平行直线，并且相互垂直。而且经线间隔是相同的，纬线间隔从标准纬线（此处是赤道，也可能是其他纬线）向两级逐渐增大。<br>但是，“等角”不可避免的带来的面积的巨大变形，特别是两极地区，明显的如格陵兰岛比实际面积扩大了N倍。不过要是去两极地区探险或科考的同志们，一般有更详细的资料，不会来查看网络地图的，这个不要紧。</p>
+</blockquote>
+<p><strong>2）Bounds(地图范围)</strong>： [ -20037508.3427892, -20037508.3427892, 20037508.3427892,20037508.3427892]，单位为米，20037508.3427892表示地图周长的一半，以地图中心点做为（0，0）坐标。<br><strong>3）Levels：</strong> 地图的级别，例如：0……22。<br><strong>4）Resolutions：</strong> 分辨率数组，与级别相对应，即一个级别对应一个分辨率，分辨率表示当前级别下单个像素代表的地理长度，即一像素代表多少米。Resolutions[n] = 20037508.3427892 <em> 2 / 256 / (2^n)<br>所以，低分辨率下面，显示洲名称和海洋名称。中分辨率下面，显示省名。高分辨率下面，就显示POI信息（每个POI包含四方面信息，名称、类别、经度、纬度，一个POI可以是一栋房子、一个商铺、一个邮筒、一个公交站等）<br><strong>5）Center：</strong> 地图显示中心点。<br><em>*6）viewSize：</em></em> 地图控件窗口的大小。</p>
+<p><img src="http://images.cnitblog.com/blog/464760/201312/02214051-757df653dec644279956210f76705d50.jpg" alt="enter description here"></p>
+<h2 id="0X02-瓦片地图相关算法"><a href="#0X02-瓦片地图相关算法" class="headerlink" title="0X02 瓦片地图相关算法"></a>0X02 瓦片地图相关算法</h2><p>根据已知地图中心点、显示级别可以将地图显示范围计算出来:<br>viewBounds = [Center.x - Resolutions[l]<em>viewSize.width/2, Center.y - Resolutions[l]</em>viewSize.height/2, Center.x + Resolutions[l].viewSize.width/w, Center.y + Resolutions[l].viewSize.height/h]
+　　</p>
+<blockquote>
+<p>拼图算法剖析：</p>
+</blockquote>
+<h3 id="1、计算瓦片url"><a href="#1、计算瓦片url" class="headerlink" title="1、计算瓦片url"></a>1、计算瓦片url</h3><p>要想出图就发须知道地图控件可视范围起始点瓦片索引、末尾瓦片索引，中间区域的瓦片索引循环遍历即可得出。<br>下面看看如果计算出起始点、末尾瓦片url索引：</p>
+<p><strong>已知：</strong></p>
+<ul>
+<li>l(缩放级别)</li>
+<li>bounds(地图范围——[ -20037508.3427892, -20037508.3427892, 20037508.3427892, 20037508.3427892])</li>
+<li>viewBounds(地图控件可视范围)</li>
+<li>分辨率（Resolutions[l]）</li>
+<li>瓦片像素宽高（256）。</li>
+</ul>
+<p><strong>未知：</strong></p>
+<ul>
+<li>startX（视图起始瓦片X方向索引）</li>
+<li>startY（视图起始瓦片Y方向索引）</li>
+<li>endX（视图未尾瓦片x方向索引）</li>
+<li>endY（视图未尾瓦片y方向索引）。</li>
+</ul>
+<p><strong>求解：</strong></p>
+<pre><code>startX = floor(((viewBounds.leftBottom.x - bounds.leftBottom.x) / Resolutions[l]) / 256);
+startY = floor(((viewBounds.leftBottom.y - bounds.leftBottom.y) / Resolutions[l]) / 256);
+endX = floor(((viewBounds.rightTop.x - bounds.rightTop.x) / Resolutions[l]) / 256);
+endY = floor(((viewBounds.rightTop.y - bounds.rightTop.y) / Resolutions[l]) / 256);
+firstTileUrl(起始瓦片Url) = http://**********?x=startX&amp;y=startY&amp;z=l;
+endTileUrl(末尾瓦片Url) = http://**********?x=endX&amp;y=startY&amp;z=l;
+</code></pre><p>中间部分的url循环遍历即可得出。<br>获得了所有瓦片的url，之后就是拼接瓦片的问题。</p>
+<h3 id="2、计算瓦片放在地图控件上的位置"><a href="#2、计算瓦片放在地图控件上的位置" class="headerlink" title="2、计算瓦片放在地图控件上的位置"></a>2、计算瓦片放在地图控件上的位置</h3><p><strong>分析：</strong><br>其实只要将起始位置的瓦片像素位置算出来就可以了，由于瓦片像素大小为256，后面的各瓦片位置也就明了了。所以这里只探讨一下起始瓦片的像素位置。</p>
+<p><strong>已知：</strong></p>
+<ul>
+<li>startX（视图起始瓦片X方向索引）</li>
+<li>startY（视图起始瓦片Y方向索引）</li>
+<li>分辨率（Resolutions[l]）</li>
+<li>瓦片像素宽高（256）</li>
+<li>bounds(地图范围)</li>
+<li>viewBounds(地图控件可视范围)</li>
+</ul>
+<p><strong>未知：</strong></p>
+<ul>
+<li>startTileX（起始瓦片左上角X方向地理坐标）</li>
+<li>startTileY（起始瓦片左上角Y方向地理坐标）</li>
+<li>distanceX（瓦片左边与地图控件左边相距的像素距离）</li>
+<li>distanceY（瓦片上边与地图控件上边相距的像素距离）。</li>
+</ul>
+<p><strong>求解：</strong></p>
+<pre><code>startTileX = bounds.leftBottom.x + (startX * 256 * Resolutions[l]);
+startTileY = bounds.rightTop.y - (startY * 256 * Resolutions[l]);
+distanceX = (viewBounds.leftBottom.x - startTileX) / Resolutions[l];
+distanceY = (startTileY - viewBounds.rightTop.y) / Resolutions[l]
+</code></pre><p>公式不是最简，以方便理解，相信看官此时已经知道起始瓦片在地图控件中的摆放位置了——设地图控件起始像素位置为（0，0），那么此瓦片的像素的位置就是（-distanceX、-distanceY）。其它瓦片依据256像素宽高的关系依次而出。</p>
+<p>到此已经算出了各瓦片的url以及它们应该摆放的位置，准备工作已完成，直接帖图即可完成出图工作。</p>
+<h2 id="0X00-三、参考资料"><a href="#0X00-三、参考资料" class="headerlink" title="0X00 三、参考资料"></a>0X00 三、参考资料</h2><ul>
+<li><a href="http://www.cnblogs.com/ninemilli/archive/2011/12/26/2289285.html" target="_blank" rel="external">http://www.cnblogs.com/ninemilli/archive/2011/12/26/2289285.html</a></li>
+<li><a href="http://blog.csdn.net/mygisforum/article/details/13295223" target="_blank" rel="external">http://blog.csdn.net/mygisforum/article/details/13295223</a></li>
+<li><a href="http://www.thinkgis.cn/topic/549973e5426db0c1549792fc" target="_blank" rel="external">http://www.thinkgis.cn/topic/549973e5426db0c1549792fc</a></li>
+</ul>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/07/28/HTML5——拖放/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          HTML5——拖放
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/07/14/ReactJS，你好/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ReactJS，你好</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="瓦片地图" data-title="瓦片地图" data-url="http://wsyks.github.io/2016/07/21/瓦片地图/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 我是_一棵树_
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

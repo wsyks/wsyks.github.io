@@ -1,5 +1,17 @@
 <!DOCTYPE html>
 <html>
+
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?a752ba5e82dfa1b0ba76d0a4e2dc9dfa";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+
+</script>
+
 <head>
   <meta charset="utf-8">
   
@@ -16,7 +28,7 @@
 <meta property="og:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。
 
 0X01 操作语法一、连接1、基础连接1$conn = new MongoClient(); #&amp;#40664;&amp;#35748;&amp;#26412;&amp;#22320;&amp;#30340;&amp;#36830;&amp;#25509;&amp;#10;$db = $conn-&amp;#62;db;">
-<meta property="og:updated_time" content="2016-07-08T07:31:36.607Z">
+<meta property="og:updated_time" content="2016-07-20T09:34:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php mongodb操作笔记">
 <meta name="twitter:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。
@@ -121,7 +133,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/ReactJs/" style="font-size: 10px;">ReactJs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 15px;">mongodb</a> <a href="/tags/php/" style="font-size: 20px;">php</a> <a href="/tags/前端/" style="font-size: 15px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构/" style="font-size: 10px;">网站架构</a>
+						<a href="/tags/AngularJS/" style="font-size: 10px;">AngularJS</a> <a href="/tags/ReactJs/" style="font-size: 10px;">ReactJs</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/mongodb/" style="font-size: 13.33px;">mongodb</a> <a href="/tags/php/" style="font-size: 16.67px;">php</a> <a href="/tags/前端/" style="font-size: 20px;">前端</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a> <a href="/tags/可视化/" style="font-size: 10px;">可视化</a> <a href="/tags/回忆/" style="font-size: 10px;">回忆</a> <a href="/tags/性能优化/" style="font-size: 10px;">性能优化</a> <a href="/tags/技术/" style="font-size: 10px;">技术</a> <a href="/tags/旅游/" style="font-size: 10px;">旅游</a> <a href="/tags/生活/" style="font-size: 10px;">生活</a> <a href="/tags/算法/" style="font-size: 10px;">算法</a> <a href="/tags/网站架构/" style="font-size: 10px;">网站架构</a>
 					</div>
 				</section>
 				
@@ -263,7 +275,55 @@
 <h2 id="四、针对mongodb的一些格式"><a href="#四、针对mongodb的一些格式" class="headerlink" title="四、针对mongodb的一些格式"></a>四、针对mongodb的一些格式</h2><h3 id="1、日期"><a href="#1、日期" class="headerlink" title="1、日期"></a>1、日期</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">   MongoDate类型格式如下：</span><br><span class="line">   [timestamp] =&gt; MongoDate Object</span><br><span class="line">   (</span><br><span class="line">    [sec] =&gt; <span class="number">1379495520</span>  <span class="comment">#表当前时间</span></span><br><span class="line">    [usec] =&gt; <span class="number">0</span>          <span class="comment">#时间精确到微秒 </span></span><br><span class="line">   )</span><br><span class="line">   <span class="variable">$timestamp</span> = date(<span class="string">"Y-m-d H:i"</span>, <span class="variable">$start</span>-&gt;sec); <span class="comment">#print 2016-4-7 16:00</span></span><br><span class="line">   </span><br><span class="line">   <span class="comment">/*查询某个时间段内的数据*/</span></span><br><span class="line">   <span class="variable">$start</span> = <span class="keyword">new</span> MongoDate(<span class="variable">$startRaw</span>); <span class="comment">#创建MongoDate类型，$startRaw可为时间戳类型</span></span><br><span class="line">   如：</span><br><span class="line">   <span class="variable">$start</span> = <span class="keyword">new</span> MongoDate(strtotime(<span class="string">'2016-4-7 12:00:00'</span>));</span><br><span class="line"><span class="variable">$end</span> = <span class="keyword">new</span> MongoDate(strtotime(<span class="string">'2016-4-8 12:00:00'</span>));</span><br><span class="line">   <span class="variable">$time</span>=<span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'timestamp'</span>=&gt;<span class="keyword">array</span>(<span class="string">'$gt'</span>=&gt;<span class="variable">$start</span>,<span class="string">'$lte'</span>=&gt;<span class="variable">$end</span>))) </span><br><span class="line">   </span><br><span class="line">   <span class="comment">/*查询一星期内的数据*/</span></span><br><span class="line">   <span class="variable">$lastweek</span> = <span class="keyword">new</span> MongoDate(strtotime(<span class="string">'-1 week'</span>));   </span><br><span class="line">   <span class="variable">$data</span> = <span class="variable">$collection</span>-&gt;find(<span class="keyword">array</span>(<span class="string">'timestamp'</span> =&gt; <span class="keyword">array</span>(<span class="string">'$gt'</span> =&gt; <span class="variable">$lastweek</span>)));</span><br></pre></td></tr></table></figure>
 <h3 id="2、id"><a href="#2、id" class="headerlink" title="2、id"></a>2、id</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*使用下面的方法来匹配&#123;"_id":ObjectId("56df8bbed7bc8d047cc7dfa7")&#125;,查询、更新也一样</span><br><span class="line">$id = new MongoId("56df8bbed7bc8d047cc7dfa7");</span><br><span class="line">$data = $collection-&gt;find(array('_id'=&gt;(object)$id));</span><br><span class="line">或者</span><br><span class="line">$data = $collection-&gt;find(array('_id'=&gt;$id));</span></span><br></pre></td></tr></table></figure>
 <hr>
-<p>未完待续。。。。</p>
+<h2 id="五、mongodb的管道"><a href="#五、mongodb的管道" class="headerlink" title="五、mongodb的管道"></a>五、mongodb的管道</h2><blockquote>
+<p>管道在Unix和Linux中一般用于将当前命令的输出结果作为下一个命令的参数。<br>MongoDB的聚合管道将MongoDB文档在一个管道处理完毕后将结果传递给下一个管道处理。管道操作是可以重复的。</p>
+</blockquote>
+<p>聚合框架中常用的有以下几个操作：</p>
+<ul>
+<li>$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。</li>
+<li>$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。</li>
+<li>$limit：用来限制MongoDB聚合管道返回的文档数。</li>
+<li>$skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。</li>
+<li>$unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。</li>
+<li>$group：将集合中的文档分组，可用于统计结果。</li>
+<li>$sort：将输入文档排序后输出。</li>
+</ul>
+<p>其中还有一些表达式操作：</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$add</td>
+<td>加</td>
+</tr>
+<tr>
+<td>$devide</td>
+<td>除</td>
+</tr>
+<tr>
+<td>$mod</td>
+<td>模</td>
+</tr>
+<tr>
+<td>$multiply</td>
+<td>乘</td>
+</tr>
+<tr>
+<td>$subtract</td>
+<td>减</td>
+</tr>
+</tbody>
+</table>
+<p>php使用aggregate小栗子：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">   <span class="variable">$m</span> = <span class="keyword">new</span> MongoClient();</span><br><span class="line"><span class="variable">$db</span> = <span class="variable">$m</span>-&gt;table;</span><br><span class="line"><span class="variable">$c</span>=<span class="variable">$db</span>-&gt;collection;</span><br><span class="line"><span class="variable">$ops</span>=<span class="keyword">array</span>(</span><br><span class="line"> 	<span class="keyword">array</span>(<span class="string">'$match'</span>=&gt;<span class="keyword">array</span>(<span class="string">"time"</span>=&gt;<span class="keyword">array</span>(<span class="string">'$gt'</span>=&gt;<span class="variable">$start</span>,<span class="string">'$lt'</span>=&gt;<span class="variable">$end</span>))),</span><br><span class="line"> 	<span class="keyword">array</span>(<span class="string">'$project'</span>=&gt;<span class="keyword">array</span>(<span class="string">"time"</span>=&gt;<span class="number">1</span>,<span class="string">"honeypot"</span>=&gt;<span class="number">1</span>,<span class="string">"_id"</span>=&gt;<span class="number">0</span>)),</span><br><span class="line"> 	<span class="keyword">array</span>(<span class="string">'$group'</span>=&gt;<span class="keyword">array</span>(<span class="string">"count"</span>=&gt;<span class="keyword">array</span>(<span class="string">'$sum'</span>=&gt;<span class="number">1</span>))),</span><br><span class="line"> 	<span class="keyword">array</span>(<span class="string">'$sort'</span>=&gt;<span class="keyword">array</span>(<span class="string">"count"</span>=&gt;<span class="number">1</span>))</span><br><span class="line">);<span class="comment">//注意所有管道操作符在php里只能用单引号</span></span><br><span class="line"><span class="variable">$results</span>=<span class="variable">$c</span>-&gt;aggregate(<span class="variable">$ops</span>);</span><br></pre></td></tr></table></figure></p>
+<h2 id="五、mongodb的模糊查询"><a href="#五、mongodb的模糊查询" class="headerlink" title="五、mongodb的模糊查询"></a>五、mongodb的模糊查询</h2><blockquote>
+<p>mongodb的模糊查询主要采用正则匹配，正则和javascript的正则规则相同。</p>
+</blockquote>
+<p>不细讲，直接放一小栗子自用。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$this</span>-&gt;mongo_db-&gt;where(<span class="keyword">array</span>(<span class="string">'aaa'</span> =&gt; <span class="keyword">array</span>(<span class="string">'$regex'</span>=&gt;<span class="keyword">new</span> MongoRegex(<span class="string">"/\.$data$/i"</span>))))-&gt;get(<span class="string">'bbb'</span>);</span><br></pre></td></tr></table></figure></p>
 
       
     </div>

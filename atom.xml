@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-07-14T09:54:20.232Z</updated>
+  <updated>2016-07-28T11:42:22.645Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -16,11 +16,230 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>HTML5——拖放</title>
+    <link href="http://wsyks.github.io/2016/07/28/HTML5%E2%80%94%E2%80%94%E6%8B%96%E6%94%BE/"/>
+    <id>http://wsyks.github.io/2016/07/28/HTML5——拖放/</id>
+    <published>2016-07-28T09:50:35.000Z</published>
+    <updated>2016-07-28T11:42:22.645Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;1、-拖放事件&quot;&gt;&lt;a href=&quot;#1、-拖放事件&quot; class=&quot;headerlink&quot; title=&quot;1、 拖放事件&quot;&gt;&lt;/a&gt;1、 拖放事件&lt;/h2&gt;&lt;p&gt;拖动某元素,发生以下事件&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;dragstart&lt;/li&gt;
+&lt;li&gt;drag&lt;/li&gt;
+&lt;li&gt;dragend&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;元素被当道一个有效的目标位置时，会依次发生&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;dragenter&lt;/li&gt;
+&lt;li&gt;dragover&lt;/li&gt;
+&lt;li&gt;dragleave / drop&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;2、自定义放置目标&quot;&gt;&lt;a href=&quot;#2、自定义放置目标&quot; class=&quot;headerlink&quot; title=&quot;2、自定义放置目标&quot;&gt;&lt;/a&gt;2、自定义放置目标&lt;/h2&gt;&lt;p&gt;把一个任何元素变成有效的放置目标&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; droptarget=&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(&lt;span class=&quot;string&quot;&gt;&quot;droptarget&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;EventUtil.addHandler(droptarget ,&lt;span class=&quot;string&quot;&gt;&quot;dragover&quot;&lt;/span&gt;,&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    EventUtil.preventDefault(event);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;EventUtil.addHandler(droptarget ,&lt;span class=&quot;string&quot;&gt;&quot;dragenter&quot;&lt;/span&gt;,&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    EventUtil.preventDefault(event);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;由于在Firefox中，放置事件的默认行为是打开被放到放置目标的URL，如果是拖放的是一个文本，则会导致无效URL错误，所以为了保证正常，要取消drop事件的默认行为。&lt;/p&gt;
+&lt;figure class=&quot;highlight actionscript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;EventUtil.addHandler(droptarget ,&lt;span class=&quot;string&quot;&gt;&quot;drop&quot;&lt;/span&gt;,&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(event)&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    EventUtil.preventDefault(event);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;3、dataTransfer对象&quot;&gt;&lt;a href=&quot;#3、dataTransfer对象&quot; class=&quot;headerlink&quot; title=&quot;3、dataTransfer对象&quot;&gt;&lt;/a&gt;3、dataTransfer对象&lt;/h2&gt;&lt;p&gt;只有简单的拖放而没有数据变化然并卵，所以在拖放事件的事件处理程序中需要访问dataTransfer对象。&lt;br&gt;1、dataTransfer的方法&lt;br&gt;1）setData()&lt;br&gt;2）getData()&lt;/p&gt;
+&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//设置和接收文本数据&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;event&lt;/span&gt;.dataTransfer.setData(&lt;span class=&quot;string&quot;&gt;&quot;text&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;some text&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//第一参数是getData的唯一一个参数&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; text=&lt;span class=&quot;keyword&quot;&gt;event&lt;/span&gt;.dataTransfer.getData(&lt;span class=&quot;string&quot;&gt;&quot;text&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//设置和接收URL&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;event&lt;/span&gt;.dataTransfer.setData(&lt;span class=&quot;string&quot;&gt;&quot;url&quot;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;http://www.wrox.com&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; url=&lt;span class=&quot;keyword&quot;&gt;event&lt;/span&gt;.dataTransfer.getData(&lt;span class=&quot;string&quot;&gt;&quot;URL&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在拖动文本是，调用setData()方法，保存在dataTransfer中，在放到目标位置时，通过getData()获取。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;为保证firefox的兼容性，最好使用以下方法getData()&lt;br&gt;&lt;figure class=&quot;highlight kotlin&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; dataTransfer&lt;/span&gt;=event.dataTransfer;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; url&lt;/span&gt;=dataTransfer.getData(&lt;span class=&quot;string&quot;&gt;&quot;url&quot;&lt;/span&gt;)||dataTransfer.getData(&lt;span class=&quot;string&quot;&gt;&quot;text/uri-list&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; text&lt;/span&gt;=dataTransfer.getData(&lt;span class=&quot;string&quot;&gt;&quot;Text&quot;&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//Text大写&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;4、dataTransfer属性&quot;&gt;&lt;a href=&quot;#4、dataTransfer属性&quot; class=&quot;headerlink&quot; title=&quot;4、dataTransfer属性&quot;&gt;&lt;/a&gt;4、dataTransfer属性&lt;/h2&gt;&lt;p&gt;通过dataTransfer的dropEffect和effectAllowed属性，可以确定被拖动的元素以及作为放置目标的元素能够接收什么操作。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;dropEffect可以有以下取值&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;none&lt;/li&gt;
+&lt;li&gt;move&lt;/li&gt;
+&lt;li&gt;copy&lt;/li&gt;
+&lt;li&gt;link，放置目标会打开拖动的元素&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;dropEffect需要与effectAllowed属性配合才有用，可以有以下取值&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;uninitialized,没有设置任何放置行为&lt;/li&gt;
+&lt;li&gt;none&lt;/li&gt;
+&lt;li&gt;copy&lt;/li&gt;
+&lt;li&gt;link&lt;/li&gt;
+&lt;li&gt;move&lt;/li&gt;
+&lt;li&gt;copyLink&lt;/li&gt;
+&lt;li&gt;copyMove&lt;/li&gt;
+&lt;li&gt;linkMove&lt;/li&gt;
+&lt;li&gt;all&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;必须在ondragstart中设置effectAllowed属性&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;5、可拖动&quot;&gt;&lt;a href=&quot;#5、可拖动&quot; class=&quot;headerlink&quot; title=&quot;5、可拖动&quot;&gt;&lt;/a&gt;5、可拖动&lt;/h2&gt;&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;keyword&quot;&gt;div&lt;/span&gt; draggable=&lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt;&amp;gt;..&amp;lt;&lt;span class=&quot;keyword&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;【栗子】&lt;/p&gt;
+&lt;figure class=&quot;highlight xml&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;doctype&quot;&gt;&amp;lt;!DOCTYPE html&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;lang&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;en&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;meta&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;charset&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;UTF-8&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;html5拖放1&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;title&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;style&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;css&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;id&quot;&gt;#div1&lt;/span&gt;,&lt;span class=&quot;id&quot;&gt;#div2&lt;/span&gt; &lt;span class=&quot;rules&quot;&gt;&amp;#123;&lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;number&quot;&gt;488px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;number&quot;&gt;250px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;padding&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;number&quot;&gt;10px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;border&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;number&quot;&gt;1px&lt;/span&gt; solid &lt;span class=&quot;hexcolor&quot;&gt;#aaaaaa&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;;&lt;span class=&quot;rule&quot;&gt;&lt;span class=&quot;attribute&quot;&gt;margin-bottom&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt; &lt;span class=&quot;number&quot;&gt;50px&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;style&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;drop&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; data=event.dataTransfer.getData(&lt;span class=&quot;string&quot;&gt;&quot;Text&quot;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			event.target.appendChild(&lt;span class=&quot;built_in&quot;&gt;document&lt;/span&gt;.getElementById(data));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;drag&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			event.dataTransfer.setData(&lt;span class=&quot;string&quot;&gt;&quot;Text&quot;&lt;/span&gt;,event.target.id);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;allowDrop&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			event.preventDefault();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;head&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;请把图片拖放到矩形中：&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;div1&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ondrop&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;drop(event)&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ondragover&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;allowDrop(event)&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;drag1&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;drag1.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;draggable&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;true&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ondragstart&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;drag(event)&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;336&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;200&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;div2&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ondrop&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;drop(event)&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;ondragover&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;allowDrop(event)&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;body&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;[效果如下]&lt;br&gt;&lt;img src=&quot;./images/tuofang1.png&quot; alt=&quot;enter description here&quot; title=&quot;tuofang1.png&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1、-拖放事件&quot;&gt;&lt;a href=&quot;#1、-拖放事件&quot; class=&quot;headerlink&quot; title=&quot;1、 拖放事件&quot;&gt;&lt;/a&gt;1、 拖放事件&lt;/h2&gt;&lt;p&gt;拖动某元素,发生以下事件&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;dragstart&lt;/li&gt;
+&lt;li&gt;drag&lt;/li&gt;
+&lt;li&gt;dragend
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>瓦片地图</title>
+    <link href="http://wsyks.github.io/2016/07/21/%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE/"/>
+    <id>http://wsyks.github.io/2016/07/21/瓦片地图/</id>
+    <published>2016-07-21T08:39:05.000Z</published>
+    <updated>2016-07-22T01:53:56.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;00X0-前言&quot;&gt;&lt;a href=&quot;#00X0-前言&quot; class=&quot;headerlink&quot; title=&quot;00X0 前言&quot;&gt;&lt;/a&gt;00X0 前言&lt;/h2&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;/p&gt;
+&lt;p&gt;【小栗子】&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/css/leaflet.css&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/js/leaflet.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--设置一个div对象用于承载地图 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;leaflet-map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;style&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width:450px;height:300px&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; map = L.map(&lt;span class=&quot;string&quot;&gt;&#39;map&#39;&lt;/span&gt;).setView([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;], &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.tileLayer(&lt;span class=&quot;string&quot;&gt;&#39;http://&amp;#123;s&amp;#125;.tile.osm.org/&amp;#123;z&amp;#125;/&amp;#123;x&amp;#125;/&amp;#123;y&amp;#125;.png&#39;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&lt;span class=&quot;comment&quot;&gt;// attribution: &#39;&amp;amp;copy; &amp;lt;a href=&quot;http://osm.org/copyright&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&amp;#125;).addTo(map);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.marker([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;]).addTo(map)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.bindPopup(&lt;span class=&quot;string&quot;&gt;&#39;A pretty CSS3 popup.&amp;lt;br&amp;gt; Easily customizable.&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.openPopup();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————&lt;strong&gt;瓦片地图&lt;/strong&gt;。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;0X01-瓦片地图概念&quot;&gt;&lt;a href=&quot;#0X01-瓦片地图概念&quot; class=&quot;headerlink&quot; title=&quot;0X01 瓦片地图概念&quot;&gt;&lt;/a&gt;0X01 瓦片地图概念&lt;/h2&gt;&lt;p&gt;地图瓦片地址栗子，以google为例：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://mt2.google.cn/vt/lyrs=m@167000000&amp;amp;hl=zh-CN&amp;amp;gl=cn&amp;amp;x=420&amp;amp;y=193&amp;amp;z=9&amp;amp;s=Galil&quot; alt=&quot;http://mt2.google.cn/vt/lyrs=m@167000000&amp;amp;hl=zh-CN&amp;amp;gl=cn&amp;amp;x=420&amp;amp;y=193&amp;amp;z=9&amp;amp;s=Galil&quot;&gt;&lt;/p&gt;
+&lt;p&gt;现在就是要将一张张这类的地图瓦片，在客户端拼接成一幅完整的地图。&lt;br&gt;其中每一片的瓦片大小为：256像素x256像素&lt;/p&gt;
+&lt;h3 id=&quot;一、瓦片地图金字塔模型&quot;&gt;&lt;a href=&quot;#一、瓦片地图金字塔模型&quot; class=&quot;headerlink&quot; title=&quot;一、瓦片地图金字塔模型&quot;&gt;&lt;/a&gt;一、瓦片地图金字塔模型&lt;/h3&gt;&lt;p&gt;Q:为什么出现瓦片地图金字塔模型这个概念&lt;/p&gt;
+&lt;p&gt;现在，我假设我们的服务器上有一个1G的影像，需要将其在前端进行显示。我们传统的做法就是首先将服务器中的1G影像下载到前端，然后浏览器加载渲染出图。但是大家想想，首先客户端下载1G的影像需要的时间一定是个漫长的过程，其次浏览器加载这么大的文件也多半会导致其崩溃。而最重要的一个问题是，我们的需求仅仅是浏览全图中的某一个区域下的某几个级别，现在却将全图下载完毕了，而这同样还导致了数据的不安全性（下载到本地），同时我们的每一次放大和缩小以及拖拽都将会使浏览器花上足够长的时间去渲染。&lt;/p&gt;
+&lt;p&gt;可见，传统的方式是不符合实际需求的。到后来，又有了新的解决方法，比如arcgis的IMS版本中提出了动态出图的概念。也就是当前端发出的请求里包含了需要显示的范围、显示窗口的大小等参数后，后台动态的在原始数据中切出一个符合需求的瓦片，然后将这个数据返回给前台，并且在服务器中对这个瓦片做缓存。&lt;/p&gt;
+&lt;p&gt;但是，这个方法前端出图依旧很慢，并且使地图服务器的压力过大。终于，我们的瓦片金字塔模型解决方案出现了。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;瓦片地图金字塔模型是一种多分辨率层次模型，从瓦片金字塔的底层到顶层，分辨率越来越低，但表示的地理范围不变。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;http://support.supermap.com.cn/DataWarehouse/WebDocHelp/6.1.1/iServerJavaOnlineHelp/API/WMTS/TileMatrixSet.png&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地图切图方式：&lt;br&gt;一幅地图由4^n个256*256的正方形组成，n为级别&lt;br&gt;例如：第0级为4^0个，即世界地图由一个256图片表示。&lt;br&gt;      第1级世界地图应由4^1（4）个256图片组成，也就是将世界地图（上一级的单个图片）等分成4块256图片。&lt;br&gt;      往下每一级依此类推……&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;二、url中关键参数&quot;&gt;&lt;a href=&quot;#二、url中关键参数&quot; class=&quot;headerlink&quot; title=&quot;二、url中关键参数&quot;&gt;&lt;/a&gt;二、url中关键参数&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;参数&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;mt2.google.cn&lt;/td&gt;
+&lt;td&gt;Google瓦片服务服务器，可以尝试mt1.google.cn依然有效。Google提供多台瓦片服务器，减轻服务器负载，提高网络访问效率。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;x&lt;/td&gt;
+&lt;td&gt;瓦片的横向索引，起始位置为最左边，数值为0，向右+1递增。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;y&lt;/td&gt;
+&lt;td&gt;瓦片的纵向索引，起始位置为最上面，数值为0，向下+1递增。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;z&lt;/td&gt;
+&lt;td&gt;地图的级别，以Google为例，最上一级为0，向下依次递增。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;比如说，1级下面，有两行和两列。这四张图片的地址如下：&lt;br&gt;&lt;a href=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1&quot; alt=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=1&amp;amp;z=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mt2.google.cn/vt/x=0&amp;amp;y=1&amp;amp;z=1&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=1&amp;amp;z=1&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://mt2.google.cn/vt/x=1&amp;amp;y=0&amp;amp;z=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mt2.google.cn/vt/x=1&amp;amp;y=0&amp;amp;z=1&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/x=1&amp;amp;y=0&amp;amp;z=1&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://mt2.google.cn/vt/x=1&amp;amp;y=1&amp;amp;z=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mt2.google.cn/vt/x=1&amp;amp;y=1&amp;amp;z=1&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/x=1&amp;amp;y=1&amp;amp;z=1&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;如果把这四张图片合在一起的话，就变成如下的图，这就是一个世界的地图了。&lt;br&gt;&lt;img src=&quot;http://images.cnitblog.com/blog/464760/201312/02214059-faf4aed17ee14678bd913aba4c691db1.png&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;2、涉及的一些概念与变量&quot;&gt;&lt;a href=&quot;#2、涉及的一些概念与变量&quot; class=&quot;headerlink&quot; title=&quot;2、涉及的一些概念与变量&quot;&gt;&lt;/a&gt;2、涉及的一些概念与变量&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;1）地图投影方式&lt;/strong&gt;： Web墨卡托——互联网地图通用的地图投影方式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Q1：什么是墨卡托投影？&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;墨卡托(Mercator)投影，又名“等角正轴圆柱投影”，荷兰地图学家墨卡托（Mercator）在1569年拟定，假设地球被围在一个中空的圆柱里，其赤道与圆柱相接触，然后再假想地球中心有一盏灯，把球面上的图形投影到圆柱体上，再把圆柱体展开，这就是一幅标准纬线为零度（即赤道）的“墨卡托投影”绘制出的世界地图。&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20131028160043109&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Q2：Google们为什么选择墨卡托投影？&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;墨卡托投影的“等角”特性，保证了对象的形状的不变行，正方形的物体投影后不会变为长方形。“等角”也保证了方向和相互位置的正确性，因此在航海和航空中常常应用，而Google们在计算人们查询地物的方向时不会出错。&lt;/p&gt;
+&lt;p&gt;墨卡托投影的“圆柱”特性，保证了南北（纬线）和东西（经线）都是平行直线，并且相互垂直。而且经线间隔是相同的，纬线间隔从标准纬线（此处是赤道，也可能是其他纬线）向两级逐渐增大。&lt;br&gt;但是，“等角”不可避免的带来的面积的巨大变形，特别是两极地区，明显的如格陵兰岛比实际面积扩大了N倍。不过要是去两极地区探险或科考的同志们，一般有更详细的资料，不会来查看网络地图的，这个不要紧。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;2）Bounds(地图范围)&lt;/strong&gt;： [ -20037508.3427892, -20037508.3427892, 20037508.3427892,20037508.3427892]，单位为米，20037508.3427892表示地图周长的一半，以地图中心点做为（0，0）坐标。&lt;br&gt;&lt;strong&gt;3）Levels：&lt;/strong&gt; 地图的级别，例如：0……22。&lt;br&gt;&lt;strong&gt;4）Resolutions：&lt;/strong&gt; 分辨率数组，与级别相对应，即一个级别对应一个分辨率，分辨率表示当前级别下单个像素代表的地理长度，即一像素代表多少米。Resolutions[n] = 20037508.3427892 &lt;em&gt; 2 / 256 / (2^n)&lt;br&gt;所以，低分辨率下面，显示洲名称和海洋名称。中分辨率下面，显示省名。高分辨率下面，就显示POI信息（每个POI包含四方面信息，名称、类别、经度、纬度，一个POI可以是一栋房子、一个商铺、一个邮筒、一个公交站等）&lt;br&gt;&lt;strong&gt;5）Center：&lt;/strong&gt; 地图显示中心点。&lt;br&gt;&lt;em&gt;*6）viewSize：&lt;/em&gt;&lt;/em&gt; 地图控件窗口的大小。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images.cnitblog.com/blog/464760/201312/02214051-757df653dec644279956210f76705d50.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;0X02-瓦片地图相关算法&quot;&gt;&lt;a href=&quot;#0X02-瓦片地图相关算法&quot; class=&quot;headerlink&quot; title=&quot;0X02 瓦片地图相关算法&quot;&gt;&lt;/a&gt;0X02 瓦片地图相关算法&lt;/h2&gt;&lt;p&gt;根据已知地图中心点、显示级别可以将地图显示范围计算出来:&lt;br&gt;viewBounds = [Center.x - Resolutions[l]&lt;em&gt;viewSize.width/2, Center.y - Resolutions[l]&lt;/em&gt;viewSize.height/2, Center.x + Resolutions[l].viewSize.width/w, Center.y + Resolutions[l].viewSize.height/h]
+　　&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;拼图算法剖析：&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;1、计算瓦片url&quot;&gt;&lt;a href=&quot;#1、计算瓦片url&quot; class=&quot;headerlink&quot; title=&quot;1、计算瓦片url&quot;&gt;&lt;/a&gt;1、计算瓦片url&lt;/h3&gt;&lt;p&gt;要想出图就发须知道地图控件可视范围起始点瓦片索引、末尾瓦片索引，中间区域的瓦片索引循环遍历即可得出。&lt;br&gt;下面看看如果计算出起始点、末尾瓦片url索引：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;已知：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;l(缩放级别)&lt;/li&gt;
+&lt;li&gt;bounds(地图范围——[ -20037508.3427892, -20037508.3427892, 20037508.3427892, 20037508.3427892])&lt;/li&gt;
+&lt;li&gt;viewBounds(地图控件可视范围)&lt;/li&gt;
+&lt;li&gt;分辨率（Resolutions[l]）&lt;/li&gt;
+&lt;li&gt;瓦片像素宽高（256）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;未知：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;startX（视图起始瓦片X方向索引）&lt;/li&gt;
+&lt;li&gt;startY（视图起始瓦片Y方向索引）&lt;/li&gt;
+&lt;li&gt;endX（视图未尾瓦片x方向索引）&lt;/li&gt;
+&lt;li&gt;endY（视图未尾瓦片y方向索引）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;求解：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;startX = floor(((viewBounds.leftBottom.x - bounds.leftBottom.x) / Resolutions[l]) / 256);
+startY = floor(((viewBounds.leftBottom.y - bounds.leftBottom.y) / Resolutions[l]) / 256);
+endX = floor(((viewBounds.rightTop.x - bounds.rightTop.x) / Resolutions[l]) / 256);
+endY = floor(((viewBounds.rightTop.y - bounds.rightTop.y) / Resolutions[l]) / 256);
+firstTileUrl(起始瓦片Url) = http://**********?x=startX&amp;amp;y=startY&amp;amp;z=l;
+endTileUrl(末尾瓦片Url) = http://**********?x=endX&amp;amp;y=startY&amp;amp;z=l;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;中间部分的url循环遍历即可得出。&lt;br&gt;获得了所有瓦片的url，之后就是拼接瓦片的问题。&lt;/p&gt;
+&lt;h3 id=&quot;2、计算瓦片放在地图控件上的位置&quot;&gt;&lt;a href=&quot;#2、计算瓦片放在地图控件上的位置&quot; class=&quot;headerlink&quot; title=&quot;2、计算瓦片放在地图控件上的位置&quot;&gt;&lt;/a&gt;2、计算瓦片放在地图控件上的位置&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;分析：&lt;/strong&gt;&lt;br&gt;其实只要将起始位置的瓦片像素位置算出来就可以了，由于瓦片像素大小为256，后面的各瓦片位置也就明了了。所以这里只探讨一下起始瓦片的像素位置。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;已知：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;startX（视图起始瓦片X方向索引）&lt;/li&gt;
+&lt;li&gt;startY（视图起始瓦片Y方向索引）&lt;/li&gt;
+&lt;li&gt;分辨率（Resolutions[l]）&lt;/li&gt;
+&lt;li&gt;瓦片像素宽高（256）&lt;/li&gt;
+&lt;li&gt;bounds(地图范围)&lt;/li&gt;
+&lt;li&gt;viewBounds(地图控件可视范围)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;未知：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;startTileX（起始瓦片左上角X方向地理坐标）&lt;/li&gt;
+&lt;li&gt;startTileY（起始瓦片左上角Y方向地理坐标）&lt;/li&gt;
+&lt;li&gt;distanceX（瓦片左边与地图控件左边相距的像素距离）&lt;/li&gt;
+&lt;li&gt;distanceY（瓦片上边与地图控件上边相距的像素距离）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;求解：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;startTileX = bounds.leftBottom.x + (startX * 256 * Resolutions[l]);
+startTileY = bounds.rightTop.y - (startY * 256 * Resolutions[l]);
+distanceX = (viewBounds.leftBottom.x - startTileX) / Resolutions[l];
+distanceY = (startTileY - viewBounds.rightTop.y) / Resolutions[l]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;公式不是最简，以方便理解，相信看官此时已经知道起始瓦片在地图控件中的摆放位置了——设地图控件起始像素位置为（0，0），那么此瓦片的像素的位置就是（-distanceX、-distanceY）。其它瓦片依据256像素宽高的关系依次而出。&lt;/p&gt;
+&lt;p&gt;到此已经算出了各瓦片的url以及它们应该摆放的位置，准备工作已完成，直接帖图即可完成出图工作。&lt;/p&gt;
+&lt;h2 id=&quot;0X00-三、参考资料&quot;&gt;&lt;a href=&quot;#0X00-三、参考资料&quot; class=&quot;headerlink&quot; title=&quot;0X00 三、参考资料&quot;&gt;&lt;/a&gt;0X00 三、参考资料&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/ninemilli/archive/2011/12/26/2289285.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/ninemilli/archive/2011/12/26/2289285.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/mygisforum/article/details/13295223&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/mygisforum/article/details/13295223&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.thinkgis.cn/topic/549973e5426db0c1549792fc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.thinkgis.cn/topic/549973e5426db0c1549792fc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;00X0-前言&quot;&gt;&lt;a href=&quot;#00X0-前言&quot; class=&quot;headerlink&quot; title=&quot;00X0 前言&quot;&gt;&lt;/a&gt;00X0 前言&lt;/h2&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;/p&gt;
+&lt;p&gt;【小栗子】&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/css/leaflet.css&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/js/leaflet.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--设置一个div对象用于承载地图 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;leaflet-map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;style&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width:450px;height:300px&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; map = L.map(&lt;span class=&quot;string&quot;&gt;&#39;map&#39;&lt;/span&gt;).setView([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;], &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.tileLayer(&lt;span class=&quot;string&quot;&gt;&#39;http://&amp;#123;s&amp;#125;.tile.osm.org/&amp;#123;z&amp;#125;/&amp;#123;x&amp;#125;/&amp;#123;y&amp;#125;.png&#39;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&lt;span class=&quot;comment&quot;&gt;// attribution: &#39;&amp;amp;copy; &amp;lt;a href=&quot;http://osm.org/copyright&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&amp;#125;).addTo(map);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.marker([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;]).addTo(map)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.bindPopup(&lt;span class=&quot;string&quot;&gt;&#39;A pretty CSS3 popup.&amp;lt;br&amp;gt; Easily customizable.&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.openPopup();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————&lt;strong&gt;瓦片地图&lt;/strong&gt;。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="可视化" scheme="http://wsyks.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+    
+      <category term="技术" scheme="http://wsyks.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ReactJS，你好</title>
     <link href="http://wsyks.github.io/2016/07/14/ReactJS%EF%BC%8C%E4%BD%A0%E5%A5%BD/"/>
     <id>http://wsyks.github.io/2016/07/14/ReactJS，你好/</id>
     <published>2016-07-14T02:52:44.000Z</published>
-    <updated>2016-07-14T09:54:20.232Z</updated>
+    <updated>2016-07-14T09:54:22.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;00X0-写在前面的话&quot;&gt;&lt;a href=&quot;#00X0-写在前面的话&quot; class=&quot;headerlink&quot; title=&quot;00X0 写在前面的话&quot;&gt;&lt;/a&gt;00X0 写在前面的话&lt;/h1&gt;&lt;p&gt;刚接触Angular不久，还没怎么用过，师兄说更推荐学ReactJS，之前在阮一峰的博客里匆匆浏览过ReactJS的教程，没留下什么深刻的印象，决定好好学习一下，最好能用到现在做的项目中。文章的大部分内容都来自别人的教程，做了一些整合。&lt;/p&gt;
 &lt;h1 id=&quot;00X1-React简介&quot;&gt;&lt;a href=&quot;#00X1-React简介&quot; class=&quot;headerlink&quot; title=&quot;00X1 React简介&quot;&gt;&lt;/a&gt;00X1 React简介&lt;/h1&gt;&lt;p&gt;React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
@@ -153,7 +372,7 @@
     <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记/</id>
     <published>2016-07-08T03:57:56.000Z</published>
-    <updated>2016-07-11T02:21:19.445Z</updated>
+    <updated>2016-07-11T02:21:20.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
@@ -318,7 +537,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://wsyks.github.io/2016/04/22/算法学习笔记（一）/</id>
     <published>2016-04-22T08:54:34.000Z</published>
-    <updated>2016-07-08T09:30:06.404Z</updated>
+    <updated>2016-07-08T09:30:08.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X01-贪婪法&quot;&gt;&lt;a href=&quot;#0X01-贪婪法&quot; class=&quot;headerlink&quot; title=&quot;0X01 贪婪法&quot;&gt;&lt;/a&gt;0X01 贪婪法&lt;/h1&gt;&lt;h2 id=&quot;1、贪婪法简介&quot;&gt;&lt;a href=&quot;#1、贪婪法简介&quot; class=&quot;headerlink&quot; title=&quot;1、贪婪法简介&quot;&gt;&lt;/a&gt;1、贪婪法简介&lt;/h2&gt;&lt;p&gt;贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对&lt;strong&gt;局部最有利&lt;/strong&gt;的选择。&lt;br&gt;贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。&lt;/p&gt;
@@ -378,7 +597,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/09/%E5%88%86%E4%BA%AB%E4%B8%A4%E7%AF%87%E6%B8%B8%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/04/09/分享两篇游记/</id>
     <published>2016-04-09T13:56:41.000Z</published>
-    <updated>2016-07-11T02:21:37.616Z</updated>
+    <updated>2016-07-11T02:21:38.000Z</updated>
     
     <content type="html">&lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;所谓身未动，心已远大抵便是如此吧。
@@ -409,7 +628,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/06/php-mongodb%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/04/06/php-mongodb操作笔记/</id>
     <published>2016-04-06T14:43:41.000Z</published>
-    <updated>2016-07-08T07:31:36.607Z</updated>
+    <updated>2016-07-20T09:34:16.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt; 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。&lt;/p&gt;
 &lt;hr&gt;
@@ -430,7 +649,55 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
 &lt;h2 id=&quot;四、针对mongodb的一些格式&quot;&gt;&lt;a href=&quot;#四、针对mongodb的一些格式&quot; class=&quot;headerlink&quot; title=&quot;四、针对mongodb的一些格式&quot;&gt;&lt;/a&gt;四、针对mongodb的一些格式&lt;/h2&gt;&lt;h3 id=&quot;1、日期&quot;&gt;&lt;a href=&quot;#1、日期&quot; class=&quot;headerlink&quot; title=&quot;1、日期&quot;&gt;&lt;/a&gt;1、日期&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   MongoDate类型格式如下：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   [timestamp] =&amp;gt; MongoDate Object&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   (&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [sec] =&amp;gt; &lt;span class=&quot;number&quot;&gt;1379495520&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;#表当前时间&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [usec] =&amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;          &lt;span class=&quot;comment&quot;&gt;#时间精确到微秒 &lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   )&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;$timestamp&lt;/span&gt; = date(&lt;span class=&quot;string&quot;&gt;&quot;Y-m-d H:i&quot;&lt;/span&gt;, &lt;span class=&quot;variable&quot;&gt;$start&lt;/span&gt;-&amp;gt;sec); &lt;span class=&quot;comment&quot;&gt;#print 2016-4-7 16:00&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;/*查询某个时间段内的数据*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;$start&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoDate(&lt;span class=&quot;variable&quot;&gt;$startRaw&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;#创建MongoDate类型，$startRaw可为时间戳类型&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   如：&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;$start&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoDate(strtotime(&lt;span class=&quot;string&quot;&gt;&#39;2016-4-7 12:00:00&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$end&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoDate(strtotime(&lt;span class=&quot;string&quot;&gt;&#39;2016-4-8 12:00:00&#39;&lt;/span&gt;));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;$time&lt;/span&gt;=&lt;span class=&quot;variable&quot;&gt;$collection&lt;/span&gt;-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;timestamp&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$gt&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;variable&quot;&gt;$start&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;$lte&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;variable&quot;&gt;$end&lt;/span&gt;))) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;/*查询一星期内的数据*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;$lastweek&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoDate(strtotime(&lt;span class=&quot;string&quot;&gt;&#39;-1 week&#39;&lt;/span&gt;));   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;$data&lt;/span&gt; = &lt;span class=&quot;variable&quot;&gt;$collection&lt;/span&gt;-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;timestamp&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$gt&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;variable&quot;&gt;$lastweek&lt;/span&gt;)));&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;2、id&quot;&gt;&lt;a href=&quot;#2、id&quot; class=&quot;headerlink&quot; title=&quot;2、id&quot;&gt;&lt;/a&gt;2、id&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*使用下面的方法来匹配&amp;#123;&quot;_id&quot;:ObjectId(&quot;56df8bbed7bc8d047cc7dfa7&quot;)&amp;#125;,查询、更新也一样&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$id = new MongoId(&quot;56df8bbed7bc8d047cc7dfa7&quot;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(array(&#39;_id&#39;=&amp;gt;(object)$id));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;或者&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(array(&#39;_id&#39;=&amp;gt;$id));&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;hr&gt;
-&lt;p&gt;未完待续。。。。&lt;/p&gt;
+&lt;h2 id=&quot;五、mongodb的管道&quot;&gt;&lt;a href=&quot;#五、mongodb的管道&quot; class=&quot;headerlink&quot; title=&quot;五、mongodb的管道&quot;&gt;&lt;/a&gt;五、mongodb的管道&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;管道在Unix和Linux中一般用于将当前命令的输出结果作为下一个命令的参数。&lt;br&gt;MongoDB的聚合管道将MongoDB文档在一个管道处理完毕后将结果传递给下一个管道处理。管道操作是可以重复的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;聚合框架中常用的有以下几个操作：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。&lt;/li&gt;
+&lt;li&gt;$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。&lt;/li&gt;
+&lt;li&gt;$limit：用来限制MongoDB聚合管道返回的文档数。&lt;/li&gt;
+&lt;li&gt;$skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。&lt;/li&gt;
+&lt;li&gt;$unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。&lt;/li&gt;
+&lt;li&gt;$group：将集合中的文档分组，可用于统计结果。&lt;/li&gt;
+&lt;li&gt;$sort：将输入文档排序后输出。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;其中还有一些表达式操作：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;$add&lt;/td&gt;
+&lt;td&gt;加&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$devide&lt;/td&gt;
+&lt;td&gt;除&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$mod&lt;/td&gt;
+&lt;td&gt;模&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$multiply&lt;/td&gt;
+&lt;td&gt;乘&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;$subtract&lt;/td&gt;
+&lt;td&gt;减&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;php使用aggregate小栗子：&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;variable&quot;&gt;$m&lt;/span&gt; = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoClient();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$db&lt;/span&gt; = &lt;span class=&quot;variable&quot;&gt;$m&lt;/span&gt;-&amp;gt;table;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$c&lt;/span&gt;=&lt;span class=&quot;variable&quot;&gt;$db&lt;/span&gt;-&amp;gt;collection;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$ops&lt;/span&gt;=&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 	&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$match&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;time&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$gt&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;variable&quot;&gt;$start&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;$lt&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;variable&quot;&gt;$end&lt;/span&gt;))),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 	&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$project&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;time&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;honeypot&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 	&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$group&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;count&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$sum&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;))),&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; 	&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$sort&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;count&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;))&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;);&lt;span class=&quot;comment&quot;&gt;//注意所有管道操作符在php里只能用单引号&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$results&lt;/span&gt;=&lt;span class=&quot;variable&quot;&gt;$c&lt;/span&gt;-&amp;gt;aggregate(&lt;span class=&quot;variable&quot;&gt;$ops&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&quot;五、mongodb的模糊查询&quot;&gt;&lt;a href=&quot;#五、mongodb的模糊查询&quot; class=&quot;headerlink&quot; title=&quot;五、mongodb的模糊查询&quot;&gt;&lt;/a&gt;五、mongodb的模糊查询&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;mongodb的模糊查询主要采用正则匹配，正则和javascript的正则规则相同。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;不细讲，直接放一小栗子自用。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$this&lt;/span&gt;-&amp;gt;mongo_db-&amp;gt;where(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;aaa&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$regex&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoRegex(&lt;span class=&quot;string&quot;&gt;&quot;/\.$data$/i&quot;&lt;/span&gt;))))-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;bbb&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
@@ -453,7 +720,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/06/php-mongodb%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/"/>
     <id>http://wsyks.github.io/2016/04/06/php-mongodb扩展安装/</id>
     <published>2016-04-06T14:03:35.000Z</published>
-    <updated>2016-04-06T14:35:57.349Z</updated>
+    <updated>2016-04-06T14:35:58.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。&lt;/p&gt;
 &lt;h1 id=&quot;0X01-安装前&quot;&gt;&lt;a href=&quot;#0X01-安装前&quot; class=&quot;headerlink&quot; title=&quot;0X01 安装前&quot;&gt;&lt;/a&gt;0X01 安装前&lt;/h1&gt;&lt;p&gt;首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/1-1.png&quot; alt=&quot;php信息&quot;&gt;&lt;/p&gt;
@@ -483,7 +750,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/03/30/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>http://wsyks.github.io/2016/03/30/hexo博客搭建/</id>
     <published>2016-03-30T14:08:38.000Z</published>
-    <updated>2016-04-06T14:37:28.055Z</updated>
+    <updated>2016-04-06T14:37:30.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-Hexo简介&quot;&gt;&lt;a href=&quot;#0X00-Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 Hexo简介&quot;&gt;&lt;/a&gt;0X00 Hexo简介&lt;/h1&gt;&lt;p&gt;hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。。&lt;/p&gt;
 &lt;h1 id=&quot;0X01-部署过程&quot;&gt;&lt;a href=&quot;#0X01-部署过程&quot; class=&quot;headerlink&quot; title=&quot;0X01 部署过程&quot;&gt;&lt;/a&gt;0X01 部署过程&lt;/h1&gt;&lt;ol&gt;
@@ -559,7 +826,7 @@ hexo init            #执行init命令初始化hexo到你指定的目录
     <link href="http://wsyks.github.io/2016/03/12/%E8%AF%BB%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/03/12/读大型网站架构笔记/</id>
     <published>2016-03-12T02:08:31.000Z</published>
-    <updated>2016-07-11T02:16:53.840Z</updated>
+    <updated>2016-07-11T02:16:54.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00前言&quot;&gt;&lt;a href=&quot;#0X00前言&quot; class=&quot;headerlink&quot; title=&quot;0X00前言&quot;&gt;&lt;/a&gt;0X00前言&lt;/h1&gt;&lt;p&gt;最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X01-大型网站架构演化&quot;&gt;&lt;a href=&quot;#0X01-大型网站架构演化&quot; class=&quot;headerlink&quot; title=&quot;0X01 大型网站架构演化&quot;&gt;&lt;/a&gt;0X01 大型网站架构演化&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png&quot; alt=&quot;架构演化&quot; title=&quot;大型网站技术架构.png&quot;&gt;  &lt;/p&gt;
@@ -587,7 +854,7 @@ hexo init            #执行init命令初始化hexo到你指定的目录
     <link href="http://wsyks.github.io/2016/03/01/PHP%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E7%99%BB%E5%BD%95%E9%AA%8C%E8%AF%81/"/>
     <id>http://wsyks.github.io/2016/03/01/PHP学习——最简单的登录验证/</id>
     <published>2016-03-01T13:39:31.000Z</published>
-    <updated>2016-03-30T14:16:43.251Z</updated>
+    <updated>2016-03-30T14:16:44.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0x00-前言&quot;&gt;&lt;a href=&quot;#0x00-前言&quot; class=&quot;headerlink&quot; title=&quot;0x00 前言&quot;&gt;&lt;/a&gt;0x00 前言&lt;/h1&gt;&lt;p&gt;最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。&lt;/p&gt;
 &lt;h1 id=&quot;0X01-代码结构&quot;&gt;&lt;a href=&quot;#0X01-代码结构&quot; class=&quot;headerlink&quot; title=&quot;0X01 代码结构&quot;&gt;&lt;/a&gt;0X01 代码结构&lt;/h1&gt;&lt;p&gt;话不多说，上代码先~~~&lt;/p&gt;

@@ -32,8 +32,9 @@ var _hmt = _hmt || [];
 <meta property="og:image" content="http://mt2.google.cn/vt/x=1&y=1&z=1">
 <meta property="og:image" content="http://images.cnitblog.com/blog/464760/201312/02214059-faf4aed17ee14678bd913aba4c691db1.png">
 <meta property="og:image" content="http://img.blog.csdn.net/20131028160043109">
+<meta property="og:image" content="http://wsyks.github.io/2016/07/21/瓦片地图/1.png">
 <meta property="og:image" content="http://images.cnitblog.com/blog/464760/201312/02214051-757df653dec644279956210f76705d50.jpg">
-<meta property="og:updated_time" content="2016-07-28T12:03:52.753Z">
+<meta property="og:updated_time" content="2016-08-05T12:04:24.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="瓦片地图">
 <meta name="twitter:description" content="00X0 前言   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。">
@@ -95,13 +96,13 @@ var _hmt = _hmt || [];
 				<div class="tips-box hide">
 					<div class="tips-arrow"></div>
 					<ul class="tips-inner">
-						<li>Menu</li>
-						<li>Tags</li>
+						<li>菜单</li>
+						<li>標籤</li>
 						
-						<li>Links</li>
+						<li>友情链接</li>
 						
 						
-						<li>About</li>
+						<li>關於</li>
 						
 					</ul>
 				</div>
@@ -262,8 +263,7 @@ var _hmt = _hmt || [];
         <h2 id="00X0-前言"><a href="#00X0-前言" class="headerlink" title="00X0 前言"></a>00X0 前言</h2><p>   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。<br><a id="more"></a><br>【小栗子】<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入leaflet.js和css文件 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">type</span>=<span class="value">"text/css"</span> <span class="attribute">href</span>=<span class="value">"assets/css/leaflet.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"assets/js/leaflet.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--设置一个div对象用于承载地图 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"map"</span> <span class="attribute">class</span>=<span class="value">"leaflet-map"</span> <span class="attribute">style</span>=<span class="value">"width:450px;height:300px"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript"></span><br><span class="line">    <span class="keyword">var</span> map = L.map(<span class="string">'map'</span>).setView([<span class="number">51.505</span>, -<span class="number">0.09</span>], <span class="number">3</span>);</span><br><span class="line">   	L.tileLayer(<span class="string">'http://&#123;s&#125;.tile.osm.org/&#123;z&#125;/&#123;x&#125;/&#123;y&#125;.png'</span>, &#123;</span><br><span class="line">   	<span class="comment">// attribution: '&amp;copy; &lt;a href="http://osm.org/copyright"&gt;OpenStreetMap&lt;/a&gt; contributors'</span></span><br><span class="line">   	&#125;).addTo(map);</span><br><span class="line"></span><br><span class="line">   	L.marker([<span class="number">51.505</span>, -<span class="number">0.09</span>]).addTo(map)</span><br><span class="line">   	.bindPopup(<span class="string">'A pretty CSS3 popup.&lt;br&gt; Easily customizable.'</span>)</span><br><span class="line">   	.openPopup();</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————<strong>瓦片地图</strong>。</p>
 <hr>
-<h2 id="0X01-瓦片地图概念"><a href="#0X01-瓦片地图概念" class="headerlink" title="0X01 瓦片地图概念"></a>0X01 瓦片地图概念</h2><p>地图瓦片地址栗子，以google为例：</p>
-<p><img src="http://mt2.google.cn/vt/lyrs=m@167000000&amp;hl=zh-CN&amp;gl=cn&amp;x=420&amp;y=193&amp;z=9&amp;s=Galil" alt="http://mt2.google.cn/vt/lyrs=m@167000000&amp;hl=zh-CN&amp;gl=cn&amp;x=420&amp;y=193&amp;z=9&amp;s=Galil"></p>
+<h2 id="0X01-瓦片地图概念"><a href="#0X01-瓦片地图概念" class="headerlink" title="0X01 瓦片地图概念"></a>0X01 瓦片地图概念</h2><p>地图瓦片地址栗子，以google为例：<br><img src="http://mt2.google.cn/vt/lyrs=m@167000000&amp;hl=zh-CN&amp;gl=cn&amp;x=420&amp;y=193&amp;z=9&amp;s=Galil" alt="enter description here"></p>
 <p>现在就是要将一张张这类的地图瓦片，在客户端拼接成一幅完整的地图。<br>其中每一片的瓦片大小为：256像素x256像素</p>
 <h3 id="一、瓦片地图金字塔模型"><a href="#一、瓦片地图金字塔模型" class="headerlink" title="一、瓦片地图金字塔模型"></a>一、瓦片地图金字塔模型</h3><p>Q:为什么出现瓦片地图金字塔模型这个概念</p>
 <p>现在，我假设我们的服务器上有一个1G的影像，需要将其在前端进行显示。我们传统的做法就是首先将服务器中的1G影像下载到前端，然后浏览器加载渲染出图。但是大家想想，首先客户端下载1G的影像需要的时间一定是个漫长的过程，其次浏览器加载这么大的文件也多半会导致其崩溃。而最重要的一个问题是，我们的需求仅仅是浏览全图中的某一个区域下的某几个级别，现在却将全图下载完毕了，而这同样还导致了数据的不安全性（下载到本地），同时我们的每一次放大和缩小以及拖拽都将会使浏览器花上足够长的时间去渲染。</p>
@@ -274,7 +274,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <p><img src="http://support.supermap.com.cn/DataWarehouse/WebDocHelp/6.1.1/iServerJavaOnlineHelp/API/WMTS/TileMatrixSet.png" alt="enter description here"></p>
 <blockquote>
-<p>地图切图方式：<br>一幅地图由4^n个256*256的正方形组成，n为级别<br>例如：第0级为4^0个，即世界地图由一个256图片表示。<br>      第1级世界地图应由4^1（4）个256图片组成，也就是将世界地图（上一级的单个图片）等分成4块256图片。<br>      往下每一级依此类推……</p>
+<p>地图切图方式：<br>一幅地图由4^n个256<em>256的正方形组成，n为级别<br>例如：第0级为4^0个，即世界地图由一个256</em>256图片表示。<br>      第1级世界地图应由4^1（4）个256图片组成，也就是将世界地图（上一级的单个图片）等分成4块256*256图片。<br>      往下每一级依此类推……</p>
 </blockquote>
 <h3 id="二、url中关键参数"><a href="#二、url中关键参数" class="headerlink" title="二、url中关键参数"></a>二、url中关键参数</h3><table>
 <thead>
@@ -311,9 +311,9 @@ var _hmt = _hmt || [];
 <p><strong>Q2：Google们为什么选择墨卡托投影？</strong></p>
 <blockquote>
 <p>墨卡托投影的“等角”特性，保证了对象的形状的不变行，正方形的物体投影后不会变为长方形。“等角”也保证了方向和相互位置的正确性，因此在航海和航空中常常应用，而Google们在计算人们查询地物的方向时不会出错。</p>
-<p>墨卡托投影的“圆柱”特性，保证了南北（纬线）和东西（经线）都是平行直线，并且相互垂直。而且经线间隔是相同的，纬线间隔从标准纬线（此处是赤道，也可能是其他纬线）向两级逐渐增大。<br>但是，“等角”不可避免的带来的面积的巨大变形，特别是两极地区，明显的如格陵兰岛比实际面积扩大了N倍。不过要是去两极地区探险或科考的同志们，一般有更详细的资料，不会来查看网络地图的，这个不要紧。</p>
+<p>墨卡托投影的“圆柱”特性，保证了南北（纬线）和东西（经线）都是平行直线，并且相互垂直。而且经线间隔是相同的，纬线间隔从标准纬线（此处是赤道，也可能是其他纬线）向两级逐渐增大。<br>但是，“等角”不可避免的带来的面积的巨大变形，特别是两极地区，明显的如格陵兰岛比实际面积扩大了N倍。</p>
 </blockquote>
-<p><strong>2）Bounds(地图范围)</strong>： [ -20037508.3427892, -20037508.3427892, 20037508.3427892,20037508.3427892]，单位为米，20037508.3427892表示地图周长的一半，以地图中心点做为（0，0）坐标。<br><strong>3）Levels：</strong> 地图的级别，例如：0……22。<br><strong>4）Resolutions：</strong> 分辨率数组，与级别相对应，即一个级别对应一个分辨率，分辨率表示当前级别下单个像素代表的地理长度，即一像素代表多少米。Resolutions[n] = 20037508.3427892 <em> 2 / 256 / (2^n)<br>所以，低分辨率下面，显示洲名称和海洋名称。中分辨率下面，显示省名。高分辨率下面，就显示POI信息（每个POI包含四方面信息，名称、类别、经度、纬度，一个POI可以是一栋房子、一个商铺、一个邮筒、一个公交站等）<br><strong>5）Center：</strong> 地图显示中心点。<br><em>*6）viewSize：</em></em> 地图控件窗口的大小。</p>
+<p><strong>2）Bounds(地图范围)</strong>： [ -20037508.3427892, -20037508.3427892, 20037508.3427892,20037508.3427892]，单位为米，20037508.3427892表示地图周长的一半，以地图中心点做为（0，0）坐标。<br><strong>3）Levels：</strong> 地图的级别，例如：0……22。<br><strong>4）Resolutions：</strong> 分辨率数组，与级别相对应，即一个级别对应一个分辨率，分辨率表示当前级别下单个像素代表的地理长度，即一像素代表多少米。Resolutions[n] = 20037508.3427892 <em> 2 / 256 / (2^n)<br><img src="/2016/07/21/瓦片地图/1.png" alt="1.png" title=""><br>所以，低分辨率下面，显示洲名称和海洋名称。中分辨率下面，显示省名。高分辨率下面，就显示POI信息（每个POI包含四方面信息，名称、类别、经度、纬度，一个POI可以是一栋房子、一个商铺、一个邮筒、一个公交站等）<br><strong>5）Center：</strong> 地图显示中心点。<br><em>*6）viewSize：</em></em> 地图控件窗口的大小。</p>
 <p><img src="http://images.cnitblog.com/blog/464760/201312/02214051-757df653dec644279956210f76705d50.jpg" alt="enter description here"></p>
 <h2 id="0X02-瓦片地图相关算法"><a href="#0X02-瓦片地图相关算法" class="headerlink" title="0X02 瓦片地图相关算法"></a>0X02 瓦片地图相关算法</h2><p>根据已知地图中心点、显示级别可以将地图显示范围计算出来:<br>viewBounds = [Center.x - Resolutions[l]<em>viewSize.width/2, Center.y - Resolutions[l]</em>viewSize.height/2, Center.x + Resolutions[l].viewSize.width/w, Center.y + Resolutions[l].viewSize.height/h]
 　　</p>
@@ -406,7 +406,7 @@ distanceY = (startTileY - viewBounds.rightTop.y) / Resolutions[l]
 <div class="share_jia">
 	<!-- JiaThis Button BEGIN -->
 	<div class="jiathis_style">
-		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<span class="jiathis_txt">分享到: &nbsp; </span>
 		<a class="jiathis_button_facebook"></a> 
     <a class="jiathis_button_twitter"></a>
     <a class="jiathis_button_plus"></a> 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2016-12-07T05:03:34.787Z</updated>
+  <updated>2016-12-08T12:35:50.917Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -20,22 +20,30 @@
     <link href="http://wsyks.github.io/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/"/>
     <id>http://wsyks.github.io/2016/11/14/vue-js学习实例/</id>
     <published>2016-11-14T03:38:38.000Z</published>
-    <updated>2016-12-07T05:03:34.787Z</updated>
+    <updated>2016-12-08T12:35:50.917Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;　　然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。&lt;br&gt;　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue的时候，vue2.0版本还未上线，没想到过几天就上线了，所以这个项目是基于1.0了，vue2.0还是做了挺多改动的，遗弃了原来的一些方法，比如ready，dispatch等。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;–&lt;br&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;　　然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。&lt;br&gt;　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue的时候，vue2.0版本还未上线，没想到过几天就上线了，所以这个项目是基于1.0了，vue2.0还是做了挺多改动的，遗弃了原来的一些方法，比如ready，dispatch等。&lt;br&gt;  　　接下来讲的东西还是基于2.0了，觉得再讲1.0的可能没有多大意义。&lt;br&gt;　　在这次小项目中，首次尝试了webpack，sass，localstorage等东西，所以学习到的东西还是挺多的，今天主要和大家讲一下vue-cli脚手架和router的配置吧&lt;br&gt;           话不多说，进入正题。&lt;/p&gt;
+&lt;h2 id=&quot;vue基础语法&quot;&gt;&lt;a href=&quot;#vue基础语法&quot; class=&quot;headerlink&quot; title=&quot;vue基础语法&quot;&gt;&lt;/a&gt;vue基础语法&lt;/h2&gt;&lt;p&gt;　　vue中文文档【&lt;a href=&quot;http://cn.vuejs.org/guide/】&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cn.vuejs.org/guide/】&lt;/a&gt;&lt;br&gt; 　　直接去看文档吧，已经写的比较清晰了.&lt;/p&gt;
+&lt;h2 id=&quot;vue-cli-脚手架&quot;&gt;&lt;a href=&quot;#vue-cli-脚手架&quot; class=&quot;headerlink&quot; title=&quot;vue-cli 脚手架&quot;&gt;&lt;/a&gt;vue-cli 脚手架&lt;/h2&gt;&lt;p&gt;　　 Vue-cli是vue官方提供的一个命令行工具（vue-cli），可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以及可用于生产环境的构建配置的项目。&lt;/p&gt;
+&lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g vue-cli   &lt;span class=&quot;comment&quot;&gt;//全局安装vue-cli&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;建议大家安装淘宝的npm镜像，否则每次通过npm安装东西速度太慢&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g cnpm --registry=https:&lt;span class=&quot;comment&quot;&gt;//registry.npm.taobao.org //安装淘宝镜像&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;以后安装插件即可用下面的方式，比npm install xx 要快&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cnpm install ***&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;vue init webpack my-project &lt;span class=&quot;comment&quot;&gt;//my-project是项目名字&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd my-project  &lt;span class=&quot;comment&quot;&gt;//到项目根目录下&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm install &lt;span class=&quot;comment&quot;&gt;//如果安装淘宝镜像，用cnpm install速度快很多&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;npm run dev &lt;span class=&quot;comment&quot;&gt;//运行后就会看到一个“hello vue”的页面&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;【项目目录】&lt;br&gt;&lt;img src=&quot;/2016/11/14/vue-js学习实例/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;通过vue-cli 可以快速的搭建一个整体框架。&lt;/p&gt;
+&lt;h2 id=&quot;vue-router&quot;&gt;&lt;a href=&quot;#vue-router&quot; class=&quot;headerlink&quot; title=&quot;vue-router&quot;&gt;&lt;/a&gt;vue-router&lt;/h2&gt;&lt;p&gt;　　想要完成一个大型的单页面，少不了路由的配置&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;这是最后完成的效果：&lt;a href=&quot;https://wsyks.github.io/learn-vue/#!/&quot;&gt;https://wsyks.github.io/learn-vue/#!/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;最后附上微型问卷调查系统的完成的效果：&lt;a href=&quot;https://wsyks.github.io/learn-vue/#!/（基于1.0）&quot;&gt;https://wsyks.github.io/learn-vue/#!/（基于1.0）&lt;/a&gt;&lt;br&gt;未完待续&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;未完待续&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;　　然后就进入了vue.js的学习中，这几年的大势前端框
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;–&lt;br&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
     
     </summary>
     

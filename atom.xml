@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2017-02-17T02:38:46.187Z</updated>
+  <updated>2017-02-27T14:01:56.230Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>php中密码HASH的方案——Password Hashing</title>
+    <link href="http://wsyks.github.io/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/"/>
+    <id>http://wsyks.github.io/2017/02/27/php中密码HASH的方方案——password-hash/</id>
+    <published>2017-02-27T11:55:47.000Z</published>
+    <updated>2017-02-27T14:01:56.230Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;0X00-说在前面&quot;&gt;&lt;a href=&quot;#0X00-说在前面&quot; class=&quot;headerlink&quot; title=&quot;0X00 说在前面&quot;&gt;&lt;/a&gt;0X00 说在前面&lt;/h1&gt;&lt;p&gt;以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;0X01-Password-Hashing&quot;&gt;&lt;a href=&quot;#0X01-Password-Hashing&quot; class=&quot;headerlink&quot; title=&quot;0X01 Password Hashing&quot;&gt;&lt;/a&gt;0X01 Password Hashing&lt;/h1&gt;&lt;p&gt;在php5.5中，增加了一种新的加密方式，那就是Password Hashing。&lt;br&gt;其中包含了4个函数：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;password_hash：对密码进行hash，得到散列值&lt;/li&gt;
+&lt;li&gt;password_verify：对输入的密码进行校验，判断是否正确&lt;/li&gt;
+&lt;li&gt;password_get_info：获取生成的hash值的信息，包括加密算法，相关加密参数等&lt;/li&gt;
+&lt;li&gt;password_needs_rehash：检查一个hash值是否是使用特定算法及选项创建的&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以上这些函数需要在 php5.5以上的环境使用，不过好像也有说5.4也可以使用，不过我没有测验过。&lt;br&gt;今天主要讲一下password_hash 和 password_verify，它们是一对。&lt;/p&gt;
+&lt;h2 id=&quot;password-hash&quot;&gt;&lt;a href=&quot;#password-hash&quot; class=&quot;headerlink&quot; title=&quot;password_hash&quot;&gt;&lt;/a&gt;password_hash&lt;/h2&gt;&lt;p&gt;password_hash就是对密码进行hash处理的，语法如下：&lt;br&gt;&lt;strong&gt;1.语法&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;string password_hash ( string &lt;span class=&quot;variable&quot;&gt;$password&lt;/span&gt; , integer &lt;span class=&quot;variable&quot;&gt;$algo&lt;/span&gt; [, array &lt;span class=&quot;variable&quot;&gt;$options&lt;/span&gt; ] )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;password：用户的密码&lt;/li&gt;
+&lt;li&gt;algo：一个用来在散列密码时指示算法的密码算法常量。&lt;/li&gt;
+&lt;li&gt;options：一个包含有选项的关联数组。目前支持两个选项：salt，在散列密码时加的盐，以及cost，其实用来说明算法递归的层数。如果不设置，将使用随机盐值与默认 cost。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;返回值 ：返回哈希后的密码， 或者在失败时返回 FALSE。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.algo可选的值&lt;/strong&gt;，即当前支持的算法有如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;PASSWORD_DEFAULT&lt;br&gt;使用使用 bcrypt 算法 (PHP 5.5.0 默认)。 该常量会随着 PHP以后的更新而改变。 所以，使用此常量生成结果的长度将在未来有变化。 因此，数据库里储存结果的列可超过60个字符。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;PASSWORD_BCRYPT&lt;br&gt;使用 CRYPT_BLOWFISH 算法创建哈希。 可与crypt()兼容使用 ，产生的算法标志为&lt;strong&gt;“$2y$”&lt;/strong&gt; 。 产生60 个字符的字符串。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;3.支持的选项&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;salt - 手动提供哈希密码的盐值（salt）。省略此值后，password_hash() 会为每个密码哈希自动生成随机的盐值。然而盐值（salt）选项从 PHP 7.0.0 开始被废弃（deprecated）了。 现在最好选择简单的使用默认产生的盐值。&lt;/li&gt;
+&lt;li&gt;cost - 代表算法使用的 cost。省略时，默认值是 10。数值越大，对计算能力要求越高。 默认值是个不错的底线，但也许可以根据自己硬件的情况，加大这个值。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;【 栗子】&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//栗子1&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; password_hash(&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;, PASSWORD_DEFAULT);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//输出值为$2y$10$/ZpSqQs4jcOXwKEZI07WzuYo/liepLJQctmzmRrTr0HvrL8TX7gwa&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//每次输出结果都不一致&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//栗子2，手动设置cost&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$options&lt;/span&gt; = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;cost&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;number&quot;&gt;12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; password_hash(&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;, PASSWORD_BCRYPT, &lt;span class=&quot;variable&quot;&gt;$options&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//输出类似$2y$12$EQDFAJUsyM4nzPTI3zOcrOotgz/hc5qroy4EjGvSb4S2CQ776MBRu&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//栗子3，手动设置cost和salt值&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$options&lt;/span&gt; = [&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;cost&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;number&quot;&gt;11&lt;/span&gt;,&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;salt&#39;&lt;/span&gt; =&amp;gt; mcrypt_create_iv(&lt;span class=&quot;number&quot;&gt;22&lt;/span&gt;, MCRYPT_DEV_URANDOM),&lt;span class=&quot;comment&quot;&gt;//这里用mcrypt_creat_iv来生成salt；&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; password_hash(&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;, PASSWORD_BCRYPT, &lt;span class=&quot;variable&quot;&gt;$options&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;preprocessor&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;password-verify&quot;&gt;&lt;a href=&quot;#password-verify&quot; class=&quot;headerlink&quot; title=&quot;password_verify&quot;&gt;&lt;/a&gt;password_verify&lt;/h2&gt;&lt;p&gt;password_verify用于验证密码是否和hash值匹配&lt;br&gt;&lt;strong&gt;语法&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;boolean password_verify ( string &lt;span class=&quot;variable&quot;&gt;$password&lt;/span&gt; , string &lt;span class=&quot;variable&quot;&gt;$hash&lt;/span&gt; )&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;password：用户的密码&lt;/li&gt;
+&lt;li&gt;hash一个由 password_hash() 创建的散列值&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;返回值 ：如果密码和哈希匹配则返回 TRUE，否则返回 FALSE 。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;【栗子】&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$hash&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;$2y$10$.cEaEUnB0RXho.TeeDwlSOE2dO27QfKLNpvTuRC4Tq9FL11LNqLq2&quot;&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$result&lt;/span&gt;=password_verify(&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;,&lt;span class=&quot;variable&quot;&gt;$hash&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$result&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;//boolean true&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;variable&quot;&gt;$result2&lt;/span&gt;=password_verify(&lt;span class=&quot;string&quot;&gt;&quot;testdd&quot;&lt;/span&gt;,&lt;span class=&quot;variable&quot;&gt;$hash&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var_dump(&lt;span class=&quot;variable&quot;&gt;$result2&lt;/span&gt;);&lt;span class=&quot;comment&quot;&gt;//boolean false&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;有了这两个函数，在写代码的时候就不需要考虑加盐的问题了，目前来说相对还是比较安全的。&lt;/p&gt;
+&lt;h2 id=&quot;两个函数生成和验证原理&quot;&gt;&lt;a href=&quot;#两个函数生成和验证原理&quot; class=&quot;headerlink&quot; title=&quot;两个函数生成和验证原理&quot;&gt;&lt;/a&gt;两个函数生成和验证原理&lt;/h2&gt;&lt;p&gt;一开始没仔细看php文档，发现相同的密码，每次生成的hash值都不同，然而数据库中没有存储额外的salt值，且使用不同加密手段的时候，使用password_verify验证也都可以验证成功，觉得有点小神奇。&lt;br&gt;后来仔细看了一下文档并查阅了一下相关资料，文档里提到了一句：使用的算法、cost 和盐值作为哈希的一部分返回。所以验证哈希值的所有信息都已经包含在内。 这使 password_verify() 函数验证的时候，不需要额外储存盐值或者算法的信息。恍然大悟！&lt;br&gt; &lt;img src=&quot;/2017/02/27/php中密码HASH的方方案——password-hash/1.svg&quot; alt=&quot;1.svg&quot; title=&quot;&quot;&gt;&lt;br&gt;强推以上做法！&lt;br&gt;以上&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考&lt;br&gt;&lt;a href=&quot;http://php.net/manual/en/function.password-hash.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://php.net/manual/en/function.password-hash.php&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://tech.cv6.me/469/php/new-generation-php-crypt-solution-password_hash.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://tech.cv6.me/469/php/new-generation-php-crypt-solution-password_hash.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;0X00-说在前面&quot;&gt;&lt;a href=&quot;#0X00-说在前面&quot; class=&quot;headerlink&quot; title=&quot;0X00 说在前面&quot;&gt;&lt;/a&gt;0X00 说在前面&lt;/h1&gt;&lt;p&gt;以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>CSS3实现进度条的两个姿势</title>
@@ -75,6 +142,26 @@
     
     
       <category term="css3" scheme="http://wsyks.github.io/tags/css3/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nodejs初涉——打造简单的网页版即时聊天工具</title>
+    <link href="http://wsyks.github.io/2017/01/17/nodejs%E5%88%9D%E6%B6%89%E2%80%94%E2%80%94%E6%89%93%E9%80%A0%E7%AE%80%E5%8D%95%E7%9A%84%E7%BD%91%E9%A1%B5%E7%89%88%E5%8D%B3%E6%97%B6%E8%81%8A%E5%A4%A9%E5%B7%A5%E5%85%B7/"/>
+    <id>http://wsyks.github.io/2017/01/17/nodejs初涉——打造简单的网页版即时聊天工具/</id>
+    <published>2017-01-17T03:07:34.000Z</published>
+    <updated>2017-02-17T03:12:36.785Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
+    
+      <category term="node.js" scheme="http://wsyks.github.io/tags/node-js/"/>
     
   </entry>
   

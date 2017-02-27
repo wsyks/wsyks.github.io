@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2017-02-27T14:01:56.230Z</updated>
+  <updated>2017-02-27T14:04:03.040Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://wsyks.github.io/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/"/>
     <id>http://wsyks.github.io/2017/02/27/php中密码HASH的方方案——password-hash/</id>
     <published>2017-02-27T11:55:47.000Z</published>
-    <updated>2017-02-27T14:01:56.230Z</updated>
+    <updated>2017-02-27T14:04:03.040Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-说在前面&quot;&gt;&lt;a href=&quot;#0X00-说在前面&quot; class=&quot;headerlink&quot; title=&quot;0X00 说在前面&quot;&gt;&lt;/a&gt;0X00 说在前面&lt;/h1&gt;&lt;p&gt;以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X01-Password-Hashing&quot;&gt;&lt;a href=&quot;#0X01-Password-Hashing&quot; class=&quot;headerlink&quot; title=&quot;0X01 Password Hashing&quot;&gt;&lt;/a&gt;0X01 Password Hashing&lt;/h1&gt;&lt;p&gt;在php5.5中，增加了一种新的加密方式，那就是Password Hashing。&lt;br&gt;其中包含了4个函数：&lt;/p&gt;
@@ -79,6 +79,10 @@
     
     </summary>
     
+    
+      <category term="php" scheme="http://wsyks.github.io/tags/php/"/>
+    
+      <category term="安全" scheme="http://wsyks.github.io/tags/%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
@@ -170,10 +174,9 @@
     <link href="http://wsyks.github.io/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/"/>
     <id>http://wsyks.github.io/2016/11/14/vue-js学习实例/</id>
     <published>2016-11-14T03:38:38.000Z</published>
-    <updated>2016-12-09T13:35:53.322Z</updated>
+    <updated>2017-02-27T14:04:32.748Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;–&lt;br&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;　　然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。&lt;br&gt;　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue的时候，vue2.0版本还未上线，没想到过几天就上线了，所以这个项目是基于1.0了，vue2.0还是做了挺多改动的，遗弃了原来的一些方法，比如ready，dispatch等。&lt;br&gt;  　　接下来讲的东西还是基于2.0了，觉得再讲1.0的可能没有多大意义。&lt;br&gt;　　在这次小项目中，首次尝试了webpack，sass，localstorage等东西，所以学习到的东西还是挺多的，今天主要和大家讲一下vue-cli脚手架和router的配置吧&lt;br&gt;           话不多说，进入正题。&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;–&lt;br&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;　　然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。&lt;br&gt;　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue的时候，vue2.0版本还未上线，没想到过几天就上线了，所以这个项目是基于1.0了，vue2.0还是做了挺多改动的，遗弃了原来的一些方法，比如ready，dispatch等。&lt;br&gt;  　　接下来讲的东西还是基于2.0了，觉得再讲1.0的可能没有多大意义。&lt;br&gt;　　在这次小项目中，首次尝试了webpack，sass，localstorage等东西，所以学习到的东西还是挺多的，今天主要和大家讲一下vue-cli脚手架和router的配置吧&lt;br&gt;           话不多说，进入正题。&lt;/p&gt;
 &lt;h2 id=&quot;vue基础语法&quot;&gt;&lt;a href=&quot;#vue基础语法&quot; class=&quot;headerlink&quot; title=&quot;vue基础语法&quot;&gt;&lt;/a&gt;vue基础语法&lt;/h2&gt;&lt;p&gt;　　vue中文文档【&lt;a href=&quot;http://cn.vuejs.org/guide/】&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cn.vuejs.org/guide/】&lt;/a&gt;&lt;br&gt; 　　直接去看文档吧，已经写的比较清晰了.&lt;/p&gt;
 &lt;h2 id=&quot;vue-cli-脚手架&quot;&gt;&lt;a href=&quot;#vue-cli-脚手架&quot; class=&quot;headerlink&quot; title=&quot;vue-cli 脚手架&quot;&gt;&lt;/a&gt;vue-cli 脚手架&lt;/h2&gt;&lt;p&gt;　　 Vue-cli是vue官方提供的一个命令行工具（vue-cli），可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以及可用于生产环境的构建配置的项目。&lt;/p&gt;
 &lt;h3 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h3&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g vue-cli   &lt;span class=&quot;comment&quot;&gt;//全局安装vue-cli&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -198,8 +201,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;–&lt;br&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;–&lt;br&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;br&gt;
     
     </summary>
     

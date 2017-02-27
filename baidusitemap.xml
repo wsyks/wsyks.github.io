@@ -4,13 +4,36 @@
 
     
   <url>
+    <loc>http://wsyks.github.io/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/</loc>
+    <lastmod>2017-02-27T14:04:32.748Z</lastmod>
+    <data>
+        <display>
+        <title>vue.js学习实例</title>
+        <pubTime>2016-11-14T03:38:38.000Z</pubTime>
+        
+        <tag>vue.js</tag>
+         
+        <tag>前端</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wsyks.github.io/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/</loc>
-    <lastmod>2017-02-27T14:01:56.230Z</lastmod>
+    <lastmod>2017-02-27T14:04:03.040Z</lastmod>
     <data>
         <display>
         <title>php中密码HASH的方案——Password Hashing</title>
         <pubTime>2017-02-27T11:55:47.000Z</pubTime>
         
+        <tag>php</tag>
+         
+        <tag>安全</tag>
+         
          
            
         </display>
@@ -46,25 +69,6 @@
         <pubTime>2017-02-16T03:52:34.000Z</pubTime>
         
         <tag>css3</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wsyks.github.io/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/</loc>
-    <lastmod>2016-12-09T13:35:53.322Z</lastmod>
-    <data>
-        <display>
-        <title>vue.js学习实例</title>
-        <pubTime>2016-11-14T03:38:38.000Z</pubTime>
-        
-        <tag>vue.js</tag>
-         
-        <tag>前端</tag>
          
          
            

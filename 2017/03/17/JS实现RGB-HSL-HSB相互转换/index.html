@@ -16,20 +16,21 @@ var _hmt = _hmt || [];
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>php mongodb扩展安装 | 我是_一棵树_</title>
+  <title>JS实现RGB,HSL,HSB相互转换 | 我是_一棵树_</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。">
+  <meta name="description" content="最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php mongodb扩展安装">
-<meta property="og:url" content="http://wsyks.github.io/2016/04/06/php-mongodb扩展安装/index.html">
+<meta property="og:title" content="JS实现RGB,HSL,HSB相互转换">
+<meta property="og:url" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/index.html">
 <meta property="og:site_name" content="我是_一棵树_">
-<meta property="og:description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。">
-<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/1-1.png">
-<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/2.png">
-<meta property="og:updated_time" content="2017-03-22T06:53:57.651Z">
+<meta property="og:description" content="最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
+<meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/h.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/s.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/l.png">
+<meta property="og:updated_time" content="2017-03-21T13:47:31.992Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php mongodb扩展安装">
-<meta name="twitter:description" content="0X00 前言由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。">
+<meta name="twitter:title" content="JS实现RGB,HSL,HSB相互转换">
+<meta name="twitter:description" content="最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
   
 
   
@@ -220,11 +221,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-php-mongodb扩展安装" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JS实现RGB-HSL-HSB相互转换" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/04/06/php-mongodb扩展安装/" class="article-date">
-  	<time datetime="2016-04-06T14:03:35.000Z" itemprop="datePublished">2016-04-06</time>
+      <a href="/2017/03/17/JS实现RGB-HSL-HSB相互转换/" class="article-date">
+  	<time datetime="2017-03-17T09:55:56.000Z" itemprop="datePublished">2017-03-17</time>
 </a>
     </div>
   
@@ -237,7 +238,7 @@ var _hmt = _hmt || [];
         
   
     <h1 class="article-title" itemprop="name">
-      php mongodb扩展安装
+      JS实现RGB,HSL,HSB相互转换
     </h1>
   
 
@@ -246,7 +247,7 @@ var _hmt = _hmt || [];
       <div class="article-info article-info-post">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
 	</div>
 
         
@@ -257,17 +258,16 @@ var _hmt = _hmt || [];
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="0X00-前言"><a href="#0X00-前言" class="headerlink" title="0X00 前言"></a>0X00 前言</h1><p>由于项目中需要运用mongodb数据库，所以需要安装一下该扩展，在安装过程中有一些坑，故写一下安装流程以及该注意的一些东西。<br><a id="more"></a></p>
-<h1 id="0X01-安装前"><a href="#0X01-安装前" class="headerlink" title="0X01 安装前"></a>0X01 安装前</h1><p>首先安装扩展前，你需要安装mongodb，这里不赘述，然后你需要知道自己的php是什么样型号，笔者用的是wamp集成的环境，可以通过点击localhost-》phpinfo()中查看，笔者php情况如图，版本为5.4.3，64位，vc9。</p>
-<p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/1-1.png" alt="php信息"></p>
-<h1 id="0X02-下载安装"><a href="#0X02-下载安装" class="headerlink" title="0X02 下载安装"></a>0X02 下载安装</h1><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>知道了自己php的相关信息后，可以去<a href="http://pecl.php.net/package/mongo" target="_blank" rel="external">官网</a>站下载合适的mongodb扩展文件。<br>【注意】：根据的php版本下载对应的版本，以及选择正确x64还是x86，笔者当时看到php5.4的只有x86版本，心里吐了一口老血，什么鬼，竟然没有，在网上找了半天，终于找到合适的。分享给大家。【<a href="http://download.csdn.net/detail/tiger520119/6204383#comment" target="_blank" rel="external">点击这里</a>】</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>下载完你需要的二进制包后，解压压缩包，将’php_mongo.dll’文件（下载过来的文件由于版本，可能名字有些不同，可以统一改成如上）添加到你的PHP扩展目录中（ext）。ext目录通常在PHP安装目录下的ext目录。<br>打开php配置文件 php.ini 添加以下配置：</p>
-<pre><code>extension=php_mongo.dll //注意不要在前面加“#”号
-</code></pre><p>【注意】：由于笔者用的wamp，点开wamp，也可以进入到php.ini文件，但是通过wamp编辑该文件最终是不会生效的，所以应该到wamp安装目录下，找到bin-》php-》php.ini，两个文件都应该更改后才行。</p>
-<p>修改好后，重启服务器。通过浏览器访问phpinfo，如果安装成功，就会看到类型以下的信息：<br><img src="http://7xsgg1.com1.z0.glb.clouddn.com/2.png" alt="安装成功"></p>
-<hr>
-<p>【文章地址，转载请注明】<a href="http://syean.cn/2016/04/06/php-mongodb%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/" target="_blank" rel="external">http://syean.cn/2016/04/06/php-mongodb%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/</a></p>
-<hr>
+        <p>最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！<br><a id="more"></a><br>关于色彩模型的相关知识，主要是整理了别人的分享。</p>
+<h2 id="HSL色彩模型"><a href="#HSL色彩模型" class="headerlink" title="HSL色彩模型"></a>HSL色彩模型</h2><blockquote>
+<p>HSL色彩的表述方式是：H(hue)色相，S(saturation)饱和度，以及L(lightness)亮度。</p>
+</blockquote>
+<p><strong>HSL的H(hue)分量</strong>，代表的是人眼所能感知的颜色范围，这些颜色分布在一个平面的色相环上，取值范围是0°到360°的圆心角，每个角度可以代表一种颜色。色相值的意义在于，我们可以在不改变光感的情况下，通过旋转色相环来改变颜色。在实际应用中，我们需要记住色相环上的六大主色，用作基本参照：360°/0°红、60°黄、120°绿、180°青、240°蓝、300°洋红，它们在色相环上按照60°圆心角的间隔排列。<br>    <img src="/2017/03/17/JS实现RGB-HSL-HSB相互转换/h.png" alt="h.png" title=""></p>
+<p><strong>HSL的S(saturation)分量</strong>，指的是色彩的饱和度，它用0%至100%的值描述了相同色相、明度下色彩纯度的变化。数值越大，颜色中的灰色越少，颜色越鲜艳，呈现一种从理性(灰度)到感性(纯色)的变化。<br>  <img src="/2017/03/17/JS实现RGB-HSL-HSB相互转换/s.png" alt="s.png" title=""><br><strong>HSL的L(lightness)分量</strong>，指的是色彩的明度，作用是控制色彩的明暗变化。它同样使用了0%至100%的取值范围。数值越小，色彩越暗，越接近于黑色；数值越大，色彩越亮，越接近于白色。<br>  <img src="/2017/03/17/JS实现RGB-HSL-HSB相互转换/l.png" alt="l.png" title=""></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//rgb转hsl</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">rgbtohsl</span>(<span class="params">r,g,b</span>)</span>&#123;</span><br><span class="line">	r=r/<span class="number">255</span>;</span><br><span class="line">	g=g/<span class="number">255</span>;</span><br><span class="line">	b=b/<span class="number">255</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">var</span> min=<span class="built_in">Math</span>.min(r,g,b);</span><br><span class="line">	<span class="keyword">var</span> max=<span class="built_in">Math</span>.max(r,g,b);</span><br><span class="line">	<span class="keyword">var</span> l=(min+max)/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">var</span> difference = max-min;</span><br><span class="line">	<span class="keyword">var</span> h,s,l;</span><br><span class="line">	<span class="keyword">if</span>(max==min)&#123;</span><br><span class="line">		h=<span class="number">0</span>;</span><br><span class="line">		s=<span class="number">0</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		s=l&gt;<span class="number">0.5</span>?difference/(<span class="number">2.0</span>-max-min):difference/(max+min);</span><br><span class="line">		<span class="keyword">switch</span>(max)&#123;</span><br><span class="line">			<span class="keyword">case</span> r: h=(g-b)/difference+(g &lt; b ? <span class="number">6</span> : <span class="number">0</span>);<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> g: h=<span class="number">2.0</span>+(b-r)/difference;<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> b: h=<span class="number">4.0</span>+(r-g)/difference;<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		h=<span class="built_in">Math</span>.round(h*<span class="number">60</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	s=<span class="built_in">Math</span>.round(s*<span class="number">100</span>);</span><br><span class="line">	l=<span class="built_in">Math</span>.round(l*<span class="number">100</span>);</span><br><span class="line">	<span class="keyword">return</span> [h,s,l];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>参考<br><a href="http://cdc.tencent.com/2011/05/09/%E8%89%B2%E7%94%9F%E5%BF%83%E4%B8%AD%EF%BC%9A%E4%BA%BA%E6%80%A7%E5%8C%96%E7%9A%84hsl%E6%A8%A1%E5%9E%8B/#" target="_blank" rel="external">http://cdc.tencent.com/2011/05/09/%E8%89%B2%E7%94%9F%E5%BF%83%E4%B8%AD%EF%BC%9A%E4%BA%BA%E6%80%A7%E5%8C%96%E7%9A%84hsl%E6%A8%A1%E5%9E%8B/#</a><br><a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="external">https://en.wikipedia.org/wiki/HSL_and_HSV</a></p>
+</blockquote>
 
       
     </div>
@@ -277,18 +277,9 @@ var _hmt = _hmt || [];
     
 <nav id="article-nav">
   
-    <a href="/2016/04/06/php-mongodb操作笔记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          php mongodb操作笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2016/03/30/hexo博客搭建/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">hexo博客搭建</div>
+    <a href="/2017/03/09/自定义右键菜单/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">自定义右键菜单</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -323,7 +314,7 @@ var _hmt = _hmt || [];
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="php-mongodb扩展安装" data-title="php mongodb扩展安装" data-url="http://wsyks.github.io/2016/04/06/php-mongodb扩展安装/"></div>
+	<div class="ds-thread" data-thread-key="JS实现RGB-HSL-HSB相互转换" data-title="JS实现RGB,HSL,HSB相互转换" data-url="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

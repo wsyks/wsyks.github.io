@@ -1192,6 +1192,10 @@ a {
 #article-nav #article-nav-older {
   float: right;
 }
+#cloud-tie-wrapper {
+  margin: 0 30px;
+  border: 1px solid #ddd;
+}
 @-moz-keyframes cd-bounce-1 {
   0% {
     opacity: 0;

@@ -24,7 +24,7 @@ var _hmt = _hmt || [];
 <meta property="og:url" content="http://wsyks.github.io/2016/04/06/php-mongodb操作笔记/index.html">
 <meta property="og:site_name" content="我是_一棵树_">
 <meta property="og:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。">
-<meta property="og:updated_time" content="2017-03-22T06:55:32.370Z">
+<meta property="og:updated_time" content="2017-03-27T09:35:00.479Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php mongodb操作笔记">
 <meta name="twitter:description" content="0X00 前言 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。">
@@ -321,9 +321,6 @@ var _hmt = _hmt || [];
 <p>mongodb的模糊查询主要采用正则匹配，正则和javascript的正则规则相同。</p>
 </blockquote>
 <p>不细讲，直接放一小栗子自用。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$this</span>-&gt;mongo_db-&gt;where(<span class="keyword">array</span>(<span class="string">'aaa'</span> =&gt; <span class="keyword">array</span>(<span class="string">'$regex'</span>=&gt;<span class="keyword">new</span> MongoRegex(<span class="string">"/\.$data$/i"</span>))))-&gt;get(<span class="string">'bbb'</span>);</span><br></pre></td></tr></table></figure></p>
-<hr>
-<p>【文章地址，转载请注明】<a href="http://syean.cn/2016/04/06/php-mongodb%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/" target="_blank" rel="external">http://syean.cn/2016/04/06/php-mongodb%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/</a></p>
-<hr>
 
       
       

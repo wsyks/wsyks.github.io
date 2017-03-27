@@ -25,7 +25,7 @@ var _hmt = _hmt || [];
 <meta property="og:site_name" content="我是_一棵树_">
 <meta property="og:description" content="0X00 说在前面以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。">
 <meta property="og:image" content="http://wsyks.github.io/2017/02/27/php中密码HASH的方方案——password-hash/1.svg">
-<meta property="og:updated_time" content="2017-03-22T07:05:03.971Z">
+<meta property="og:updated_time" content="2017-03-27T09:35:54.490Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php中密码HASH的方案——Password Hashing">
 <meta name="twitter:description" content="0X00 说在前面以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。">
@@ -302,8 +302,6 @@ var _hmt = _hmt || [];
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$hash</span>=<span class="string">"$2y$10$.cEaEUnB0RXho.TeeDwlSOE2dO27QfKLNpvTuRC4Tq9FL11LNqLq2"</span>;</span><br><span class="line"><span class="variable">$result</span>=password_verify(<span class="string">"test"</span>,<span class="variable">$hash</span>);</span><br><span class="line">var_dump(<span class="variable">$result</span>); <span class="comment">//boolean true</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$result2</span>=password_verify(<span class="string">"testdd"</span>,<span class="variable">$hash</span>);</span><br><span class="line">var_dump(<span class="variable">$result2</span>);<span class="comment">//boolean false</span></span><br></pre></td></tr></table></figure>
 <p>有了这两个函数，在写代码的时候就不需要考虑加盐的问题了，目前来说相对还是比较安全的。</p>
 <h2 id="两个函数生成和验证原理"><a href="#两个函数生成和验证原理" class="headerlink" title="两个函数生成和验证原理"></a>两个函数生成和验证原理</h2><p>一开始没仔细看php文档，发现相同的密码，每次生成的hash值都不同，然而数据库中没有存储额外的salt值，且使用不同加密手段的时候，使用password_verify验证也都可以验证成功，觉得有点小神奇。<br>后来仔细看了一下文档并查阅了一下相关资料，文档里提到了一句：使用的算法、cost 和盐值作为哈希的一部分返回。所以验证哈希值的所有信息都已经包含在内。 这使 password_verify() 函数验证的时候，不需要额外储存盐值或者算法的信息。恍然大悟！<br> <img src="/2017/02/27/php中密码HASH的方方案——password-hash/1.svg" alt="1.svg" title=""><br>强推以上做法！<br>以上</p>
-<hr>
-<p>【文章地址，转载请注明】<a href="http://syean.cn/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/" target="_blank" rel="external">http://syean.cn/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/</a></p>
 <hr>
 <blockquote>
 <p>参考<br><a href="http://php.net/manual/en/function.password-hash.php" target="_blank" rel="external">http://php.net/manual/en/function.password-hash.php</a><br><a href="http://tech.cv6.me/469/php/new-generation-php-crypt-solution-password_hash.html" target="_blank" rel="external">http://tech.cv6.me/469/php/new-generation-php-crypt-solution-password_hash.html</a></p>

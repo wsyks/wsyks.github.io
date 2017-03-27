@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://wsyks.github.io/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/</loc>
+    <lastmod>2017-03-27T08:42:45.164Z</lastmod>
+    <data>
+        <display>
+        <title>JS实现RGB,HSL,HSB相互转换</title>
+        <pubTime>2017-03-17T09:55:56.000Z</pubTime>
+        
+        <tag>javascript</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://wsyks.github.io/2017/02/16/CSS3%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%A7%BF%E5%8A%BF/</loc>
     <lastmod>2017-03-22T07:12:22.835Z</lastmod>
     <data>
@@ -289,23 +306,6 @@
         <pubTime>2016-03-01T13:39:31.000Z</pubTime>
         
         <tag>php</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://wsyks.github.io/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/</loc>
-    <lastmod>2017-03-21T13:47:31.992Z</lastmod>
-    <data>
-        <display>
-        <title>JS实现RGB,HSL,HSB相互转换</title>
-        <pubTime>2017-03-17T09:55:56.000Z</pubTime>
-        
-        <tag>javascript</tag>
          
          
            

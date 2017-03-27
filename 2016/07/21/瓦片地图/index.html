@@ -424,7 +424,19 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
 
 
 </div>
-      <footer id="footer">
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+var cloudTieConfig = {
+  url: document.location.href, 
+  sourceId: "",
+  productKey: "d7c45d8300d24d59927c5de653864f9c",
+  target: "cloud-tie-wrapper"
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>
+<footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">

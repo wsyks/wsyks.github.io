@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2017-03-27T09:35:06.381Z</updated>
+  <updated>2017-03-29T08:31:43.950Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -14,6 +14,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>UI组件之色彩选择器</title>
+    <link href="http://wsyks.github.io/2017/03/28/UI%E7%BB%84%E4%BB%B6%E4%B9%8B%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    <id>http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/</id>
+    <published>2017-03-28T07:51:55.000Z</published>
+    <updated>2017-03-29T08:31:43.950Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;先放上效果图，那么要实现的功能也基本上在效果图中也可以看到了，这里也就不多说了。&lt;br&gt; &lt;img src=&quot;/2017/03/28/UI组件之色彩选择器/GIF.gif&quot; alt=&quot;GIF.gif&quot; title=&quot;&quot;&gt;&lt;br&gt; 或者戳&lt;a href=&quot;http://syean.cn/ife-2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/colorpicker.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里看效果&lt;/a&gt;，源码在&lt;a href=&quot;https://github.com/wsyks/ife-2017/tree/master/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;0X01-实现思路&quot;&gt;&lt;a href=&quot;#0X01-实现思路&quot; class=&quot;headerlink&quot; title=&quot;0X01 实现思路&quot;&gt;&lt;/a&gt;0X01 实现思路&lt;/h1&gt;&lt;h1 id=&quot;0X02-关键代码&quot;&gt;&lt;a href=&quot;#0X02-关键代码&quot; class=&quot;headerlink&quot; title=&quot;0X02 关键代码&quot;&gt;&lt;/a&gt;0X02 关键代码&lt;/h1&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="canvas" scheme="http://wsyks.github.io/tags/canvas/"/>
+    
+      <category term="javascipt" scheme="http://wsyks.github.io/tags/javascipt/"/>
+    
+  </entry>
   
   <entry>
     <title>JS实现RGB,HSL,HSB相互转换</title>

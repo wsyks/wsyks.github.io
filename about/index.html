@@ -8,8 +8,19 @@ var _hmt = _hmt || [];
   hm.src = "//hm.baidu.com/hm.js?a752ba5e82dfa1b0ba76d0a4e2dc9dfa";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
-})();
 
+
+  var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var p = document.getElementsByTagName("script")[0];
+    p.parentNode.insertBefore(bp, p);
+})();
 </script>
 
 <head>

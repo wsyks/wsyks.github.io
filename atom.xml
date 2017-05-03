@@ -147,7 +147,7 @@
     <link href="http://wsyks.github.io/2017/03/09/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/"/>
     <id>http://wsyks.github.io/2017/03/09/自定义右键菜单/</id>
     <published>2017-03-09T13:23:36.000Z</published>
-    <updated>2017-03-27T09:37:36.951Z</updated>
+    <updated>2017-05-03T14:34:31.914Z</updated>
     
     <content type="html">&lt;h1 id=&quot;00X0-前言&quot;&gt;&lt;a href=&quot;#00X0-前言&quot; class=&quot;headerlink&quot; title=&quot;00X0 前言&quot;&gt;&lt;/a&gt;00X0 前言&lt;/h1&gt;&lt;p&gt;  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。&lt;br&gt;     &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;     实现的效果如下或者&lt;a href=&quot;https://wsyks.github.io/ife-2017/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/&quot;&gt;点击这里&lt;/a&gt;&lt;br&gt;      &lt;img src=&quot;/2017/03/09/自定义右键菜单/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;00X1-contextmenu法&quot;&gt;&lt;a href=&quot;#00X1-contextmenu法&quot; class=&quot;headerlink&quot; title=&quot;00X1 contextmenu法&quot;&gt;&lt;/a&gt;00X1 contextmenu法&lt;/h1&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;contextmenu&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;mymenu&quot;&lt;/span&gt; &amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;context&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;这里有一个菜单,请在firefox打开哟&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;menu&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;mymenu&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;context&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;menuitem&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;呼呼&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;icon&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;1.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;onclick&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;doSomething()&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;menuitem&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;menuitem&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;嘻嘻&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;icon&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;2.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;onclick&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;doSomethingElse()&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;menuitem&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;menu&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;哈哈&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;menuitem&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;呼呼&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;icon&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;1.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;onclick&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;doSomething()&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;menuitem&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;			  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;menuitem&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;嘻嘻&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;icon&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;2.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;onclick&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;doSomethingElse()&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;menuitem&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;menu&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;menu&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -355,7 +355,7 @@
     <link href="http://wsyks.github.io/2017/02/16/CSS3%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%A7%BF%E5%8A%BF/"/>
     <id>http://wsyks.github.io/2017/02/16/CSS3实现进度条的几个姿势/</id>
     <published>2017-02-16T03:52:34.000Z</published>
-    <updated>2017-05-03T13:39:49.967Z</updated>
+    <updated>2017-05-03T14:31:39.824Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-写在前面&quot;&gt;&lt;a href=&quot;#0X00-写在前面&quot; class=&quot;headerlink&quot; title=&quot;0X00 写在前面&quot;&gt;&lt;/a&gt;0X00 写在前面&lt;/h1&gt;&lt;p&gt;好久没更新博客啦，好像从没有在博客里分享CSS的一些东西，今天就分享两个用CSS3实现进度条的姿势。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -419,7 +419,7 @@
     <link href="http://wsyks.github.io/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/"/>
     <id>http://wsyks.github.io/2016/11/14/vue-js学习实例/</id>
     <published>2016-11-14T03:38:38.000Z</published>
-    <updated>2017-03-27T09:36:49.504Z</updated>
+    <updated>2017-05-03T14:33:15.764Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;–&lt;br&gt;师姐说：我们这次项目前端用vue.js吧&lt;br&gt;我说：好呀&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;　　然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。&lt;br&gt;　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue的时候，vue2.0版本还未上线，没想到过几天就上线了，所以这个项目是基于1.0了，vue2.0还是做了挺多改动的，遗弃了原来的一些方法，比如ready，dispatch等。&lt;br&gt;  　　接下来讲的东西还是基于2.0了，觉得再讲1.0的可能没有多大意义。&lt;br&gt;　　在这次小项目中，首次尝试了webpack，sass，localstorage等东西，所以学习到的东西还是挺多的，今天主要和大家讲一下vue-cli脚手架和router的配置吧&lt;br&gt;           话不多说，进入正题。&lt;/p&gt;
 &lt;h2 id=&quot;vue基础语法&quot;&gt;&lt;a href=&quot;#vue基础语法&quot; class=&quot;headerlink&quot; title=&quot;vue基础语法&quot;&gt;&lt;/a&gt;vue基础语法&lt;/h2&gt;&lt;p&gt;　　vue中文文档【&lt;a href=&quot;http://cn.vuejs.org/guide/】&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://cn.vuejs.org/guide/】&lt;/a&gt;&lt;br&gt; 　　直接去看文档吧，已经写的比较清晰了.&lt;/p&gt;
@@ -451,9 +451,9 @@
     </summary>
     
     
-      <category term="vue.js" scheme="http://wsyks.github.io/tags/vue-js/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
-      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="vue.js" scheme="http://wsyks.github.io/tags/vue-js/"/>
     
   </entry>
   
@@ -462,7 +462,7 @@
     <link href="http://wsyks.github.io/2016/08/05/three-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://wsyks.github.io/2016/08/05/three-js学习笔记（一）/</id>
     <published>2016-08-05T12:24:23.000Z</published>
-    <updated>2017-03-27T09:36:41.262Z</updated>
+    <updated>2017-05-03T14:33:00.018Z</updated>
     
     <content type="html">&lt;h2 id=&quot;0X00-三大组建&quot;&gt;&lt;a href=&quot;#0X00-三大组建&quot; class=&quot;headerlink&quot; title=&quot;0X00 三大组建&quot;&gt;&lt;/a&gt;0X00 三大组建&lt;/h2&gt;&lt;p&gt;在Three.js中，要渲染物体到网页中，我们需要3个组建：场景（scene）、相机（camera）和渲染器（renderer）。有了这三样东西，才能将物体渲染到网页中去。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;blockquote&gt;
@@ -529,9 +529,9 @@
     </summary>
     
     
-      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
-      <category term="可视化" scheme="http://wsyks.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="webgl" scheme="http://wsyks.github.io/tags/webgl/"/>
     
   </entry>
   
@@ -540,7 +540,7 @@
     <link href="http://wsyks.github.io/2016/07/28/HTML5-%E6%8B%96%E6%94%BE/"/>
     <id>http://wsyks.github.io/2016/07/28/HTML5-拖放/</id>
     <published>2016-07-28T12:09:38.000Z</published>
-    <updated>2017-03-27T09:35:10.051Z</updated>
+    <updated>2017-05-03T14:31:53.814Z</updated>
     
     <content type="html">&lt;h2 id=&quot;1、-拖放事件&quot;&gt;&lt;a href=&quot;#1、-拖放事件&quot; class=&quot;headerlink&quot; title=&quot;1、 拖放事件&quot;&gt;&lt;/a&gt;1、 拖放事件&lt;/h2&gt;&lt;p&gt;拖动某元素,发生以下事件&lt;/p&gt;
 &lt;ol&gt;
@@ -610,7 +610,7 @@
     </summary>
     
     
-      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="html5" scheme="http://wsyks.github.io/tags/html5/"/>
     
   </entry>
   
@@ -619,7 +619,7 @@
     <link href="http://wsyks.github.io/2016/07/21/%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE/"/>
     <id>http://wsyks.github.io/2016/07/21/瓦片地图/</id>
     <published>2016-07-21T08:39:05.000Z</published>
-    <updated>2017-03-27T09:37:18.560Z</updated>
+    <updated>2017-05-03T14:34:20.207Z</updated>
     
     <content type="html">&lt;h2 id=&quot;00X0-前言&quot;&gt;&lt;a href=&quot;#00X0-前言&quot; class=&quot;headerlink&quot; title=&quot;00X0 前言&quot;&gt;&lt;/a&gt;00X0 前言&lt;/h2&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;【小栗子】&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/css/leaflet.css&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;assets/js/leaflet.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--设置一个div对象用于承载地图 --&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;leaflet-map&quot;&lt;/span&gt; &lt;span class=&quot;attribute&quot;&gt;style&lt;/span&gt;=&lt;span class=&quot;value&quot;&gt;&quot;width:450px;height:300px&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; map = L.map(&lt;span class=&quot;string&quot;&gt;&#39;map&#39;&lt;/span&gt;).setView([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;], &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.tileLayer(&lt;span class=&quot;string&quot;&gt;&#39;http://&amp;#123;s&amp;#125;.tile.osm.org/&amp;#123;z&amp;#125;/&amp;#123;x&amp;#125;/&amp;#123;y&amp;#125;.png&#39;&lt;/span&gt;, &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&lt;span class=&quot;comment&quot;&gt;// attribution: &#39;&amp;amp;copy; &amp;lt;a href=&quot;http://osm.org/copyright&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	&amp;#125;).addTo(map);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	L.marker([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, -&lt;span class=&quot;number&quot;&gt;0.09&lt;/span&gt;]).addTo(map)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.bindPopup(&lt;span class=&quot;string&quot;&gt;&#39;A pretty CSS3 popup.&amp;lt;br&amp;gt; Easily customizable.&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   	.openPopup();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;title&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————&lt;strong&gt;瓦片地图&lt;/strong&gt;。&lt;/p&gt;
@@ -747,10 +747,6 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     </summary>
     
     
-      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
-    
-      <category term="可视化" scheme="http://wsyks.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
-    
       <category term="技术" scheme="http://wsyks.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
@@ -760,7 +756,7 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     <link href="http://wsyks.github.io/2016/07/14/ReactJS%EF%BC%8C%E4%BD%A0%E5%A5%BD/"/>
     <id>http://wsyks.github.io/2016/07/14/ReactJS，你好/</id>
     <published>2016-07-14T02:52:44.000Z</published>
-    <updated>2017-03-27T09:36:22.250Z</updated>
+    <updated>2017-05-03T14:32:41.951Z</updated>
     
     <content type="html">&lt;h1 id=&quot;00X0-写在前面的话&quot;&gt;&lt;a href=&quot;#00X0-写在前面的话&quot; class=&quot;headerlink&quot; title=&quot;00X0 写在前面的话&quot;&gt;&lt;/a&gt;00X0 写在前面的话&lt;/h1&gt;&lt;p&gt;刚接触Angular不久，还没怎么用过，师兄说更推荐学ReactJS，之前在阮一峰的博客里匆匆浏览过ReactJS的教程，没留下什么深刻的印象，决定好好学习一下，最好能用到现在做的项目中。文章的大部分内容都来自别人的教程，做了一些整合。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;00X1-React简介&quot;&gt;&lt;a href=&quot;#00X1-React简介&quot; class=&quot;headerlink&quot; title=&quot;00X1 React简介&quot;&gt;&lt;/a&gt;00X1 React简介&lt;/h1&gt;&lt;p&gt;React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。&lt;/p&gt;
@@ -883,7 +879,7 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     
       <category term="ReactJs" scheme="http://wsyks.github.io/tags/ReactJs/"/>
     
-      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -892,7 +888,7 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记/</id>
     <published>2016-07-08T03:57:56.000Z</published>
-    <updated>2017-05-03T14:26:53.531Z</updated>
+    <updated>2017-05-03T14:31:26.129Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。
@@ -1043,7 +1039,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     
       <category term="AngularJS" scheme="http://wsyks.github.io/tags/AngularJS/"/>
     
-      <category term="前端" scheme="http://wsyks.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
   </entry>
   
@@ -1052,7 +1048,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
     <id>http://wsyks.github.io/2016/04/22/算法学习笔记（一）/</id>
     <published>2016-04-22T08:54:34.000Z</published>
-    <updated>2017-03-27T09:37:09.990Z</updated>
+    <updated>2017-05-03T14:33:54.880Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-前言&quot;&gt;&lt;a href=&quot;#0X00-前言&quot; class=&quot;headerlink&quot; title=&quot;0X00 前言&quot;&gt;&lt;/a&gt;0X00 前言&lt;/h1&gt;&lt;p&gt;虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X01-贪婪法&quot;&gt;&lt;a href=&quot;#0X01-贪婪法&quot; class=&quot;headerlink&quot; title=&quot;0X01 贪婪法&quot;&gt;&lt;/a&gt;0X01 贪婪法&lt;/h1&gt;&lt;h2 id=&quot;1、贪婪法简介&quot;&gt;&lt;a href=&quot;#1、贪婪法简介&quot; class=&quot;headerlink&quot; title=&quot;1、贪婪法简介&quot;&gt;&lt;/a&gt;1、贪婪法简介&lt;/h2&gt;&lt;p&gt;贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对&lt;strong&gt;局部最有利&lt;/strong&gt;的选择。&lt;br&gt;贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。&lt;/p&gt;
@@ -1103,7 +1099,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     </summary>
     
     
-      <category term="算法" scheme="http://wsyks.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="读书笔记" scheme="http://wsyks.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -1112,7 +1108,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/04/09/%E5%88%86%E4%BA%AB%E4%B8%A4%E7%AF%87%E6%B8%B8%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/04/09/分享两篇游记/</id>
     <published>2016-04-09T13:56:41.000Z</published>
-    <updated>2016-07-28T12:04:21.961Z</updated>
+    <updated>2017-05-03T14:33:45.056Z</updated>
     
     <content type="html">&lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;    所谓身未动，心已远大抵便是如此吧。&lt;/p&gt;
 &lt;p&gt;今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写了一篇游记，给大家~，还有一篇是今年寒假去厦门的，可以对比，我的摄影功力简直大增。&lt;/p&gt;
@@ -1127,11 +1123,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     </summary>
     
     
-      <category term="回忆" scheme="http://wsyks.github.io/tags/%E5%9B%9E%E5%BF%86/"/>
-    
-      <category term="旅游" scheme="http://wsyks.github.io/tags/%E6%97%85%E6%B8%B8/"/>
-    
-      <category term="生活" scheme="http://wsyks.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+      <category term="人生百态" scheme="http://wsyks.github.io/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
     
   </entry>
   
@@ -1259,7 +1251,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     <link href="http://wsyks.github.io/2016/03/30/hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     <id>http://wsyks.github.io/2016/03/30/hexo博客搭建/</id>
     <published>2016-03-30T14:08:38.000Z</published>
-    <updated>2017-03-27T09:35:13.625Z</updated>
+    <updated>2017-05-03T14:31:45.599Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-Hexo简介&quot;&gt;&lt;a href=&quot;#0X00-Hexo简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 Hexo简介&quot;&gt;&lt;/a&gt;0X00 Hexo简介&lt;/h1&gt;&lt;p&gt;hexo是一个基于Node.js的静态博客程序，可以方便的生成静态网页托管在github和Heroku上。。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;    &lt;/p&gt;
 &lt;h1 id=&quot;0X01-部署过程&quot;&gt;&lt;a href=&quot;#0X01-部署过程&quot; class=&quot;headerlink&quot; title=&quot;0X01 部署过程&quot;&gt;&lt;/a&gt;0X01 部署过程&lt;/h1&gt;&lt;ol&gt;
@@ -1316,8 +1308,6 @@ hexo deploy  #部署到远程
     
       <category term="hexo" scheme="http://wsyks.github.io/tags/hexo/"/>
     
-      <category term="博客" scheme="http://wsyks.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
   </entry>
   
   <entry>
@@ -1325,7 +1315,7 @@ hexo deploy  #部署到远程
     <link href="http://wsyks.github.io/2016/03/12/%E8%AF%BB%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%AC%94%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/03/12/读大型网站架构笔记/</id>
     <published>2016-03-12T02:08:31.000Z</published>
-    <updated>2017-03-27T09:37:02.212Z</updated>
+    <updated>2017-05-03T14:33:25.567Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00前言&quot;&gt;&lt;a href=&quot;#0X00前言&quot; class=&quot;headerlink&quot; title=&quot;0X00前言&quot;&gt;&lt;/a&gt;0X00前言&lt;/h1&gt;&lt;p&gt;最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;0X01-大型网站架构演化&quot;&gt;&lt;a href=&quot;#0X01-大型网站架构演化&quot; class=&quot;headerlink&quot; title=&quot;0X01 大型网站架构演化&quot;&gt;&lt;/a&gt;0X01 大型网站架构演化&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png&quot; alt=&quot;架构演化&quot; title=&quot;大型网站技术架构.png&quot;&gt;  &lt;/p&gt;
@@ -1342,9 +1332,7 @@ hexo deploy  #部署到远程
     </summary>
     
     
-      <category term="性能优化" scheme="http://wsyks.github.io/tags/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/"/>
-    
-      <category term="网站架构" scheme="http://wsyks.github.io/tags/%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84/"/>
+      <category term="读书笔记" scheme="http://wsyks.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

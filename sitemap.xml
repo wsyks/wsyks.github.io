@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://wsyks.github.io/2017/02/16/CSS3%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%A7%BF%E5%8A%BF/</loc>
+    <loc>http://wsyks.github.io/tags/index.html</loc>
     
-    <lastmod>2017-05-03T13:39:49.967Z</lastmod>
+    <lastmod>2017-05-03T14:27:43.347Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://wsyks.github.io/tags/index.html</loc>
+    <loc>http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
     
-    <lastmod>2017-05-03T13:36:38.892Z</lastmod>
+    <lastmod>2017-05-03T14:26:53.531Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://wsyks.github.io/2017/02/16/CSS3%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%A7%BF%E5%8A%BF/</loc>
+    
+    <lastmod>2017-05-03T13:39:49.967Z</lastmod>
     
   </url>
   
@@ -96,13 +103,6 @@
     <loc>http://wsyks.github.io/2016/04/06/php-mongodb%E6%89%A9%E5%B1%95%E5%AE%89%E8%A3%85/</loc>
     
     <lastmod>2017-03-27T09:35:33.397Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2017-03-27T09:35:20.859Z</lastmod>
     
   </url>
   

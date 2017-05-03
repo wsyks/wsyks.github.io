@@ -892,7 +892,7 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记/</id>
     <published>2016-07-08T03:57:56.000Z</published>
-    <updated>2017-03-27T09:35:20.859Z</updated>
+    <updated>2017-05-03T14:26:53.531Z</updated>
     
     <content type="html">&lt;h1 id=&quot;0X00-AngularJS-简介&quot;&gt;&lt;a href=&quot;#0X00-AngularJS-简介&quot; class=&quot;headerlink&quot; title=&quot;0X00 AngularJS 简介&quot;&gt;&lt;/a&gt;0X00 AngularJS 简介&lt;/h1&gt;&lt;pre&gt;&lt;code&gt;AngularJS 是一个 JavaScript 框架。它可通过 `&amp;lt;script&amp;gt;` 标签添加到 HTML 页面。
 AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTML。

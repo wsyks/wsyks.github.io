@@ -92,12 +92,12 @@
 
 
 
-<meta name="description" content="00X0 前言最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
+<meta name="description" content="前言最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JS实现RGB,HSL,HSB相互转换">
 <meta property="og:url" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/index.html">
 <meta property="og:site_name" content="Syean">
-<meta property="og:description" content="00X0 前言最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
+<meta property="og:description" content="前言最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
 <meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/rgb.png">
 <meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/h.png">
 <meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/s.png">
@@ -106,10 +106,10 @@
 <meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/p1.png">
 <meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/p2.png">
 <meta property="og:image" content="http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/p3.png">
-<meta property="og:updated_time" content="2017-03-27T09:35:06.381Z">
+<meta property="og:updated_time" content="2017-05-04T02:03:55.871Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS实现RGB,HSL,HSB相互转换">
-<meta name="twitter:description" content="00X0 前言最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
+<meta name="twitter:description" content="前言最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！">
 
 
 
@@ -357,8 +357,8 @@
       
 
       
-        <h1 id="00X0-前言"><a href="#00X0-前言" class="headerlink" title="00X0 前言"></a>00X0 前言</h1><p>最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！<br><a id="more"></a></p>
-<h1 id="00X1-色彩模型"><a href="#00X1-色彩模型" class="headerlink" title="00X1 色彩模型"></a>00X1 色彩模型</h1><p>关于色彩模型的相关知识，主要是整理了别人的分享主要参考了<a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="external">色彩模型介绍</a>和<a href="https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4" target="_blank" rel="external">HSL,HSV维基百科</a>上的内容，这里简单做下整理</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！<br><a id="more"></a></p>
+<h1 id="色彩模型"><a href="#色彩模型" class="headerlink" title="色彩模型"></a>色彩模型</h1><p>关于色彩模型的相关知识，主要是整理了别人的分享主要参考了<a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="external">色彩模型介绍</a>和<a href="https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4" target="_blank" rel="external">HSL,HSV维基百科</a>上的内容，这里简单做下整理</p>
 <h2 id="RGB模型"><a href="#RGB模型" class="headerlink" title="RGB模型"></a>RGB模型</h2><p>RGB模型也称为加色法混色模型，以RGB三色光互相叠加来实现混色的方法。<br>它是一种以硬件为导向的色彩模型，它描述了显示器的电子枪打在Red红、Green绿、Blue蓝三色发光极上的显色方式，因而适合于显示器等发光体的显示。<br>       <img src="/2017/03/17/JS实现RGB-HSL-HSB相互转换/rgb.png" alt="rgb.png" title=""></p>
 <ul>
 <li>优点：对机器友好</li>
@@ -378,7 +378,7 @@
 <li>在HSL中，饱和度分量总是从完全饱和色变化到等价的灰色（在HSV中，在极大值V的时候，饱和度从全饱和色变化到白色，这可以被认为是反直觉的）。</li>
 <li>在HSL中，亮度跨越从黑色过选择的色相到白色的完整范围（在HSV中，V分量只走一半行程，从黑到选择的色相）。<br>在软件中，通常以一个线性或圆形色相选择器和在其中为选定的色相选取饱和度和明度／亮度的一个二维区域（通常为方形或三角形）形式提供给用户基于色相的颜色模型。这种时候，HSL和HSV都可以使用，但HSV传统上更常用。<a href="https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4" target="_blank" rel="external">HSL,HSV维基百科</a>给了一些例子，这里就不再赘述。</li>
 </ul>
-<h1 id="0X02-相互转换JS代码实现"><a href="#0X02-相互转换JS代码实现" class="headerlink" title="0X02 相互转换JS代码实现"></a>0X02 相互转换JS代码实现</h1><p>根据转换公式（参考<a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="external">转换公式</a>或<a href="https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4" target="_blank" rel="external">转换公式2</a>），可以对将RGB转换成HSL或HSB，也可用HSL或HSB转成成RGB，贴上代码。</p>
+<h1 id="相互转换JS代码实现"><a href="#相互转换JS代码实现" class="headerlink" title="相互转换JS代码实现"></a>相互转换JS代码实现</h1><p>根据转换公式（参考<a href="https://en.wikipedia.org/wiki/HSL_and_HSV" target="_blank" rel="external">转换公式</a>或<a href="https://zh.wikipedia.org/wiki/HSL%E5%92%8CHSV%E8%89%B2%E5%BD%A9%E7%A9%BA%E9%97%B4" target="_blank" rel="external">转换公式2</a>），可以对将RGB转换成HSL或HSB，也可用HSL或HSB转成成RGB，贴上代码。</p>
 <h2 id="转换公式（来自维基百科）"><a href="#转换公式（来自维基百科）" class="headerlink" title="转换公式（来自维基百科）"></a>转换公式（来自维基百科）</h2><img src="/2017/03/17/JS实现RGB-HSL-HSB相互转换/p1.png" alt="p1.png" title="">
 <hr>
 <img src="/2017/03/17/JS实现RGB-HSL-HSB相互转换/p2.png" alt="p2.png" title="">
@@ -687,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#00X0-前言"><span class="nav-number">1.</span> <span class="nav-text">00X0 前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#00X1-色彩模型"><span class="nav-number">2.</span> <span class="nav-text">00X1 色彩模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RGB模型"><span class="nav-number">2.1.</span> <span class="nav-text">RGB模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HSL"><span class="nav-number">2.2.</span> <span class="nav-text">HSL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HSV"><span class="nav-number">2.3.</span> <span class="nav-text">HSV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HSL和HSV对比"><span class="nav-number">2.4.</span> <span class="nav-text">HSL和HSV对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0X02-相互转换JS代码实现"><span class="nav-number">3.</span> <span class="nav-text">0X02 相互转换JS代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换公式（来自维基百科）"><span class="nav-number">3.1.</span> <span class="nav-text">转换公式（来自维基百科）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rgb转hsl"><span class="nav-number">3.2.</span> <span class="nav-text">rgb转hsl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rgb转hsv"><span class="nav-number">3.3.</span> <span class="nav-text">rgb转hsv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hsl转rgb"><span class="nav-number">3.4.</span> <span class="nav-text">hsl转rgb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hsb转rgb"><span class="nav-number">3.5.</span> <span class="nav-text">hsb转rgb</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#色彩模型"><span class="nav-number">2.</span> <span class="nav-text">色彩模型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RGB模型"><span class="nav-number">2.1.</span> <span class="nav-text">RGB模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HSL"><span class="nav-number">2.2.</span> <span class="nav-text">HSL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HSV"><span class="nav-number">2.3.</span> <span class="nav-text">HSV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HSL和HSV对比"><span class="nav-number">2.4.</span> <span class="nav-text">HSL和HSV对比</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#相互转换JS代码实现"><span class="nav-number">3.</span> <span class="nav-text">相互转换JS代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#转换公式（来自维基百科）"><span class="nav-number">3.1.</span> <span class="nav-text">转换公式（来自维基百科）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rgb转hsl"><span class="nav-number">3.2.</span> <span class="nav-text">rgb转hsl</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rgb转hsv"><span class="nav-number">3.3.</span> <span class="nav-text">rgb转hsv</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hsl转rgb"><span class="nav-number">3.4.</span> <span class="nav-text">hsl转rgb</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hsb转rgb"><span class="nav-number">3.5.</span> <span class="nav-text">hsb转rgb</span></a></li></ol></li></ol></div>
             
 
           </div>

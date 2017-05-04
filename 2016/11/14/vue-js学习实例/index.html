@@ -99,7 +99,7 @@
 <meta property="og:site_name" content="Syean">
 <meta property="og:description" content="前言–师姐说：我们这次项目前端用vue.js吧我说：好呀">
 <meta property="og:image" content="http://wsyks.github.io/2016/11/14/vue-js学习实例/1.png">
-<meta property="og:updated_time" content="2017-05-03T14:33:15.764Z">
+<meta property="og:updated_time" content="2017-05-04T01:57:48.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue.js学习实例">
 <meta name="twitter:description" content="前言–师姐说：我们这次项目前端用vue.js吧我说：好呀">
@@ -351,17 +351,17 @@
 
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>–<br>师姐说：我们这次项目前端用vue.js吧<br>我说：好呀<br><a id="more"></a><br>　　然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。<br>　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue的时候，vue2.0版本还未上线，没想到过几天就上线了，所以这个项目是基于1.0了，vue2.0还是做了挺多改动的，遗弃了原来的一些方法，比如ready，dispatch等。<br>  　　接下来讲的东西还是基于2.0了，觉得再讲1.0的可能没有多大意义。<br>　　在这次小项目中，首次尝试了webpack，sass，localstorage等东西，所以学习到的东西还是挺多的，今天主要和大家讲一下vue-cli脚手架和router的配置吧<br>           话不多说，进入正题。</p>
-<h2 id="vue基础语法"><a href="#vue基础语法" class="headerlink" title="vue基础语法"></a>vue基础语法</h2><p>　　vue中文文档【<a href="http://cn.vuejs.org/guide/】" target="_blank" rel="external">http://cn.vuejs.org/guide/】</a><br> 　　直接去看文档吧，已经写的比较清晰了.</p>
-<h2 id="vue-cli-脚手架"><a href="#vue-cli-脚手架" class="headerlink" title="vue-cli 脚手架"></a>vue-cli 脚手架</h2><p>　　 Vue-cli是vue官方提供的一个命令行工具（vue-cli），可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以及可用于生产环境的构建配置的项目。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g vue-cli   <span class="comment">//全局安装vue-cli</span></span><br></pre></td></tr></table></figure>
+<h1 id="vue基础语法"><a href="#vue基础语法" class="headerlink" title="vue基础语法"></a>vue基础语法</h1><p>　　vue中文文档【<a href="http://cn.vuejs.org/guide/】" target="_blank" rel="external">http://cn.vuejs.org/guide/】</a><br> 　　直接去看文档吧，已经写的比较清晰了.</p>
+<h1 id="vue-cli-脚手架"><a href="#vue-cli-脚手架" class="headerlink" title="vue-cli 脚手架"></a>vue-cli 脚手架</h1><p>　　 Vue-cli是vue官方提供的一个命令行工具（vue-cli），可用于快速搭建大型单页应用。该工具提供开箱即用的构建工具配置，带来现代化的前端开发流程。只需一分钟即可启动带热重载、保存时静态检查以及可用于生产环境的构建配置的项目。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g vue-cli   <span class="comment">//全局安装vue-cli</span></span><br></pre></td></tr></table></figure>
 <p>建议大家安装淘宝的npm镜像，否则每次通过npm安装东西速度太慢</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https:<span class="comment">//registry.npm.taobao.org //安装淘宝镜像</span></span><br></pre></td></tr></table></figure>
 <p>以后安装插件即可用下面的方式，比npm install xx 要快</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install ***</span><br></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack my-project <span class="comment">//my-project是项目名字</span></span><br><span class="line">cd my-project  <span class="comment">//到项目根目录下</span></span><br><span class="line">npm install <span class="comment">//如果安装淘宝镜像，用cnpm install速度快很多</span></span><br><span class="line">npm run dev <span class="comment">//运行后就会看到一个“hello vue”的页面</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vue init webpack my-project <span class="comment">//my-project是项目名字</span></span><br><span class="line">cd my-project  <span class="comment">//到项目根目录下</span></span><br><span class="line">npm install <span class="comment">//如果安装淘宝镜像，用cnpm install速度快很多</span></span><br><span class="line">npm run dev <span class="comment">//运行后就会看到一个“hello vue”的页面</span></span><br></pre></td></tr></table></figure>
 <p>【项目目录】<br><img src="/2016/11/14/vue-js学习实例/1.png" alt="1.png" title=""></p>
 <p>通过vue-cli 可以快速的搭建一个整体框架。</p>
-<h2 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h2><p>　　想要完成一个大型的单页面，少不了路由的配置</p>
+<h1 id="vue-router"><a href="#vue-router" class="headerlink" title="vue-router"></a>vue-router</h1><p>　　想要完成一个大型的单页面，少不了路由的配置</p>
 <blockquote>
 <p>放上一个小栗子：</p>
 </blockquote>
@@ -669,7 +669,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vue基础语法"><span class="nav-number">1.1.</span> <span class="nav-text">vue基础语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-cli-脚手架"><span class="nav-number">1.2.</span> <span class="nav-text">vue-cli 脚手架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.2.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-router"><span class="nav-number">1.3.</span> <span class="nav-text">vue-router</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue基础语法"><span class="nav-number">2.</span> <span class="nav-text">vue基础语法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-cli-脚手架"><span class="nav-number">3.</span> <span class="nav-text">vue-cli 脚手架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">3.2.</span> <span class="nav-text">使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#vue-router"><span class="nav-number">4.</span> <span class="nav-text">vue-router</span></a></li></ol></div>
             
 
           </div>

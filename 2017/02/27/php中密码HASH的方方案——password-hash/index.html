@@ -92,17 +92,17 @@
 
 
 
-<meta name="description" content="0X00 说在前面以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。">
+<meta name="description" content="前言以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php中密码HASH的方案——Password Hashing">
 <meta property="og:url" content="http://wsyks.github.io/2017/02/27/php中密码HASH的方方案——password-hash/index.html">
 <meta property="og:site_name" content="Syean">
-<meta property="og:description" content="0X00 说在前面以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。">
+<meta property="og:description" content="前言以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。">
 <meta property="og:image" content="http://wsyks.github.io/2017/02/27/php中密码HASH的方方案——password-hash/1.svg">
-<meta property="og:updated_time" content="2017-03-27T09:35:54.490Z">
+<meta property="og:updated_time" content="2017-05-04T02:02:11.876Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php中密码HASH的方案——Password Hashing">
-<meta name="twitter:description" content="0X00 说在前面以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。">
+<meta name="twitter:description" content="前言以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。">
 
 
 
@@ -350,8 +350,8 @@
       
 
       
-        <h1 id="0X00-说在前面"><a href="#0X00-说在前面" class="headerlink" title="0X00 说在前面"></a>0X00 说在前面</h1><p>以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。<br><a id="more"></a></p>
-<h1 id="0X01-Password-Hashing"><a href="#0X01-Password-Hashing" class="headerlink" title="0X01 Password Hashing"></a>0X01 Password Hashing</h1><p>在php5.5中，增加了一种新的加密方式，那就是Password Hashing。<br>其中包含了4个函数：</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。<br><a id="more"></a></p>
+<h1 id="Password-Hashing"><a href="#Password-Hashing" class="headerlink" title="Password Hashing"></a>Password Hashing</h1><p>在php5.5中，增加了一种新的加密方式，那就是Password Hashing。<br>其中包含了4个函数：</p>
 <ul>
 <li>password_hash：对密码进行hash，得到散列值</li>
 <li>password_verify：对输入的密码进行校验，判断是否正确</li>
@@ -359,23 +359,22 @@
 <li>password_needs_rehash：检查一个hash值是否是使用特定算法及选项创建的</li>
 </ul>
 <p>以上这些函数需要在 php5.5以上的环境使用，不过好像也有说5.4也可以使用，不过我没有测验过。<br>今天主要讲一下password_hash 和 password_verify，它们是一对。</p>
-<h2 id="password-hash"><a href="#password-hash" class="headerlink" title="password_hash"></a>password_hash</h2><p>password_hash就是对密码进行hash处理的，语法如下：<br><strong>1.语法</strong></p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string password_hash ( string <span class="variable">$password</span> , integer <span class="variable">$algo</span> [, array <span class="variable">$options</span> ] )</span><br></pre></td></tr></table></figure>
+<h2 id="password-hash"><a href="#password-hash" class="headerlink" title="password_hash"></a>password_hash</h2><p>password_hash就是对密码进行hash处理的，语法如下：</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string password_hash ( string <span class="variable">$password</span> , integer <span class="variable">$algo</span> [, array <span class="variable">$options</span> ] )</span><br></pre></td></tr></table></figure>
 <ul>
 <li>password：用户的密码</li>
 <li>algo：一个用来在散列密码时指示算法的密码算法常量。</li>
 <li>options：一个包含有选项的关联数组。目前支持两个选项：salt，在散列密码时加的盐，以及cost，其实用来说明算法递归的层数。如果不设置，将使用随机盐值与默认 cost。</li>
 </ul>
 <p>返回值 ：返回哈希后的密码， 或者在失败时返回 FALSE。</p>
-<p><strong>2.algo可选的值</strong>，即当前支持的算法有如下：</p>
+<h3 id="algo可选的值"><a href="#algo可选的值" class="headerlink" title="algo可选的值"></a>algo可选的值</h3><p>即当前支持的算法有如下：</p>
 <ol>
 <li><p>PASSWORD_DEFAULT<br>使用使用 bcrypt 算法 (PHP 5.5.0 默认)。 该常量会随着 PHP以后的更新而改变。 所以，使用此常量生成结果的长度将在未来有变化。 因此，数据库里储存结果的列可超过60个字符。</p>
 </li>
 <li><p>PASSWORD_BCRYPT<br>使用 CRYPT_BLOWFISH 算法创建哈希。 可与crypt()兼容使用 ，产生的算法标志为<strong>“$2y$”</strong> 。 产生60 个字符的字符串。</p>
 </li>
 </ol>
-<p><strong>3.支持的选项</strong></p>
-<ul>
+<h3 id="支持的选项"><a href="#支持的选项" class="headerlink" title="支持的选项"></a>支持的选项</h3><ul>
 <li>salt - 手动提供哈希密码的盐值（salt）。省略此值后，password_hash() 会为每个密码哈希自动生成随机的盐值。然而盐值（salt）选项从 PHP 7.0.0 开始被废弃（deprecated）了。 现在最好选择简单的使用默认产生的盐值。</li>
 <li>cost - 代表算法使用的 cost。省略时，默认值是 10。数值越大，对计算能力要求越高。 默认值是个不错的底线，但也许可以根据自己硬件的情况，加大这个值。</li>
 </ul>
@@ -698,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#0X00-说在前面"><span class="nav-number">1.</span> <span class="nav-text">0X00 说在前面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0X01-Password-Hashing"><span class="nav-number">2.</span> <span class="nav-text">0X01 Password Hashing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#password-hash"><span class="nav-number">2.1.</span> <span class="nav-text">password_hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#password-verify"><span class="nav-number">2.2.</span> <span class="nav-text">password_verify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个函数生成和验证原理"><span class="nav-number">2.3.</span> <span class="nav-text">两个函数生成和验证原理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Password-Hashing"><span class="nav-number">2.</span> <span class="nav-text">Password Hashing</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#password-hash"><span class="nav-number">2.1.</span> <span class="nav-text">password_hash</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语法"><span class="nav-number">2.1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#algo可选的值"><span class="nav-number">2.1.2.</span> <span class="nav-text">algo可选的值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#支持的选项"><span class="nav-number">2.1.3.</span> <span class="nav-text">支持的选项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#password-verify"><span class="nav-number">2.2.</span> <span class="nav-text">password_verify</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#两个函数生成和验证原理"><span class="nav-number">2.3.</span> <span class="nav-text">两个函数生成和验证原理</span></a></li></ol></li></ol></div>
             
 
           </div>

@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="读书笔记," />
+  <meta name="keywords" content="php," />
 
 
 
@@ -92,20 +92,16 @@
 
 
 
-<meta name="description" content="前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。">
+<meta name="description" content="前言最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="读大型网站架构笔记">
-<meta property="og:url" content="http://wsyks.github.io/2016/03/12/读大型网站架构笔记/index.html">
+<meta property="og:title" content="PHP CodeIgniter分页实例及多条件查询解决方案">
+<meta property="og:url" content="http://wsyks.github.io/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/index.html">
 <meta property="og:site_name" content="Syean">
-<meta property="og:description" content="前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。">
-<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png">
-<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A8%A1%E5%BC%8F.png">
-<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png">
-<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/%E7%BD%91%E7%AB%99%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84.png">
-<meta property="og:updated_time" content="2017-05-04T01:57:22.592Z">
+<meta property="og:description" content="前言最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。">
+<meta property="og:updated_time" content="2017-05-19T12:51:31.068Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="读大型网站架构笔记">
-<meta name="twitter:description" content="前言最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。">
+<meta name="twitter:title" content="PHP CodeIgniter分页实例及多条件查询解决方案">
+<meta name="twitter:description" content="前言最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。">
 
 
 
@@ -133,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://wsyks.github.io/2016/03/12/读大型网站架构笔记/"/>
+  <link rel="canonical" href="http://wsyks.github.io/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/"/>
 
 
 
 
 
-  <title>读大型网站架构笔记 | Syean</title>
+  <title>PHP CodeIgniter分页实例及多条件查询解决方案 | Syean</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -268,7 +264,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2016/03/12/读大型网站架构笔记/">
+    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="syean">
@@ -285,7 +281,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">读大型网站架构笔记</h2>
+          <h2 class="post-title" itemprop="name headline">PHP CodeIgniter分页实例及多条件查询解决方案</h2>
         
 
         <div class="post-meta">
@@ -297,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-12T10:08:31+08:00">
-                2016-03-12
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-19T20:14:29+08:00">
+                2017-05-19
               </time>
             
 
@@ -316,7 +312,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2016/03/12/读大型网站架构笔记/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -325,7 +321,7 @@
 
           
           
-             <span id="/2016/03/12/读大型网站架构笔记/" class="leancloud_visitors" data-flag-title="读大型网站架构笔记">
+             <span id="/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/" class="leancloud_visitors" data-flag-title="PHP CodeIgniter分页实例及多条件查询解决方案">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -353,12 +349,21 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在看《大型网站技术架构》这本书，这本书写的很浅显易懂，思路也比较清晰，在粗粗看完后，根据看书时划的标记整理了一下本书的笔记。虽然现在其中的很多技术我们可能目前涉及不多，但是我觉得了解其中相关的知识点还是有些许意义的，故在此分享给大家。<br><a id="more"></a></p>
-<h1 id="大型网站架构演化"><a href="#大型网站架构演化" class="headerlink" title="大型网站架构演化"></a>大型网站架构演化</h1><p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png" alt="架构演化" title="大型网站技术架构.png">  </p>
-<h1 id="大型网站架构模式"><a href="#大型网站架构模式" class="headerlink" title="大型网站架构模式"></a>大型网站架构模式</h1><p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/%E5%A4%A7%E5%9E%8B%E7%BD%91%E7%AB%99%E6%9E%B6%E6%9E%84%E7%9A%84%E6%A8%A1%E5%BC%8F.png" alt="架构模式" title="大型网站架构的模式.png"></p>
-<h1 id="大型网站核心架构要素"><a href="#大型网站核心架构要素" class="headerlink" title="大型网站核心架构要素"></a>大型网站核心架构要素</h1><p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/%E6%9E%B6%E6%9E%84%E7%9A%84%E8%A6%81%E7%B4%A0.png" alt="架构要素" title="架构的要素.png"></p>
-<h1 id="瞬时响应：网站的高性能架构"><a href="#瞬时响应：网站的高性能架构" class="headerlink" title="瞬时响应：网站的高性能架构"></a>瞬时响应：网站的高性能架构</h1><p><img src="http://7xsgg1.com1.z0.glb.clouddn.com/%E7%BD%91%E7%AB%99%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BD%E6%9E%B6%E6%9E%84.png" alt="高性能" title="网站的高性能架构.png"></p>
-<p>  未完待续</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。<br>   <a id="more"></a><br>   因为页面中有条件筛选的表单，所以想要完成的效果就是，输入条件后，分页跳转之后能维持所输入的条件。想了一下，自己的思路如下代码吧。</p>
+<h1 id="controller-代码"><a href="#controller-代码" class="headerlink" title="controller 代码"></a>controller 代码</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Monitors</span> <span class="keyword">extends</span> <span class="title">CI_Controller</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">warning</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="variable">$config</span>= <span class="keyword">array</span>();</span><br><span class="line">        <span class="variable">$config</span>[<span class="string">'per_page'</span>] = <span class="number">15</span>; <span class="comment">//每页显示的数据数</span></span><br><span class="line">        <span class="variable">$current_page</span> = intval(<span class="variable">$this</span>-&gt;input-&gt;get(<span class="string">"per_page"</span>)); <span class="comment">//获取当前分页页码数</span></span><br><span class="line">    	</span><br><span class="line">	<span class="variable">$status</span>=<span class="variable">$this</span>-&gt;input-&gt;get(<span class="string">"filter-status"</span>,<span class="keyword">TRUE</span>);</span><br><span class="line">	<span class="variable">$level</span>=<span class="variable">$this</span>-&gt;input-&gt;get(<span class="string">'filter-level'</span>,<span class="keyword">TRUE</span>);</span><br><span class="line">	<span class="variable">$timestamp</span>=<span class="variable">$this</span>-&gt;input-&gt;get(<span class="string">'filter-timestamp'</span>,<span class="keyword">TRUE</span>);</span><br><span class="line">        <span class="variable">$all</span> = <span class="variable">$this</span>-&gt;monitors_m-&gt;getAllData(<span class="variable">$current_page</span>,<span class="variable">$config</span>[<span class="string">'per_page'</span>],<span class="variable">$status</span>,<span class="variable">$timestamp</span>,<span class="variable">$level</span>);</span><br><span class="line">        </span><br><span class="line">      <span class="comment">//这里返回的有总条数和具体的数据，根据自己的情况略加修改即可</span></span><br><span class="line">	<span class="variable">$data</span>[<span class="string">'allevent'</span>] = <span class="variable">$all</span>[<span class="string">'content'</span>];</span><br><span class="line">	<span class="variable">$config</span>[<span class="string">'total_rows'</span>]     = <span class="variable">$all</span>[<span class="string">'count'</span>];<span class="comment">//总条数</span></span><br><span class="line">        <span class="variable">$config</span>[<span class="string">'num_links'</span>] = <span class="number">3</span>;<span class="comment">//页码连接数</span></span><br><span class="line">	<span class="variable">$config</span>[<span class="string">'use_page_numbers'</span>] = <span class="keyword">TRUE</span>;  </span><br><span class="line">	<span class="variable">$config</span>[<span class="string">'page_query_strings'</span>] = <span class="keyword">TRUE</span>;<span class="comment">//关键配置</span></span><br><span class="line">	<span class="variable">$config</span>[<span class="string">'base_url'</span>] = base_url().<span class="string">'index.php/monitors/warning?'</span>&amp;filter-status=<span class="string">'.$status.'</span>&amp;filter-level=<span class="string">'.$level.'</span>&amp;filter-timestamp=<span class="string">'.$timestamp;//关键配置</span><br><span class="line">      </span><br><span class="line">        </span><br><span class="line">	$this-&gt;load-&gt;library('</span>pagination<span class="string">');//加载ci pagination类</span><br><span class="line">	$this-&gt;pagination-&gt;initialize($config);</span><br><span class="line"></span><br><span class="line">	$data['</span>page<span class="string">'] = $this-&gt;pagination-&gt;create_links();//关键代码</span><br><span class="line">	$this-&gt;load-&gt;view("monitors_v",$data);</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="关键配置参数"><a href="#关键配置参数" class="headerlink" title="关键配置参数"></a>关键配置参数</h2><p><strong>$config[‘page_query_string’]</strong><br> 如果设置成true,则url则是”index.php/monitors/warning？per_page=20”这样的</p>
+<blockquote>
+<p> 【注】”per_page” 是默认传递的查询字符串，但也可以使用 $config[‘query_string_segment’] = ‘你的字符串’ 来配置</p>
+</blockquote>
+<p>在我的方案中，设置为TRUE，当然TRUE是默认值，不管也可以；</p>
+<p><strong>$config[‘base_url’]</strong><br>一开始只是设置为以下这种情况的时候，在某一页进行条件筛选是可以的，但是跳转后由于刷新的问题条件又没有了。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$config</span>[<span class="string">'base_url'</span>] = base_url().<span class="string">'index.php/monitors/warning;</span></span><br></pre></td></tr></table></figure>
+<p>采用以下的方式即可，吼吼吼<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$status=$this-&gt;input-&gt;get("filter-status",TRUE);</span><br><span class="line">$level=$this-&gt;input-&gt;get('filter-level',TRUE);</span><br><span class="line">$timestamp=$this-&gt;input-&gt;get('filter-timestamp',TRUE);</span><br><span class="line">$config['base_url'] = base_url().'index.php/monitors/warning?'&amp;filter-status='.$status.'&amp;filter-level='.$level.'&amp;filter-timestamp='.$timestamp;//关键配置</span><br></pre></td></tr></table></figure></p>
+<h1 id="view页面代码"><a href="#view页面代码" class="headerlink" title="view页面代码"></a>view页面代码</h1><p>就一句话，在你需要放置分页元素的地方加上这样一句就行，这里的$page变量就是在controller里存进去的$this-&gt;pagination-&gt;create_links();<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">&lt;?php</span> <span class="keyword">echo</span> <span class="variable">$page</span><span class="preprocessor">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="设置分页样式"><a href="#设置分页样式" class="headerlink" title="设置分页样式"></a>设置分页样式</h1><p> 这里采用的是bootstrap的样式<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$config</span>[<span class="string">'first_link'</span>]     = <span class="string">"&amp;lt;&amp;lt;"</span>;<span class="comment">//首页</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'prev_link'</span>]     = <span class="string">"&amp;lt;"</span>;<span class="comment">//上一页</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'next_link'</span>]     = <span class="string">"&amp;gt;"</span>;<span class="comment">//下一页</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'last_link'</span>]     = <span class="string">"&amp;gt;&amp;gt;"</span>;<span class="comment">//尾页</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'full_tag_open'</span>] = <span class="string">'&lt;ul class="pagination pagination-split"&gt;'</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">'full_tag_close'</span>] = <span class="string">'&lt;/ul&gt;'</span>; </span><br><span class="line"><span class="variable">$config</span>[<span class="string">'first_tag_open'</span>] = <span class="string">'&lt;li&gt;'</span>;<span class="comment">//第一个链接的起始标签。</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'first_tag_close'</span>] = <span class="string">'&lt;/li&gt;'</span>;<span class="comment">//第一个链接的结束标签。</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'next_tag_open'</span>] = <span class="string">'&lt;li&gt;'</span>;<span class="comment">//下一页链接的起始标签。</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'next_tag_close'</span>] = <span class="string">'&lt;/li&gt;'</span>;<span class="comment">//下一页链接的结束标签。</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'prev_tag_open'</span>] = <span class="string">'&lt;li&gt;'</span>;<span class="comment">//上一页链接的起始标签。</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'prev_tag_close'</span>] = <span class="string">'&lt;/li&gt;'</span>;<span class="comment">//上一页链接的结束标签。</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'cur_tag_open'</span>] = <span class="string">'&lt;li class="active"&gt;&lt;a&gt;'</span>;</span><br><span class="line"><span class="variable">$config</span>[<span class="string">'cur_tag_close'</span>] = <span class="string">'&lt;/a&gt;&lt;/li&gt;'</span>;<span class="comment">//当前页链接的结束标签。</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'num_tag_open'</span>] = <span class="string">'&lt;li&gt;'</span>;<span class="comment">//数字链接的起始标签。</span></span><br><span class="line"><span class="variable">$config</span>[<span class="string">'num_tag_close'</span>] = <span class="string">'&lt;/li&gt;'</span>;<span class="comment">//数字链接的结束标签。</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>参考<br><a href="http://codeigniter.org.cn/user_guide/libraries/pagination.html" target="_blank" rel="external">http://codeigniter.org.cn/user_guide/libraries/pagination.html</a></p>
+</blockquote>
 
       
     </div>
@@ -387,7 +392,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://wsyks.github.io/2016/03/12/读大型网站架构笔记/" title="读大型网站架构笔记">http://wsyks.github.io/2016/03/12/读大型网站架构笔记/</a>
+      <a href="http://wsyks.github.io/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/" title="PHP CodeIgniter分页实例及多条件查询解决方案">http://wsyks.github.io/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -403,7 +408,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+            <a href="/tags/php/" rel="tag"># php</a>
           
         </div>
       
@@ -416,8 +421,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/01/PHP学习——最简单的登录验证/" rel="next" title="PHP学习——登录验证（第一级）">
-                <i class="fa fa-chevron-left"></i> PHP学习——登录验证（第一级）
+              <a href="/2017/05/10/css3实现卡片翻转动画效果/" rel="next" title="CSS3实现卡片翻转动画效果">
+                <i class="fa fa-chevron-left"></i> CSS3实现卡片翻转动画效果
               </a>
             
           </div>
@@ -425,10 +430,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/30/hexo博客搭建/" rel="prev" title="hexo博客搭建">
-                hexo博客搭建 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -655,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大型网站架构演化"><span class="nav-number">2.</span> <span class="nav-text">大型网站架构演化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大型网站架构模式"><span class="nav-number">3.</span> <span class="nav-text">大型网站架构模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#大型网站核心架构要素"><span class="nav-number">4.</span> <span class="nav-text">大型网站核心架构要素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#瞬时响应：网站的高性能架构"><span class="nav-number">5.</span> <span class="nav-text">瞬时响应：网站的高性能架构</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#controller-代码"><span class="nav-number">2.</span> <span class="nav-text">controller 代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键配置参数"><span class="nav-number">2.1.</span> <span class="nav-text">关键配置参数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#view页面代码"><span class="nav-number">3.</span> <span class="nav-text">view页面代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#设置分页样式"><span class="nav-number">4.</span> <span class="nav-text">设置分页样式</span></a></li></ol></div>
             
 
           </div>

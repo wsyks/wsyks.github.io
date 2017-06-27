@@ -92,17 +92,17 @@
 
 
 
-<meta name="description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据还是实现了，分享一下自己的方法。">
+<meta name="description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据需要还是实现了，分享一下自己的方法。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="d3树图(tree)的变形：拥有多个父节点的子节点">
 <meta property="og:url" content="http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/index.html">
 <meta property="og:site_name" content="Syean">
-<meta property="og:description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据还是实现了，分享一下自己的方法。">
+<meta property="og:description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据需要还是实现了，分享一下自己的方法。">
 <meta property="og:image" content="http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/1.png">
-<meta property="og:updated_time" content="2017-06-27T11:57:51.378Z">
+<meta property="og:updated_time" content="2017-06-27T12:03:08.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="d3树图(tree)的变形：拥有多个父节点的子节点">
-<meta name="twitter:description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据还是实现了，分享一下自己的方法。">
+<meta name="twitter:description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据需要还是实现了，分享一下自己的方法。">
 
 
 
@@ -351,10 +351,10 @@
 
       
          <img src="/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/1.png" alt="1.png" title="">
-<p>最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据还是实现了，分享一下自己的方法。<br><a id="more"></a><br>一开始，找资料时，很多人说到如果一个子节点拥有多个父节点时，那么就不算是树图了，建议使用力导向图，当然，直接使用力导向图是很方便的，然而要实现上图的效果，还需要整位置关系、连线方式，想想都感觉很麻烦呀。</p>
+<p>最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据需要还是实现了，分享一下自己的方法。<br><a id="more"></a><br>一开始，找资料时，很多人说到如果一个子节点拥有多个父节点时，那么就不算是树图了，建议使用力导向图，当然，直接使用力导向图是很方便的，然而要实现上图的效果，还需要整位置关系、连线方式，想想都感觉很麻烦呀，所以最后还是在树图的基础上稍作调整。</p>
 <h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><ul>
 <li>使用 tree.nodes()得到所有节点，过滤掉“name”属性相同的节点，只保留一个</li>
-<li>重新遍历数据，形成新的连接关系</li>
+<li>原本使用tree.links()即可获得连接关系，但是现在把重复的节点去了，所以需要重新写连接关系，这里用了递归，重新遍历数据，形成新的连接关系</li>
 <li>绘制</li>
 </ul>
 <h1 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nodesraw = tree.nodes(root);  </span><br><span class="line">    <span class="keyword">var</span> count=nodesraw.length;</span><br><span class="line">    <span class="keyword">var</span> nodes=[nodesraw[count-<span class="number">1</span>]];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=count-<span class="number">1</span>;i&gt;-<span class="number">1</span>;i--)&#123;</span><br><span class="line">      <span class="keyword">var</span> m= d3.map(nodes,<span class="function"><span class="keyword">function</span>(<span class="params">d</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> d.name;</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">if</span>(!m.has(nodesraw[i].name))&#123; <span class="comment">//判断如果之前存在name相同的节点，就不插入</span></span><br><span class="line">        nodes.push(nodesraw[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> links=[];</span><br><span class="line">    m = d3.map(nodes,<span class="function"><span class="keyword">function</span>(<span class="params">d</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> d.name;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">traverseTree</span>(<span class="params">node</span>)</span>&#123;<span class="comment">//递归，遍历所有连接数据</span></span><br><span class="line">      <span class="keyword">if</span>(!node)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(node.children &amp;&amp; node.children.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> current=m.get(node.name);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; node.children.length; i++) &#123;</span><br><span class="line">          <span class="keyword">var</span> templink=&#123;source:current,target:m.get(node.children[i].name)&#125;;</span><br><span class="line">          <span class="built_in">console</span>.log(i,node,templink);</span><br><span class="line">          links.push(templink);</span><br><span class="line">          traverseTree(node.children[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    traverseTree(root);</span><br><span class="line">    ...其他代码</span><br></pre></td></tr></table></figure>

@@ -1,0 +1,986 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,可视化," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Syean" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据还是实现了，分享一下自己的方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="d3树图(tree)的变形：拥有多个父节点的子节点">
+<meta property="og:url" content="http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/index.html">
+<meta property="og:site_name" content="Syean">
+<meta property="og:description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据还是实现了，分享一下自己的方法。">
+<meta property="og:image" content="http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/1.png">
+<meta property="og:updated_time" content="2017-06-27T11:57:51.378Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="d3树图(tree)的变形：拥有多个父节点的子节点">
+<meta name="twitter:description" content="最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据还是实现了，分享一下自己的方法。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/"/>
+
+
+
+
+
+  <title>d3树图(tree)的变形：拥有多个父节点的子节点 | Syean</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?289e37e8938f67998453773bdd083085";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Syean</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">记录，分享，回忆</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="syean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Syean">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">d3树图(tree)的变形：拥有多个父节点的子节点</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-27T17:31:21+08:00">
+                2017-06-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/" class="leancloud_visitors" data-flag-title="d3树图(tree)的变形：拥有多个父节点的子节点">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+         <img src="/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/1.png" alt="1.png" title="">
+<p>最近，有需要实现一种图，如上所示，很类似d3中的树图，但是子节点可以有多个父节点，查了一些资料，没有特别好的方式，最后自己根据还是实现了，分享一下自己的方法。<br><a id="more"></a><br>一开始，找资料时，很多人说到如果一个子节点拥有多个父节点时，那么就不算是树图了，建议使用力导向图，当然，直接使用力导向图是很方便的，然而要实现上图的效果，还需要整位置关系、连线方式，想想都感觉很麻烦呀。</p>
+<h1 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h1><ul>
+<li>使用 tree.nodes()得到所有节点，过滤掉“name”属性相同的节点，只保留一个</li>
+<li>重新遍历数据，形成新的连接关系</li>
+<li>绘制</li>
+</ul>
+<h1 id="关键代码"><a href="#关键代码" class="headerlink" title="关键代码"></a>关键代码</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nodesraw = tree.nodes(root);  </span><br><span class="line">    <span class="keyword">var</span> count=nodesraw.length;</span><br><span class="line">    <span class="keyword">var</span> nodes=[nodesraw[count-<span class="number">1</span>]];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=count-<span class="number">1</span>;i&gt;-<span class="number">1</span>;i--)&#123;</span><br><span class="line">      <span class="keyword">var</span> m= d3.map(nodes,<span class="function"><span class="keyword">function</span>(<span class="params">d</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> d.name;</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">if</span>(!m.has(nodesraw[i].name))&#123; <span class="comment">//判断如果之前存在name相同的节点，就不插入</span></span><br><span class="line">        nodes.push(nodesraw[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> links=[];</span><br><span class="line">    m = d3.map(nodes,<span class="function"><span class="keyword">function</span>(<span class="params">d</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> d.name;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">traverseTree</span>(<span class="params">node</span>)</span>&#123;<span class="comment">//递归，遍历所有连接数据</span></span><br><span class="line">      <span class="keyword">if</span>(!node)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(node.children &amp;&amp; node.children.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> current=m.get(node.name);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; node.children.length; i++) &#123;</span><br><span class="line">          <span class="keyword">var</span> templink=&#123;source:current,target:m.get(node.children[i].name)&#125;;</span><br><span class="line">          <span class="built_in">console</span>.log(i,node,templink);</span><br><span class="line">          links.push(templink);</span><br><span class="line">          traverseTree(node.children[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    traverseTree(root);</span><br><span class="line">    ...其他代码</span><br></pre></td></tr></table></figure>
+<h1 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h1><p>index.html</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;    </span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="title">head</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span>    </span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>Tree <span class="tag">&lt;/<span class="title">title</span>&gt;</span>    </span><br><span class="line">  <span class="tag">&lt;/<span class="title">head</span>&gt;</span>   </span><br><span class="line">  </span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css">  </span><br><span class="line">  </span><br><span class="line"><span class="class">.node</span> <span class="tag">circle</span> <span class="rules">&#123;  </span><br><span class="line">  <span class="rule"><span class="attribute">fill</span>:<span class="value"> <span class="hexcolor">#fff</span></span></span>;  </span><br><span class="line">  <span class="rule"><span class="attribute">stroke</span>:<span class="value"> steelblue</span></span>;  </span><br><span class="line">  <span class="rule"><span class="attribute">stroke-width</span>:<span class="value"> <span class="number">1.5px</span></span></span>;  </span><br><span class="line">&#125;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="class">.node</span> <span class="rules">&#123;  </span><br><span class="line">  <span class="rule"><span class="attribute">font</span>:<span class="value"> <span class="number">12px</span> sans-serif</span></span>;  </span><br><span class="line">&#125;</span>  </span><br><span class="line">  </span><br><span class="line"><span class="class">.link</span> <span class="rules">&#123;  </span><br><span class="line">  <span class="rule"><span class="attribute">fill</span>:<span class="value"> none</span></span>;  </span><br><span class="line">  <span class="rule"><span class="attribute">stroke</span>:<span class="value"> <span class="hexcolor">#ccc</span></span></span>;  </span><br><span class="line">  <span class="rule"><span class="attribute">stroke-width</span>:<span class="value"> <span class="number">1.5px</span></span></span>;  </span><br><span class="line">&#125;</span>  </span><br><span class="line">  </span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"http://d3js.org/d3.v3.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="actionscript">  </span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> width = <span class="number">800</span>,  </span><br><span class="line">height = <span class="number">800</span>;  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> tree = d3.layout.tree()  </span><br><span class="line">    .size([width, height-<span class="number">200</span>])  </span><br><span class="line">    .separation(<span class="function"><span class="keyword">function</span><span class="params">(a, b)</span> </span>&#123; <span class="keyword">return</span> (a.parent == b.parent ? <span class="number">1</span> : <span class="number">2</span>) / a.depth; &#125;);  </span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> diagonal = d3.svg.diagonal()  </span><br><span class="line">    .projection(<span class="function"><span class="keyword">function</span><span class="params">(d)</span> </span>&#123; <span class="keyword">return</span> [d.y, d.x]; &#125;);  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> svg = d3.select(<span class="string">"body"</span>).append(<span class="string">"svg"</span>)  </span><br><span class="line">    .attr(<span class="string">"width"</span>, width)  </span><br><span class="line">    .attr(<span class="string">"height"</span>, height)  </span><br><span class="line">    .append(<span class="string">"g"</span>)  </span><br><span class="line">    .attr(<span class="string">"transform"</span>, <span class="string">"translate(40,0)"</span>);  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">d3.json(<span class="string">"data.json"</span>, <span class="function"><span class="keyword">function</span><span class="params">(error, root)</span> </span>&#123;  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">var</span> nodesraw = tree.nodes(root);  </span><br><span class="line">    <span class="keyword">var</span> count=nodesraw.length;</span><br><span class="line">    <span class="keyword">var</span> nodes=[nodesraw[count-<span class="number">1</span>]];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=count-<span class="number">1</span>;i&gt;-<span class="number">1</span>;i--)&#123;</span><br><span class="line">      <span class="keyword">var</span> m= d3.map(nodes,<span class="function"><span class="keyword">function</span><span class="params">(d)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> d.name;</span><br><span class="line">      &#125;)</span><br><span class="line">      <span class="keyword">if</span>(!m.has(nodesraw[i].name))&#123;</span><br><span class="line">        nodes.push(nodesraw[i]);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> links=[];</span><br><span class="line">    m = d3.map(nodes,<span class="function"><span class="keyword">function</span><span class="params">(d)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> d.name;</span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">traverseTree</span><span class="params">(node)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(!node)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(node.children &amp;&amp; node.children.length&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">var</span> current=m.<span class="keyword">get</span>(node.name);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; node.children.length; i++) &#123;</span><br><span class="line">          <span class="keyword">var</span> templink=&#123;source:current,target:m.<span class="keyword">get</span>(node.children[i].name)&#125;;</span><br><span class="line">          console.log(i,node,templink);</span><br><span class="line">          links.push(templink);</span><br><span class="line">          traverseTree(node.children[i]);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    traverseTree(root);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> link = svg.selectAll(<span class="string">".link"</span>)  </span><br><span class="line">      .data(links)  </span><br><span class="line">      .enter()  </span><br><span class="line">      .append(<span class="string">"path"</span>)  </span><br><span class="line">      .attr(<span class="string">"class"</span>, <span class="string">"link"</span>)  </span><br><span class="line">      .attr(<span class="string">"d"</span>, diagonal);  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">var</span> node = svg.selectAll(<span class="string">".node"</span>)  </span><br><span class="line">      .data(nodes)  </span><br><span class="line">      .enter()  </span><br><span class="line">      .append(<span class="string">"g"</span>)  </span><br><span class="line">      .attr(<span class="string">"class"</span>, <span class="string">"node"</span>)  </span><br><span class="line">      .attr(<span class="string">"transform"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> </span>&#123; <span class="keyword">return</span> <span class="string">"translate("</span> + d.y + <span class="string">","</span> + d.x + <span class="string">")"</span>; &#125;)  </span><br><span class="line">      </span><br><span class="line">    node.append(<span class="string">"circle"</span>)  </span><br><span class="line">      .attr(<span class="string">"r"</span>, <span class="number">4.5</span>);  </span><br><span class="line">      </span><br><span class="line">    node.append(<span class="string">"text"</span>)  </span><br><span class="line">      .attr(<span class="string">"dx"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> </span>&#123; <span class="keyword">return</span> d.children ? -<span class="number">8</span> : <span class="number">8</span>; &#125;)  </span><br><span class="line">      .attr(<span class="string">"dy"</span>, <span class="number">3</span>)  </span><br><span class="line">      .style(<span class="string">"text-anchor"</span>, <span class="function"><span class="keyword">function</span><span class="params">(d)</span> </span>&#123; <span class="keyword">return</span> d.children ? <span class="string">"end"</span> : <span class="string">"start"</span>; &#125;)  </span><br><span class="line">      .text(<span class="function"><span class="keyword">function</span><span class="params">(d)</span> </span>&#123; <span class="keyword">return</span> d.name; &#125;);  </span><br><span class="line">    &#125;);  </span><br><span class="line">  </span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>  </span><br><span class="line">          </span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span>    </span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>data.json</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    "name": "flare",</span><br><span class="line">    "children": [&#123;</span><br><span class="line">        "name": "analytics",</span><br><span class="line">        "children": [&#123;</span><br><span class="line">            "name": "cluster",</span><br><span class="line">            "coupling_id": 1,</span><br><span class="line">            "children": [&#123;</span><br><span class="line">                "name": "AgglomerativeCluster",</span><br><span class="line">                "size": 3938</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                "name": "MergeEdge",</span><br><span class="line">                "size": 743</span><br><span class="line">            &#125;,&#123;</span><br><span class="line">                "name": "JSONConverter",</span><br><span class="line">                "size": 2220</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            "name": "graph",</span><br><span class="line">            "children": [&#123;</span><br><span class="line">                "name": "BetweennessCentrality",</span><br><span class="line">                "size": 3534</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                "name": "LinkDistance",</span><br><span class="line">                "size": 5731</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                "name": "MaxFlowMinCut",</span><br><span class="line">                "size": 7840</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                "name": "ShortestPaths",</span><br><span class="line">                "size": 5914</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                "name": "SpanningTree",</span><br><span class="line">                "size": 3416</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            "name": "optimization",</span><br><span class="line">            "children": [&#123;</span><br><span class="line">                "name": "AspectRatioBanker",</span><br><span class="line">                "size": 7074</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;,&#123;</span><br><span class="line">        "name": "data",</span><br><span class="line">        "children": [&#123;</span><br><span class="line">            "name": "converters",</span><br><span class="line">            "children": [&#123;</span><br><span class="line">                "name": "Converters",</span><br><span class="line">                "size": 721</span><br><span class="line">            &#125;, &#123;</span><br><span class="line">                "name": "JSONConverter",</span><br><span class="line">                "size": 2220</span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            "name": "DataField",</span><br><span class="line">            "size": 1759,</span><br><span class="line">            "coupling_id":2</span><br><span class="line">        &#125;, &#123;</span><br><span class="line">            "name": "DataSchema",</span><br><span class="line">            "size": 2165</span><br><span class="line">        &#125;]</span><br><span class="line">    &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>即可</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      syean
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/" title="d3树图(tree)的变形：拥有多个父节点的子节点">http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/可视化/" rel="tag"># 可视化</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/" rel="next" title="PHP CodeIgniter分页实例及多条件查询解决方案">
+                <i class="fa fa-chevron-left"></i> PHP CodeIgniter分页实例及多条件查询解决方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+  
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          <!-- 
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+ -->
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="syean" />
+          <p class="site-author-name" itemprop="name">syean</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wsyks" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2949528583" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://simmin.github.io/" title="Simmin Blog" target="_blank">Simmin Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://phantom0301.cc/" title="零の杂货铺" target="_blank">零の杂货铺</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blackwolfsec.cc/" title="blackwolf" target="_blank">blackwolf</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ohroot.com/" title="半饱和" target="_blank">半饱和</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.sccsec.com/" title="胖胖的博客" target="_blank">胖胖的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jinglingshu.org/" title="精灵鼠" target="_blank">精灵鼠</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wps2015.jinglingshu.org/" title="wps2015" target="_blank">wps2015</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.pang0lin.com/" title="穿山甲" target="_blank">穿山甲</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ourren.com/" title="ourren" target="_blank">ourren</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实现思路"><span class="nav-number">1.</span> <span class="nav-text">实现思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关键代码"><span class="nav-number">2.</span> <span class="nav-text">关键代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#完整代码"><span class="nav-number">3.</span> <span class="nav-text">完整代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">syean</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d7c45d8300d24d59927c5de653864f9c",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz", "Maz5zp1hIAmXtT3yBFdh18iM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

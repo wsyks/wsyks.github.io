@@ -93,16 +93,18 @@
 
 
 <meta name="description" content="前言今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。">
+<meta name="keywords" content="css3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS3实现卡片翻转动画效果">
-<meta property="og:url" content="syean.cn/2017/05/10/css3实现卡片翻转动画效果/index.html">
+<meta property="og:url" content="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/index.html">
 <meta property="og:site_name" content="Syean">
 <meta property="og:description" content="前言今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。">
-<meta property="og:image" content="syean.cn/2017/05/10/css3实现卡片翻转动画效果/1.gif">
+<meta property="og:image" content="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/1.gif">
 <meta property="og:updated_time" content="2017-05-10T12:54:03.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3实现卡片翻转动画效果">
 <meta name="twitter:description" content="前言今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。">
+<meta name="twitter:image" content="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/1.gif">
 
 
 
@@ -130,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="syean.cn/2017/05/10/css3实现卡片翻转动画效果/"/>
+  <link rel="canonical" href="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/"/>
 
 
 
@@ -265,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="syean.cn/2017/05/10/css3实现卡片翻转动画效果/">
+    <link itemprop="mainEntityOfPage" href="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="syean">
@@ -352,12 +354,12 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。</p>
 <a id="more"></a>
-<p>还是先放效果图，或者点击<a href="http://syean.cn/demo/flip/">这里</a>查看效果<br><img src="/2017/05/10/css3实现卡片翻转动画效果/1.gif" alt="1.gif" title=""></p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="tag">div</span> class=<span class="string">"box"</span>&gt;</span><br><span class="line">	&lt;<span class="tag">div</span> class=<span class="string">"card front"</span>&gt;&lt;/div&gt;</span><br><span class="line">	&lt;<span class="tag">div</span> class=<span class="string">"card back"</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">      body&#123;</span><br><span class="line">	perspective: 1000px;</span><br><span class="line">&#125;</span><br><span class="line">.box&#123;</span><br><span class="line">	margin: 50px auto;</span><br><span class="line">    width: 239px;</span><br><span class="line">    height: 334px;</span><br><span class="line">    position: relative;</span><br><span class="line">    transform-style: preserve-3d;//关键代码</span><br><span class="line">    transition: transform 1s;</span><br><span class="line">&#125;</span><br><span class="line">.card&#123;</span><br><span class="line">	display: block;</span><br><span class="line">	position: absolute;</span><br><span class="line">	width: 100%;</span><br><span class="line">	height: 100%;</span><br><span class="line">	backface-visibility: hidden;//关键代码</span><br><span class="line">	border-radius: 20px;</span><br><span class="line">&#125;</span><br><span class="line">.front&#123;</span><br><span class="line">	background-image: url(1.jpg);</span><br><span class="line">  		background-position: -24px -23px;</span><br><span class="line">&#125;</span><br><span class="line">.back&#123;</span><br><span class="line">	transform: rotateY(180deg);</span><br><span class="line">	background-image: url(1.jpg);</span><br><span class="line">  		background-position: -287px -23px;</span><br><span class="line">&#125;</span><br><span class="line">.flipped&#123;</span><br><span class="line">	transform: rotateY(180deg);</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$(".box").hover(function(event)&#123;</span><br><span class="line">	$(this).toggleClass("flipped");</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h1 id="关键说明"><a href="#关键说明" class="headerlink" title="关键说明"></a>关键说明</h1><h2 id="preserve-3d"><a href="#preserve-3d" class="headerlink" title="preserve-3d"></a>preserve-3d</h2><p>因为需要3d效果，所以在box这个div里要添加如下，表示3d透视<br>这个加上很关键！<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">transform-style: preserve-3d;</span><br></pre></td></tr></table></figure></p>
-<h2 id="backface-visibility"><a href="#backface-visibility" class="headerlink" title="backface-visibility"></a>backface-visibility</h2><p>给卡片加入下方代码，表示隐藏被旋转div元素的背面，这样旋转之后，第一张卡片是背面朝屏幕方向，看不到，第二张卡片旋转之后则是正面朝像屏幕，即形成了旋转的效果，主要用到这两个属性啦。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">backface-visibility</span>:hidden</span><br></pre></td></tr></table></figure></p>
+<p>还是先放效果图，或者点击<a href="http://syean.cn/demo/flip/" target="_blank" rel="external">这里</a>查看效果<br><img src="/2017/05/10/css3实现卡片翻转动画效果/1.gif" alt="1.gif" title=""></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"box"</span>&gt;</div><div class="line">	&lt;<span class="selector-tag">div</span> class=<span class="string">"card front"</span>&gt;&lt;/div&gt;</div><div class="line">	&lt;<span class="selector-tag">div</span> class=<span class="string">"card back"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">      body&#123;</div><div class="line">	perspective: 1000px;</div><div class="line">&#125;</div><div class="line">.box&#123;</div><div class="line">	margin: 50px auto;</div><div class="line">    width: 239px;</div><div class="line">    height: 334px;</div><div class="line">    position: relative;</div><div class="line">    transform-style: preserve-3d;//关键代码</div><div class="line">    transition: transform 1s;</div><div class="line">&#125;</div><div class="line">.card&#123;</div><div class="line">	display: block;</div><div class="line">	position: absolute;</div><div class="line">	width: 100%;</div><div class="line">	height: 100%;</div><div class="line">	backface-visibility: hidden;//关键代码</div><div class="line">	border-radius: 20px;</div><div class="line">&#125;</div><div class="line">.front&#123;</div><div class="line">	background-image: url(1.jpg);</div><div class="line">  		background-position: -24px -23px;</div><div class="line">&#125;</div><div class="line">.back&#123;</div><div class="line">	transform: rotateY(180deg);</div><div class="line">	background-image: url(1.jpg);</div><div class="line">  		background-position: -287px -23px;</div><div class="line">&#125;</div><div class="line">.flipped&#123;</div><div class="line">	transform: rotateY(180deg);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+<h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(".box").hover(function(event)&#123;</div><div class="line">	$(this).toggleClass("flipped");</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<h1 id="关键说明"><a href="#关键说明" class="headerlink" title="关键说明"></a>关键说明</h1><h2 id="preserve-3d"><a href="#preserve-3d" class="headerlink" title="preserve-3d"></a>preserve-3d</h2><p>因为需要3d效果，所以在box这个div里要添加如下，表示3d透视<br>这个加上很关键！<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">transform-style</span>: preserve-<span class="number">3</span>d;</div></pre></td></tr></table></figure></p>
+<h2 id="backface-visibility"><a href="#backface-visibility" class="headerlink" title="backface-visibility"></a>backface-visibility</h2><p>给卡片加入下方代码，表示隐藏被旋转div元素的背面，这样旋转之后，第一张卡片是背面朝屏幕方向，看不到，第二张卡片旋转之后则是正面朝像屏幕，即形成了旋转的效果，主要用到这两个属性啦。<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">backface-visibility</span>:hidden</div></pre></td></tr></table></figure></p>
 <h2 id="rotateY"><a href="#rotateY" class="headerlink" title="rotateY()"></a>rotateY()</h2><p>这里的旋转都是绕着Y轴旋转，比较好理解。</p>
 <p>恩，就是这样，比较简单啦。</p>
 
@@ -388,7 +390,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="syean.cn/2017/05/10/css3实现卡片翻转动画效果/" title="CSS3实现卡片翻转动画效果">syean.cn/2017/05/10/css3实现卡片翻转动画效果/</a>
+      <a href="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/" title="CSS3实现卡片翻转动画效果">http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>

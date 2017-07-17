@@ -95,10 +95,10 @@
 <meta name="description" content="前言  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自定义右键菜单">
-<meta property="og:url" content="http://wsyks.github.io/2017/03/09/自定义右键菜单/index.html">
+<meta property="og:url" content="syean.cn/2017/03/09/自定义右键菜单/index.html">
 <meta property="og:site_name" content="Syean">
 <meta property="og:description" content="前言  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。">
-<meta property="og:image" content="http://wsyks.github.io/2017/03/09/自定义右键菜单/1.gif">
+<meta property="og:image" content="syean.cn/2017/03/09/自定义右键菜单/1.gif">
 <meta property="og:updated_time" content="2017-05-04T01:55:30.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自定义右键菜单">
@@ -130,7 +130,7 @@
 
 
 
-  <link rel="canonical" href="http://wsyks.github.io/2017/03/09/自定义右键菜单/"/>
+  <link rel="canonical" href="syean.cn/2017/03/09/自定义右键菜单/"/>
 
 
 
@@ -265,7 +265,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2017/03/09/自定义右键菜单/">
+    <link itemprop="mainEntityOfPage" href="syean.cn/2017/03/09/自定义右键菜单/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="syean">
@@ -350,7 +350,7 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。<br>     <a id="more"></a><br>     实现的效果如下或者<a href="https://wsyks.github.io/ife-2017/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">点击这里</a><br>      <img src="/2017/03/09/自定义右键菜单/1.gif" alt="1.gif" title=""></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。<br>     <a id="more"></a><br>     实现的效果如下或者<a href="https://wsyks.github.io/ife-2017/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" target="_blank" rel="external">点击这里</a><br>      <img src="/2017/03/09/自定义右键菜单/1.gif" alt="1.gif" title=""></p>
 <h1 id="contextmenu法"><a href="#contextmenu法" class="headerlink" title="contextmenu法"></a>contextmenu法</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">contextmenu</span>=<span class="value">"mymenu"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"context"</span>&gt;</span>这里有一个菜单,请在firefox打开哟<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">menu</span> <span class="attribute">id</span>=<span class="value">"mymenu"</span> <span class="attribute">type</span>=<span class="value">"context"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">menuitem</span> <span class="attribute">label</span>=<span class="value">"呼呼"</span> <span class="attribute">icon</span>=<span class="value">"1.jpg"</span> <span class="attribute">onclick</span>=<span class="value">"doSomething()"</span>&gt;</span><span class="tag">&lt;/<span class="title">menuitem</span>&gt;</span></span><br><span class="line">		  	<span class="tag">&lt;<span class="title">menuitem</span> <span class="attribute">label</span>=<span class="value">"嘻嘻"</span> <span class="attribute">icon</span>=<span class="value">"2.jpg"</span> <span class="attribute">onclick</span>=<span class="value">"doSomethingElse()"</span>&gt;</span><span class="tag">&lt;/<span class="title">menuitem</span>&gt;</span></span><br><span class="line">		  	<span class="tag">&lt;<span class="title">menu</span> <span class="attribute">label</span>=<span class="value">"哈哈"</span>&gt;</span></span><br><span class="line">			  	<span class="tag">&lt;<span class="title">menuitem</span> <span class="attribute">label</span>=<span class="value">"呼呼"</span> <span class="attribute">icon</span>=<span class="value">"1.jpg"</span> <span class="attribute">onclick</span>=<span class="value">"doSomething()"</span>&gt;</span><span class="tag">&lt;/<span class="title">menuitem</span>&gt;</span></span><br><span class="line">			  	<span class="tag">&lt;<span class="title">menuitem</span> <span class="attribute">label</span>=<span class="value">"嘻嘻"</span> <span class="attribute">icon</span>=<span class="value">"2.jpg"</span> <span class="attribute">onclick</span>=<span class="value">"doSomethingElse()"</span>&gt;</span><span class="tag">&lt;/<span class="title">menuitem</span>&gt;</span></span><br><span class="line">		  	<span class="tag">&lt;/<span class="title">menu</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">menu</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>使用小TIP</p>
@@ -446,7 +446,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://wsyks.github.io/2017/03/09/自定义右键菜单/" title="自定义右键菜单">http://wsyks.github.io/2017/03/09/自定义右键菜单/</a>
+      <a href="syean.cn/2017/03/09/自定义右键菜单/" title="自定义右键菜单">syean.cn/2017/03/09/自定义右键菜单/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>

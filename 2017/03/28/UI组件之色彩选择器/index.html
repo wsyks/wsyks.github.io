@@ -95,11 +95,11 @@
 <meta name="description" content="前言今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UI组件之色彩选择器">
-<meta property="og:url" content="http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/index.html">
+<meta property="og:url" content="syean.cn/2017/03/28/UI组件之色彩选择器/index.html">
 <meta property="og:site_name" content="Syean">
 <meta property="og:description" content="前言今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。">
-<meta property="og:image" content="http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/GIF.gif">
-<meta property="og:image" content="http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/colorpicker_overlay.png">
+<meta property="og:image" content="syean.cn/2017/03/28/UI组件之色彩选择器/GIF.gif">
+<meta property="og:image" content="syean.cn/2017/03/28/UI组件之色彩选择器/colorpicker_overlay.png">
 <meta property="og:updated_time" content="2017-05-04T01:58:12.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UI组件之色彩选择器">
@@ -131,7 +131,7 @@
 
 
 
-  <link rel="canonical" href="http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/"/>
+  <link rel="canonical" href="syean.cn/2017/03/28/UI组件之色彩选择器/"/>
 
 
 
@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/">
+    <link itemprop="mainEntityOfPage" href="syean.cn/2017/03/28/UI组件之色彩选择器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="syean">
@@ -351,7 +351,7 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。<br><a id="more"></a><br>先放上效果图，代码是基于jquery的，所以要引用上哟。<br> <img src="/2017/03/28/UI组件之色彩选择器/GIF.gif" alt="GIF.gif" title=""><br> 或者戳<a href="http://syean.cn/ife-2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/colorpicker.html" target="_blank" rel="external">这里看效果</a>，源码在<a href="https://github.com/wsyks/ife-2017/tree/master/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8" target="_blank" rel="external">这里</a></p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。<br><a id="more"></a><br>先放上效果图，代码是基于jquery的，所以要引用上哟。<br> <img src="/2017/03/28/UI组件之色彩选择器/GIF.gif" alt="GIF.gif" title=""><br> 或者戳<a href="http://syean.cn/ife-2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/colorpicker.html">这里看效果</a>，源码在<a href="https://github.com/wsyks/ife-2017/tree/master/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8" target="_blank" rel="external">这里</a></p>
 <h1 id="功能需求"><a href="#功能需求" class="headerlink" title="功能需求"></a>功能需求</h1><ul>
 <li>可以通过点击左侧色彩区域选择色彩，在右侧的输入框中会显示对应的色值，包括RGB,HSL和HSV的值</li>
 <li>可以通过调节右侧输入框的各数值，来查看对应的颜色</li>
@@ -361,7 +361,7 @@
 </ul>
 <h1 id="总体思路"><a href="#总体思路" class="headerlink" title="总体思路"></a>总体思路</h1><h2 id="左边色彩区域"><a href="#左边色彩区域" class="headerlink" title="左边色彩区域"></a>左边色彩区域</h2><p>通过效果图，你可以试着多取色，看看数值的一些规律。</p>
 <blockquote>
-<p>从HSV数值上来看(如有不了解，请戳<a href="http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" target="_blank" rel="external">上篇</a>)。</p>
+<p>从HSV数值上来看(如有不了解，请戳<a href="http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">上篇</a>)。</p>
 </blockquote>
 <ul>
 <li>左边取色渐变色块的色相是一直保持不变的</li>
@@ -430,7 +430,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/" title="UI组件之色彩选择器">http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/</a>
+      <a href="syean.cn/2017/03/28/UI组件之色彩选择器/" title="UI组件之色彩选择器">syean.cn/2017/03/28/UI组件之色彩选择器/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>

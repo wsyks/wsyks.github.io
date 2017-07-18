@@ -4,9 +4,9 @@
   <subtitle>记录，分享，回忆</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://119.29.156.175/"/>
-  <updated>2017-07-17T09:47:34.279Z</updated>
-  <id>http://119.29.156.175/</id>
+  <link href="http://syean.cn/"/>
+  <updated>2017-07-18T03:45:58.284Z</updated>
+  <id>http://syean.cn/</id>
   
   <author>
     <name>syean</name>
@@ -16,9 +16,25 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>test</title>
+    <link href="http://syean.cn/2017/07/18/test/"/>
+    <id>http://syean.cn/2017/07/18/test/</id>
+    <published>2017-07-18T03:45:58.000Z</published>
+    <updated>2017-07-18T03:45:58.284Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Mock.js初体验——模拟前后端交互</title>
-    <link href="http://119.29.156.175/2017/07/17/Mock-js%E5%88%9D%E4%BD%93%E9%AA%8C%E2%80%94%E2%80%94%E6%A8%A1%E6%8B%9F%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/"/>
-    <id>http://119.29.156.175/2017/07/17/Mock-js初体验——模拟前后端交互/</id>
+    <link href="http://syean.cn/2017/07/17/Mock-js%E5%88%9D%E4%BD%93%E9%AA%8C%E2%80%94%E2%80%94%E6%A8%A1%E6%8B%9F%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/"/>
+    <id>http://syean.cn/2017/07/17/Mock-js初体验——模拟前后端交互/</id>
     <published>2017-07-17T09:46:27.000Z</published>
     <updated>2017-07-17T09:47:34.279Z</updated>
     
@@ -38,14 +54,14 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://119.29.156.175/tags/javascript/"/>
+      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>d3树图(tree)的变形：拥有多个父节点的子节点</title>
-    <link href="http://119.29.156.175/2017/06/27/d3%E6%A0%91%E5%9B%BE-tree-%E7%9A%84%E5%8F%98%E5%BD%A2%EF%BC%9A%E6%8B%A5%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%88%B6%E8%8A%82%E7%82%B9%E7%9A%84%E5%AD%90%E8%8A%82%E7%82%B9/"/>
-    <id>http://119.29.156.175/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/</id>
+    <link href="http://syean.cn/2017/06/27/d3%E6%A0%91%E5%9B%BE-tree-%E7%9A%84%E5%8F%98%E5%BD%A2%EF%BC%9A%E6%8B%A5%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%88%B6%E8%8A%82%E7%82%B9%E7%9A%84%E5%AD%90%E8%8A%82%E7%82%B9/"/>
+    <id>http://syean.cn/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/</id>
     <published>2017-06-27T09:31:21.000Z</published>
     <updated>2017-06-27T12:03:08.907Z</updated>
     
@@ -72,16 +88,16 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://119.29.156.175/tags/javascript/"/>
+      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
     
-      <category term="可视化" scheme="http://119.29.156.175/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="可视化" scheme="http://syean.cn/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>PHP CodeIgniter分页实例及多条件查询解决方案</title>
-    <link href="http://119.29.156.175/2017/05/19/php-CodeIgniter%E5%88%86%E9%A1%B5%E5%8F%8A%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://119.29.156.175/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/</id>
+    <link href="http://syean.cn/2017/05/19/php-CodeIgniter%E5%88%86%E9%A1%B5%E5%8F%8A%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://syean.cn/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/</id>
     <published>2017-05-19T12:14:29.000Z</published>
     <updated>2017-05-22T03:21:11.735Z</updated>
     
@@ -109,20 +125,20 @@
     </summary>
     
     
-      <category term="php" scheme="http://119.29.156.175/tags/php/"/>
+      <category term="php" scheme="http://syean.cn/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>CSS3实现卡片翻转动画效果</title>
-    <link href="http://119.29.156.175/2017/05/10/css3%E5%AE%9E%E7%8E%B0%E5%8D%A1%E7%89%87%E7%BF%BB%E8%BD%AC%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
-    <id>http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/</id>
+    <link href="http://syean.cn/2017/05/10/css3%E5%AE%9E%E7%8E%B0%E5%8D%A1%E7%89%87%E7%BF%BB%E8%BD%AC%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
+    <id>http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/</id>
     <published>2017-05-10T11:40:58.000Z</published>
     <updated>2017-05-10T12:54:03.439Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;还是先放效果图，或者点击&lt;a href=&quot;http://syean.cn/demo/flip/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;查看效果&lt;br&gt;&lt;img src=&quot;/2017/05/10/css3实现卡片翻转动画效果/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;还是先放效果图，或者点击&lt;a href=&quot;http://syean.cn/demo/flip/&quot;&gt;这里&lt;/a&gt;查看效果&lt;br&gt;&lt;img src=&quot;/2017/05/10/css3实现卡片翻转动画效果/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot; title=&quot;实现&quot;&gt;&lt;/a&gt;实现&lt;/h1&gt;&lt;h2 id=&quot;html&quot;&gt;&lt;a href=&quot;#html&quot; class=&quot;headerlink&quot; title=&quot;html&quot;&gt;&lt;/a&gt;html&lt;/h2&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;box&quot;&lt;/span&gt;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;lt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;card front&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;lt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;card back&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;css&quot;&gt;&lt;a href=&quot;#css&quot; class=&quot;headerlink&quot; title=&quot;css&quot;&gt;&lt;/a&gt;css&lt;/h2&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;      body&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	perspective: 1000px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.box&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	margin: 50px auto;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    width: 239px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    height: 334px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    position: relative;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    transform-style: preserve-3d;//关键代码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    transition: transform 1s;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.card&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	display: block;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	position: absolute;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	width: 100%;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	height: 100%;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	backface-visibility: hidden;//关键代码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	border-radius: 20px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.front&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background-image: url(1.jpg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  		background-position: -24px -23px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.back&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	transform: rotateY(180deg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background-image: url(1.jpg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  		background-position: -287px -23px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.flipped&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	transform: rotateY(180deg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h2&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$(&quot;.box&quot;).hover(function(event)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$(this).toggleClass(&quot;flipped&quot;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -139,14 +155,14 @@
     </summary>
     
     
-      <category term="css3" scheme="http://119.29.156.175/tags/css3/"/>
+      <category term="css3" scheme="http://syean.cn/tags/css3/"/>
     
   </entry>
   
   <entry>
     <title>解锁新技能——入门剪辑，四姑娘山</title>
-    <link href="http://119.29.156.175/2017/05/08/%E8%A7%A3%E9%94%81%E6%96%B0%E6%8A%80%E8%83%BD%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%89%AA%E8%BE%91/"/>
-    <id>http://119.29.156.175/2017/05/08/解锁新技能——入门剪辑/</id>
+    <link href="http://syean.cn/2017/05/08/%E8%A7%A3%E9%94%81%E6%96%B0%E6%8A%80%E8%83%BD%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%89%AA%E8%BE%91/"/>
+    <id>http://syean.cn/2017/05/08/解锁新技能——入门剪辑/</id>
     <published>2017-05-08T04:04:44.000Z</published>
     <updated>2017-05-11T07:05:04.525Z</updated>
     
@@ -167,18 +183,18 @@
     </summary>
     
     
-      <category term="人生百态" scheme="http://119.29.156.175/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
+      <category term="人生百态" scheme="http://syean.cn/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
     
   </entry>
   
   <entry>
     <title>UI组件之色彩选择器</title>
-    <link href="http://119.29.156.175/2017/03/28/UI%E7%BB%84%E4%BB%B6%E4%B9%8B%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/"/>
-    <id>http://119.29.156.175/2017/03/28/UI组件之色彩选择器/</id>
+    <link href="http://syean.cn/2017/03/28/UI%E7%BB%84%E4%BB%B6%E4%B9%8B%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    <id>http://syean.cn/2017/03/28/UI组件之色彩选择器/</id>
     <published>2017-03-28T07:51:55.000Z</published>
     <updated>2017-05-04T01:58:12.946Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;先放上效果图，代码是基于jquery的，所以要引用上哟。&lt;br&gt; &lt;img src=&quot;/2017/03/28/UI组件之色彩选择器/GIF.gif&quot; alt=&quot;GIF.gif&quot; title=&quot;&quot;&gt;&lt;br&gt; 或者戳&lt;a href=&quot;http://syean.cn/ife-2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/colorpicker.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里看效果&lt;/a&gt;，源码在&lt;a href=&quot;https://github.com/wsyks/ife-2017/tree/master/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;先放上效果图，代码是基于jquery的，所以要引用上哟。&lt;br&gt; &lt;img src=&quot;/2017/03/28/UI组件之色彩选择器/GIF.gif&quot; alt=&quot;GIF.gif&quot; title=&quot;&quot;&gt;&lt;br&gt; 或者戳&lt;a href=&quot;http://syean.cn/ife-2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/colorpicker.html&quot;&gt;这里看效果&lt;/a&gt;，源码在&lt;a href=&quot;https://github.com/wsyks/ife-2017/tree/master/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;功能需求&quot;&gt;&lt;a href=&quot;#功能需求&quot; class=&quot;headerlink&quot; title=&quot;功能需求&quot;&gt;&lt;/a&gt;功能需求&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;可以通过点击左侧色彩区域选择色彩，在右侧的输入框中会显示对应的色值，包括RGB,HSL和HSV的值&lt;/li&gt;
 &lt;li&gt;可以通过调节右侧输入框的各数值，来查看对应的颜色&lt;/li&gt;
@@ -188,7 +204,7 @@
 &lt;/ul&gt;
 &lt;h1 id=&quot;总体思路&quot;&gt;&lt;a href=&quot;#总体思路&quot; class=&quot;headerlink&quot; title=&quot;总体思路&quot;&gt;&lt;/a&gt;总体思路&lt;/h1&gt;&lt;h2 id=&quot;左边色彩区域&quot;&gt;&lt;a href=&quot;#左边色彩区域&quot; class=&quot;headerlink&quot; title=&quot;左边色彩区域&quot;&gt;&lt;/a&gt;左边色彩区域&lt;/h2&gt;&lt;p&gt;通过效果图，你可以试着多取色，看看数值的一些规律。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;从HSV数值上来看(如有不了解，请戳&lt;a href=&quot;http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上篇&lt;/a&gt;)。&lt;/p&gt;
+&lt;p&gt;从HSV数值上来看(如有不了解，请戳&lt;a href=&quot;http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/&quot;&gt;上篇&lt;/a&gt;)。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;左边取色渐变色块的色相是一直保持不变的&lt;/li&gt;
@@ -238,16 +254,16 @@
     </summary>
     
     
-      <category term="javascipt" scheme="http://119.29.156.175/tags/javascipt/"/>
+      <category term="javascipt" scheme="http://syean.cn/tags/javascipt/"/>
     
-      <category term="canvas" scheme="http://119.29.156.175/tags/canvas/"/>
+      <category term="canvas" scheme="http://syean.cn/tags/canvas/"/>
     
   </entry>
   
   <entry>
     <title>JS实现RGB,HSL,HSB相互转换</title>
-    <link href="http://119.29.156.175/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
-    <id>http://119.29.156.175/2017/03/17/JS实现RGB-HSL-HSB相互转换/</id>
+    <link href="http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://syean.cn/2017/03/17/JS实现RGB-HSL-HSB相互转换/</id>
     <published>2017-03-17T09:55:56.000Z</published>
     <updated>2017-05-04T02:03:55.871Z</updated>
     
@@ -294,14 +310,14 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://119.29.156.175/tags/javascript/"/>
+      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>自定义右键菜单</title>
-    <link href="http://119.29.156.175/2017/03/09/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/"/>
-    <id>http://119.29.156.175/2017/03/09/自定义右键菜单/</id>
+    <link href="http://syean.cn/2017/03/09/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/"/>
+    <id>http://syean.cn/2017/03/09/自定义右键菜单/</id>
     <published>2017-03-09T13:23:36.000Z</published>
     <updated>2017-05-04T01:55:30.840Z</updated>
     
@@ -382,14 +398,14 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://119.29.156.175/tags/javascript/"/>
+      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>有趣的鼠标悬浮模糊效果</title>
-    <link href="http://119.29.156.175/2017/03/08/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/"/>
-    <id>http://119.29.156.175/2017/03/08/有趣的鼠标悬浮模糊效果/</id>
+    <link href="http://syean.cn/2017/03/08/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/"/>
+    <id>http://syean.cn/2017/03/08/有趣的鼠标悬浮模糊效果/</id>
     <published>2017-03-08T02:17:19.000Z</published>
     <updated>2017-05-04T01:55:28.723Z</updated>
     
@@ -430,14 +446,14 @@
     </summary>
     
     
-      <category term="css3" scheme="http://119.29.156.175/tags/css3/"/>
+      <category term="css3" scheme="http://syean.cn/tags/css3/"/>
     
   </entry>
   
   <entry>
     <title>php中密码HASH的方案——Password Hashing</title>
-    <link href="http://119.29.156.175/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/"/>
-    <id>http://119.29.156.175/2017/02/27/php中密码HASH的方方案——password-hash/</id>
+    <link href="http://syean.cn/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/"/>
+    <id>http://syean.cn/2017/02/27/php中密码HASH的方方案——password-hash/</id>
     <published>2017-02-27T11:55:47.000Z</published>
     <updated>2017-05-04T02:02:11.876Z</updated>
     
@@ -499,16 +515,16 @@
     </summary>
     
     
-      <category term="php" scheme="http://119.29.156.175/tags/php/"/>
+      <category term="php" scheme="http://syean.cn/tags/php/"/>
     
-      <category term="安全" scheme="http://119.29.156.175/tags/%E5%AE%89%E5%85%A8/"/>
+      <category term="安全" scheme="http://syean.cn/tags/%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
   <entry>
     <title>CSS3实现进度条的两个姿势</title>
-    <link href="http://119.29.156.175/2017/02/16/CSS3%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%A7%BF%E5%8A%BF/"/>
-    <id>http://119.29.156.175/2017/02/16/CSS3实现进度条的几个姿势/</id>
+    <link href="http://syean.cn/2017/02/16/CSS3%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%A7%BF%E5%8A%BF/"/>
+    <id>http://syean.cn/2017/02/16/CSS3实现进度条的几个姿势/</id>
     <published>2017-02-16T03:52:34.000Z</published>
     <updated>2017-05-04T02:04:53.750Z</updated>
     
@@ -565,14 +581,14 @@
     </summary>
     
     
-      <category term="css3" scheme="http://119.29.156.175/tags/css3/"/>
+      <category term="css3" scheme="http://syean.cn/tags/css3/"/>
     
   </entry>
   
   <entry>
     <title>vue.js学习实例</title>
-    <link href="http://119.29.156.175/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/"/>
-    <id>http://119.29.156.175/2016/11/14/vue-js学习实例/</id>
+    <link href="http://syean.cn/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/"/>
+    <id>http://syean.cn/2016/11/14/vue-js学习实例/</id>
     <published>2016-11-14T03:38:38.000Z</published>
     <updated>2017-05-04T01:57:48.964Z</updated>
     
@@ -606,16 +622,16 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://119.29.156.175/tags/javascript/"/>
+      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
     
-      <category term="vue.js" scheme="http://119.29.156.175/tags/vue-js/"/>
+      <category term="vue.js" scheme="http://syean.cn/tags/vue-js/"/>
     
   </entry>
   
   <entry>
     <title>three.js学习笔记（一）</title>
-    <link href="http://119.29.156.175/2016/08/05/three-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://119.29.156.175/2016/08/05/three-js学习笔记（一）/</id>
+    <link href="http://syean.cn/2016/08/05/three-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://syean.cn/2016/08/05/three-js学习笔记（一）/</id>
     <published>2016-08-05T12:24:23.000Z</published>
     <updated>2017-05-04T01:58:41.164Z</updated>
     
@@ -684,16 +700,16 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://119.29.156.175/tags/javascript/"/>
+      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
     
-      <category term="webgl" scheme="http://119.29.156.175/tags/webgl/"/>
+      <category term="webgl" scheme="http://syean.cn/tags/webgl/"/>
     
   </entry>
   
   <entry>
     <title>HTML5_拖放</title>
-    <link href="http://119.29.156.175/2016/07/28/HTML5-%E6%8B%96%E6%94%BE/"/>
-    <id>http://119.29.156.175/2016/07/28/HTML5-拖放/</id>
+    <link href="http://syean.cn/2016/07/28/HTML5-%E6%8B%96%E6%94%BE/"/>
+    <id>http://syean.cn/2016/07/28/HTML5-拖放/</id>
     <published>2016-07-28T12:09:38.000Z</published>
     <updated>2017-05-04T02:04:21.108Z</updated>
     
@@ -765,14 +781,14 @@
     </summary>
     
     
-      <category term="html5" scheme="http://119.29.156.175/tags/html5/"/>
+      <category term="html5" scheme="http://syean.cn/tags/html5/"/>
     
   </entry>
   
   <entry>
     <title>瓦片地图</title>
-    <link href="http://119.29.156.175/2016/07/21/%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE/"/>
-    <id>http://119.29.156.175/2016/07/21/瓦片地图/</id>
+    <link href="http://syean.cn/2016/07/21/%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE/"/>
+    <id>http://syean.cn/2016/07/21/瓦片地图/</id>
     <published>2016-07-21T08:39:05.000Z</published>
     <updated>2017-05-04T01:56:33.564Z</updated>
     
@@ -902,14 +918,14 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     </summary>
     
     
-      <category term="技术" scheme="http://119.29.156.175/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="http://syean.cn/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>ReactJS，你好</title>
-    <link href="http://119.29.156.175/2016/07/14/ReactJS%EF%BC%8C%E4%BD%A0%E5%A5%BD/"/>
-    <id>http://119.29.156.175/2016/07/14/ReactJS，你好/</id>
+    <link href="http://syean.cn/2016/07/14/ReactJS%EF%BC%8C%E4%BD%A0%E5%A5%BD/"/>
+    <id>http://syean.cn/2016/07/14/ReactJS，你好/</id>
     <published>2016-07-14T02:52:44.000Z</published>
     <updated>2017-05-04T02:01:04.682Z</updated>
     
@@ -1032,16 +1048,16 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     </summary>
     
     
-      <category term="javascript" scheme="http://119.29.156.175/tags/javascript/"/>
+      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
     
-      <category term="ReactJs" scheme="http://119.29.156.175/tags/ReactJs/"/>
+      <category term="ReactJs" scheme="http://syean.cn/tags/ReactJs/"/>
     
   </entry>
   
   <entry>
     <title>AngularJS学习笔记</title>
-    <link href="http://119.29.156.175/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://119.29.156.175/2016/07/08/AngularJS学习笔记/</id>
+    <link href="http://syean.cn/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://syean.cn/2016/07/08/AngularJS学习笔记/</id>
     <published>2016-07-08T03:57:56.000Z</published>
     <updated>2017-05-03T14:31:26.129Z</updated>
     
@@ -1192,16 +1208,16 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     </summary>
     
     
-      <category term="javascript" scheme="http://119.29.156.175/tags/javascript/"/>
+      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
     
-      <category term="AngularJS" scheme="http://119.29.156.175/tags/AngularJS/"/>
+      <category term="AngularJS" scheme="http://syean.cn/tags/AngularJS/"/>
     
   </entry>
   
   <entry>
     <title>算法学习笔记（一）</title>
-    <link href="http://119.29.156.175/2016/04/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://119.29.156.175/2016/04/22/算法学习笔记（一）/</id>
+    <link href="http://syean.cn/2016/04/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://syean.cn/2016/04/22/算法学习笔记（一）/</id>
     <published>2016-04-22T08:54:34.000Z</published>
     <updated>2017-05-04T01:57:03.581Z</updated>
     
@@ -1254,14 +1270,14 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     </summary>
     
     
-      <category term="读书笔记" scheme="http://119.29.156.175/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="读书笔记" scheme="http://syean.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>分享两篇游记</title>
-    <link href="http://119.29.156.175/2016/04/09/%E5%88%86%E4%BA%AB%E4%B8%A4%E7%AF%87%E6%B8%B8%E8%AE%B0/"/>
-    <id>http://119.29.156.175/2016/04/09/分享两篇游记/</id>
+    <link href="http://syean.cn/2016/04/09/%E5%88%86%E4%BA%AB%E4%B8%A4%E7%AF%87%E6%B8%B8%E8%AE%B0/"/>
+    <id>http://syean.cn/2016/04/09/分享两篇游记/</id>
     <published>2016-04-09T13:56:41.000Z</published>
     <updated>2017-05-03T14:33:45.056Z</updated>
     
@@ -1278,108 +1294,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     </summary>
     
     
-      <category term="人生百态" scheme="http://119.29.156.175/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>php mongodb操作笔记</title>
-    <link href="http://119.29.156.175/2016/04/06/php-mongodb%E6%93%8D%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
-    <id>http://119.29.156.175/2016/04/06/php-mongodb操作笔记/</id>
-    <published>2016-04-06T14:43:41.000Z</published>
-    <updated>2017-05-19T12:12:55.243Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt; 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;h1 id=&quot;连接&quot;&gt;&lt;a href=&quot;#连接&quot; class=&quot;headerlink&quot; title=&quot;连接&quot;&gt;&lt;/a&gt;连接&lt;/h1&gt;&lt;h2 id=&quot;基础连接&quot;&gt;&lt;a href=&quot;#基础连接&quot; class=&quot;headerlink&quot; title=&quot;基础连接&quot;&gt;&lt;/a&gt;基础连接&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoClient(); &lt;span class=&quot;comment&quot;&gt;#默认本地的连接&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$db = $conn-&amp;gt;db;           &lt;span class=&quot;comment&quot;&gt;#选择名为db的数据库&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$db=$conn-&amp;gt;selectDB(&lt;span class=&quot;string&quot;&gt;&quot;mydb&quot;&lt;/span&gt;);                  &lt;span class=&quot;comment&quot;&gt;#第二种写法&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$collection = $db-&amp;gt;collection &lt;span class=&quot;comment&quot;&gt;#选择一个数据库表（集合）&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$collection=$db-&amp;gt;selectCollection(&lt;span class=&quot;string&quot;&gt;&#39;column&#39;&lt;/span&gt;);  &lt;span class=&quot;comment&quot;&gt;#第二种写法&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$collection=$conn-&amp;gt;mydb-&amp;gt;column;              &lt;span class=&quot;comment&quot;&gt;#更简洁的写法&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;连接-1&quot;&gt;&lt;a href=&quot;#连接-1&quot; class=&quot;headerlink&quot; title=&quot;连接&quot;&gt;&lt;/a&gt;连接&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;格式：&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoClient(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://用户名:密码@地址:端口/默认指定数据库&quot;&lt;/span&gt;,参数)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoClient(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://localhost&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoClient(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://localhost:27017&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoClient(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://localhost:$port&quot;&lt;/span&gt;);  &lt;span class=&quot;comment&quot;&gt;#mongo对应端口&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Mongo(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://localhost&quot;&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;replicaSet&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;)); &lt;span class=&quot;comment&quot;&gt;#负载均衡&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Mongo(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://localhost&quot;&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;persist&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;string&quot;&gt;&quot;t&quot;&lt;/span&gt;));     &lt;span class=&quot;comment&quot;&gt;#持久连接&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Mongo(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://sa:123@localhost&quot;&lt;/span&gt;);    &lt;span class=&quot;comment&quot;&gt;#带用户名密码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Mongo(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://localhost:27017,localhost:27018&quot;&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;#连接多个服务器&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Mongo(&lt;span class=&quot;string&quot;&gt;&quot;mongodb:///tmp/mongo-27017.sock&quot;&lt;/span&gt;);   &lt;span class=&quot;comment&quot;&gt;#域套接字&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$conn = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Mongo(&lt;span class=&quot;string&quot;&gt;&quot;mongodb://admin:admin@localhost:27017/test&quot;&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;persist&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;string&quot;&gt;&#39;p&#39;&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;replicaSet&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;));   &lt;span class=&quot;comment&quot;&gt;#完整&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;【注】由于我的php版本是5.4类型，mongodb是3.0.7版本，好像由于php版本太低，导致和mongdb有些不兼容，连接带有用户名密码的服务器时会报错，目前这个问题还没得到解决，只能先不加认证。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;查询&quot;&gt;&lt;a href=&quot;#查询&quot; class=&quot;headerlink&quot; title=&quot;查询&quot;&gt;&lt;/a&gt;查询&lt;/h1&gt;&lt;h2 id=&quot;基础查询&quot;&gt;&lt;a href=&quot;#基础查询&quot; class=&quot;headerlink&quot; title=&quot;基础查询&quot;&gt;&lt;/a&gt;基础查询&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;port&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;ip&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;string&quot;&gt;&#39;192.168.1.1&#39;&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;port&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$gt&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;$lt&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;5555&lt;/span&gt;)));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;findOne();&lt;span class=&quot;comment&quot;&gt;#查询一条结果&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;pre&gt;&lt;code&gt;【注】
-1、$gt为大于、$gte为大于等于、$lt为小于、$lte为小于等于、$ne为不等于、$exists不存在；
-2、findOne()获得结果集后不能使用snapshot(),fields()等函数;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&quot;查询结果处理&quot;&gt;&lt;a href=&quot;#查询结果处理&quot; class=&quot;headerlink&quot; title=&quot;查询结果处理&quot;&gt;&lt;/a&gt;查询结果处理&lt;/h2&gt;&lt;p&gt;查询结果返回的是MongoCursor，是mongo的游标，一般使用foreach即可读取里面的数据&lt;/p&gt;
-&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;foreach($data as $key =&amp;gt; $value)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  var_dump($key);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  var_dump($value);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    ....&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;但是我们更习惯使用数组，就可以使用 iterator_to_array() 将游标转换成一个数组。&lt;/p&gt;
-&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$cursor = $collection-&amp;gt;find();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$array = iterator_to_array($cursor);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;这样输出的则是数组类型的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;【注】使用 iterator_to_array() 会让驱动将强制载入所有搜索结果集到内存，所以对超过内存大小的结果集不要这么做&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;中级查询&quot;&gt;&lt;a href=&quot;#中级查询&quot; class=&quot;headerlink&quot; title=&quot;中级查询&quot;&gt;&lt;/a&gt;中级查询&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;port&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;))-&amp;gt;sort(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;timestamp&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;-1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;type&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)); &lt;span class=&quot;comment&quot;&gt;#sort排序，-1表示降序，1表示升序 ,参数的先后影响排序&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;port&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;))-&amp;gt;skip(n);&lt;span class=&quot;comment&quot;&gt;#跳过n条数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;port&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;80&lt;/span&gt;))-&amp;gt;limit(n);&lt;span class=&quot;comment&quot;&gt;#获得n条数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find()-&amp;gt;fields(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(“user”=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;));&lt;span class=&quot;comment&quot;&gt;#只显示user 列&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find()-&amp;gt;fields(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(“user”=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;));&lt;span class=&quot;comment&quot;&gt;#只不显示user 列&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;comment&quot;&gt;/*使用.号来查询子嵌套文档 */&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    name : &lt;span class=&quot;string&quot;&gt;&quot;Gordon Freeman&quot;&lt;/span&gt;, &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    address : &amp;#123; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        city : &lt;span class=&quot;string&quot;&gt;&quot;Springfield&quot;&lt;/span&gt;, &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        state : &lt;span class=&quot;string&quot;&gt;&quot;Florida&quot;&lt;/span&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data=$collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;address.city&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;string&quot;&gt;&#39;Springfield&#39;&lt;/span&gt;));&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;查询null和不存在的字段&quot;&gt;&lt;a href=&quot;#查询null和不存在的字段&quot; class=&quot;headerlink&quot; title=&quot;查询null和不存在的字段&quot;&gt;&lt;/a&gt;查询null和不存在的字段&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//查询集合中&quot;age&quot;为null的值，如果此数据中没有该字段，也同样会返回数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data=$collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;age&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//如果要查询有数据有该字段，且值为null的，则用以下方法&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data=$collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;age&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$exists&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&#39;$in&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;keyword&quot;&gt;NULL&lt;/span&gt;))));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//查询不存在某个字段&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data=$collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;age&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$exists&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;false&lt;/span&gt;)));&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;获取数量&quot;&gt;&lt;a href=&quot;#获取数量&quot; class=&quot;headerlink&quot; title=&quot;获取数量&quot;&gt;&lt;/a&gt;获取数量&lt;/h2&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$count = $collection-&amp;gt;count();&lt;span class=&quot;comment&quot;&gt;//得到总数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$count =$collection-&amp;gt;find($select_query)-&amp;gt;count();&lt;span class=&quot;comment&quot;&gt;//筛选后总数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;或者：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$count =$collection-&amp;gt;count($select_query)；&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;针对mongodb的一些格式&quot;&gt;&lt;a href=&quot;#针对mongodb的一些格式&quot; class=&quot;headerlink&quot; title=&quot;针对mongodb的一些格式&quot;&gt;&lt;/a&gt;针对mongodb的一些格式&lt;/h2&gt;&lt;h3 id=&quot;日期&quot;&gt;&lt;a href=&quot;#日期&quot; class=&quot;headerlink&quot; title=&quot;日期&quot;&gt;&lt;/a&gt;日期&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;   MongoDate类型格式如下：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   [timestamp] =&amp;gt; MongoDate Object&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   (&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [sec] =&amp;gt; &lt;span class=&quot;number&quot;&gt;1379495520&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;#表当前时间&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    [usec] =&amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;          &lt;span class=&quot;comment&quot;&gt;#时间精确到微秒 &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   )&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   $timestamp = date(&lt;span class=&quot;string&quot;&gt;&quot;Y-m-d H:i&quot;&lt;/span&gt;, $start-&amp;gt;sec); &lt;span class=&quot;comment&quot;&gt;#print 2016-4-7 16:00&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;/*查询某个时间段内的数据*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   $start = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoDate($startRaw); &lt;span class=&quot;comment&quot;&gt;#创建MongoDate类型，$startRaw可为时间戳类型&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   如：&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   $start = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoDate(strtotime(&lt;span class=&quot;string&quot;&gt;&#39;2016-4-7 12:00:00&#39;&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$end = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoDate(strtotime(&lt;span class=&quot;string&quot;&gt;&#39;2016-4-8 12:00:00&#39;&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   $time=$collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;timestamp&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$gt&#39;&lt;/span&gt;=&amp;gt;$start,&lt;span class=&quot;string&quot;&gt;&#39;$lte&#39;&lt;/span&gt;=&amp;gt;$end))) &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &lt;span class=&quot;comment&quot;&gt;/*查询一星期内的数据*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   $lastweek = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoDate(strtotime(&lt;span class=&quot;string&quot;&gt;&#39;-1 week&#39;&lt;/span&gt;));   &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   $data = $collection-&amp;gt;find(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;timestamp&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$gt&#39;&lt;/span&gt; =&amp;gt; $lastweek)));&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h3 id=&quot;id&quot;&gt;&lt;a href=&quot;#id&quot; class=&quot;headerlink&quot; title=&quot;id&quot;&gt;&lt;/a&gt;id&lt;/h3&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*使用下面的方法来匹配&amp;#123;&quot;_id&quot;:ObjectId(&quot;56df8bbed7bc8d047cc7dfa7&quot;)&amp;#125;,查询、更新也一样&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$id = new MongoId(&quot;56df8bbed7bc8d047cc7dfa7&quot;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(array(&#39;_id&#39;=&amp;gt;(object)$id));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;或者&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$data = $collection-&amp;gt;find(array(&#39;_id&#39;=&amp;gt;$id));&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;高级查询-where&quot;&gt;&lt;a href=&quot;#高级查询-where&quot; class=&quot;headerlink&quot; title=&quot;高级查询$where&quot;&gt;&lt;/a&gt;高级查询$where&lt;/h2&gt;&lt;p&gt;如果普通的一些查询手段无法满足的时候，就可以使用$where，下面是一个小栗子&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//返回数据中author字段值为‘bob’或pageViews字段值为5的数据，返回true表示这个数据符合筛选条件&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$js = &quot;function() &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          return this.author == &#39;bob&#39; || this.pageViews == 5;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;&quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      $cursor = $collection-&amp;gt;find(array(&#39;$where&#39; =&amp;gt; $js));&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;【注】$where的值通常是一个函数，函数里的语法使用的js语言&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id=&quot;插入&quot;&gt;&lt;a href=&quot;#插入&quot; class=&quot;headerlink&quot; title=&quot;插入&quot;&gt;&lt;/a&gt;插入&lt;/h1&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$m = new MongoClient();    // 连接到mongodb&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$db = $m-&amp;gt;test;            // 选择一个数据库&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$collection = $db-&amp;gt;testcollection; // 选择集合&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$document = array( &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&quot;title&quot; =&amp;gt; &quot;MongoDB&quot;, &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&quot;description&quot; =&amp;gt; &quot;database&quot;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$collection-&amp;gt;insert($document);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;echo &quot;数据插入成功&quot;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h1 id=&quot;更新&quot;&gt;&lt;a href=&quot;#更新&quot; class=&quot;headerlink&quot; title=&quot;更新&quot;&gt;&lt;/a&gt;更新&lt;/h1&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$m = new MongoClient();    // 连接到mongodb&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$db = $m-&amp;gt;test;            // 选择一个数据库&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$collection = $db-&amp;gt;testcollection; // 选择集合&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 更新文档&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$collection-&amp;gt;update(array(&quot;title&quot;=&amp;gt;&quot;MongoDB&quot;), array(&#39;$set&#39;=&amp;gt;array(&quot;title&quot;=&amp;gt;&quot;MongoDB 教程&quot;)));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;在update里的第一个选项代表筛选’title‘为‘MongoDB’的数据 将‘title‘更新为’MongoDB教程‘；&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h1 id=&quot;删除&quot;&gt;&lt;a href=&quot;#删除&quot; class=&quot;headerlink&quot; title=&quot;删除&quot;&gt;&lt;/a&gt;删除&lt;/h1&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$collection-&amp;gt;remove(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;title&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;string&quot;&gt;&quot;MongoDB 教程&quot;&lt;/span&gt;), &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;justOne&quot;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;true&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//remove中的代表的是筛选条件&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h1 id=&quot;mongodb的管道&quot;&gt;&lt;a href=&quot;#mongodb的管道&quot; class=&quot;headerlink&quot; title=&quot;mongodb的管道&quot;&gt;&lt;/a&gt;mongodb的管道&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;管道在Unix和Linux中一般用于将当前命令的输出结果作为下一个命令的参数。&lt;br&gt;MongoDB的聚合管道将MongoDB文档在一个管道处理完毕后将结果传递给下一个管道处理。管道操作是可以重复的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;聚合框架中常用的有以下几个操作：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;$project：修改输入文档的结构。可以用来重命名、增加或删除域，也可以用于创建计算结果以及嵌套文档。&lt;/li&gt;
-&lt;li&gt;$match：用于过滤数据，只输出符合条件的文档。$match使用MongoDB的标准查询操作。&lt;/li&gt;
-&lt;li&gt;$limit：用来限制MongoDB聚合管道返回的文档数。&lt;/li&gt;
-&lt;li&gt;$skip：在聚合管道中跳过指定数量的文档，并返回余下的文档。&lt;/li&gt;
-&lt;li&gt;$unwind：将文档中的某一个数组类型字段拆分成多条，每条包含数组中的一个值。&lt;/li&gt;
-&lt;li&gt;$group：将集合中的文档分组，可用于统计结果。&lt;/li&gt;
-&lt;li&gt;$sort：将输入文档排序后输出。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;其中还有一些表达式操作：&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Name&lt;/th&gt;
-&lt;th&gt;Description&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;$add&lt;/td&gt;
-&lt;td&gt;加&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$devide&lt;/td&gt;
-&lt;td&gt;除&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$mod&lt;/td&gt;
-&lt;td&gt;模&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$multiply&lt;/td&gt;
-&lt;td&gt;乘&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;$subtract&lt;/td&gt;
-&lt;td&gt;减&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;php使用aggregate小栗子：&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;   $m = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoClient();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$db = $m-&amp;gt;table;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$c=$db-&amp;gt;collection;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$ops=&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; 	&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$match&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;time&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$gt&#39;&lt;/span&gt;=&amp;gt;$start,&lt;span class=&quot;string&quot;&gt;&#39;$lt&#39;&lt;/span&gt;=&amp;gt;$end))),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; 	&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$project&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;time&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;honeypot&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;,&lt;span class=&quot;string&quot;&gt;&quot;_id&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; 	&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$group&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;count&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$sum&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;))),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; 	&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$sort&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;count&quot;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;))&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;);&lt;span class=&quot;comment&quot;&gt;//注意所有管道操作符在php里只能用单引号&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;$results=$c-&amp;gt;aggregate($ops);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;h1 id=&quot;mongodb的模糊查询&quot;&gt;&lt;a href=&quot;#mongodb的模糊查询&quot; class=&quot;headerlink&quot; title=&quot;mongodb的模糊查询&quot;&gt;&lt;/a&gt;mongodb的模糊查询&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;mongodb的模糊查询主要采用正则匹配，正则和javascript的正则规则相同。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;不细讲，直接放一小栗子自用。&lt;br&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;$this&lt;/span&gt;-&amp;gt;mongo_db-&amp;gt;where(&lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;aaa&#39;&lt;/span&gt; =&amp;gt; &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;$regex&#39;&lt;/span&gt;=&amp;gt;&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; MongoRegex(&lt;span class=&quot;string&quot;&gt;&quot;/\.$data$/i&quot;&lt;/span&gt;))))-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;bbb&#39;&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt; 最近一段时间，有两个项目都需要用到php操作mongodb，操作比较频繁，记录一下操作用用到的一些方法。&lt;/p&gt;
-&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;
-    
-    </summary>
-    
-    
-      <category term="php" scheme="http://119.29.156.175/tags/php/"/>
-    
-      <category term="mongodb" scheme="http://119.29.156.175/tags/mongodb/"/>
+      <category term="人生百态" scheme="http://syean.cn/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
     
   </entry>
   

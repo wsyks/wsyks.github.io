@@ -96,15 +96,15 @@
 <meta name="keywords" content="css3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS3实现卡片翻转动画效果">
-<meta property="og:url" content="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/index.html">
+<meta property="og:url" content="http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/index.html">
 <meta property="og:site_name" content="Syean">
 <meta property="og:description" content="前言今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。">
-<meta property="og:image" content="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/1.gif">
+<meta property="og:image" content="http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/1.gif">
 <meta property="og:updated_time" content="2017-05-10T12:54:03.439Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS3实现卡片翻转动画效果">
 <meta name="twitter:description" content="前言今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。">
-<meta name="twitter:image" content="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/1.gif">
+<meta name="twitter:image" content="http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/1.gif">
 
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/"/>
+  <link rel="canonical" href="http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/"/>
 
 
 
@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/">
+    <link itemprop="mainEntityOfPage" href="http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="syean">
@@ -354,7 +354,7 @@
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。</p>
 <a id="more"></a>
-<p>还是先放效果图，或者点击<a href="http://syean.cn/demo/flip/" target="_blank" rel="external">这里</a>查看效果<br><img src="/2017/05/10/css3实现卡片翻转动画效果/1.gif" alt="1.gif" title=""></p>
+<p>还是先放效果图，或者点击<a href="http://syean.cn/demo/flip/">这里</a>查看效果<br><img src="/2017/05/10/css3实现卡片翻转动画效果/1.gif" alt="1.gif" title=""></p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="html"><a href="#html" class="headerlink" title="html"></a>html</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">div</span> class=<span class="string">"box"</span>&gt;</div><div class="line">	&lt;<span class="selector-tag">div</span> class=<span class="string">"card front"</span>&gt;&lt;/div&gt;</div><div class="line">	&lt;<span class="selector-tag">div</span> class=<span class="string">"card back"</span>&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
 <h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">      body&#123;</div><div class="line">	perspective: 1000px;</div><div class="line">&#125;</div><div class="line">.box&#123;</div><div class="line">	margin: 50px auto;</div><div class="line">    width: 239px;</div><div class="line">    height: 334px;</div><div class="line">    position: relative;</div><div class="line">    transform-style: preserve-3d;//关键代码</div><div class="line">    transition: transform 1s;</div><div class="line">&#125;</div><div class="line">.card&#123;</div><div class="line">	display: block;</div><div class="line">	position: absolute;</div><div class="line">	width: 100%;</div><div class="line">	height: 100%;</div><div class="line">	backface-visibility: hidden;//关键代码</div><div class="line">	border-radius: 20px;</div><div class="line">&#125;</div><div class="line">.front&#123;</div><div class="line">	background-image: url(1.jpg);</div><div class="line">  		background-position: -24px -23px;</div><div class="line">&#125;</div><div class="line">.back&#123;</div><div class="line">	transform: rotateY(180deg);</div><div class="line">	background-image: url(1.jpg);</div><div class="line">  		background-position: -287px -23px;</div><div class="line">&#125;</div><div class="line">.flipped&#123;</div><div class="line">	transform: rotateY(180deg);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
 <h2 id="js"><a href="#js" class="headerlink" title="js"></a>js</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(".box").hover(function(event)&#123;</div><div class="line">	$(this).toggleClass("flipped");</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
@@ -390,7 +390,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/" title="CSS3实现卡片翻转动画效果">http://119.29.156.175/2017/05/10/css3实现卡片翻转动画效果/</a>
+      <a href="http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/" title="CSS3实现卡片翻转动画效果">http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -537,7 +537,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

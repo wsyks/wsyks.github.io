@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://syean.cn/"/>
-  <updated>2017-07-18T03:45:58.284Z</updated>
+  <updated>2017-07-18T06:52:50.240Z</updated>
   <id>http://syean.cn/</id>
   
   <author>
@@ -14,6 +14,22 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test2</title>
+    <link href="http://syean.cn/2017/07/18/test2/"/>
+    <id>http://syean.cn/2017/07/18/test2/</id>
+    <published>2017-07-18T06:52:50.000Z</published>
+    <updated>2017-07-18T06:52:50.240Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>test</title>
@@ -1271,30 +1287,6 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     
     
       <category term="读书笔记" scheme="http://syean.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分享两篇游记</title>
-    <link href="http://syean.cn/2016/04/09/%E5%88%86%E4%BA%AB%E4%B8%A4%E7%AF%87%E6%B8%B8%E8%AE%B0/"/>
-    <id>http://syean.cn/2016/04/09/分享两篇游记/</id>
-    <published>2016-04-09T13:56:41.000Z</published>
-    <updated>2017-05-03T14:33:45.056Z</updated>
-    
-    <content type="html">&lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;    所谓身未动，心已远大抵便是如此吧。&lt;/p&gt;
-&lt;p&gt;今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写了一篇游记，给大家~，还有一篇是今年寒假去厦门的，可以对比，我的摄影功力简直大增。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.mafengwo.cn/i/5452843.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;西游记之女儿国———泸沽湖，西昌邛海之旅&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.mafengwo.cn/i/5452321.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;漫漫浪——厦门篇（鼓浪屿，曾厝垵，厦大，南普陀）&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="人生百态" scheme="http://syean.cn/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
     
   </entry>
   

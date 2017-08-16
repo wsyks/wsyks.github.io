@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2017-08-16T08:05:48.558Z</updated>
+  <updated>2017-08-16T08:35:26.477Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -17,12 +17,12 @@
   
   <entry>
     <title>谈谈HTML5本地存储——WebStorage</title>
-    <link href="http://wsyks.github.io/2017/08/15/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/"/>
-    <id>http://wsyks.github.io/2017/08/15/谈谈浏览器存储/</id>
+    <link href="http://wsyks.github.io/2017/08/15/%E8%B0%88%E8%B0%88HTML5%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E2%80%94%E2%80%94WebStorage/"/>
+    <id>http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/</id>
     <published>2017-08-15T14:07:29.000Z</published>
-    <updated>2017-08-16T08:05:48.558Z</updated>
+    <updated>2017-08-16T08:35:26.477Z</updated>
     
-    <content type="html">
+    <content type="html">&lt;img src=&quot;/2017/08/15/谈谈HTML5本地存储——WebStorage/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
 &lt;p&gt;这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;浏览器本地存储概述&quot;&gt;&lt;a href=&quot;#浏览器本地存储概述&quot; class=&quot;headerlink&quot; title=&quot;浏览器本地存储概述&quot;&gt;&lt;/a&gt;浏览器本地存储概述&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;cookie&quot;&gt;&lt;a href=&quot;#cookie&quot; class=&quot;headerlink&quot; title=&quot;cookie&quot;&gt;&lt;/a&gt;cookie&lt;/h3&gt;&lt;p&gt;cookie是指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。&lt;/p&gt;
 &lt;h3 id=&quot;webStorage&quot;&gt;&lt;a href=&quot;#webStorage&quot; class=&quot;headerlink&quot; title=&quot;webStorage&quot;&gt;&lt;/a&gt;webStorage&lt;/h3&gt;&lt;p&gt;webStorage是HTML5中本地存储的解决方案之一，包括sessionStorag和localStorage，两者差別就差在生命周期的不同而已。&lt;/p&gt;
@@ -142,7 +142,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。&lt;br&gt;
+      &lt;img src=&quot;/2017/08/15/谈谈HTML5本地存储——WebStorage/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
+&lt;p&gt;这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。&lt;br&gt;
     
     </summary>
     

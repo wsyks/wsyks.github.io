@@ -74,7 +74,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="css,字体," />
+  <meta name="keywords" content="html5," />
 
 
 
@@ -92,24 +92,19 @@
 
 
 
-<meta name="description" content="以前一直用的是fontawesome字体，一直也就用它，觉得还比较齐全，偶尔有需要用到其他图标的时候，就会用阿里巴巴iconfont，在上面选择一个合适的图标下载一个png或者svg格式，如下图，单独引入也就是了。今天好好看了一下，发现以前真的是小看了这个字体库。">
-<meta name="keywords" content="css,字体">
+<meta name="description" content="这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。">
+<meta name="keywords" content="html5">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿里巴巴iconfont正确的使用姿势">
-<meta property="og:url" content="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/index.html">
+<meta property="og:title" content="谈谈HTML5本地存储——WebStorage">
+<meta property="og:url" content="http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/index.html">
 <meta property="og:site_name" content="Syean">
-<meta property="og:description" content="以前一直用的是fontawesome字体，一直也就用它，觉得还比较齐全，偶尔有需要用到其他图标的时候，就会用阿里巴巴iconfont，在上面选择一个合适的图标下载一个png或者svg格式，如下图，单独引入也就是了。今天好好看了一下，发现以前真的是小看了这个字体库。">
-<meta property="og:image" content="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/5.png">
-<meta property="og:image" content="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/6.png">
-<meta property="og:image" content="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/1.png">
-<meta property="og:image" content="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/2.png">
-<meta property="og:image" content="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/3.png">
-<meta property="og:image" content="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/4.png">
-<meta property="og:updated_time" content="2017-07-27T13:38:52.833Z">
+<meta property="og:description" content="这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。">
+<meta property="og:image" content="http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/1.png">
+<meta property="og:updated_time" content="2017-08-16T08:35:26.477Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿里巴巴iconfont正确的使用姿势">
-<meta name="twitter:description" content="以前一直用的是fontawesome字体，一直也就用它，觉得还比较齐全，偶尔有需要用到其他图标的时候，就会用阿里巴巴iconfont，在上面选择一个合适的图标下载一个png或者svg格式，如下图，单独引入也就是了。今天好好看了一下，发现以前真的是小看了这个字体库。">
-<meta name="twitter:image" content="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/5.png">
+<meta name="twitter:title" content="谈谈HTML5本地存储——WebStorage">
+<meta name="twitter:description" content="这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。">
+<meta name="twitter:image" content="http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/1.png">
 
 
 
@@ -137,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/"/>
+  <link rel="canonical" href="http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/"/>
 
 
 
 
 
-  <title>阿里巴巴iconfont正确的使用姿势 | Syean</title>
+  <title>谈谈HTML5本地存储——WebStorage | Syean</title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -272,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/">
+    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="syean">
@@ -289,7 +284,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">阿里巴巴iconfont正确的使用姿势</h2>
+          <h2 class="post-title" itemprop="name headline">谈谈HTML5本地存储——WebStorage</h2>
         
 
         <div class="post-meta">
@@ -301,8 +296,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-27T20:35:48+08:00">
-                2017-07-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-15T22:07:29+08:00">
+                2017-08-15
               </time>
             
 
@@ -320,7 +315,7 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a class="cloud-tie-join-count" href="/2017/07/27/阿里巴巴iconfont正确的使用姿势/#comments" itemprop="discussionUrl">
+                <a class="cloud-tie-join-count" href="/2017/08/15/谈谈HTML5本地存储——WebStorage/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
@@ -329,7 +324,7 @@
 
           
           
-             <span id="/2017/07/27/阿里巴巴iconfont正确的使用姿势/" class="leancloud_visitors" data-flag-title="阿里巴巴iconfont正确的使用姿势">
+             <span id="/2017/08/15/谈谈HTML5本地存储——WebStorage/" class="leancloud_visitors" data-flag-title="谈谈HTML5本地存储——WebStorage">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -357,38 +352,122 @@
       
 
       
-        <img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/5.png" alt="5.png" title="">
-<p>以前一直用的是fontawesome字体，一直也就用它，觉得还比较齐全，偶尔有需要用到其他图标的时候，就会用阿里巴巴iconfont，在上面选择一个合适的图标下载一个png或者svg格式，如下图，单独引入也就是了。今天好好看了一下，发现以前真的是小看了这个字体库。<br><a id="more"></a><br><img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/6.png" alt="6.png" title=""></p>
-<p>平时都是一个个下，如果要用一批里面的字体该如何做呢？follow me!</p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>进入<a href="http://www.iconfont.cn" target="_blank" rel="external">官网</a>，选择你需要的图标，“添加入库”<br><img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/1.png" alt="1.png" title=""><br>选择完毕后，点击上方的购物车图标<br><img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/2.png" alt="2.png" title=""><br>再点击“下载代码”即可<br><img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/3.png" alt="3.png" title=""><br>下载下来的如图<br><img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/4.png" alt="4.png" title=""></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>其实下载的文件中包含了那个demo html文件，分别介绍了三种使用方式，阅读即可明白使用方法，讲的很清楚。</p>
-<ul>
-<li>symbol引用 ：支持ie9+，可以使用彩色图标</li>
-<li>font-class 引用 ：兼容性不错，支持ie8+，书写直观（这点很不错），不过本质还是字体，所以只能是单色图标，推荐</li>
-<li>unicode 引用 ：兼容性最好（支持ie6+）,其他都比不上font-class。</li>
-</ul>
-<p>这里还是贴一下使用方式吧</p>
-<h3 id="font-class引用"><a href="#font-class引用" class="headerlink" title="font-class引用"></a>font-class引用</h3><p>使用步骤如下：</p>
-<p>第一步：引入项目下面生成的fontclass代码：</p>
-<figure class="highlight nix"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link <span class="attr">rel="stylesheet"</span> <span class="attr">type="text/css"</span> <span class="attr">href="./iconfont.css"&gt;</span></div></pre></td></tr></table></figure>
+        <img src="/2017/08/15/谈谈HTML5本地存储——WebStorage/1.png" alt="1.png" title="">
+<p>这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。<br><a id="more"></a></p>
+<h1 id="浏览器本地存储概述"><a href="#浏览器本地存储概述" class="headerlink" title="浏览器本地存储概述"></a>浏览器本地存储概述</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p>cookie是指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。</p>
+<h3 id="webStorage"><a href="#webStorage" class="headerlink" title="webStorage"></a>webStorage</h3><p>webStorage是HTML5中本地存储的解决方案之一，包括sessionStorag和localStorage，两者差別就差在生命周期的不同而已。</p>
+<h2 id="三者对比"><a href="#三者对比" class="headerlink" title="三者对比"></a>三者对比</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>生命周期</th>
+<th>存储大小</th>
+<th>与服务器通信</th>
+<th>作用域</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cookie</td>
+<td>一般由服务器生成，可设置过期时间，默认是关闭浏览器后失效</td>
+<td>4k左右</td>
+<td>可每次携带在http头部中，但保存过多数据会带来性能问题</td>
+<td>可通过.setDomain设置主域名共享</td>
+</tr>
+<tr>
+<td>localStorage</td>
+<td>永久保存，除非被清除</td>
+<td>5m左右</td>
+<td>只能存储在浏览器端</td>
+<td>子域名之间相互独立</td>
+</tr>
+<tr>
+<td>sessionStorage</td>
+<td>仅存在当前标签页下，关闭浏览器或者新建标签页都为空</td>
+<td>5m左右</td>
+<td>只能存储在浏览器端</td>
+<td>不同tab之间无法共享</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>这里对应的font文件还是要和css放在同一目录</p>
+<p>【tip】sessionStorage只能在一个标签页下共享，即如果你从当前标签页下新打开一个该网页的页面，sessionStorage数据也是清空的。不过如果你恢复关闭的页面的话，在chrome和firefox下sessionStorage也会被恢复，不过safari不会。</p>
 </blockquote>
-<p>第二步：挑选相应图标并获取类名，应用于页面：</p>
-<p><i class="iconfont icon-xxx"></i></p>
-<h3 id="symbol引用"><a href="#symbol引用" class="headerlink" title="symbol引用"></a>symbol引用</h3><p>使用步骤如下：</p>
-<p>第一步：引入项目下面生成的symbol代码：</p>
-<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./iconfont.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<p>第二步：加入通用css代码（引入一次就行）：</p>
-<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></span></div><div class="line"><span class="selector-class">.icon</span> &#123;</div><div class="line">   <span class="attribute">width</span>: <span class="number">1em</span>; <span class="attribute">height</span>: <span class="number">1em</span>;</div><div class="line">   <span class="attribute">vertical-align</span>: -<span class="number">0.15em</span>;</div><div class="line">   <span class="attribute">fill</span>: currentColor;</div><div class="line">   <span class="attribute">overflow</span>: hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><br>第三步：挑选相应图标并获取类名，应用于页面：</p>
-<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#icon-xxx"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="unicode引用"><a href="#unicode引用" class="headerlink" title="unicode引用"></a>unicode引用</h3><p>第一步：拷贝项目下面生成的font-face</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">font-face</span> &#123;</div><div class="line">  <span class="attribute">font-family</span>: <span class="string">'iconfont'</span>;</div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'iconfont.eot'</span>);</div><div class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'iconfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</div><div class="line">  <span class="built_in">url</span>(<span class="string">'iconfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</div><div class="line">  <span class="built_in">url</span>(<span class="string">'iconfont.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</div><div class="line">  <span class="built_in">url</span>(<span class="string">'iconfont.svg#iconfont'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>第二步：定义使用iconfont的样式</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.iconfont</span>&#123;</div><div class="line">  <span class="attribute">font-family</span>:<span class="string">"iconfont"</span> <span class="meta">!important</span>;</div><div class="line">  <span class="attribute">font-size</span>:<span class="number">16px</span>;<span class="attribute">font-style</span>:normal;</div><div class="line">  <span class="attribute">-webkit-font-smoothing</span>: antialiased;</div><div class="line">  <span class="attribute">-webkit-text-stroke-width</span>: <span class="number">0.2px</span>;</div><div class="line">  <span class="attribute">-moz-osx-font-smoothing</span>: grayscale;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>第三步：挑选相应图标并获取字体编码，应用于页面</p>
-<figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;i <span class="keyword">class</span>=<span class="string">"iconfont"</span>&gt;&amp;<span class="meta">#x33;&lt;/i&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="webStorage的兼容性"><a href="#webStorage的兼容性" class="headerlink" title="webStorage的兼容性"></a>webStorage的兼容性</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Firefox</th>
+<th>IE</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localStorage</td>
+<td>4</td>
+<td>3.5</td>
+<td>8</td>
+<td>10.50</td>
+<td>4</td>
+</tr>
+<tr>
+<td>sessionStorage</td>
+<td>5</td>
+<td>2</td>
+<td>8</td>
+<td>10.50</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>基本浏览器都是支持的</p>
+<h1 id="webStorage-API"><a href="#webStorage-API" class="headerlink" title="webStorage API"></a>webStorage API</h1><p>localStorage和sessionStorage的用法是一样的，下面展示sessionStorage的使用例子。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 保存数据到sessionStorage</div><div class="line">sessionStorage.setItem('key', 'value');</div><div class="line"></div><div class="line">// 从sessionStorage获取数据</div><div class="line">var data = sessionStorage.getItem('key');</div><div class="line"></div><div class="line">// 从sessionStorage删除保存的数据</div><div class="line">sessionStorage.removeItem('key');</div><div class="line"></div><div class="line">// 从sessionStorage删除所有保存的数据</div><div class="line">sessionStorage.clear();</div><div class="line"></div><div class="line">//枚举sessionStorage的方法</div><div class="line"></div><div class="line">for(var i=0;i&lt;sessionStorage.length;i++)&#123;</div><div class="line">     var key = sessionStorage.key(i);</div><div class="line">     var value =sessionStorage.getItem(key);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>当然，你也可以直接用对象的赋值方式来设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sessionStorage[<span class="string">'colorSetting'</span>] = <span class="string">'#a4509b'</span>;</div><div class="line">sessionStorage.setItem(<span class="string">'colorSetting'</span>, <span class="string">'#a4509b'</span>);</div></pre></td></tr></table></figure>
+<p>不过，官方建议只用webStorage API(getItem, removeItem, key, length),来避免使用对象键值存储的一些缺陷，缺陷详情请点击<a href="http://2ality.com/2012/01/objects-as-maps.html" target="_blank" rel="external">这里</a></p>
+<h2 id="storage事件"><a href="#storage事件" class="headerlink" title="storage事件"></a>storage事件</h2><p>webStorage还有storage事件。当storage发生改变，storage事件就会被触发。<br>这里的的条件是数据发生了变化，如果当前的存储区域是空的，即使再调用clear()也不会触发事件。或者你通过setItem()来设置一个与现有值相同的值，事件也是不会触发的。</p>
+<h3 id="storage-属性"><a href="#storage-属性" class="headerlink" title="storage 属性"></a>storage 属性</h3><table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>代表属性名发生变化.当被clear()方法清除之后所有属性名变为null. Read only（只读）.</td>
+</tr>
+<tr>
+<td>newValue</td>
+<td>新添加进的值.当被clear()方法执行过或者被属性名被删除，值会成为null Read only（只读）.</td>
+</tr>
+<tr>
+<td>oldValue</td>
+<td>原始值.被clear()方法执行过则变为null，或者被新值取代。 Read only（只读）.</td>
+</tr>
+<tr>
+<td>storageArea</td>
+<td>被操作的storage对象. Read only（只读）.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>key发生改变的对象所对应的文档的URL地址.。 Read only（只读）.</td>
+</tr>
+</tbody>
+</table>
+<p>下面介绍多标签页面使用sessionStorage时会有使用栗子。</p>
+<h1 id="多标签页面使用sessionStorage"><a href="#多标签页面使用sessionStorage" class="headerlink" title="多标签页面使用sessionStorage"></a>多标签页面使用sessionStorage</h1><p>在最近使用vuejs写完全前后端分离的项目时，在做登录认证的时候，在想到底怎么存储用户认证信息。</p>
+<p>因为系统安全要求等级比较高，要求用户关闭标签页的时候会话立刻到期，使用cookie来保存敏感的token就不太合适了。如果使用localstorage，页面关闭后localstorage数据还在，也不太满足要求。<br>想着只能使用sessionStorage。</p>
+<p>不过尴尬的是，使用sessionStorage是无法再多标签页面共享的。每次打开新标签页，就会跳转到登录页面，用户体验不太友好，查了一下资料，看到一博客是翻译了一外国小哥使用storage事件实现跨标签页共享sessionStorage的文章，学习了，点击<a href="http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">这里看该博客</a>。</p>
+<p>简单来讲就是，如果新标签页如果没有sessionStorage数据，就会触发一个localstorage修改事件，那么在已存在的标签里收到这个事件后，就会将当前页的sessionStorage数据保存在localstorage中，但是马上移除。但是在新标签页里会监听到该事件，可以获取到这个sessionStorage数据，那这样就保证了新标签页也能获取sessionStorage，也保证localstorage中不存在token信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (!sessionStorage.length) &#123;</div><div class="line">		<span class="comment">// 如果当前页没有sessionStorage数据，就触发一个事件。</span></div><div class="line">		localStorage.setItem(<span class="string">'getSessionStorage'</span>, <span class="built_in">Date</span>.now());</div><div class="line">	&#125;;</div><div class="line"></div><div class="line">	<span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</div><div class="line"></div><div class="line">		<span class="comment">//console.log('storage event', event);</span></div><div class="line"></div><div class="line">		<span class="keyword">if</span> (event.key == <span class="string">'getSessionStorage'</span>) &#123;</div><div class="line">			<span class="comment">// 已存在的标签页收到该事件后，讲sessionStorage数据存到localstorage中，并马上移除。</span></div><div class="line"></div><div class="line">			localStorage.setItem(<span class="string">'sessionStorage'</span>, <span class="built_in">JSON</span>.stringify(sessionStorage));</div><div class="line">			localStorage.removeItem(<span class="string">'sessionStorage'</span>);</div><div class="line"></div><div class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.key == <span class="string">'sessionStorage'</span> &amp;&amp; !sessionStorage.length) &#123;</div><div class="line">			<span class="comment">// 新标签页会在这里监听到事件，通过newValue这个属性获取当时存储在localstorage的sessionStorage数据</span></div><div class="line"></div><div class="line">			<span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(event.newValue),value;</div><div class="line">			<span class="built_in">console</span>.log(data,<span class="string">"111"</span>);</div><div class="line">			<span class="keyword">for</span> (key <span class="keyword">in</span> data) &#123;</div><div class="line">				sessionStorage.setItem(key, data[key]);</div><div class="line">			&#125;</div><div class="line"></div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<blockquote>
+<p>参考<br><a href="http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;utm_medium=referral</a><br><a href="https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/" target="_blank" rel="external">https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/</a><br><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage" target="_blank" rel="external">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage</a></p>
+</blockquote>
 
       
     </div>
@@ -417,7 +496,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/" title="阿里巴巴iconfont正确的使用姿势">http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/</a>
+      <a href="http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/" title="谈谈HTML5本地存储——WebStorage">http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -433,9 +512,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/css/" rel="tag"># css</a>
-          
-            <a href="/tags/字体/" rel="tag"># 字体</a>
+            <a href="/tags/html5/" rel="tag"># html5</a>
           
         </div>
       
@@ -448,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/17/Mock-js初体验——模拟前后端交互/" rel="next" title="Mock.js初体验——模拟前后端交互">
-                <i class="fa fa-chevron-left"></i> Mock.js初体验——模拟前后端交互
+              <a href="/2017/07/27/阿里巴巴iconfont正确的使用姿势/" rel="next" title="阿里巴巴iconfont正确的使用姿势">
+                <i class="fa fa-chevron-left"></i> 阿里巴巴iconfont正确的使用姿势
               </a>
             
           </div>
@@ -457,10 +534,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/15/谈谈HTML5本地存储——WebStorage/" rel="prev" title="谈谈HTML5本地存储——WebStorage">
-                谈谈HTML5本地存储——WebStorage <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -687,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载"><span class="nav-number">1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#font-class引用"><span class="nav-number">2.1.</span> <span class="nav-text">font-class引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#symbol引用"><span class="nav-number">2.2.</span> <span class="nav-text">symbol引用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unicode引用"><span class="nav-number">2.3.</span> <span class="nav-text">unicode引用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器本地存储概述"><span class="nav-number">1.</span> <span class="nav-text">浏览器本地存储概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie"><span class="nav-number">1.1.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webStorage"><span class="nav-number">1.1.2.</span> <span class="nav-text">webStorage</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三者对比"><span class="nav-number">1.2.</span> <span class="nav-text">三者对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webStorage的兼容性"><span class="nav-number">1.3.</span> <span class="nav-text">webStorage的兼容性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#webStorage-API"><span class="nav-number">2.</span> <span class="nav-text">webStorage API</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#storage事件"><span class="nav-number">2.1.</span> <span class="nav-text">storage事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#storage-属性"><span class="nav-number">2.1.1.</span> <span class="nav-text">storage 属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多标签页面使用sessionStorage"><span class="nav-number">3.</span> <span class="nav-text">多标签页面使用sessionStorage</span></a></li></ol></div>
             
 
           </div>

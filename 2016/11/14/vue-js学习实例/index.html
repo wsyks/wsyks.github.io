@@ -96,15 +96,15 @@
 <meta name="keywords" content="javascript,vue.js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue.js学习实例">
-<meta property="og:url" content="http://syean.cn/2016/11/14/vue-js学习实例/index.html">
+<meta property="og:url" content="http://wsyks.github.io/2016/11/14/vue-js学习实例/index.html">
 <meta property="og:site_name" content="Syean">
 <meta property="og:description" content="前言–师姐说：我们这次项目前端用vue.js吧我说：好呀">
-<meta property="og:image" content="http://syean.cn/2016/11/14/vue-js学习实例/1.png">
+<meta property="og:image" content="http://wsyks.github.io/2016/11/14/vue-js学习实例/1.png">
 <meta property="og:updated_time" content="2017-05-04T01:57:48.964Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue.js学习实例">
 <meta name="twitter:description" content="前言–师姐说：我们这次项目前端用vue.js吧我说：好呀">
-<meta name="twitter:image" content="http://syean.cn/2016/11/14/vue-js学习实例/1.png">
+<meta name="twitter:image" content="http://wsyks.github.io/2016/11/14/vue-js学习实例/1.png">
 
 
 
@@ -132,7 +132,7 @@
 
 
 
-  <link rel="canonical" href="http://syean.cn/2016/11/14/vue-js学习实例/"/>
+  <link rel="canonical" href="http://wsyks.github.io/2016/11/14/vue-js学习实例/"/>
 
 
 
@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://syean.cn/2016/11/14/vue-js学习实例/">
+    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2016/11/14/vue-js学习实例/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="syean">
@@ -371,7 +371,7 @@
 <figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">template&gt;</div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"search-page"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">nav-bar</span>&gt;</span><span class="tag">&lt;/<span class="name">nav-bar</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">router-view</span>&gt;</span><span class="tag">&lt;/<span class="name">router-view</span>&gt;</span>  <span class="comment">&lt;!-- 路由匹配到的组件将渲染在这里 --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line"><span class="keyword">import</span> NavBar <span class="keyword">from</span> <span class="string">'../../components/NavBar'</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">'search-page'</span>,</div><div class="line">  <span class="attr">components</span>: &#123;</div><div class="line">    <span class="string">'nav-bar'</span>: NavBar</div><div class="line">  &#125;,</div><div class="line">  data () &#123;</div><div class="line">    <span class="keyword">return</span> &#123;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>router的配置主要在main.js文件中<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">"vue-router"</span> <span class="comment">//引入vue-router文件，需要事先用npm安装</span></div><div class="line"><span class="comment">//1、引入相关（路由）组件</span></div><div class="line"><span class="keyword">import</span> Form <span class="keyword">from</span> <span class="string">'../../components/Form'</span></div><div class="line"><span class="keyword">import</span> Box <span class="keyword">from</span> <span class="string">'../../components/Box'</span></div><div class="line"><span class="keyword">import</span> Result <span class="keyword">from</span> <span class="string">'../../components/Result'</span></div><div class="line"><span class="keyword">import</span> Info <span class="keyword">from</span> <span class="string">'../../components/details/info'</span></div><div class="line"><span class="keyword">import</span> Website <span class="keyword">from</span> <span class="string">'../../components/details/website'</span></div><div class="line"><span class="keyword">import</span> comment <span class="keyword">from</span> <span class="string">'../../components/details/comment'</span></div><div class="line">Vue.use(VueRouter);</div><div class="line">Vue.config.debug=<span class="literal">true</span>;</div><div class="line"><span class="comment">// 2. 定义路由</span></div><div class="line"><span class="comment">// 每个路由应该映射一个组件。 其中"component" 可以是</span></div><div class="line"><span class="comment">// 通过 Vue.extend() 创建的组件构造器，</span></div><div class="line"><span class="comment">// 或者，只是一个组件配置对象。</span></div><div class="line"><span class="keyword">const</span> routes=[</div><div class="line">	&#123;<span class="attr">path</span>:<span class="string">"/"</span>,<span class="attr">component</span>:Box&#125;,</div><div class="line">	&#123;<span class="attr">path</span>:<span class="string">"/result/:keyword"</span>,<span class="attr">name</span>:<span class="string">"result"</span>,<span class="attr">component</span>:Result&#125;,</div><div class="line">	&#123;<span class="attr">path</span>:<span class="string">"/person/:id"</span>,<span class="attr">name</span>:<span class="string">"person"</span>,<span class="attr">component</span>:Person,<span class="comment">/*嵌套路由*/</span></div><div class="line">		children:[</div><div class="line">			&#123;</div><div class="line">				<span class="attr">path</span>:<span class="string">"/"</span>,<span class="attr">component</span>:Info</div><div class="line">			&#125;,</div><div class="line">			&#123;</div><div class="line">				<span class="attr">path</span>:<span class="string">"comment"</span>,<span class="attr">component</span>:comment</div><div class="line">			&#125;,</div><div class="line">			&#123;</div><div class="line">				<span class="attr">path</span>:<span class="string">"website"</span>,<span class="attr">component</span>:Website</div><div class="line">			&#125;</div><div class="line">		]</div><div class="line">	&#125;</div><div class="line">]</div><div class="line"><span class="comment">//3、创建 router 实例，然后传 `routes` 配置</span></div><div class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> VueRouter(&#123;</div><div class="line">	routes <span class="comment">// （缩写）相当于 routes: routes</span></div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// 4. 创建和挂载根实例</span></div><div class="line"><span class="keyword">const</span> app=<span class="keyword">new</span> Vue(&#123;</div><div class="line">	<span class="attr">router</span>:router,</div><div class="line">	<span class="attr">render</span>:<span class="function"><span class="params">h</span>=&gt;</span>h(App),</div><div class="line">&#125;).$mount(<span class="string">"#search-page"</span>);</div></pre></td></tr></table></figure></p>
 <blockquote>
-<p>最后附上微型问卷调查系统的完成的效果：<a href="https://wsyks.github.io/learn-vue/#!/" target="_blank" rel="external">https://wsyks.github.io/learn-vue/#!/</a> （基于1.0）<br>未完待续</p>
+<p>最后附上微型问卷调查系统的完成的效果：<a href="https://wsyks.github.io/learn-vue/#!/">https://wsyks.github.io/learn-vue/#!/</a> （基于1.0）<br>未完待续</p>
 </blockquote>
 
       
@@ -401,7 +401,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://syean.cn/2016/11/14/vue-js学习实例/" title="vue.js学习实例">http://syean.cn/2016/11/14/vue-js学习实例/</a>
+      <a href="http://wsyks.github.io/2016/11/14/vue-js学习实例/" title="vue.js学习实例">http://wsyks.github.io/2016/11/14/vue-js学习实例/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -550,7 +550,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">26</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

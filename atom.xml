@@ -4,9 +4,9 @@
   <subtitle>记录，分享，回忆</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://syean.cn/"/>
-  <updated>2017-07-27T13:38:52.832Z</updated>
-  <id>http://syean.cn/</id>
+  <link href="http://wsyks.github.io/"/>
+  <updated>2017-08-16T08:05:48.558Z</updated>
+  <id>http://wsyks.github.io/</id>
   
   <author>
     <name>syean</name>
@@ -16,11 +16,147 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>谈谈HTML5本地存储——WebStorage</title>
+    <link href="http://wsyks.github.io/2017/08/15/%E8%B0%88%E8%B0%88%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8/"/>
+    <id>http://wsyks.github.io/2017/08/15/谈谈浏览器存储/</id>
+    <published>2017-08-15T14:07:29.000Z</published>
+    <updated>2017-08-16T08:05:48.558Z</updated>
+    
+    <content type="html">
+&lt;p&gt;这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;浏览器本地存储概述&quot;&gt;&lt;a href=&quot;#浏览器本地存储概述&quot; class=&quot;headerlink&quot; title=&quot;浏览器本地存储概述&quot;&gt;&lt;/a&gt;浏览器本地存储概述&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;cookie&quot;&gt;&lt;a href=&quot;#cookie&quot; class=&quot;headerlink&quot; title=&quot;cookie&quot;&gt;&lt;/a&gt;cookie&lt;/h3&gt;&lt;p&gt;cookie是指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。&lt;/p&gt;
+&lt;h3 id=&quot;webStorage&quot;&gt;&lt;a href=&quot;#webStorage&quot; class=&quot;headerlink&quot; title=&quot;webStorage&quot;&gt;&lt;/a&gt;webStorage&lt;/h3&gt;&lt;p&gt;webStorage是HTML5中本地存储的解决方案之一，包括sessionStorag和localStorage，两者差別就差在生命周期的不同而已。&lt;/p&gt;
+&lt;h2 id=&quot;三者对比&quot;&gt;&lt;a href=&quot;#三者对比&quot; class=&quot;headerlink&quot; title=&quot;三者对比&quot;&gt;&lt;/a&gt;三者对比&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;类型&lt;/th&gt;
+&lt;th&gt;生命周期&lt;/th&gt;
+&lt;th&gt;存储大小&lt;/th&gt;
+&lt;th&gt;与服务器通信&lt;/th&gt;
+&lt;th&gt;作用域&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Cookie&lt;/td&gt;
+&lt;td&gt;一般由服务器生成，可设置过期时间，默认是关闭浏览器后失效&lt;/td&gt;
+&lt;td&gt;4k左右&lt;/td&gt;
+&lt;td&gt;可每次携带在http头部中，但保存过多数据会带来性能问题&lt;/td&gt;
+&lt;td&gt;可通过.setDomain设置主域名共享&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;localStorage&lt;/td&gt;
+&lt;td&gt;永久保存，除非被清除&lt;/td&gt;
+&lt;td&gt;5m左右&lt;/td&gt;
+&lt;td&gt;只能存储在浏览器端&lt;/td&gt;
+&lt;td&gt;子域名之间相互独立&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sessionStorage&lt;/td&gt;
+&lt;td&gt;仅存在当前标签页下，关闭浏览器或者新建标签页都为空&lt;/td&gt;
+&lt;td&gt;5m左右&lt;/td&gt;
+&lt;td&gt;只能存储在浏览器端&lt;/td&gt;
+&lt;td&gt;不同tab之间无法共享&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;blockquote&gt;
+&lt;p&gt;【tip】sessionStorage只能在一个标签页下共享，即如果你从当前标签页下新打开一个该网页的页面，sessionStorage数据也是清空的。不过如果你恢复关闭的页面的话，在chrome和firefox下sessionStorage也会被恢复，不过safari不会。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;webStorage的兼容性&quot;&gt;&lt;a href=&quot;#webStorage的兼容性&quot; class=&quot;headerlink&quot; title=&quot;webStorage的兼容性&quot;&gt;&lt;/a&gt;webStorage的兼容性&lt;/h2&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;Chrome&lt;/th&gt;
+&lt;th&gt;Firefox&lt;/th&gt;
+&lt;th&gt;IE&lt;/th&gt;
+&lt;th&gt;Opera&lt;/th&gt;
+&lt;th&gt;Safari&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;localStorage&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;3.5&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;10.50&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sessionStorage&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;10.50&lt;/td&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;基本浏览器都是支持的&lt;/p&gt;
+&lt;h1 id=&quot;webStorage-API&quot;&gt;&lt;a href=&quot;#webStorage-API&quot; class=&quot;headerlink&quot; title=&quot;webStorage API&quot;&gt;&lt;/a&gt;webStorage API&lt;/h1&gt;&lt;p&gt;localStorage和sessionStorage的用法是一样的，下面展示sessionStorage的使用例子。&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;// 保存数据到sessionStorage&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sessionStorage.setItem(&#39;key&#39;, &#39;value&#39;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 从sessionStorage获取数据&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;var data = sessionStorage.getItem(&#39;key&#39;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 从sessionStorage删除保存的数据&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sessionStorage.removeItem(&#39;key&#39;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;// 从sessionStorage删除所有保存的数据&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sessionStorage.clear();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//枚举sessionStorage的方法&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;for(var i=0;i&amp;lt;sessionStorage.length;i++)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     var key = sessionStorage.key(i);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;     var value =sessionStorage.getItem(key);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;当然，你也可以直接用对象的赋值方式来设置&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;sessionStorage[&lt;span class=&quot;string&quot;&gt;&#39;colorSetting&#39;&lt;/span&gt;] = &lt;span class=&quot;string&quot;&gt;&#39;#a4509b&#39;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sessionStorage.setItem(&lt;span class=&quot;string&quot;&gt;&#39;colorSetting&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;#a4509b&#39;&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;不过，官方建议只用webStorage API(getItem, removeItem, key, length),来避免使用对象键值存储的一些缺陷，缺陷详情请点击&lt;a href=&quot;http://2ality.com/2012/01/objects-as-maps.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;storage事件&quot;&gt;&lt;a href=&quot;#storage事件&quot; class=&quot;headerlink&quot; title=&quot;storage事件&quot;&gt;&lt;/a&gt;storage事件&lt;/h2&gt;&lt;p&gt;webStorage还有storage事件。当storage发生改变，storage事件就会被触发。&lt;br&gt;这里的的条件是数据发生了变化，如果当前的存储区域是空的，即使再调用clear()也不会触发事件。或者你通过setItem()来设置一个与现有值相同的值，事件也是不会触发的。&lt;/p&gt;
+&lt;h3 id=&quot;storage-属性&quot;&gt;&lt;a href=&quot;#storage-属性&quot; class=&quot;headerlink&quot; title=&quot;storage 属性&quot;&gt;&lt;/a&gt;storage 属性&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性名&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;key&lt;/td&gt;
+&lt;td&gt;代表属性名发生变化.当被clear()方法清除之后所有属性名变为null. Read only（只读）.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;newValue&lt;/td&gt;
+&lt;td&gt;新添加进的值.当被clear()方法执行过或者被属性名被删除，值会成为null Read only（只读）.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;oldValue&lt;/td&gt;
+&lt;td&gt;原始值.被clear()方法执行过则变为null，或者被新值取代。 Read only（只读）.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;storageArea&lt;/td&gt;
+&lt;td&gt;被操作的storage对象. Read only（只读）.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;url&lt;/td&gt;
+&lt;td&gt;key发生改变的对象所对应的文档的URL地址.。 Read only（只读）.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;下面介绍多标签页面使用sessionStorage时会有使用栗子。&lt;/p&gt;
+&lt;h1 id=&quot;多标签页面使用sessionStorage&quot;&gt;&lt;a href=&quot;#多标签页面使用sessionStorage&quot; class=&quot;headerlink&quot; title=&quot;多标签页面使用sessionStorage&quot;&gt;&lt;/a&gt;多标签页面使用sessionStorage&lt;/h1&gt;&lt;p&gt;在最近使用vuejs写完全前后端分离的项目时，在做登录认证的时候，在想到底怎么存储用户认证信息。&lt;/p&gt;
+&lt;p&gt;因为系统安全要求等级比较高，要求用户关闭标签页的时候会话立刻到期，使用cookie来保存敏感的token就不太合适了。如果使用localstorage，页面关闭后localstorage数据还在，也不太满足要求。&lt;br&gt;想着只能使用sessionStorage。&lt;/p&gt;
+&lt;p&gt;不过尴尬的是，使用sessionStorage是无法再多标签页面共享的。每次打开新标签页，就会跳转到登录页面，用户体验不太友好，查了一下资料，看到一博客是翻译了一外国小哥使用storage事件实现跨标签页共享sessionStorage的文章，学习了，点击&lt;a href=&quot;http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;amp;utm_medium=referral&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里看该博客&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;简单来讲就是，如果新标签页如果没有sessionStorage数据，就会触发一个localstorage修改事件，那么在已存在的标签里收到这个事件后，就会将当前页的sessionStorage数据保存在localstorage中，但是马上移除。但是在新标签页里会监听到该事件，可以获取到这个sessionStorage数据，那这样就保证了新标签页也能获取sessionStorage，也保证localstorage中不存在token信息。&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!sessionStorage.length) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;// 如果当前页没有sessionStorage数据，就触发一个事件。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		localStorage.setItem(&lt;span class=&quot;string&quot;&gt;&#39;getSessionStorage&#39;&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;Date&lt;/span&gt;.now());&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;built_in&quot;&gt;window&lt;/span&gt;.addEventListener(&lt;span class=&quot;string&quot;&gt;&#39;storage&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;event&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;comment&quot;&gt;//console.log(&#39;storage event&#39;, event);&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (event.key == &lt;span class=&quot;string&quot;&gt;&#39;getSessionStorage&#39;&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;comment&quot;&gt;// 已存在的标签页收到该事件后，讲sessionStorage数据存到localstorage中，并马上移除。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			localStorage.setItem(&lt;span class=&quot;string&quot;&gt;&#39;sessionStorage&#39;&lt;/span&gt;, &lt;span class=&quot;built_in&quot;&gt;JSON&lt;/span&gt;.stringify(sessionStorage));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			localStorage.removeItem(&lt;span class=&quot;string&quot;&gt;&#39;sessionStorage&#39;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (event.key == &lt;span class=&quot;string&quot;&gt;&#39;sessionStorage&#39;&lt;/span&gt; &amp;amp;&amp;amp; !sessionStorage.length) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;comment&quot;&gt;// 新标签页会在这里监听到事件，通过newValue这个属性获取当时存储在localstorage的sessionStorage数据&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; data = &lt;span class=&quot;built_in&quot;&gt;JSON&lt;/span&gt;.parse(event.newValue),value;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;built_in&quot;&gt;console&lt;/span&gt;.log(data,&lt;span class=&quot;string&quot;&gt;&quot;111&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (key &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; data) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;				sessionStorage.setItem(key, data[key]);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;参考&lt;br&gt;&lt;a href=&quot;http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;amp;utm_medium=referral&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;amp;utm_medium=referral&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="html5" scheme="http://wsyks.github.io/tags/html5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>阿里巴巴iconfont正确的使用姿势</title>
-    <link href="http://syean.cn/2017/07/27/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4iconfont%E6%AD%A3%E7%A1%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/"/>
-    <id>http://syean.cn/2017/07/27/阿里巴巴iconfont正确的使用姿势/</id>
+    <link href="http://wsyks.github.io/2017/07/27/%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4iconfont%E6%AD%A3%E7%A1%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/"/>
+    <id>http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/</id>
     <published>2017-07-27T12:35:48.000Z</published>
-    <updated>2017-07-27T13:38:52.832Z</updated>
+    <updated>2017-07-27T13:38:52.833Z</updated>
     
     <content type="html">&lt;img src=&quot;/2017/07/27/阿里巴巴iconfont正确的使用姿势/5.png&quot; alt=&quot;5.png&quot; title=&quot;&quot;&gt;
 &lt;p&gt;以前一直用的是fontawesome字体，一直也就用它，觉得还比较齐全，偶尔有需要用到其他图标的时候，就会用阿里巴巴iconfont，在上面选择一个合适的图标下载一个png或者svg格式，如下图，单独引入也就是了。今天好好看了一下，发现以前真的是小看了这个字体库。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;/2017/07/27/阿里巴巴iconfont正确的使用姿势/6.png&quot; alt=&quot;6.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
@@ -64,16 +200,16 @@
     </summary>
     
     
-      <category term="css" scheme="http://syean.cn/tags/css/"/>
+      <category term="css" scheme="http://wsyks.github.io/tags/css/"/>
     
-      <category term="字体" scheme="http://syean.cn/tags/%E5%AD%97%E4%BD%93/"/>
+      <category term="字体" scheme="http://wsyks.github.io/tags/%E5%AD%97%E4%BD%93/"/>
     
   </entry>
   
   <entry>
     <title>Mock.js初体验——模拟前后端交互</title>
-    <link href="http://syean.cn/2017/07/17/Mock-js%E5%88%9D%E4%BD%93%E9%AA%8C%E2%80%94%E2%80%94%E6%A8%A1%E6%8B%9F%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/"/>
-    <id>http://syean.cn/2017/07/17/Mock-js初体验——模拟前后端交互/</id>
+    <link href="http://wsyks.github.io/2017/07/17/Mock-js%E5%88%9D%E4%BD%93%E9%AA%8C%E2%80%94%E2%80%94%E6%A8%A1%E6%8B%9F%E5%89%8D%E5%90%8E%E7%AB%AF%E4%BA%A4%E4%BA%92/"/>
+    <id>http://wsyks.github.io/2017/07/17/Mock-js初体验——模拟前后端交互/</id>
     <published>2017-07-17T09:46:27.000Z</published>
     <updated>2017-07-17T09:47:34.279Z</updated>
     
@@ -93,14 +229,14 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>d3树图(tree)的变形：拥有多个父节点的子节点</title>
-    <link href="http://syean.cn/2017/06/27/d3%E6%A0%91%E5%9B%BE-tree-%E7%9A%84%E5%8F%98%E5%BD%A2%EF%BC%9A%E6%8B%A5%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%88%B6%E8%8A%82%E7%82%B9%E7%9A%84%E5%AD%90%E8%8A%82%E7%82%B9/"/>
-    <id>http://syean.cn/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/</id>
+    <link href="http://wsyks.github.io/2017/06/27/d3%E6%A0%91%E5%9B%BE-tree-%E7%9A%84%E5%8F%98%E5%BD%A2%EF%BC%9A%E6%8B%A5%E6%9C%89%E5%A4%9A%E4%B8%AA%E7%88%B6%E8%8A%82%E7%82%B9%E7%9A%84%E5%AD%90%E8%8A%82%E7%82%B9/"/>
+    <id>http://wsyks.github.io/2017/06/27/d3树图-tree-的变形：拥有多个父节点的子节点/</id>
     <published>2017-06-27T09:31:21.000Z</published>
     <updated>2017-06-27T12:03:08.907Z</updated>
     
@@ -127,18 +263,18 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
-      <category term="可视化" scheme="http://syean.cn/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
+      <category term="可视化" scheme="http://wsyks.github.io/tags/%E5%8F%AF%E8%A7%86%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>PHP CodeIgniter分页实例及多条件查询解决方案</title>
-    <link href="http://syean.cn/2017/05/19/php-CodeIgniter%E5%88%86%E9%A1%B5%E5%8F%8A%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://syean.cn/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/</id>
+    <link href="http://wsyks.github.io/2017/05/19/php-CodeIgniter%E5%88%86%E9%A1%B5%E5%8F%8A%E5%A4%9A%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://wsyks.github.io/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/</id>
     <published>2017-05-19T12:14:29.000Z</published>
-    <updated>2017-05-22T03:21:11.735Z</updated>
+    <updated>2017-05-22T03:21:11.736Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。&lt;br&gt;   &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;   因为页面中有条件筛选的表单，所以想要完成的效果就是，输入条件后，分页跳转之后能维持所输入的条件。想了一下，自己的思路如下代码吧。&lt;/p&gt;
 &lt;h1 id=&quot;controller-代码&quot;&gt;&lt;a href=&quot;#controller-代码&quot; class=&quot;headerlink&quot; title=&quot;controller 代码&quot;&gt;&lt;/a&gt;controller 代码&lt;/h1&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;class Monitors extends CI_Controller &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;public function warning()&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config= array();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config[&#39;per_page&#39;] = 15; //每页显示的数据数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $current_page = intval($this-&amp;gt;input-&amp;gt;get(&quot;per_page&quot;)); //获取当前分页页码数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    	&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$status=$this-&amp;gt;input-&amp;gt;get(&quot;filter-status&quot;,TRUE);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$level=$this-&amp;gt;input-&amp;gt;get(&#39;filter-level&#39;,TRUE);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$timestamp=$this-&amp;gt;input-&amp;gt;get(&#39;filter-timestamp&#39;,TRUE);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $all = $this-&amp;gt;monitors_m-&amp;gt;getAllData($current_page,$config[&#39;per_page&#39;],$status,$timestamp,$level);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      //这里返回的有总条数和具体的数据，根据自己的情况略加修改即可&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$data[&#39;allevent&#39;] = $all[&#39;content&#39;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&#39;total_rows&#39;]     = $all[&#39;count&#39;];//总条数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config[&#39;num_links&#39;] = 3;//页码连接数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&#39;use_page_numbers&#39;] = TRUE;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&#39;page_query_strings&#39;] = TRUE;//关键配置&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $config[&#39;enable_query_strings&#39;] = TRUE;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&#39;base_url&#39;] = base_url().&#39;index.php/monitors/warning?&#39;&amp;amp;filter-status=&#39;.$status.&#39;&amp;amp;filter-level=&#39;.$level.&#39;&amp;amp;filter-timestamp=&#39;.$timestamp;//关键配置&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;load-&amp;gt;library(&#39;pagination&#39;);//加载ci pagination类&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;pagination-&amp;gt;initialize($config);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$data[&#39;page&#39;] = $this-&amp;gt;pagination-&amp;gt;create_links();//关键代码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;load-&amp;gt;view(&quot;monitors_v&quot;,$data);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -164,20 +300,20 @@
     </summary>
     
     
-      <category term="php" scheme="http://syean.cn/tags/php/"/>
+      <category term="php" scheme="http://wsyks.github.io/tags/php/"/>
     
   </entry>
   
   <entry>
     <title>CSS3实现卡片翻转动画效果</title>
-    <link href="http://syean.cn/2017/05/10/css3%E5%AE%9E%E7%8E%B0%E5%8D%A1%E7%89%87%E7%BF%BB%E8%BD%AC%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
-    <id>http://syean.cn/2017/05/10/css3实现卡片翻转动画效果/</id>
+    <link href="http://wsyks.github.io/2017/05/10/css3%E5%AE%9E%E7%8E%B0%E5%8D%A1%E7%89%87%E7%BF%BB%E8%BD%AC%E5%8A%A8%E7%94%BB%E6%95%88%E6%9E%9C/"/>
+    <id>http://wsyks.github.io/2017/05/10/css3实现卡片翻转动画效果/</id>
     <published>2017-05-10T11:40:58.000Z</published>
-    <updated>2017-05-10T12:54:03.439Z</updated>
+    <updated>2017-05-10T12:54:03.440Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;p&gt;还是先放效果图，或者点击&lt;a href=&quot;http://syean.cn/demo/flip/&quot;&gt;这里&lt;/a&gt;查看效果&lt;br&gt;&lt;img src=&quot;/2017/05/10/css3实现卡片翻转动画效果/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;还是先放效果图，或者点击&lt;a href=&quot;http://syean.cn/demo/flip/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;查看效果&lt;br&gt;&lt;img src=&quot;/2017/05/10/css3实现卡片翻转动画效果/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;实现&quot;&gt;&lt;a href=&quot;#实现&quot; class=&quot;headerlink&quot; title=&quot;实现&quot;&gt;&lt;/a&gt;实现&lt;/h1&gt;&lt;h2 id=&quot;html&quot;&gt;&lt;a href=&quot;#html&quot; class=&quot;headerlink&quot; title=&quot;html&quot;&gt;&lt;/a&gt;html&lt;/h2&gt;&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;box&quot;&lt;/span&gt;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;lt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;card front&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;lt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;card back&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;css&quot;&gt;&lt;a href=&quot;#css&quot; class=&quot;headerlink&quot; title=&quot;css&quot;&gt;&lt;/a&gt;css&lt;/h2&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;      body&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	perspective: 1000px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.box&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	margin: 50px auto;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    width: 239px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    height: 334px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    position: relative;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    transform-style: preserve-3d;//关键代码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    transition: transform 1s;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.card&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	display: block;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	position: absolute;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	width: 100%;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	height: 100%;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	backface-visibility: hidden;//关键代码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	border-radius: 20px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.front&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background-image: url(1.jpg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  		background-position: -24px -23px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.back&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	transform: rotateY(180deg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	background-image: url(1.jpg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  		background-position: -287px -23px;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;.flipped&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	transform: rotateY(180deg);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;js&quot;&gt;&lt;a href=&quot;#js&quot; class=&quot;headerlink&quot; title=&quot;js&quot;&gt;&lt;/a&gt;js&lt;/h2&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$(&quot;.box&quot;).hover(function(event)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$(this).toggleClass(&quot;flipped&quot;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -194,14 +330,14 @@
     </summary>
     
     
-      <category term="css3" scheme="http://syean.cn/tags/css3/"/>
+      <category term="css3" scheme="http://wsyks.github.io/tags/css3/"/>
     
   </entry>
   
   <entry>
     <title>解锁新技能——入门剪辑，四姑娘山</title>
-    <link href="http://syean.cn/2017/05/08/%E8%A7%A3%E9%94%81%E6%96%B0%E6%8A%80%E8%83%BD%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%89%AA%E8%BE%91/"/>
-    <id>http://syean.cn/2017/05/08/解锁新技能——入门剪辑/</id>
+    <link href="http://wsyks.github.io/2017/05/08/%E8%A7%A3%E9%94%81%E6%96%B0%E6%8A%80%E8%83%BD%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E5%89%AA%E8%BE%91/"/>
+    <id>http://wsyks.github.io/2017/05/08/解锁新技能——入门剪辑/</id>
     <published>2017-05-08T04:04:44.000Z</published>
     <updated>2017-05-11T07:05:04.525Z</updated>
     
@@ -222,18 +358,18 @@
     </summary>
     
     
-      <category term="人生百态" scheme="http://syean.cn/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
+      <category term="人生百态" scheme="http://wsyks.github.io/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
     
   </entry>
   
   <entry>
     <title>UI组件之色彩选择器</title>
-    <link href="http://syean.cn/2017/03/28/UI%E7%BB%84%E4%BB%B6%E4%B9%8B%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/"/>
-    <id>http://syean.cn/2017/03/28/UI组件之色彩选择器/</id>
+    <link href="http://wsyks.github.io/2017/03/28/UI%E7%BB%84%E4%BB%B6%E4%B9%8B%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/"/>
+    <id>http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/</id>
     <published>2017-03-28T07:51:55.000Z</published>
     <updated>2017-07-18T10:58:58.440Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;先放上效果图，代码是基于jquery的，所以要引用上哟。&lt;br&gt; &lt;img src=&quot;/2017/03/28/UI组件之色彩选择器/GIF.gif&quot; alt=&quot;GIF.gif&quot; title=&quot;&quot;&gt;&lt;br&gt; 或者戳&lt;a href=&quot;http://syean.cn/ife-2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/colorpicker.html&quot;&gt;这里看效果&lt;/a&gt;，源码在&lt;a href=&quot;https://github.com/wsyks/ife-2017/tree/master/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;先放上效果图，代码是基于jquery的，所以要引用上哟。&lt;br&gt; &lt;img src=&quot;/2017/03/28/UI组件之色彩选择器/GIF.gif&quot; alt=&quot;GIF.gif&quot; title=&quot;&quot;&gt;&lt;br&gt; 或者戳&lt;a href=&quot;http://syean.cn/ife-2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/colorpicker.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里看效果&lt;/a&gt;，源码在&lt;a href=&quot;https://github.com/wsyks/ife-2017/tree/master/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;功能需求&quot;&gt;&lt;a href=&quot;#功能需求&quot; class=&quot;headerlink&quot; title=&quot;功能需求&quot;&gt;&lt;/a&gt;功能需求&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;可以通过点击左侧色彩区域选择色彩，在右侧的输入框中会显示对应的色值，包括RGB,HSL和HSV的值&lt;/li&gt;
 &lt;li&gt;可以通过调节右侧输入框的各数值，来查看对应的颜色&lt;/li&gt;
@@ -243,7 +379,7 @@
 &lt;/ul&gt;
 &lt;h1 id=&quot;总体思路&quot;&gt;&lt;a href=&quot;#总体思路&quot; class=&quot;headerlink&quot; title=&quot;总体思路&quot;&gt;&lt;/a&gt;总体思路&lt;/h1&gt;&lt;h2 id=&quot;左边色彩区域&quot;&gt;&lt;a href=&quot;#左边色彩区域&quot; class=&quot;headerlink&quot; title=&quot;左边色彩区域&quot;&gt;&lt;/a&gt;左边色彩区域&lt;/h2&gt;&lt;p&gt;通过效果图，你可以试着多取色，看看数值的一些规律。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;从HSV数值上来看(如有不了解，请戳&lt;a href=&quot;http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/&quot;&gt;上篇&lt;/a&gt;)。&lt;/p&gt;
+&lt;p&gt;从HSV数值上来看(如有不了解，请戳&lt;a href=&quot;http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;上篇&lt;/a&gt;)。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ul&gt;
 &lt;li&gt;左边取色渐变色块的色相是一直保持不变的&lt;/li&gt;
@@ -293,16 +429,16 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
-      <category term="canvas" scheme="http://syean.cn/tags/canvas/"/>
+      <category term="canvas" scheme="http://wsyks.github.io/tags/canvas/"/>
     
   </entry>
   
   <entry>
     <title>JS实现RGB,HSL,HSB相互转换</title>
-    <link href="http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
-    <id>http://syean.cn/2017/03/17/JS实现RGB-HSL-HSB相互转换/</id>
+    <link href="http://wsyks.github.io/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/"/>
+    <id>http://wsyks.github.io/2017/03/17/JS实现RGB-HSL-HSB相互转换/</id>
     <published>2017-03-17T09:55:56.000Z</published>
     <updated>2017-05-04T02:03:55.871Z</updated>
     
@@ -349,18 +485,18 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>自定义右键菜单</title>
-    <link href="http://syean.cn/2017/03/09/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/"/>
-    <id>http://syean.cn/2017/03/09/自定义右键菜单/</id>
+    <link href="http://wsyks.github.io/2017/03/09/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/"/>
+    <id>http://wsyks.github.io/2017/03/09/自定义右键菜单/</id>
     <published>2017-03-09T13:23:36.000Z</published>
-    <updated>2017-05-04T01:55:30.840Z</updated>
+    <updated>2017-05-04T01:55:30.841Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。&lt;br&gt;     &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;     实现的效果如下或者&lt;a href=&quot;https://wsyks.github.io/ife-2017/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点击这里&lt;/a&gt;&lt;br&gt;      &lt;img src=&quot;/2017/03/09/自定义右键菜单/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。&lt;br&gt;     &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;     实现的效果如下或者&lt;a href=&quot;https://wsyks.github.io/ife-2017/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/&quot;&gt;点击这里&lt;/a&gt;&lt;br&gt;      &lt;img src=&quot;/2017/03/09/自定义右键菜单/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h1 id=&quot;contextmenu法&quot;&gt;&lt;a href=&quot;#contextmenu法&quot; class=&quot;headerlink&quot; title=&quot;contextmenu法&quot;&gt;&lt;/a&gt;contextmenu法&lt;/h1&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;contextmenu&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;mymenu&quot;&lt;/span&gt; &amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;context&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;这里有一个菜单,请在firefox打开哟&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;menu&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;mymenu&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;context&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;menuitem&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;呼呼&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;icon&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;1.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onclick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;doSomething()&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;menuitem&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;menuitem&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;嘻嘻&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;icon&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;2.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onclick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;doSomethingElse()&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;menuitem&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;menu&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;哈哈&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;menuitem&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;呼呼&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;icon&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;1.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onclick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;doSomething()&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;menuitem&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;menuitem&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;label&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;嘻嘻&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;icon&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;2.jpg&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;onclick&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;doSomethingElse()&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;menuitem&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		  	&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;menu&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;menu&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;blockquote&gt;
 &lt;p&gt;使用小TIP&lt;/p&gt;
@@ -437,18 +573,18 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
   </entry>
   
   <entry>
     <title>有趣的鼠标悬浮模糊效果</title>
-    <link href="http://syean.cn/2017/03/08/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/"/>
-    <id>http://syean.cn/2017/03/08/有趣的鼠标悬浮模糊效果/</id>
+    <link href="http://wsyks.github.io/2017/03/08/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/"/>
+    <id>http://wsyks.github.io/2017/03/08/有趣的鼠标悬浮模糊效果/</id>
     <published>2017-03-08T02:17:19.000Z</published>
     <updated>2017-05-04T01:55:28.723Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近一段时间，如果没啥事就会做一点百度前端学院2017的小任务，昨天呢，就做了一个有趣的鼠标悬浮模糊效果的一个东西，用到了一些css3的东西，做一下笔记与总结吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;效果图如下&lt;br&gt; &lt;img src=&quot;/2017/03/08/有趣的鼠标悬浮模糊效果/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;br&gt;或者&lt;a href=&quot;https://wsyks.github.io/ife-2017/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点击这里&lt;/a&gt;&lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近一段时间，如果没啥事就会做一点百度前端学院2017的小任务，昨天呢，就做了一个有趣的鼠标悬浮模糊效果的一个东西，用到了一些css3的东西，做一下笔记与总结吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;效果图如下&lt;br&gt; &lt;img src=&quot;/2017/03/08/有趣的鼠标悬浮模糊效果/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;&lt;br&gt;或者&lt;a href=&quot;https://wsyks.github.io/ife-2017/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/&quot;&gt;点击这里&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;效果描述&quot;&gt;&lt;a href=&quot;#效果描述&quot; class=&quot;headerlink&quot; title=&quot;效果描述&quot;&gt;&lt;/a&gt;效果描述&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;实现文字的流光渐变动画&lt;/li&gt;
 &lt;li&gt;背景图需要进行模糊处理&lt;/li&gt;
@@ -485,14 +621,14 @@
     </summary>
     
     
-      <category term="css3" scheme="http://syean.cn/tags/css3/"/>
+      <category term="css3" scheme="http://wsyks.github.io/tags/css3/"/>
     
   </entry>
   
   <entry>
     <title>php中密码HASH的方案——Password Hashing</title>
-    <link href="http://syean.cn/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/"/>
-    <id>http://syean.cn/2017/02/27/php中密码HASH的方方案——password-hash/</id>
+    <link href="http://wsyks.github.io/2017/02/27/php%E4%B8%AD%E5%AF%86%E7%A0%81HASH%E7%9A%84%E6%96%B9%E6%96%B9%E6%A1%88%E2%80%94%E2%80%94password-hash/"/>
+    <id>http://wsyks.github.io/2017/02/27/php中密码HASH的方方案——password-hash/</id>
     <published>2017-02-27T11:55:47.000Z</published>
     <updated>2017-05-04T02:02:11.876Z</updated>
     
@@ -554,18 +690,18 @@
     </summary>
     
     
-      <category term="php" scheme="http://syean.cn/tags/php/"/>
+      <category term="php" scheme="http://wsyks.github.io/tags/php/"/>
     
-      <category term="安全" scheme="http://syean.cn/tags/%E5%AE%89%E5%85%A8/"/>
+      <category term="安全" scheme="http://wsyks.github.io/tags/%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   
   <entry>
     <title>CSS3实现进度条的两个姿势</title>
-    <link href="http://syean.cn/2017/02/16/CSS3%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%A7%BF%E5%8A%BF/"/>
-    <id>http://syean.cn/2017/02/16/CSS3实现进度条的几个姿势/</id>
+    <link href="http://wsyks.github.io/2017/02/16/CSS3%E5%AE%9E%E7%8E%B0%E8%BF%9B%E5%BA%A6%E6%9D%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%A7%BF%E5%8A%BF/"/>
+    <id>http://wsyks.github.io/2017/02/16/CSS3实现进度条的几个姿势/</id>
     <published>2017-02-16T03:52:34.000Z</published>
-    <updated>2017-05-04T02:04:53.750Z</updated>
+    <updated>2017-05-04T02:04:53.751Z</updated>
     
     <content type="html">&lt;h1 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h1&gt;&lt;p&gt;好久没更新博客啦，好像从没有在博客里分享CSS的一些东西，今天就分享两个用CSS3实现进度条的姿势。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -620,14 +756,14 @@
     </summary>
     
     
-      <category term="css3" scheme="http://syean.cn/tags/css3/"/>
+      <category term="css3" scheme="http://wsyks.github.io/tags/css3/"/>
     
   </entry>
   
   <entry>
     <title>vue.js学习实例</title>
-    <link href="http://syean.cn/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/"/>
-    <id>http://syean.cn/2016/11/14/vue-js学习实例/</id>
+    <link href="http://wsyks.github.io/2016/11/14/vue-js%E5%AD%A6%E4%B9%A0%E5%AE%9E%E4%BE%8B/"/>
+    <id>http://wsyks.github.io/2016/11/14/vue-js学习实例/</id>
     <published>2016-11-14T03:38:38.000Z</published>
     <updated>2017-05-04T01:57:48.964Z</updated>
     
@@ -650,7 +786,7 @@
 &lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;template&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;search-page&quot;&lt;/span&gt; &amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;nav-bar&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;nav-bar&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;router-view&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;router-view&lt;/span&gt;&amp;gt;&lt;/span&gt;  &lt;span class=&quot;comment&quot;&gt;&amp;lt;!-- 路由匹配到的组件将渲染在这里 --&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;template&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;javascript&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; NavBar &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;../../components/NavBar&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;search-page&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;span class=&quot;attr&quot;&gt;components&lt;/span&gt;: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;string&quot;&gt;&#39;nav-bar&#39;&lt;/span&gt;: NavBar&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  data () &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;router的配置主要在main.js文件中&lt;br&gt;&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;40&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;41&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; VueRouter &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&quot;vue-router&quot;&lt;/span&gt; &lt;span class=&quot;comment&quot;&gt;//引入vue-router文件，需要事先用npm安装&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//1、引入相关（路由）组件&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; Form &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;../../components/Form&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; Box &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;../../components/Box&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; Result &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;../../components/Result&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; Info &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;../../components/details/info&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; Website &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;../../components/details/website&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; comment &lt;span class=&quot;keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;../../components/details/comment&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Vue.use(VueRouter);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Vue.config.debug=&lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 2. 定义路由&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 每个路由应该映射一个组件。 其中&quot;component&quot; 可以是&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 通过 Vue.extend() 创建的组件构造器，&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 或者，只是一个组件配置对象。&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; routes=[&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#123;&lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;/&quot;&lt;/span&gt;,&lt;span class=&quot;attr&quot;&gt;component&lt;/span&gt;:Box&amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#123;&lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;/result/:keyword&quot;&lt;/span&gt;,&lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;result&quot;&lt;/span&gt;,&lt;span class=&quot;attr&quot;&gt;component&lt;/span&gt;:Result&amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#123;&lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;/person/:id&quot;&lt;/span&gt;,&lt;span class=&quot;attr&quot;&gt;name&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;person&quot;&lt;/span&gt;,&lt;span class=&quot;attr&quot;&gt;component&lt;/span&gt;:Person,&lt;span class=&quot;comment&quot;&gt;/*嵌套路由*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		children:[&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;				&lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;/&quot;&lt;/span&gt;,&lt;span class=&quot;attr&quot;&gt;component&lt;/span&gt;:Info&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;				&lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;comment&quot;&lt;/span&gt;,&lt;span class=&quot;attr&quot;&gt;component&lt;/span&gt;:comment&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;				&lt;span class=&quot;attr&quot;&gt;path&lt;/span&gt;:&lt;span class=&quot;string&quot;&gt;&quot;website&quot;&lt;/span&gt;,&lt;span class=&quot;attr&quot;&gt;component&lt;/span&gt;:Website&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;		]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//3、创建 router 实例，然后传 `routes` 配置&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; router = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; VueRouter(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	routes &lt;span class=&quot;comment&quot;&gt;// （缩写）相当于 routes: routes&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 4. 创建和挂载根实例&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; app=&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; Vue(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;attr&quot;&gt;router&lt;/span&gt;:router,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;attr&quot;&gt;render&lt;/span&gt;:&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;h&lt;/span&gt;=&amp;gt;&lt;/span&gt;h(App),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;).$mount(&lt;span class=&quot;string&quot;&gt;&quot;#search-page&quot;&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;最后附上微型问卷调查系统的完成的效果：&lt;a href=&quot;https://wsyks.github.io/learn-vue/#!/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://wsyks.github.io/learn-vue/#!/&lt;/a&gt; （基于1.0）&lt;br&gt;未完待续&lt;/p&gt;
+&lt;p&gt;最后附上微型问卷调查系统的完成的效果：&lt;a href=&quot;https://wsyks.github.io/learn-vue/#!/&quot;&gt;https://wsyks.github.io/learn-vue/#!/&lt;/a&gt; （基于1.0）&lt;br&gt;未完待续&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
     
@@ -661,16 +797,16 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
-      <category term="vue.js" scheme="http://syean.cn/tags/vue-js/"/>
+      <category term="vue.js" scheme="http://wsyks.github.io/tags/vue-js/"/>
     
   </entry>
   
   <entry>
     <title>three.js学习笔记（一）</title>
-    <link href="http://syean.cn/2016/08/05/three-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://syean.cn/2016/08/05/three-js学习笔记（一）/</id>
+    <link href="http://wsyks.github.io/2016/08/05/three-js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://wsyks.github.io/2016/08/05/three-js学习笔记（一）/</id>
     <published>2016-08-05T12:24:23.000Z</published>
     <updated>2017-05-04T01:58:41.164Z</updated>
     
@@ -739,18 +875,18 @@
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
-      <category term="webgl" scheme="http://syean.cn/tags/webgl/"/>
+      <category term="webgl" scheme="http://wsyks.github.io/tags/webgl/"/>
     
   </entry>
   
   <entry>
     <title>HTML5_拖放</title>
-    <link href="http://syean.cn/2016/07/28/HTML5-%E6%8B%96%E6%94%BE/"/>
-    <id>http://syean.cn/2016/07/28/HTML5-拖放/</id>
+    <link href="http://wsyks.github.io/2016/07/28/HTML5-%E6%8B%96%E6%94%BE/"/>
+    <id>http://wsyks.github.io/2016/07/28/HTML5-拖放/</id>
     <published>2016-07-28T12:09:38.000Z</published>
-    <updated>2017-05-04T02:04:21.108Z</updated>
+    <updated>2017-05-04T02:04:21.109Z</updated>
     
     <content type="html">&lt;h1 id=&quot;拖放事件&quot;&gt;&lt;a href=&quot;#拖放事件&quot; class=&quot;headerlink&quot; title=&quot;拖放事件&quot;&gt;&lt;/a&gt;拖放事件&lt;/h1&gt;&lt;p&gt;拖动某元素,发生以下事件&lt;/p&gt;
 &lt;ol&gt;
@@ -820,14 +956,14 @@
     </summary>
     
     
-      <category term="html5" scheme="http://syean.cn/tags/html5/"/>
+      <category term="html5" scheme="http://wsyks.github.io/tags/html5/"/>
     
   </entry>
   
   <entry>
     <title>瓦片地图</title>
-    <link href="http://syean.cn/2016/07/21/%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE/"/>
-    <id>http://syean.cn/2016/07/21/瓦片地图/</id>
+    <link href="http://wsyks.github.io/2016/07/21/%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE/"/>
+    <id>http://wsyks.github.io/2016/07/21/瓦片地图/</id>
     <published>2016-07-21T08:39:05.000Z</published>
     <updated>2017-05-04T01:56:33.564Z</updated>
     
@@ -957,16 +1093,16 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     </summary>
     
     
-      <category term="技术" scheme="http://syean.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="http://wsyks.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>ReactJS，你好</title>
-    <link href="http://syean.cn/2016/07/14/ReactJS%EF%BC%8C%E4%BD%A0%E5%A5%BD/"/>
-    <id>http://syean.cn/2016/07/14/ReactJS，你好/</id>
+    <link href="http://wsyks.github.io/2016/07/14/ReactJS%EF%BC%8C%E4%BD%A0%E5%A5%BD/"/>
+    <id>http://wsyks.github.io/2016/07/14/ReactJS，你好/</id>
     <published>2016-07-14T02:52:44.000Z</published>
-    <updated>2017-05-04T02:01:04.682Z</updated>
+    <updated>2017-05-04T02:01:04.683Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;刚接触Angular不久，还没怎么用过，师兄说更推荐学ReactJS，之前在阮一峰的博客里匆匆浏览过ReactJS的教程，没留下什么深刻的印象，决定好好学习一下，最好能用到现在做的项目中。文章的大部分内容都来自别人的教程，做了一些整合。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;React简介&quot;&gt;&lt;a href=&quot;#React简介&quot; class=&quot;headerlink&quot; title=&quot;React简介&quot;&gt;&lt;/a&gt;React简介&lt;/h1&gt;&lt;p&gt;React 起源于 Facebook 的内部项目，因为该公司对市场上所有 JavaScript MVC框架，都不满意，就决定自己写一套，用来架设 Instagram 的网站。React 的设计思想极其独特，属于革命性创新，性能出众，代码逻辑却非常简单。&lt;/p&gt;
@@ -1087,16 +1223,16 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
-      <category term="ReactJs" scheme="http://syean.cn/tags/ReactJs/"/>
+      <category term="ReactJs" scheme="http://wsyks.github.io/tags/ReactJs/"/>
     
   </entry>
   
   <entry>
     <title>AngularJS学习笔记</title>
-    <link href="http://syean.cn/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    <id>http://syean.cn/2016/07/08/AngularJS学习笔记/</id>
+    <link href="http://wsyks.github.io/2016/07/08/AngularJS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://wsyks.github.io/2016/07/08/AngularJS学习笔记/</id>
     <published>2016-07-08T03:57:56.000Z</published>
     <updated>2017-05-03T14:31:26.129Z</updated>
     
@@ -1247,18 +1383,18 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     </summary>
     
     
-      <category term="javascript" scheme="http://syean.cn/tags/javascript/"/>
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
-      <category term="AngularJS" scheme="http://syean.cn/tags/AngularJS/"/>
+      <category term="AngularJS" scheme="http://wsyks.github.io/tags/AngularJS/"/>
     
   </entry>
   
   <entry>
     <title>算法学习笔记（一）</title>
-    <link href="http://syean.cn/2016/04/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://syean.cn/2016/04/22/算法学习笔记（一）/</id>
+    <link href="http://wsyks.github.io/2016/04/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
+    <id>http://wsyks.github.io/2016/04/22/算法学习笔记（一）/</id>
     <published>2016-04-22T08:54:34.000Z</published>
-    <updated>2017-05-04T01:57:03.581Z</updated>
+    <updated>2017-05-04T01:57:03.582Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;贪婪法&quot;&gt;&lt;a href=&quot;#贪婪法&quot; class=&quot;headerlink&quot; title=&quot;贪婪法&quot;&gt;&lt;/a&gt;贪婪法&lt;/h1&gt;&lt;h2 id=&quot;贪婪法简介&quot;&gt;&lt;a href=&quot;#贪婪法简介&quot; class=&quot;headerlink&quot; title=&quot;贪婪法简介&quot;&gt;&lt;/a&gt;贪婪法简介&lt;/h2&gt;&lt;p&gt;贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对&lt;strong&gt;局部最有利&lt;/strong&gt;的选择。&lt;br&gt;贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。&lt;/p&gt;
@@ -1309,31 +1445,7 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
     </summary>
     
     
-      <category term="读书笔记" scheme="http://syean.cn/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>分享两篇游记</title>
-    <link href="http://syean.cn/2016/04/09/%E5%88%86%E4%BA%AB%E4%B8%A4%E7%AF%87%E6%B8%B8%E8%AE%B0/"/>
-    <id>http://syean.cn/2016/04/09/分享两篇游记/</id>
-    <published>2016-04-09T13:56:41.000Z</published>
-    <updated>2017-05-03T14:33:45.056Z</updated>
-    
-    <content type="html">&lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;    所谓身未动，心已远大抵便是如此吧。&lt;/p&gt;
-&lt;p&gt;今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写了一篇游记，给大家~，还有一篇是今年寒假去厦门的，可以对比，我的摄影功力简直大增。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a href=&quot;http://www.mafengwo.cn/i/5452843.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;西游记之女儿国———泸沽湖，西昌邛海之旅&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.mafengwo.cn/i/5452321.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;漫漫浪——厦门篇（鼓浪屿，曾厝垵，厦大，南普陀）&lt;/a&gt;&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="人生百态" scheme="http://syean.cn/tags/%E4%BA%BA%E7%94%9F%E7%99%BE%E6%80%81/"/>
+      <category term="读书笔记" scheme="http://wsyks.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

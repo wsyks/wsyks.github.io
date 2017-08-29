@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2017-08-29T08:33:56.891Z</updated>
+  <updated>2017-08-29T08:38:42.743Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -17,12 +17,12 @@
   
   <entry>
     <title>谈谈HTML5本地存储</title>
-    <link href="http://wsyks.github.io/2017/08/15/%E8%B0%88%E8%B0%88HTML5%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8%E2%80%94%E2%80%94WebStorage/"/>
-    <id>http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储——WebStorage/</id>
+    <link href="http://wsyks.github.io/2017/08/15/%E8%B0%88%E8%B0%88HTML5%E6%9C%AC%E5%9C%B0%E5%AD%98%E5%82%A8/"/>
+    <id>http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储/</id>
     <published>2017-08-15T14:07:29.000Z</published>
-    <updated>2017-08-29T08:33:56.891Z</updated>
+    <updated>2017-08-29T08:38:42.743Z</updated>
     
-    <content type="html">&lt;img src=&quot;/2017/08/15/谈谈HTML5本地存储——WebStorage/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
+    <content type="html">&lt;img src=&quot;/2017/08/15/谈谈HTML5本地存储/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
 &lt;p&gt;这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;浏览器本地存储概述&quot;&gt;&lt;a href=&quot;#浏览器本地存储概述&quot; class=&quot;headerlink&quot; title=&quot;浏览器本地存储概述&quot;&gt;&lt;/a&gt;浏览器本地存储概述&lt;/h1&gt;&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;h3 id=&quot;cookie&quot;&gt;&lt;a href=&quot;#cookie&quot; class=&quot;headerlink&quot; title=&quot;cookie&quot;&gt;&lt;/a&gt;cookie&lt;/h3&gt;&lt;p&gt;cookie是指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。&lt;/p&gt;
 &lt;h3 id=&quot;webStorage&quot;&gt;&lt;a href=&quot;#webStorage&quot; class=&quot;headerlink&quot; title=&quot;webStorage&quot;&gt;&lt;/a&gt;webStorage&lt;/h3&gt;&lt;p&gt;webStorage是HTML5中本地存储的解决方案之一，包括sessionStorag和localStorage，两者差別就差在生命周期的不同而已。&lt;/p&gt;
@@ -183,13 +183,13 @@
 &lt;h1 id=&quot;IndexedDB&quot;&gt;&lt;a href=&quot;#IndexedDB&quot; class=&quot;headerlink&quot; title=&quot;IndexedDB&quot;&gt;&lt;/a&gt;IndexedDB&lt;/h1&gt;&lt;p&gt;用法不像sessionStorage那么简单，不过以下两篇文章把基本indexeddb用法都讲的比较清楚了。就不额外做整理了。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;http://www.cnblogs.com/dolphinX/p/3415761.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML5本地存储——IndexedDB（一：基本使用）&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;http://www.cnblogs.com/dolphinX/p/3416889.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;HTML5本地存储——IndexedDB（二：索引）&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;参考&lt;br&gt;&lt;a href=&quot;http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;amp;utm_medium=referral&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;amp;utm_medium=referral&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000005927232#articleHeader3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://segmentfault.com/a/1190000005927232#articleHeader3&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
+&lt;p&gt;【参考】&lt;br&gt;&lt;a href=&quot;http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;amp;utm_medium=referral&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;amp;utm_medium=referral&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage&lt;/a&gt;&lt;br&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000005927232#articleHeader3&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://segmentfault.com/a/1190000005927232#articleHeader3&lt;/a&gt;&lt;/p&gt;
 </content>
     
     <summary type="html">
     
-      &lt;img src=&quot;/2017/08/15/谈谈HTML5本地存储——WebStorage/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
+      &lt;img src=&quot;/2017/08/15/谈谈HTML5本地存储/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
 &lt;p&gt;这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。&lt;br&gt;
     
     </summary>

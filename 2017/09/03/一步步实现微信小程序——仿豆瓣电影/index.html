@@ -1,0 +1,1035 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="微信小程序," />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Syean" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="最近不想写论文，就想捣鼓点新东西吧，就边看官方文档，花了3天时间写了一个简单的仿豆瓣电影的微信小程序，给大家分享一下教程吧。">
+<meta name="keywords" content="微信小程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一步步实现微信小程序——仿豆瓣电影">
+<meta property="og:url" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/index.html">
+<meta property="og:site_name" content="Syean">
+<meta property="og:description" content="最近不想写论文，就想捣鼓点新东西吧，就边看官方文档，花了3天时间写了一个简单的仿豆瓣电影的微信小程序，给大家分享一下教程吧。">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/1.png">
+<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/douban1.gif">
+<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/douban3.gif">
+<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/douban2.gif">
+<meta property="og:image" content="http://7xsgg1.com1.z0.glb.clouddn.com/douban4.gif">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/5.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/2.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/4.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/6.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/config1.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/config2.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/res1.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/3.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api1.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api2.png">
+<meta property="og:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api3.png">
+<meta property="og:updated_time" content="2017-09-04T09:28:26.398Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="一步步实现微信小程序——仿豆瓣电影">
+<meta name="twitter:description" content="最近不想写论文，就想捣鼓点新东西吧，就边看官方文档，花了3天时间写了一个简单的仿豆瓣电影的微信小程序，给大家分享一下教程吧。">
+<meta name="twitter:image" content="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/"/>
+
+
+
+
+
+  <title>一步步实现微信小程序——仿豆瓣电影 | Syean</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?289e37e8938f67998453773bdd083085";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Syean</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">记录，分享，回忆</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="syean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Syean">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">一步步实现微信小程序——仿豆瓣电影</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-03T17:21:56+08:00">
+                2017-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/" class="leancloud_visitors" data-flag-title="一步步实现微信小程序——仿豆瓣电影">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/1.png" alt="1.png" title="">
+<p>最近不想写论文，就想捣鼓点新东西吧，就边看官方文档，花了3天时间写了一个简单的仿豆瓣电影的微信小程序，给大家分享一下教程吧。<br><a id="more"></a></p>
+<h1 id="源码-amp-效果图"><a href="#源码-amp-效果图" class="headerlink" title="源码&amp;效果图"></a>源码&amp;效果图</h1><p>源码点击<a href="https://github.com/wsyks/douban-film" target="_blank" rel="external">这里</a>，欢迎star</p>
+<p>运行方法：</p>
+<ul>
+<li>下载微信web开发者工具</li>
+<li>新建项目，项目目录为代码存放目录</li>
+<li>点击开发者工具中的编译即可在模拟器里看到</li>
+</ul>
+<p>效果图如下<br><img src="http://7xsgg1.com1.z0.glb.clouddn.com/douban1.gif" alt="效果1"><img src="http://7xsgg1.com1.z0.glb.clouddn.com/douban3.gif" alt="效果2"><br><img src="http://7xsgg1.com1.z0.glb.clouddn.com/douban2.gif" alt="效果3"><img src="http://7xsgg1.com1.z0.glb.clouddn.com/douban4.gif" alt="效果4"></p>
+<h1 id="开发环境与项目简介"><a href="#开发环境与项目简介" class="headerlink" title="开发环境与项目简介"></a>开发环境与项目简介</h1><p>微信提供了一个微信开发者工具，可以完成小程序的 API 和页面的开发调试、代码查看和编辑、小程序预览和发布等功能。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="external">下载地址</a><br>下载后，打开该工具，选择代码目录和申请的AppID，勾选quickStart选项，这样会创建几个基础页面。<br><img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/5.png" alt="5.png" title=""><br>正好在写代码的第二天，微信开发者工具就全新改版，比原来好多了，原来的console调试界面与编辑代码不在同一个页面，十分麻烦，现在就像平时前端调试一样，调试界面与代码编辑页面在同一个界面，方便多了。<br><img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/2.png" alt="2.png" title=""></p>
+<h2 id="项目代码结构"><a href="#项目代码结构" class="headerlink" title="项目代码结构"></a>项目代码结构</h2><img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/4.png" alt="4.png" title="">
+<p>这里说一下，在新建目录后，可以选择添加page,js,wxml,wxss,json文件，如果直接添加page文件的话，会直接在该目录下生成与目录相同名字的四个不同后缀文件的组成，如：index.js、index.wxml、index.wxss、index.json。.js后缀的文件是脚本文件，.json后缀的文件是配置文件，.wxss后缀的是样式表文件，.wxml后缀的文件是页面结构文件。</p>
+<h2 id="豆瓣电影API"><a href="#豆瓣电影API" class="headerlink" title="豆瓣电影API"></a>豆瓣电影API</h2><ul>
+<li>【获取正在上映电影】<br><a href="https://api.douban.com/v2/movie/in_theaters" target="_blank" rel="external">https://api.douban.com/v2/movie/in_theaters</a></li>
+<li>【获取豆瓣TOP250电影】<br><a href="https://api.douban.com/v2/movie/top250" target="_blank" rel="external">https://api.douban.com/v2/movie/top250</a></li>
+<li>【 获取即将上映电影】<br><a href="https://api.douban.com/v2/movie/coming_soon" target="_blank" rel="external">https://api.douban.com/v2/movie/coming_soon</a></li>
+<li>【获取具体某一电影信息】<br><a href="https://api.douban.com/v2/movie/subject/:id" target="_blank" rel="external">https://api.douban.com/v2/movie/subject/:id</a><br>详细数据情况可看<br><a href="https://developers.douban.com/wiki/?title=movie_v2" target="_blank" rel="external">https://developers.douban.com/wiki/?title=movie_v2</a></li>
+</ul>
+<p> 其实前三个API返回的数据都是一致的，只是返回的电影类型数据不一样而已，所以在<strong>list</strong>页面，我们只要传入不同的类型即可。在电影列表页和首页，都有展示电影的基础信息（海报，名字，评分），所以可以把这个部分拿出来做一个模板公用。<br>大体的思路就是这样，比较简单。</p>
+<h1 id="配置小程序窗口和导航栏"><a href="#配置小程序窗口和导航栏" class="headerlink" title="配置小程序窗口和导航栏"></a>配置小程序窗口和导航栏</h1><p>在根目录下的app.json文件中配置小程序的窗口样式和导航栏<br><img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/6.png" alt="6.png" title=""><br>属性信息如图，来自<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html" target="_blank" rel="external">官网</a><br> <img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/config1.png" alt="config1.png" title=""><br> <img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/config2.png" alt="config2.png" title=""></p>
+<p> 点击上方的“编译”，就可以看到效果<br>  <img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/res1.png" alt="res1.png" title=""></p>
+<p>我们在调试具体某一个页面的时候，可以添加面板上方中间的”添加编译模式”，填写相关参数，这样就不用从首页进去调试了。<br><img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/3.png" alt="3.png" title=""></p>
+<h1 id="具体代码编写"><a href="#具体代码编写" class="headerlink" title="具体代码编写"></a>具体代码编写</h1><p>这里只讲一下首页代码的情况，其他页面用到的属性基本雷同。这里不介绍小程序的使用语法，请先在<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/MINA.html" target="_blank" rel="external">官网上</a>浏览个大概</p>
+<h2 id="wx-showLoading"><a href="#wx-showLoading" class="headerlink" title="wx.showLoading()"></a>wx.showLoading()</h2><p>在最开始进入页面时，还没加载完数据时，我们想要有一个loading效果，可直接使用小程序的api<br>wx.showLoading(OBJECT)<br>显示 loading 提示框, 需主动调用 wx.hideLoading 才能关闭提示框</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    wx.showLoading(&#123;</div><div class="line">      <span class="attr">title</span>: <span class="string">'全力加载中...'</span>,</div><div class="line">    &#125;)</div><div class="line">   </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>加载完，需要关闭时，就只需要调用即可<code>wx.hideLoading();</code><br>onLoad 表示监听页面加载</p>
+<h2 id="wx-request"><a href="#wx-request" class="headerlink" title="wx.request()"></a>wx.request()</h2><p>请求数据调用wx.request();<br>详细属性介绍点击<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/network-request.html#wxrequestobject" target="_blank" rel="external">这里</a></p>
+<p>因为请求电影列表在list和index页面都需要用到，所以我在app.js作为一个全局的方法来写</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">getFilminfo:function(pageType,start,count,cb) &#123;//电影列表类型，开始数据下标，请求总数，callback函数</div><div class="line">    var that = this;</div><div class="line"></div><div class="line">    wx.request(&#123;</div><div class="line">      url: that.globalData.basicUrl +"/" + pageType + '?start=' + start + '&amp;count=' + count,</div><div class="line">      // url:url,</div><div class="line">      header: &#123;</div><div class="line">        "Content-Type": "json",</div><div class="line">      &#125;,</div><div class="line">      success: function (res) &#123;</div><div class="line">        cb(res);</div><div class="line">      &#125;</div><div class="line">    &#125;) </div><div class="line">  &#125;,</div><div class="line">  globalData: &#123;</div><div class="line">    userInfo: null,</div><div class="line">    basicUrl:"https://api.douban.com/v2/movie",</div><div class="line">    pageTypelist: &#123;"coming_soon":"即将上映","in_theaters":"正在热映","top250":"TOP250电影"&#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>然而，在调用接口的时候发现了这样的错误<br><img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api1.png" alt="api1.png" title=""><br>原因是我在开发配置里，没有豆瓣api的域名添加到request合法域名里，<br>所以只要在配置里加上需要的即可<br><img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api2.png" alt="api2.png" title=""><br><img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api3.png" alt="api3.png" title=""></p>
+<p>所以在index.js中，调用这个全局方法如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//获取应用实例</span></div><div class="line"><span class="selector-tag">var</span> app = getApp()</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">Page(&#123;</div><div class="line">  data: &#123;</div><div class="line">    motto: 'Hello World',</div><div class="line">    userInfo: &#123;&#125;,</div><div class="line">    films:[&#123;&#125;,&#123;&#125;,&#123;&#125;]</div><div class="line">  &#125;,</div><div class="line">  onLoad: function () &#123;</div><div class="line">    wx.showLoading(&#123;</div><div class="line">      title: '全力加载中...',</div><div class="line">    &#125;)</div><div class="line">    console.log('onLoad')</div><div class="line">    var that = this;</div><div class="line">    var typelist = ["in_theaters","coming_soon","top250"];</div><div class="line">    var titlelist = ["正在热映","即将上映", "TOP250电影"];</div><div class="line">    for(let i = 0;i&lt;typelist.length;i++)&#123;</div><div class="line">      var type = typelist[i];</div><div class="line">      app.getFilminfo(type, 0, 8, function (res) &#123;</div><div class="line">        wx.hideLoading();</div><div class="line">        var data = res.data;</div><div class="line">        data.subjects.map(function (item) &#123;</div><div class="line">          if (item.title.length &gt; 8) &#123;</div><div class="line">            item.title = item.title.slice(0, 7) + "...";</div><div class="line">          &#125;</div><div class="line">          if (item.rating.average&gt;=9.5)&#123;</div><div class="line">            item.rating.star = "star10";</div><div class="line">          &#125;else&#123;</div><div class="line">            item.rating.star = "star" + Math.round(item.rating.average);</div><div class="line">          &#125;</div><div class="line">          console.log(item.rating.star);</div><div class="line">        &#125;)</div><div class="line">        that.data.films[i] = &#123;title:titlelist[i],data:data.subjects,type:typelist[i]&#125;;</div><div class="line">        that.setData(&#123;</div><div class="line">          films: that.data.films</div><div class="line">        &#125;);</div><div class="line">        console.log(that.data.films);</div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>我们通过“更多”按钮跳转到对应的电影列表list页面，所以需要绑定事件</p>
+<p>在index.wxml中，</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">button</span> bindtap=<span class="string">"toView"</span> data-type=<span class="string">"&#123;&#123;filminfo.type&#125;&#125;"</span> class=<span class="string">"more-btn"</span> plain=<span class="string">"false"</span>&gt;更多&gt;&lt;/button&gt;</div></pre></td></tr></table></figure>
+<p>bindtap就是对应是事件名字，同时我们需要设置data-type属性，属性值即是电影列表类型<br>在index.js中<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">toView: function(e) &#123;</div><div class="line">    var temp = e.currentTarget.dataset;//获取当前组件上由data-开头的自定义属性组成的集合</div><div class="line">    wx.navigateTo(&#123;</div><div class="line">      url: '../list/list?type=' + temp.type//temp.type即是当时data-type属性值</div><div class="line">    &#125;)</div><div class="line">  &#125;,</div></pre></td></tr></table></figure></p>
+<p>wx.navigateTo(）就是路由跳转的api</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><p>因为电影的基础信息展示在多个页面中都有用到，我们单独提出来写个电影预览模板</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;template name=<span class="string">"movieThumb"</span>&gt;  </div><div class="line">&lt;view wx:key=<span class="string">"id"</span> class=<span class="string">"film-item"</span> data-title=<span class="string">"&#123;&#123;title&#125;&#125;"</span> data-id=<span class="string">"&#123;&#123;id&#125;&#125;"</span>  bindtap=<span class="string">"detail"</span>&gt;</div><div class="line">  &lt;image src=<span class="string">"&#123;&#123;images.medium&#125;&#125;"</span> alt=<span class="string">"&#123;&#123;alt&#125;&#125;"</span> class=<span class="string">"film-image"</span>&gt;&lt;/image&gt;  </div><div class="line">  &lt;text class=<span class="string">"film-title"</span>&gt;&#123;&#123;title&#125;&#125;&lt;/text&gt;  </div><div class="line">  &lt;view class=<span class="string">"film-rate"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;rating.average!=0&#125;&#125;"</span>&gt;</div><div class="line">    &lt;view class=<span class="string">"film-star &#123;&#123;rating.star&#125;&#125;"</span>&gt;&lt;/view&gt;</div><div class="line">    &lt;text&gt;&#123;&#123;rating.average&#125;&#125;&lt;/text&gt;</div><div class="line">  &lt;/view&gt;</div><div class="line">  &lt;text class=<span class="string">"film-rate"</span> wx:<span class="keyword">else</span>&gt;暂无评分&lt;/text&gt;  </div><div class="line">&lt;/view&gt;</div><div class="line">&lt;/template&gt;</div></pre></td></tr></table></figure>
+<p>模板名字设置为“movieThumb”</p>
+<p>例如在首页中有用到该模块，那在index.wxml中如下调用即可</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;import src=<span class="string">"../template/movieThumb.wxml"</span> /&gt;</div><div class="line"> </div><div class="line"> &lt;scroll-view scroll-x=<span class="string">"true"</span> class=<span class="string">"filmlist"</span>&gt;</div><div class="line">        &lt;template is=<span class="string">"movieThumb"</span> wx:<span class="keyword">for</span>-items=<span class="string">"&#123;&#123;filminfo.data&#125;&#125;"</span>  wx:<span class="keyword">for</span>-item=<span class="string">"film"</span> wx:key=<span class="string">"id"</span> data=<span class="string">"&#123;&#123;...film&#125;&#125;"</span>&gt;   </div><div class="line">        &lt;/template&gt;</div><div class="line">&lt;/scroll-view&gt;</div></pre></td></tr></table></figure>
+<p>先写到这里吧，其他代码看<a href="https://github.com/wsyks/douban-film" target="_blank" rel="external">github</a>上的即可，具体还是要多看文档，写个项目练练，就很容易上手啦</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      syean
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/" title="一步步实现微信小程序——仿豆瓣电影">http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/微信小程序/" rel="tag"># 微信小程序</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/15/谈谈HTML5本地存储/" rel="next" title="谈谈HTML5本地存储">
+                <i class="fa fa-chevron-left"></i> 谈谈HTML5本地存储
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+  
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          <!-- 
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+ -->
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="syean" />
+          <p class="site-author-name" itemprop="name">syean</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wsyks" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2949528583" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://simmin.github.io/" title="Simmin Blog" target="_blank">Simmin Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://phantom0301.cc/" title="零の杂货铺" target="_blank">零の杂货铺</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blackwolfsec.cc/" title="blackwolf" target="_blank">blackwolf</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ohroot.com/" title="半饱和" target="_blank">半饱和</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.sccsec.com/" title="胖胖的博客" target="_blank">胖胖的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jinglingshu.org/" title="精灵鼠" target="_blank">精灵鼠</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wps2015.jinglingshu.org/" title="wps2015" target="_blank">wps2015</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.pang0lin.com/" title="穿山甲" target="_blank">穿山甲</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ourren.com/" title="ourren" target="_blank">ourren</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#源码-amp-效果图"><span class="nav-number">1.</span> <span class="nav-text">源码&效果图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开发环境与项目简介"><span class="nav-number">2.</span> <span class="nav-text">开发环境与项目简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目代码结构"><span class="nav-number">2.1.</span> <span class="nav-text">项目代码结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#豆瓣电影API"><span class="nav-number">2.2.</span> <span class="nav-text">豆瓣电影API</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置小程序窗口和导航栏"><span class="nav-number">3.</span> <span class="nav-text">配置小程序窗口和导航栏</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体代码编写"><span class="nav-number">4.</span> <span class="nav-text">具体代码编写</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wx-showLoading"><span class="nav-number">4.1.</span> <span class="nav-text">wx.showLoading()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wx-request"><span class="nav-number">4.2.</span> <span class="nav-text">wx.request()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模板"><span class="nav-number">4.3.</span> <span class="nav-text">模板</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">syean</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d7c45d8300d24d59927c5de653864f9c",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz", "Maz5zp1hIAmXtT3yBFdh18iM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

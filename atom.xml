@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2017-08-29T08:38:42.743Z</updated>
+  <updated>2017-09-04T09:28:26.398Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -14,6 +14,72 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一步步实现微信小程序——仿豆瓣电影</title>
+    <link href="http://wsyks.github.io/2017/09/03/%E4%B8%80%E6%AD%A5%E6%AD%A5%E5%AE%9E%E7%8E%B0%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E2%80%94%E2%80%94%E4%BB%BF%E8%B1%86%E7%93%A3%E7%94%B5%E5%BD%B1/"/>
+    <id>http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/</id>
+    <published>2017-09-03T09:21:56.000Z</published>
+    <updated>2017-09-04T09:28:26.398Z</updated>
+    
+    <content type="html">&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
+&lt;p&gt;最近不想写论文，就想捣鼓点新东西吧，就边看官方文档，花了3天时间写了一个简单的仿豆瓣电影的微信小程序，给大家分享一下教程吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;源码-amp-效果图&quot;&gt;&lt;a href=&quot;#源码-amp-效果图&quot; class=&quot;headerlink&quot; title=&quot;源码&amp;amp;效果图&quot;&gt;&lt;/a&gt;源码&amp;amp;效果图&lt;/h1&gt;&lt;p&gt;源码点击&lt;a href=&quot;https://github.com/wsyks/douban-film&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;，欢迎star&lt;/p&gt;
+&lt;p&gt;运行方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;下载微信web开发者工具&lt;/li&gt;
+&lt;li&gt;新建项目，项目目录为代码存放目录&lt;/li&gt;
+&lt;li&gt;点击开发者工具中的编译即可在模拟器里看到&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;效果图如下&lt;br&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/douban1.gif&quot; alt=&quot;效果1&quot;&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/douban3.gif&quot; alt=&quot;效果2&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/douban2.gif&quot; alt=&quot;效果3&quot;&gt;&lt;img src=&quot;http://7xsgg1.com1.z0.glb.clouddn.com/douban4.gif&quot; alt=&quot;效果4&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;开发环境与项目简介&quot;&gt;&lt;a href=&quot;#开发环境与项目简介&quot; class=&quot;headerlink&quot; title=&quot;开发环境与项目简介&quot;&gt;&lt;/a&gt;开发环境与项目简介&lt;/h1&gt;&lt;p&gt;微信提供了一个微信开发者工具，可以完成小程序的 API 和页面的开发调试、代码查看和编辑、小程序预览和发布等功能。&lt;a href=&quot;https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;下载地址&lt;/a&gt;&lt;br&gt;下载后，打开该工具，选择代码目录和申请的AppID，勾选quickStart选项，这样会创建几个基础页面。&lt;br&gt;&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/5.png&quot; alt=&quot;5.png&quot; title=&quot;&quot;&gt;&lt;br&gt;正好在写代码的第二天，微信开发者工具就全新改版，比原来好多了，原来的console调试界面与编辑代码不在同一个页面，十分麻烦，现在就像平时前端调试一样，调试界面与代码编辑页面在同一个界面，方便多了。&lt;br&gt;&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/2.png&quot; alt=&quot;2.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;项目代码结构&quot;&gt;&lt;a href=&quot;#项目代码结构&quot; class=&quot;headerlink&quot; title=&quot;项目代码结构&quot;&gt;&lt;/a&gt;项目代码结构&lt;/h2&gt;&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/4.png&quot; alt=&quot;4.png&quot; title=&quot;&quot;&gt;
+&lt;p&gt;这里说一下，在新建目录后，可以选择添加page,js,wxml,wxss,json文件，如果直接添加page文件的话，会直接在该目录下生成与目录相同名字的四个不同后缀文件的组成，如：index.js、index.wxml、index.wxss、index.json。.js后缀的文件是脚本文件，.json后缀的文件是配置文件，.wxss后缀的是样式表文件，.wxml后缀的文件是页面结构文件。&lt;/p&gt;
+&lt;h2 id=&quot;豆瓣电影API&quot;&gt;&lt;a href=&quot;#豆瓣电影API&quot; class=&quot;headerlink&quot; title=&quot;豆瓣电影API&quot;&gt;&lt;/a&gt;豆瓣电影API&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;【获取正在上映电影】&lt;br&gt;&lt;a href=&quot;https://api.douban.com/v2/movie/in_theaters&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://api.douban.com/v2/movie/in_theaters&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;【获取豆瓣TOP250电影】&lt;br&gt;&lt;a href=&quot;https://api.douban.com/v2/movie/top250&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://api.douban.com/v2/movie/top250&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;【 获取即将上映电影】&lt;br&gt;&lt;a href=&quot;https://api.douban.com/v2/movie/coming_soon&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://api.douban.com/v2/movie/coming_soon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;【获取具体某一电影信息】&lt;br&gt;&lt;a href=&quot;https://api.douban.com/v2/movie/subject/:id&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://api.douban.com/v2/movie/subject/:id&lt;/a&gt;&lt;br&gt;详细数据情况可看&lt;br&gt;&lt;a href=&quot;https://developers.douban.com/wiki/?title=movie_v2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://developers.douban.com/wiki/?title=movie_v2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt; 其实前三个API返回的数据都是一致的，只是返回的电影类型数据不一样而已，所以在&lt;strong&gt;list&lt;/strong&gt;页面，我们只要传入不同的类型即可。在电影列表页和首页，都有展示电影的基础信息（海报，名字，评分），所以可以把这个部分拿出来做一个模板公用。&lt;br&gt;大体的思路就是这样，比较简单。&lt;/p&gt;
+&lt;h1 id=&quot;配置小程序窗口和导航栏&quot;&gt;&lt;a href=&quot;#配置小程序窗口和导航栏&quot; class=&quot;headerlink&quot; title=&quot;配置小程序窗口和导航栏&quot;&gt;&lt;/a&gt;配置小程序窗口和导航栏&lt;/h1&gt;&lt;p&gt;在根目录下的app.json文件中配置小程序的窗口样式和导航栏&lt;br&gt;&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/6.png&quot; alt=&quot;6.png&quot; title=&quot;&quot;&gt;&lt;br&gt;属性信息如图，来自&lt;a href=&quot;https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt;&lt;br&gt; &lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/config1.png&quot; alt=&quot;config1.png&quot; title=&quot;&quot;&gt;&lt;br&gt; &lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/config2.png&quot; alt=&quot;config2.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt; 点击上方的“编译”，就可以看到效果&lt;br&gt;  &lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/res1.png&quot; alt=&quot;res1.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我们在调试具体某一个页面的时候，可以添加面板上方中间的”添加编译模式”，填写相关参数，这样就不用从首页进去调试了。&lt;br&gt;&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/3.png&quot; alt=&quot;3.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;具体代码编写&quot;&gt;&lt;a href=&quot;#具体代码编写&quot; class=&quot;headerlink&quot; title=&quot;具体代码编写&quot;&gt;&lt;/a&gt;具体代码编写&lt;/h1&gt;&lt;p&gt;这里只讲一下首页代码的情况，其他页面用到的属性基本雷同。这里不介绍小程序的使用语法，请先在&lt;a href=&quot;https://mp.weixin.qq.com/debug/wxadoc/dev/framework/MINA.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网上&lt;/a&gt;浏览个大概&lt;/p&gt;
+&lt;h2 id=&quot;wx-showLoading&quot;&gt;&lt;a href=&quot;#wx-showLoading&quot; class=&quot;headerlink&quot; title=&quot;wx.showLoading()&quot;&gt;&lt;/a&gt;wx.showLoading()&lt;/h2&gt;&lt;p&gt;在最开始进入页面时，还没加载完数据时，我们想要有一个loading效果，可直接使用小程序的api&lt;br&gt;wx.showLoading(OBJECT)&lt;br&gt;显示 loading 提示框, 需主动调用 wx.hideLoading 才能关闭提示框&lt;/p&gt;
+&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;onLoad: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; (&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;) &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    wx.showLoading(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;attr&quot;&gt;title&lt;/span&gt;: &lt;span class=&quot;string&quot;&gt;&#39;全力加载中...&#39;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;加载完，需要关闭时，就只需要调用即可&lt;code&gt;wx.hideLoading();&lt;/code&gt;&lt;br&gt;onLoad 表示监听页面加载&lt;/p&gt;
+&lt;h2 id=&quot;wx-request&quot;&gt;&lt;a href=&quot;#wx-request&quot; class=&quot;headerlink&quot; title=&quot;wx.request()&quot;&gt;&lt;/a&gt;wx.request()&lt;/h2&gt;&lt;p&gt;请求数据调用wx.request();&lt;br&gt;详细属性介绍点击&lt;a href=&quot;https://mp.weixin.qq.com/debug/wxadoc/dev/api/network-request.html#wxrequestobject&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;因为请求电影列表在list和index页面都需要用到，所以我在app.js作为一个全局的方法来写&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;getFilminfo:function(pageType,start,count,cb) &amp;#123;//电影列表类型，开始数据下标，请求总数，callback函数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    var that = this;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    wx.request(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      url: that.globalData.basicUrl +&quot;/&quot; + pageType + &#39;?start=&#39; + start + &#39;&amp;amp;count=&#39; + count,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      // url:url,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      header: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &quot;Content-Type&quot;: &quot;json&quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      success: function (res) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        cb(res);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;) &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  globalData: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    userInfo: null,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    basicUrl:&quot;https://api.douban.com/v2/movie&quot;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    pageTypelist: &amp;#123;&quot;coming_soon&quot;:&quot;即将上映&quot;,&quot;in_theaters&quot;:&quot;正在热映&quot;,&quot;top250&quot;:&quot;TOP250电影&quot;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然而，在调用接口的时候发现了这样的错误&lt;br&gt;&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api1.png&quot; alt=&quot;api1.png&quot; title=&quot;&quot;&gt;&lt;br&gt;原因是我在开发配置里，没有豆瓣api的域名添加到request合法域名里，&lt;br&gt;所以只要在配置里加上需要的即可&lt;br&gt;&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api2.png&quot; alt=&quot;api2.png&quot; title=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api3.png&quot; alt=&quot;api3.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;所以在index.js中，调用这个全局方法如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//获取应用实例&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;var&lt;/span&gt; app = getApp()&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;39&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Page(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  data: &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    motto: &#39;Hello World&#39;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    userInfo: &amp;#123;&amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    films:[&amp;#123;&amp;#125;,&amp;#123;&amp;#125;,&amp;#123;&amp;#125;]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  onLoad: function () &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    wx.showLoading(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      title: &#39;全力加载中...&#39;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    console.log(&#39;onLoad&#39;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    var that = this;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    var typelist = [&quot;in_theaters&quot;,&quot;coming_soon&quot;,&quot;top250&quot;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    var titlelist = [&quot;正在热映&quot;,&quot;即将上映&quot;, &quot;TOP250电影&quot;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    for(let i = 0;i&amp;lt;typelist.length;i++)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      var type = typelist[i];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      app.getFilminfo(type, 0, 8, function (res) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        wx.hideLoading();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        var data = res.data;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        data.subjects.map(function (item) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          if (item.title.length &amp;gt; 8) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            item.title = item.title.slice(0, 7) + &quot;...&quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          if (item.rating.average&amp;gt;=9.5)&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            item.rating.star = &quot;star10&quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          &amp;#125;else&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            item.rating.star = &quot;star&quot; + Math.round(item.rating.average);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          console.log(item.rating.star);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        that.data.films[i] = &amp;#123;title:titlelist[i],data:data.subjects,type:typelist[i]&amp;#125;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        that.setData(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;          films: that.data.films&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        console.log(that.data.films);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们通过“更多”按钮跳转到对应的电影列表list页面，所以需要绑定事件&lt;/p&gt;
+&lt;p&gt;在index.wxml中，&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;selector-tag&quot;&gt;button&lt;/span&gt; bindtap=&lt;span class=&quot;string&quot;&gt;&quot;toView&quot;&lt;/span&gt; data-type=&lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;&amp;#123;filminfo.type&amp;#125;&amp;#125;&quot;&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;more-btn&quot;&lt;/span&gt; plain=&lt;span class=&quot;string&quot;&gt;&quot;false&quot;&lt;/span&gt;&amp;gt;更多&amp;gt;&amp;lt;/button&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;bindtap就是对应是事件名字，同时我们需要设置data-type属性，属性值即是电影列表类型&lt;br&gt;在index.js中&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;toView: function(e) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    var temp = e.currentTarget.dataset;//获取当前组件上由data-开头的自定义属性组成的集合&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    wx.navigateTo(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      url: &#39;../list/list?type=&#39; + temp.type//temp.type即是当时data-type属性值&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;#125;,&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;wx.navigateTo(）就是路由跳转的api&lt;/p&gt;
+&lt;h2 id=&quot;模板&quot;&gt;&lt;a href=&quot;#模板&quot; class=&quot;headerlink&quot; title=&quot;模板&quot;&gt;&lt;/a&gt;模板&lt;/h2&gt;&lt;p&gt;因为电影的基础信息展示在多个页面中都有用到，我们单独提出来写个电影预览模板&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;template name=&lt;span class=&quot;string&quot;&gt;&quot;movieThumb&quot;&lt;/span&gt;&amp;gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;view wx:key=&lt;span class=&quot;string&quot;&gt;&quot;id&quot;&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;film-item&quot;&lt;/span&gt; data-title=&lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;&amp;#123;title&amp;#125;&amp;#125;&quot;&lt;/span&gt; data-id=&lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;&amp;#123;id&amp;#125;&amp;#125;&quot;&lt;/span&gt;  bindtap=&lt;span class=&quot;string&quot;&gt;&quot;detail&quot;&lt;/span&gt;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;lt;image src=&lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;&amp;#123;images.medium&amp;#125;&amp;#125;&quot;&lt;/span&gt; alt=&lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;&amp;#123;alt&amp;#125;&amp;#125;&quot;&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;film-image&quot;&lt;/span&gt;&amp;gt;&amp;lt;/image&amp;gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;lt;text class=&lt;span class=&quot;string&quot;&gt;&quot;film-title&quot;&lt;/span&gt;&amp;gt;&amp;#123;&amp;#123;title&amp;#125;&amp;#125;&amp;lt;/text&amp;gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;lt;view class=&lt;span class=&quot;string&quot;&gt;&quot;film-rate&quot;&lt;/span&gt; wx:&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;&amp;#123;rating.average!=0&amp;#125;&amp;#125;&quot;&lt;/span&gt;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;view class=&lt;span class=&quot;string&quot;&gt;&quot;film-star &amp;#123;&amp;#123;rating.star&amp;#125;&amp;#125;&quot;&lt;/span&gt;&amp;gt;&amp;lt;/view&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;lt;text&amp;gt;&amp;#123;&amp;#123;rating.average&amp;#125;&amp;#125;&amp;lt;/text&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;lt;/view&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;lt;text class=&lt;span class=&quot;string&quot;&gt;&quot;film-rate&quot;&lt;/span&gt; wx:&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt;&amp;gt;暂无评分&amp;lt;/text&amp;gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/view&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/template&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;模板名字设置为“movieThumb”&lt;/p&gt;
+&lt;p&gt;例如在首页中有用到该模块，那在index.wxml中如下调用即可&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;import src=&lt;span class=&quot;string&quot;&gt;&quot;../template/movieThumb.wxml&quot;&lt;/span&gt; /&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;lt;scroll-view scroll-x=&lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;filmlist&quot;&lt;/span&gt;&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;lt;template is=&lt;span class=&quot;string&quot;&gt;&quot;movieThumb&quot;&lt;/span&gt; wx:&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;-items=&lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;&amp;#123;filminfo.data&amp;#125;&amp;#125;&quot;&lt;/span&gt;  wx:&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;-item=&lt;span class=&quot;string&quot;&gt;&quot;film&quot;&lt;/span&gt; wx:key=&lt;span class=&quot;string&quot;&gt;&quot;id&quot;&lt;/span&gt; data=&lt;span class=&quot;string&quot;&gt;&quot;&amp;#123;&amp;#123;...film&amp;#125;&amp;#125;&quot;&lt;/span&gt;&amp;gt;   &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;lt;/template&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/scroll-view&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;先写到这里吧，其他代码看&lt;a href=&quot;https://github.com/wsyks/douban-film&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;github&lt;/a&gt;上的即可，具体还是要多看文档，写个项目练练，就很容易上手啦&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2017/09/03/一步步实现微信小程序——仿豆瓣电影/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
+&lt;p&gt;最近不想写论文，就想捣鼓点新东西吧，就边看官方文档，花了3天时间写了一个简单的仿豆瓣电影的微信小程序，给大家分享一下教程吧。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="微信小程序" scheme="http://wsyks.github.io/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"/>
+    
+  </entry>
   
   <entry>
     <title>谈谈HTML5本地存储</title>
@@ -1434,66 +1500,6 @@ AngularJS 通过 指令 扩展了 HTML，且通过 表达式 绑定数据到 HTM
       <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
     
       <category term="AngularJS" scheme="http://wsyks.github.io/tags/AngularJS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法学习笔记（一）</title>
-    <link href="http://wsyks.github.io/2016/04/22/%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/"/>
-    <id>http://wsyks.github.io/2016/04/22/算法学习笔记（一）/</id>
-    <published>2016-04-22T08:54:34.000Z</published>
-    <updated>2017-05-04T01:57:03.582Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&quot;贪婪法&quot;&gt;&lt;a href=&quot;#贪婪法&quot; class=&quot;headerlink&quot; title=&quot;贪婪法&quot;&gt;&lt;/a&gt;贪婪法&lt;/h1&gt;&lt;h2 id=&quot;贪婪法简介&quot;&gt;&lt;a href=&quot;#贪婪法简介&quot; class=&quot;headerlink&quot; title=&quot;贪婪法简介&quot;&gt;&lt;/a&gt;贪婪法简介&lt;/h2&gt;&lt;p&gt;贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对&lt;strong&gt;局部最有利&lt;/strong&gt;的选择。&lt;br&gt;贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。&lt;/p&gt;
-&lt;p&gt;与其他算法比较：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;相同点：对问题进行分解，定义最优解的子结构&lt;/li&gt;
-&lt;li&gt;不同点在每一步选择完后就确定了局部最优解，不在进行回溯处理&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;特点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;优点：简单高效，不需穷举，可得到近似最优解&lt;/li&gt;
-&lt;li&gt;缺点：选择策略”短视“，错过真正的最优解&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;举例：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;题目：有25分、10分、5分、1分四种硬币，要给客户找41分硬币，且硬币个数最少。&lt;/li&gt;
-&lt;li&gt;分析：子问题的最优解结构就是在之前的步骤中已经选的硬币上加上当前选择的硬币。即在币值不超过41的前提下选择币值最大的一枚硬币。则根据贪婪法，第一次选25分，之后依次选择10分，5分，1分。需要4枚，确实是最优解。&lt;/li&gt;
-&lt;li&gt;但是若换成25分、20分、5分、1分四种硬币，则这时候最优解应该是2枚20分1枚1分。但是根据贪婪法得到的结果则为1枚25分3枚5分1枚1分共5枚硬币。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;分治法&quot;&gt;&lt;a href=&quot;#分治法&quot; class=&quot;headerlink&quot; title=&quot;分治法&quot;&gt;&lt;/a&gt;分治法&lt;/h1&gt;&lt;h2 id=&quot;分治法简介&quot;&gt;&lt;a href=&quot;#分治法简介&quot; class=&quot;headerlink&quot; title=&quot;分治法简介&quot;&gt;&lt;/a&gt;分治法简介&lt;/h2&gt;&lt;p&gt;将无法着手解决的问题分解成一系列规模较小的相同问题，反复使用分治方法，知道能够被直接求解为止&lt;/p&gt;
-&lt;p&gt;应用：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;最大最小问题，如在一堆形状相同的物品中找到最重或最轻的一个&lt;/li&gt;
-&lt;li&gt;快速排序、大整数算法等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;特点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;最难和最灵活的部分就是对问题的分解和结果的合并&lt;/li&gt;
-&lt;li&gt;经常使用递归的方法&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id=&quot;动态规划法&quot;&gt;&lt;a href=&quot;#动态规划法&quot; class=&quot;headerlink&quot; title=&quot;动态规划法&quot;&gt;&lt;/a&gt;动态规划法&lt;/h1&gt;&lt;h2 id=&quot;动态规划法简介&quot;&gt;&lt;a href=&quot;#动态规划法简介&quot; class=&quot;headerlink&quot; title=&quot;动态规划法简介&quot;&gt;&lt;/a&gt;动态规划法简介&lt;/h2&gt;&lt;p&gt;将多阶段决策过程转化为一系列的单阶段决策问题，利用各个阶段之间的递推关系，逐个确定每个阶段的最优化决策，最终堆叠出多阶段决策的最优化决策结果&lt;/p&gt;
-&lt;p&gt;应用：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;最短路线、库存管理、资源分配等&lt;/li&gt;
-&lt;li&gt;快速排序、大整数算法等&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;特点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;最难和最灵活的部分就是对问题的分解和结果的合并&lt;/li&gt;
-&lt;li&gt;经常使用递归的方法&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="读书笔记" scheme="http://wsyks.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

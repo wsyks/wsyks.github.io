@@ -1,0 +1,996 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+  
+
+
+  <link rel="alternate" href="/atom.xml" title="Syean" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="在本例子中，使用的请求方法都是使用axios，vuejs的官方推荐。 安装与使用axios1npm install axios 在main.js（如果你使用的是vue-cli脚手架搭建的项目）中引入 12import axios from &apos;axios&apos;Vue.prototype.$http = axios 之后使用小栗子即是 12345this.$http.get(URL).then(respo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vuejs用户认证实例">
+<meta property="og:url" content="http://wsyks.github.io/2017/11/30/vuejs用户认证实例/index.html">
+<meta property="og:site_name" content="Syean">
+<meta property="og:description" content="在本例子中，使用的请求方法都是使用axios，vuejs的官方推荐。 安装与使用axios1npm install axios 在main.js（如果你使用的是vue-cli脚手架搭建的项目）中引入 12import axios from &apos;axios&apos;Vue.prototype.$http = axios 之后使用小栗子即是 12345this.$http.get(URL).then(respo">
+<meta property="og:updated_time" content="2017-11-30T13:15:09.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vuejs用户认证实例">
+<meta name="twitter:description" content="在本例子中，使用的请求方法都是使用axios，vuejs的官方推荐。 安装与使用axios1npm install axios 在main.js（如果你使用的是vue-cli脚手架搭建的项目）中引入 12import axios from &apos;axios&apos;Vue.prototype.$http = axios 之后使用小栗子即是 12345this.$http.get(URL).then(respo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wsyks.github.io/2017/11/30/vuejs用户认证实例/"/>
+
+
+
+
+
+  <title>vuejs用户认证实例 | Syean</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?289e37e8938f67998453773bdd083085";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Syean</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">记录，分享，回忆</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2017/11/30/vuejs用户认证实例/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="syean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Syean">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">vuejs用户认证实例</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-30T20:05:56+08:00">
+                2017-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/11/30/vuejs用户认证实例/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/30/vuejs用户认证实例/" class="leancloud_visitors" data-flag-title="vuejs用户认证实例">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在本例子中，使用的请求方法都是使用axios，vuejs的官方推荐。</p>
+<h2 id="安装与使用axios"><a href="#安装与使用axios" class="headerlink" title="安装与使用axios"></a>安装与使用axios</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install axios</div></pre></td></tr></table></figure>
+<p>在main.js（如果你使用的是vue-cli脚手架搭建的项目）中引入</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></div><div class="line">Vue.prototype.$http = axios</div></pre></td></tr></table></figure>
+<p>之后使用小栗子即是</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">this.<span class="variable">$http</span>.get(URL).then(response =&gt; &#123;</div><div class="line">    <span class="comment">// success callback</span></div><div class="line">&#125;, response =&gt; &#123;</div><div class="line">    <span class="comment">// error callback</span></div><div class="line">&#125;）</div></pre></td></tr></table></figure>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p>在登录部分，登录成功后，将服务器返回的token存在sessionstorage中，当然也可以放在localstorage，或者使用vuex的方式存储token数据和用户信息。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">var url = "/api/web/login";</div><div class="line">var data=&#123;username:this.username,password:this.password&#125;;</div><div class="line">this.$http(&#123;method:"get",url:url,auth:data&#125;).then(response =&gt; &#123;</div><div class="line">  	if(response.status==200)&#123;</div><div class="line">  		// this.$store.state.token=response.data.token;</div><div class="line">  		sessionStorage.token = response.data.token;</div><div class="line">  		sessionStorage.username = response.data.username;</div><div class="line">		this.$router.push(this.$route.query.redirect||'/');  //登录成功则跳转到首页				</div><div class="line">    &#125;</div><div class="line">&#125;).catch(function(error)&#123;</div><div class="line">       //error </div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<h2 id="路由配置"><a href="#路由配置" class="headerlink" title="路由配置"></a>路由配置</h2><p>以前写路由配置的时候即只是如下示例：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></div><div class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></div><div class="line"><span class="keyword">import</span> Web <span class="keyword">from</span> <span class="string">'@/components/Web'</span></div><div class="line"><span class="keyword">import</span> Dashboard <span class="keyword">from</span> <span class="string">'@/components/Dashboard'</span></div><div class="line"></div><div class="line">Vue.use(Router)</div><div class="line"></div><div class="line">export <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</div><div class="line">  routes: [</div><div class="line">    &#123;</div><div class="line">      path: <span class="string">'/'</span>,</div><div class="line">      name: <span class="string">'Web'</span>,</div><div class="line">      component: Web,</div><div class="line">      children:[</div><div class="line">	    &#123;</div><div class="line">		    path: <span class="string">"/"</span>, name: <span class="string">'Dashboard'</span>, component: Dashboard				</div><div class="line">		&#125;</div><div class="line">	  ]</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>当打包构建应用时，Javascript 包会变得非常大，影响页面加载。如果我们能把不同路由对应的组件分割成不同的代码块，然后当路由被访问的时候才加载对应组件，这样就更加高效了。这就是懒加载。<br>改成如下的方式即可实现<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">import Vue from 'vue'</div><div class="line">import Router from 'vue-router'</div><div class="line"></div><div class="line"></div><div class="line">Vue.use(Router)</div><div class="line">const router = new Router(&#123;</div><div class="line">    routes: [</div><div class="line">    &#123;</div><div class="line">      path: '/',</div><div class="line">      name: 'Web',</div><div class="line">      component(resolve) &#123;</div><div class="line">            require.ensure(['@/components/Web.vue'], () =&gt; &#123;</div><div class="line">              resolve(require('@/components/Web.vue'));</div><div class="line">            &#125;);</div><div class="line">         &#125;,</div><div class="line">      meta: &#123;</div><div class="line">        requireAuth: true</div><div class="line">      &#125;,</div><div class="line">      children:[</div><div class="line">       &#123;</div><div class="line">         path:"/",</div><div class="line">         name:'Dashboard',</div><div class="line">         component(resolve) &#123;</div><div class="line">            require.ensure(['@/components/Dashboard.vue'], () =&gt; &#123;</div><div class="line">              resolve(require('@/components/Dashboard.vue'));</div><div class="line">            &#125;);</div><div class="line">         &#125;,</div><div class="line">         meta: &#123;</div><div class="line">          requireAuth: true</div><div class="line">        &#125;</div><div class="line">       &#125;，</div><div class="line">    &#123;</div><div class="line">     path:'/login',</div><div class="line">     name:'Login',</div><div class="line">     component(resolve) &#123;</div><div class="line">            require.ensure(['@/components/Login.vue'], () =&gt; &#123;</div><div class="line">              resolve(require('@/components/Login.vue'));</div><div class="line">            &#125;);</div><div class="line">         &#125;,</div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>同时，还加入了路由元信息，配置了meta-requireAuth字段，来判断在这个路由中是否需要身份认证<br>利用”导航守卫“来检查该字段<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">router.beforeEach((to, <span class="keyword">from</span>, <span class="keyword">next</span>) =&gt; &#123;</div><div class="line">  let token = sessionStorage.token;<span class="comment">//从sessionstorage中获取，或者利用localstorage和vuex</span></div><div class="line">  <span class="keyword">if</span>(to.meta.requireAuth) &#123; <span class="comment">//如果该路由需要登录</span></div><div class="line">    <span class="keyword">if</span>(token) &#123;  <span class="comment">//且token是存在的，则可以进入该路由</span></div><div class="line">      <span class="keyword">next</span>()</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">next</span>(&#123;   </div><div class="line">        path: <span class="string">'/login'</span>, <span class="comment">//否则跳转到登录页面，</span></div><div class="line">        query: &#123; redirect: to.fullPath &#125;<span class="comment">//将跳转的路由path作为参数，登录成功后跳转到该路由</span></div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">next</span>()</div><div class="line">  &#125;</div><div class="line">&#125;)</div><div class="line"></div><div class="line">export <span class="keyword">default</span> router</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>[tip:]</p>
+</blockquote>
+<p>每个守卫方法接收三个参数：</p>
+<ul>
+<li>to: Route: 即将要进入的目标 路由对象</li>
+<li>from: Route: 当前导航正要离开的路由</li>
+<li>next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。<br>1)  next(): 进行管道中的下一个钩子。如果全部钩子执行完了，则导航的状态就是 confirmed （确认的）。<br>2)  next(false): 中断当前的导航。如果浏览器的 URL 改变了（可能是用户手动或者浏览器后退按钮），那么 URL 地址会重置到 from 路由对应的地址。<br>3)  next(‘/‘) 或者 next({ path: ‘/‘ }): 跳转到一个不同的地址。当前的导航被中断，然后进行一个新的导航。<br>4)  next(error): (2.4.0+) 如果传入 next 的参数是一个 Error 实例，则导航会被终止且该错误会被传递给 router.onError() 注册过的回调。</li>
+</ul>
+<h2 id="axios拦截器"><a href="#axios拦截器" class="headerlink" title="axios拦截器"></a>axios拦截器</h2><p>在做了以上情况之后，你只是做到了表面上的前端路由控制，接下来我们使用axios拦截器实现以下功能：<br>1.登陆后，为了保持认证的请求，在每次请求的头部加上登录成功时返回的token信息<br>2.发送不合法的请求或者在没有认证的情况下发送请求后，如果服务器返回的状态是401（Unauthorized 未授权）或者403（Forbidden 拒绝），则跳转到登录页面。</p>
+<p>发起每次请求时，都在头部加上token字段，让服务器验证token是否有效，如果后端接口返回 401 或者403 ，则让用户重新登录，并清除token信息。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">axios.interceptors.request.<span class="keyword">use</span>(</div><div class="line">	config=&gt;&#123;</div><div class="line">		<span class="keyword">if</span>(sessionStorage.<span class="keyword">token</span>)&#123;</div><div class="line">			config.auth = &#123;username:sessionStorage.<span class="keyword">token</span>,password:<span class="string">""</span>&#125;;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> config;</div><div class="line">	&#125;,</div><div class="line">	<span class="keyword">err</span>=&gt;&#123;</div><div class="line">		<span class="keyword">return</span> Promise.reject(<span class="keyword">err</span>);</div><div class="line">	&#125;</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>在这里，我是将token信息作为username，password置为空，赋予axios的auth字段，这样会直接进行base64编码作为基础认证传给服务器。<br>当然也可以使用以下方式将token赋予请求头部的Authorization字段返回给服务器。</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">config.headers.Authorization = `token $&#123;sessionStoreage.token&#125;`;</div></pre></td></tr></table></figure>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">axios.interceptors.response.<span class="keyword">use</span>(</div><div class="line">    response =&gt; &#123;</div><div class="line">        <span class="keyword">return</span> response;</div><div class="line">    &#125;,</div><div class="line">    <span class="keyword">error</span> =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">error</span>.response) &#123;</div><div class="line">            switch (<span class="keyword">error</span>.response.status) &#123;</div><div class="line">                case 401:</div><div class="line">                    <span class="comment">// 返回 401 清除token信息并跳转到登录页面</span></div><div class="line">                    sessionStorage.<span class="keyword">token</span>=<span class="string">""</span>;</div><div class="line">                    router.<span class="keyword">replace</span>(&#123;</div><div class="line">                        path: '/login',</div><div class="line">                        <span class="keyword">query</span>: &#123;redirect: router.currentRoute.fullPath&#125;</div><div class="line">                    &#125;);</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                case 403:</div><div class="line">                    <span class="comment">// 返回 401 清除token信息并跳转到登录页面</span></div><div class="line">                    sessionStorage.<span class="keyword">token</span>=<span class="string">""</span>;</div><div class="line">                    router.<span class="keyword">replace</span>(&#123;</div><div class="line">                        path: '/login',</div><div class="line">                        <span class="keyword">query</span>: &#123;redirect: router.currentRoute.fullPath&#125;</div><div class="line">                    &#125;)</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> Promise.reject(<span class="keyword">error</span>.response.data)   <span class="comment">// 返回接口返回的错误信息</span></div><div class="line">    &#125;</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>至此，整个用户认证实例即结束。<br>登出的时候，只要将保存在storage里的token和用户信息清除，跳转到登录页或者不需认证的首页即可。</p>
+<blockquote>
+<p>参考：<br><a href="https://router.vuejs.org/zh-cn/advanced/navigation-guards.html" target="_blank" rel="external">https://router.vuejs.org/zh-cn/advanced/navigation-guards.html</a></p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      syean
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wsyks.github.io/2017/11/30/vuejs用户认证实例/" title="vuejs用户认证实例">http://wsyks.github.io/2017/11/30/vuejs用户认证实例/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/" rel="next" title="一步步实现微信小程序——仿豆瓣电影">
+                <i class="fa fa-chevron-left"></i> 一步步实现微信小程序——仿豆瓣电影
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+  
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          <!-- 
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+ -->
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="syean" />
+          <p class="site-author-name" itemprop="name">syean</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wsyks" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2949528583" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://simmin.github.io/" title="Simmin Blog" target="_blank">Simmin Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://phantom0301.cc/" title="零の杂货铺" target="_blank">零の杂货铺</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blackwolfsec.cc/" title="blackwolf" target="_blank">blackwolf</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ohroot.com/" title="半饱和" target="_blank">半饱和</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.sccsec.com/" title="胖胖的博客" target="_blank">胖胖的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jinglingshu.org/" title="精灵鼠" target="_blank">精灵鼠</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wps2015.jinglingshu.org/" title="wps2015" target="_blank">wps2015</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.pang0lin.com/" title="穿山甲" target="_blank">穿山甲</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ourren.com/" title="ourren" target="_blank">ourren</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装与使用axios"><span class="nav-number">1.</span> <span class="nav-text">安装与使用axios</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#登录"><span class="nav-number">2.</span> <span class="nav-text">登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#路由配置"><span class="nav-number">3.</span> <span class="nav-text">路由配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#axios拦截器"><span class="nav-number">4.</span> <span class="nav-text">axios拦截器</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">syean</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d7c45d8300d24d59927c5de653864f9c",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz", "Maz5zp1hIAmXtT3yBFdh18iM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

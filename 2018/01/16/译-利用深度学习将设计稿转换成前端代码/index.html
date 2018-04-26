@@ -1,0 +1,1047 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="前沿技术," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Syean" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="第一次翻译文章，如有理解不正确之处，多多包涵。原文地址：Turning Design Mockups Into Code With Deep Learning 在三年内，深度学习将会改变前端开发。它可以增加软件编程的成型速度，降低门槛。去年，Tony Beltramelli推出了pix2code文件，Airbnb发布了sketch2code。目前，自动化前端开发中最大的障碍是计算能力。然而，我们">
+<meta name="keywords" content="前沿技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[译]利用深度学习将设计稿转换成前端代码">
+<meta property="og:url" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/index.html">
+<meta property="og:site_name" content="Syean">
+<meta property="og:description" content="第一次翻译文章，如有理解不正确之处，多多包涵。原文地址：Turning Design Mockups Into Code With Deep Learning 在三年内，深度学习将会改变前端开发。它可以增加软件编程的成型速度，降低门槛。去年，Tony Beltramelli推出了pix2code文件，Airbnb发布了sketch2code。目前，自动化前端开发中最大的障碍是计算能力。然而，我们">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/1.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/1.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/2.gif">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/3.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/4.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/5.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/6.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/7.gif">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/8.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/9.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/10.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/11.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/12.gif">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/13.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/14.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/15.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/16.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/17.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/18.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/19.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/20.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/21.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/22.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/23.gif">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/24.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/25.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/26.png">
+<meta property="og:updated_time" content="2018-01-16T07:51:59.395Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[译]利用深度学习将设计稿转换成前端代码">
+<meta name="twitter:description" content="第一次翻译文章，如有理解不正确之处，多多包涵。原文地址：Turning Design Mockups Into Code With Deep Learning 在三年内，深度学习将会改变前端开发。它可以增加软件编程的成型速度，降低门槛。去年，Tony Beltramelli推出了pix2code文件，Airbnb发布了sketch2code。目前，自动化前端开发中最大的障碍是计算能力。然而，我们">
+<meta name="twitter:image" content="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/"/>
+
+
+
+
+
+  <title>[译]利用深度学习将设计稿转换成前端代码 | Syean</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?289e37e8938f67998453773bdd083085";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Syean</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">记录，分享，回忆</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="syean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Syean">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">[译]利用深度学习将设计稿转换成前端代码</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-16T11:39:11+08:00">
+                2018-01-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/" class="leancloud_visitors" data-flag-title="[译]利用深度学习将设计稿转换成前端代码">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/1.png" alt="1.png" title="">
+<p>第一次翻译文章，如有理解不正确之处，多多包涵。<br>原文地址：<br><a href="https://blog.floydhub.com/Turning-design-mockups-into-code-with-deep-learning/" target="_blank" rel="external">Turning Design Mockups Into Code With Deep Learning</a></p>
+<p>在三年内，深度学习将会改变前端开发。它可以增加软件编程的成型速度，降低门槛。<br>去年，Tony Beltramelli推出了<a href="https://arxiv.org/abs/1705.07962" target="_blank" rel="external">pix2code文件</a>，Airbnb发布了<a href="https://airbnb.design/sketching-interfaces/https://airbnb.design/sketching-interfaces/" target="_blank" rel="external">sketch2code</a>。<br>目前，自动化前端开发中最大的障碍是计算能力。然而，我们现在可以使用深度学习算法训练数据，研究前端自动化。<br>在本文中，我们将会展示利用一个神经网络是如何将一张设计稿编写成一个基本的HTML和CSS，下面是一个简要概览：</p>
+<ol>
+<li>将设计稿输入到训练好的神经网络模型中</li>
+</ol>
+<img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/1.png" alt="1.png" title="">
+<ol>
+<li>神经网络模型将设计稿转换成HTML标签<img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/2.gif" alt="2.gif" title=""></li>
+<li><p>输出渲染结果</p>
+<img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/3.png" alt="3.png" title="">
+<p>我们将分三次迭代来建立神经网络。<br>在第一版本中，我们将制作一个最小化版本来掌握移动的部分。第二个部分是HTML部分，将集中于自动化所有步骤并解释神经网络层。在最后部分，引导程序，我们将创建一个模型，能够泛化并讨论LSTM层。</p>
+<p>所有的代码都在<a href="https://github.com/emilwallner/Screenshot-to-code-in-Keras/blob/master/README.md" target="_blank" rel="external">Github</a>以及<a href="https://www.floydhub.com/emilwallner/projects/picturetocode" target="_blank" rel="external">FloydHubde </a>上. 所有的FloydHub笔记在<code>floydhub</code> 目录里，本地的对应项都在<code>local</code>中。</p>
+</li>
+</ol>
+<p>该模型是基于Beltramelli的<a href="https://arxiv.org/abs/1705.07962" target="_blank" rel="external">pix2code 论文</a>和Jason Brownlee的<a href="https://machinelearningmastery.com/blog/page/2/" target="_blank" rel="external">image caption教程</a>。代码是用Python和Keras编写的，Keras是基于TensorFlow的一个框架。<br>如果你是深度学习萌新，我建议你去感受一下Python、反向传播和卷积神经网络。可以阅读我早期的三篇博客。<br><a href="https://blog.floydhub.com/my-first-weekend-of-deep-learning/" target="_blank" rel="external">My First Weekend of Deep Learning</a><br><a href="https://blog.floydhub.com/coding-the-history-of-deep-learning/" target="_blank" rel="external">Coding the History of Deep Learning</a><br><a href="https://blog.floydhub.com/colorizing-b&amp;w-photos-with-neural-networks/" target="_blank" rel="external">Colorizing B&amp;W Photos with Neural Networks</a></p>
+<h1 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h1><p>让我再次重述我们的目标。我们想要建立一个神经网络，它可以将一张截图生成对应HTML/CSS 标签。<br>当你训练神经网络的时候，你需要输入一些图片以及其对应的HTML.<br>它通过预测所有匹配的HTML的标签来一一学习。当它预测下一个标记的标签时，它将接收屏幕截图以及所有正确标记的标签。<br>这里是Google Sheet中的一个简单的<a href="https://docs.google.com/spreadsheets/d/1xXwarcQZAHluorveZsACtXRdmNFbwGtN3WMNhcTdEyQ/edit?usp=sharing" target="_blank" rel="external">训练集</a>。<br>创建一个模型，可以逐字预测是当今最常用的方法。还有<a href="https://blog.floydhub.com/Turning-design-mockups-into-code-with-deep-learning/" target="_blank" rel="external">其他方法</a>，但这是本教程中要用到的方法。<br>注意，对于每个预测，它都得到相同的截图。因此，如果它必须预测20个单词，它将会得到相同的设计稿20次。现在，不用担心神经网络的工作原理。只要专注于掌握神经网络的输入和输出即可。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/4.png" alt="4.png" title=""><br>让我们关注前面的标记。说我们训练网络预测句子“我能编码”。当它收到“I”时，它就会预测“can”。下次它将收到“我能”和预测“代码”。它接收所有的前一个单词，只需要预测下一个单词。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/5.png" alt="5.png" title=""></p>
+<p>从数据中，神经网络创造了特征。神经网络构建特性，将输入数据与输出数据连接起来。它必须创建表示，以理解它所预测的每个屏幕快照(HTML语法)中的内容。这就构建了预测下一个标签的知识。<br>当您想要使用经过训练的模型用于实际使用时，它与您训练模型时类似。每一次都有相同的屏幕截图。它没有使用正确的HTML标记来喂养它，而是接收到目前为止生成的标记。然后它预测下一个标记。这个预测是用一个“开始标记”开始的，当它预测一个“结束标记”或者达到最大值时停止。这是谷歌表中的<a href="https://docs.google.com/spreadsheets/d/1yneocsAb_w3-ZUdhwJ1odfsxR2kr-4e_c5FabQbNJrs/edit?usp=sharing" target="_blank" rel="external">另一个例子</a>。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/6.png" alt="6.png" title=""></p>
+<h1 id="Hello-World-Version"><a href="#Hello-World-Version" class="headerlink" title="Hello World Version"></a>Hello World Version</h1><p>让我们构建一个hello world版本。我们将给一个神经网络一个截图，一个网站显示“你好世界!”，并教它生成标记。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/7.gif" alt="7.gif" title=""><br>首先，神经网络将设计模型映射到一个像素值列表中。从0到255的三个通道——红色、蓝色和绿色。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/8.png" alt="8.png" title=""></p>
+<p>为了以神经网络理解的方式表示标记，我使用一个热编码。因此，“I can code”这个句子可以像下面这样映射。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/9.png" alt="9.png" title=""></p>
+<p>在上面的图形中，我们包括开始和结束标记。这些标签是网络开始其预测和何时停止的线索。<br>对于输入数据，我们将使用句子，从第一个单词开始，然后逐字逐句地添加每个单词。输出数据总是一个字。<br>句子遵循和单词一样的逻辑。它们也需要相同的输入长度。而不是被限制在词汇的限制下，他们被限制在最大的句子长度。如果它比最大长度短，你就用空的词填满，一个字只有零。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/10.png" alt="10.png" title=""><br>正如你所看到的，文字是从右到左打印的。这迫使每个单词在每个训练回合中改变位置。这使得模型可以学习序列而不是记住每个单词的位置。<br>在下图中有四个预测。每一行都是一个预测。左边是三个颜色通道中的图像:红色、绿色和蓝色，以及前面的单词。在括号外，是一个一个的预测，以一个红方为结尾。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/11.png" alt="11.png" title=""></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#Length of longest sentence</span></div><div class="line">    max_caption_len = <span class="number">3</span></div><div class="line">    <span class="comment">#Size of vocabulary </span></div><div class="line">    vocab_size = <span class="number">3</span></div><div class="line">    </div><div class="line">    <span class="comment"># Load one screenshot for each word and turn them into digits </span></div><div class="line">    images = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</div><div class="line">        images.append(img_to_array(load_img(<span class="string">'screenshot.jpg'</span>, target_size=(<span class="number">224</span>, <span class="number">224</span>))))</div><div class="line">    images = np.array(images, dtype=float)</div><div class="line">    <span class="comment"># Preprocess input for the VGG16 model</span></div><div class="line">    images = preprocess_input(images)</div><div class="line">    </div><div class="line">    <span class="comment">#Turn start tokens into one-hot encoding</span></div><div class="line">    html_input = np.array(</div><div class="line">                [[[<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>], <span class="comment">#start</span></div><div class="line">                 [<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</div><div class="line">                 [<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>]],</div><div class="line">                 [[<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">0.</span>], <span class="comment">#start &lt;HTML&gt;Hello World!&lt;/HTML&gt;</span></div><div class="line">                 [<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>],</div><div class="line">                 [<span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>]]])</div><div class="line">    </div><div class="line">    <span class="comment">#Turn next word into one-hot encoding</span></div><div class="line">    next_words = np.array(</div><div class="line">                [[<span class="number">0.</span>, <span class="number">1.</span>, <span class="number">0.</span>], <span class="comment"># &lt;HTML&gt;Hello World!&lt;/HTML&gt;</span></div><div class="line">                 [<span class="number">0.</span>, <span class="number">0.</span>, <span class="number">1.</span>]]) <span class="comment"># end</span></div><div class="line">    </div><div class="line">    <span class="comment"># Load the VGG16 model trained on imagenet and output the classification feature</span></div><div class="line">    VGG = VGG16(weights=<span class="string">'imagenet'</span>, include_top=<span class="keyword">True</span>)</div><div class="line">    <span class="comment"># Extract the features from the image</span></div><div class="line">    features = VGG.predict(images)</div><div class="line">    </div><div class="line">    <span class="comment">#Load the feature to the network, apply a dense layer, and repeat the vector</span></div><div class="line">    vgg_feature = Input(shape=(<span class="number">1000</span>,))</div><div class="line">    vgg_feature_dense = Dense(<span class="number">5</span>)(vgg_feature)</div><div class="line">    vgg_feature_repeat = RepeatVector(max_caption_len)(vgg_feature_dense)</div><div class="line">    <span class="comment"># Extract information from the input seqence </span></div><div class="line">    language_input = Input(shape=(vocab_size, vocab_size))</div><div class="line">    language_model = LSTM(<span class="number">5</span>, return_sequences=<span class="keyword">True</span>)(language_input)</div><div class="line">    </div><div class="line">    <span class="comment"># Concatenate the information from the image and the input</span></div><div class="line">    decoder = concatenate([vgg_feature_repeat, language_model])</div><div class="line">    <span class="comment"># Extract information from the concatenated output</span></div><div class="line">    decoder = LSTM(<span class="number">5</span>, return_sequences=<span class="keyword">False</span>)(decoder)</div><div class="line">    <span class="comment"># Predict which word comes next</span></div><div class="line">    decoder_output = Dense(vocab_size, activation=<span class="string">'softmax'</span>)(decoder)</div><div class="line">    <span class="comment"># Compile and run the neural network</span></div><div class="line">    model = Model(inputs=[vgg_feature, language_input], outputs=decoder_output)</div><div class="line">    model.compile(loss=<span class="string">'categorical_crossentropy'</span>, optimizer=<span class="string">'rmsprop'</span>)</div><div class="line">    </div><div class="line">    <span class="comment"># Train the neural network</span></div><div class="line">    model.fit([features, html_input], next_words, batch_size=<span class="number">2</span>, shuffle=<span class="keyword">False</span>, epochs=<span class="number">1000</span>)</div></pre></td></tr></table></figure>
+<p>在hello world版本中，我们使用三个标记:“开始”，“hello world !””和“结束”。一个令牌可以是任何东西。它可以是一个字，一个字或一个句子。字符版本需要较小的词汇量，但限制了神经网络。单词级别的标记往往表现最好。<br>这里我们做预测:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create an empty sentence and insert the start token</span></div><div class="line">   sentence = np.zeros((<span class="number">1</span>, <span class="number">3</span>, <span class="number">3</span>)) <span class="comment"># [[0,0,0], [0,0,0], [0,0,0]]</span></div><div class="line">   start_token = [<span class="number">1.</span>, <span class="number">0.</span>, <span class="number">0.</span>] <span class="comment"># start</span></div><div class="line">   sentence[<span class="number">0</span>][<span class="number">14</span>] = start_token <span class="comment"># place start in empty sentence</span></div><div class="line">   </div><div class="line">   <span class="comment"># Making the first prediction with the start token</span></div><div class="line">   second_word = model.predict([np.array([features[<span class="number">1</span>]]), sentence])</div><div class="line">   </div><div class="line">   <span class="comment"># Put the second word in the sentence and make the final prediction</span></div><div class="line">   sentence[<span class="number">0</span>][<span class="number">15</span>] = start_token</div><div class="line">   sentence[<span class="number">0</span>][<span class="number">16</span>] = np.round(second_word)</div><div class="line">   third_word = model.predict([np.array([features[<span class="number">1</span>]]), sentence])</div><div class="line">   </div><div class="line">   <span class="comment"># Place the start token and our two predictions in the sentence </span></div><div class="line">   sentence[<span class="number">0</span>][<span class="number">0</span>] = start_token</div><div class="line">   sentence[<span class="number">0</span>][<span class="number">17</span>] = np.round(second_word)</div><div class="line">   sentence[<span class="number">0</span>][<span class="number">18</span>] = np.round(third_word)</div><div class="line">   </div><div class="line">   <span class="comment"># Transform our one-hot predictions into the final tokens</span></div><div class="line">   vocabulary = [<span class="string">"start"</span>, <span class="string">"&lt;HTML&gt;&lt;center&gt;&lt;H1&gt;Hello World!&lt;/H1&gt;&lt;/center&gt;&lt;/HTML&gt;"</span>, <span class="string">"end"</span>]</div><div class="line">   <span class="keyword">for</span> i <span class="keyword">in</span> sentence[<span class="number">0</span>]:</div><div class="line">       print(vocabulary[np.argmax(i)], end=<span class="string">' '</span>)</div></pre></td></tr></table></figure>
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>10 epochs: start start start<br>100 epochs: start <html><center><h1>Hello World!</h1></center></html> <html><center><h1>Hello World!</h1></center></html><br>300 epochs: start <html><center><h1>Hello World!</h1></center></html> end</p>
+<p>我犯了错误:<br>在收集数据之前构建第一个工作版本。在这个项目的早期，我设法得到了一个旧档案的Geocities托管网站。它有3800万个网站。由于被潜在的因素所蒙蔽，我忽略了减少100k字汇所需要的巨大工作量。<br>处理一个tb级的数据需要好的硬件或大量的耐心。在我的mac遇到几个问题之后，我最终使用了一个强大的远程服务器。希望租用一个带有8个现代CPU核心和1GPS网络连接的平台，以拥有一个体面的工作流程。<br>直到我理解了输入和输出数据，才有意义。输入，X，是一个屏幕截图和以前的标记标签。输出Y是下一个标记。当我得到这个的时候，就更容易理解他们之间的一切。它也变得更容易尝试不同的架构。<br>注意兔子洞。因为这个项目与很多深入学习的领域交叉，我在路上遇到了很多的兔子洞。我花了一个星期的时间从头开始编写RNNs，通过嵌入向量空间来吸引我，并被奇异的实现所吸引。<br>图片到代码网络是伪装的图片说明模型。即使我知道了这一点，我仍然忽略了许多图片标题的文章，仅仅是因为它们不够酷。一旦我有了一些观点，我就加快了对问题空间的学习。<br>运行FloydHub上的代码。<br>FloydHub是一个深度学习的培训平台。当我第一次开始学习深度学习的时候，我就遇到了他们，从那时起，我就一直用它们来训练和管理我的深度学习实验。您可以安装它并在10分钟内运行您的第一个模型。它是在云gpu上运行模型的最佳选项。<br>如果您是FloydHub的新手，请执行他们的2分钟安装或我5分钟的演练。<br>克隆存储库</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https:<span class="comment">//github.com/emilwallner/Screenshot-to-code-in-Keras.git</span></div></pre></td></tr></table></figure>
+<p>登录并启动FloydHub命令行工具。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd Screenshot-to-code-<span class="keyword">in</span>-Keras</div><div class="line">floyd login</div><div class="line">floyd init s2c</div></pre></td></tr></table></figure>
+<p>在FloydHub云GPU机器上运行一个Jupyter笔记本:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">floyd run --gpu --env tensorflow-<span class="number">1.4</span> --data emilwallner/datasets/imagetocode/<span class="number">2</span>:data --mode jupyter</div></pre></td></tr></table></figure>
+<p>所有的笔记本都是在floydhub目录中编写的。当地的等价物在当地。一旦它开始运行，你可以在这里找到第一个笔记本:<br>floydhub / Helloworld / Helloworld。ipynb。<br>如果你想要更详细的说明和对国旗的解释，请查看我<a href="https://blog.floydhub.com/colorizing-b&amp;w-photos-with-neural-networks/" target="_blank" rel="external">之前的帖子</a>。</p>
+<h1 id="HTML版本"><a href="#HTML版本" class="headerlink" title="HTML版本"></a>HTML版本</h1><p>在这个版本中，我们将自动执行Hello World模型中的许多步骤。本节将重点介绍如何在神经网络中创建可伸缩的实现和移动的部分。<br>这个版本将无法从随机的网站预测HTML，但它仍然是一个很好的设置来探索问题的动态。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/12.gif" alt="12.gif" title=""></p>
+<h1 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h1><p>如果我们展开前一个图形的组成部分，它是这样的。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/13.png" alt="13.png" title=""><br>有两个主要部分。首先,编码器。这是我们创建图像特征和以前的标记特性的地方。特性是网络创建的构建块，用于将设计模型与标记连接起来。在编码器的末尾，我们将图像的特征与之前标记中的每个单词粘在一起。<br>然后，解码器采用组合设计和标记功能，并创建下一个标记特性。这个特性是通过一个完全连接的神经网络来预测下一个标签。<br>设计模型的特性<br>由于我们需要为每个单词插入一个屏幕截图，因此在训练网络时这将成为一个瓶颈(示例)。我们不使用图像，而是提取需要生成标记的信息。<br>信息被编码成图像特征。这是通过使用预先训练的卷积神经网络(CNN)完成的。该模型是在Imagenet上预先训练的。<br>我们在最终分类之前从图层中提取特征。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/14.png" alt="14.png" title=""></p>
+<p>我们最终得到了1536个8 * 8的像素图像被称为特征。虽然我们很难理解它们，但是神经网络可以从这些特征中提取出这些元素的对象和位置。<br>标记功能<br>在hello world版本中，我们使用了一个热编码来表示标记。在这个版本中，我们将使用一个字嵌入的输入，并保持一个热编码的输出。<br>我们构造每个句子的方式保持不变，但是我们如何映射每个令牌。一个热编码将每个单词视为一个独立的单元。相反，我们将输入数据中的每个单词转换为数字列表。这些表示标记标记之间的关系。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/15.png" alt="15.png" title=""></p>
+<p>这个单词嵌入的维度是8，但根据词汇的大小，通常会在50 - 500之间变化。<br>每个单词的8个数字是类似于一个香草神经网络的重量。他们被调到地图上标出单词之间的联系(Mikolov alt el)。,2013)。<br>这就是我们开始开发标记特性的方法。特征是神经网络发展用来将输入数据与输出数据连接起来的东西。现在，不要担心它们是什么，在下一节中我们将深入研究这个问题。<br>编码器<br>我们将使用“嵌入”一词，并通过LSTM运行它们，并返回一个标记特性序列。这些都是经过一个时间分布的密集层——把它想象成一个有多个输入和输出的稠密层。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/16.png" alt="16.png" title=""></p>
+<p>与此同时，图像特征首先被压平。不管这些数字是如何被转换成一大堆数字的。然后我们在这个层上应用一个密集的层来形成一个高级的特性。然后将这些图像特征连接到标记特性。<br>这可能很难让你的头脑清醒，所以让我们把它分解。<br>标记功能<br>在这里，我们通过LSTM层运行嵌入词。在这个图形中，所有的句子都被添加到三个令牌的最大大小。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/17.png" alt="17.png" title=""><br>为了混合信号并找到更高层次的模式，我们将一个TimeDistributed密集层应用于标记特性。TimeDistributed稠密与稠密层相同，但有多个输入和输出。<br>图像特征<br>同时，我们准备图像。我们把所有的微型图像特征，并转换成一个长的列表。信息没有改变，只是重新组织。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/18.png" alt="18.png" title=""></p>
+<p>再一次，为了混合信号和提取更高层次的概念，我们应用了一个密集的层。因为我们只处理一个输入值，所以我们可以使用一个正常的密层。为了将图像特性连接到标记特性，我们复制了图像特征。<br>在本例中，我们有三个标记特性。因此，我们最终得到了相同数量的图像特征和标记特性。<br>连接映像和标记特性。<br>所有的句子都是padd来创建三个标记特性。由于我们已经准备好了图像特征，我们现在可以为每个标记特性添加一个图像特征。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/19.png" alt="19.png" title=""><br>在将一个图像特性粘贴到每个标记特性之后，我们最终得到了三个图像标记特性。这是我们输入到解码器的输入。<br>解码器<br>在这里，我们使用组合的图像标记特性来预测下一个标记。<br>征，我们现在可以为每个标记特性添加一个图像特征。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/20.png" alt="20.png" title=""><br>在下面的示例中，我们使用了三个图像标记特征对，并输出一个下一个标记特性。<br>注意，LSTM层的序列设置为false。它只预测一个特性，而不是返回输入序列的长度。在我们的例子中，它是下一个标记的特性。它包含了最终预测的信息。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/21.png" alt="21.png" title=""></p>
+<p>最后的预言<br>致密层就像传统的前馈神经网络。它连接了下一个标签特性中的512位数字与4个最终预测。在我们的词汇表中有4个单词:开始，你好，世界，结束。<br>词汇预测可以是[0.1,0.1,0.1,0.7]。密集层的softmax激活分布的概率为0 - 1，所有预测的总和为1。在本例中，它预测第4个单词是下一个标记。然后将一个热编码(0,0,0,1)转换为映射的值，比如“end”。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Load the images and preprocess them for inception-resnet</span></div><div class="line">    images = []</div><div class="line">    all_filenames = listdir(<span class="string">'images/'</span>)</div><div class="line">    all_filenames.sort()</div><div class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> all_filenames:</div><div class="line">        images.append(img_to_array(load_img(<span class="string">'images/'</span>+filename, target_size=(<span class="number">299</span>, <span class="number">299</span>))))</div><div class="line">    images = np.array(images, dtype=float)</div><div class="line">    images = preprocess_input(images)</div><div class="line">    </div><div class="line">    <span class="comment"># Run the images through inception-resnet and extract the features without the classification layer</span></div><div class="line">    IR2 = InceptionResNetV2(weights=<span class="string">'imagenet'</span>, include_top=<span class="keyword">False</span>)</div><div class="line">    features = IR2.predict(images)</div><div class="line">    </div><div class="line">    </div><div class="line">    <span class="comment"># We will cap each input sequence to 100 tokens</span></div><div class="line">    max_caption_len = <span class="number">100</span></div><div class="line">    <span class="comment"># Initialize the function that will create our vocabulary </span></div><div class="line">    tokenizer = Tokenizer(filters=<span class="string">''</span>, split=<span class="string">" "</span>, lower=<span class="keyword">False</span>)</div><div class="line">    </div><div class="line">    <span class="comment"># Read a document and return a string</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">load_doc</span><span class="params">(filename)</span>:</span></div><div class="line">        file = open(filename, <span class="string">'r'</span>)</div><div class="line">        text = file.read()</div><div class="line">        file.close()</div><div class="line">        <span class="keyword">return</span> text</div><div class="line">    </div><div class="line">    <span class="comment"># Load all the HTML files</span></div><div class="line">    X = []</div><div class="line">    all_filenames = listdir(<span class="string">'html/'</span>)</div><div class="line">    all_filenames.sort()</div><div class="line">    <span class="keyword">for</span> filename <span class="keyword">in</span> all_filenames:</div><div class="line">        X.append(load_doc(<span class="string">'html/'</span>+filename))</div><div class="line">    </div><div class="line">    <span class="comment"># Create the vocabulary from the html files</span></div><div class="line">    tokenizer.fit_on_texts(X)</div><div class="line">    </div><div class="line">    <span class="comment"># Add +1 to leave space for empty words</span></div><div class="line">    vocab_size = len(tokenizer.word_index) + <span class="number">1</span></div><div class="line">    <span class="comment"># Translate each word in text file to the matching vocabulary index</span></div><div class="line">    sequences = tokenizer.texts_to_sequences(X)</div><div class="line">    <span class="comment"># The longest HTML file</span></div><div class="line">    max_length = max(len(s) <span class="keyword">for</span> s <span class="keyword">in</span> sequences)</div><div class="line">    </div><div class="line">    <span class="comment"># Intialize our final input to the model</span></div><div class="line">    X, y, image_data = list(), list(), list()</div><div class="line">    <span class="keyword">for</span> img_no, seq <span class="keyword">in</span> enumerate(sequences):</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, len(seq)):</div><div class="line">            <span class="comment"># Add the entire sequence to the input and only keep the next word for the output</span></div><div class="line">            in_seq, out_seq = seq[:i], seq[i]</div><div class="line">            <span class="comment"># If the sentence is shorter than max_length, fill it up with empty words</span></div><div class="line">            in_seq = pad_sequences([in_seq], maxlen=max_length)[<span class="number">0</span>]</div><div class="line">            <span class="comment"># Map the output to one-hot encoding</span></div><div class="line">            out_seq = to_categorical([out_seq], num_classes=vocab_size)[<span class="number">0</span>]</div><div class="line">            <span class="comment"># Add and image corresponding to the HTML file</span></div><div class="line">            image_data.append(features[img_no])</div><div class="line">            <span class="comment"># Cut the input sentence to 100 tokens, and add it to the input data</span></div><div class="line">            X.append(in_seq[<span class="number">-100</span>:])</div><div class="line">            y.append(out_seq)</div><div class="line">    </div><div class="line">    X, y, image_data = np.array(X), np.array(y), np.array(image_data)</div><div class="line">    </div><div class="line">    <span class="comment"># Create the encoder</span></div><div class="line">    image_features = Input(shape=(<span class="number">8</span>, <span class="number">8</span>, <span class="number">1536</span>,))</div><div class="line">    image_flat = Flatten()(image_features)</div><div class="line">    image_flat = Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>)(image_flat)</div><div class="line">    ir2_out = RepeatVector(max_caption_len)(image_flat)</div><div class="line">    </div><div class="line">    language_input = Input(shape=(max_caption_len,))</div><div class="line">    language_model = Embedding(vocab_size, <span class="number">200</span>, input_length=max_caption_len)(language_input)</div><div class="line">    language_model = LSTM(<span class="number">256</span>, return_sequences=<span class="keyword">True</span>)(language_model)</div><div class="line">    language_model = LSTM(<span class="number">256</span>, return_sequences=<span class="keyword">True</span>)(language_model)</div><div class="line">    language_model = TimeDistributed(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))(language_model)</div><div class="line">    </div><div class="line">    <span class="comment"># Create the decoder</span></div><div class="line">    decoder = concatenate([ir2_out, language_model])</div><div class="line">    decoder = LSTM(<span class="number">512</span>, return_sequences=<span class="keyword">False</span>)(decoder)</div><div class="line">    decoder_output = Dense(vocab_size, activation=<span class="string">'softmax'</span>)(decoder)</div><div class="line">    </div><div class="line">    <span class="comment"># Compile the model</span></div><div class="line">    model = Model(inputs=[image_features, language_input], outputs=decoder_output)</div><div class="line">    model.compile(loss=<span class="string">'categorical_crossentropy'</span>, optimizer=<span class="string">'rmsprop'</span>)</div><div class="line">    </div><div class="line">    <span class="comment"># Train the neural network</span></div><div class="line">    model.fit([image_data, X], y, batch_size=<span class="number">64</span>, shuffle=<span class="keyword">False</span>, epochs=<span class="number">2</span>)</div><div class="line">    </div><div class="line">    <span class="comment"># map an integer to a word</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">word_for_id</span><span class="params">(integer, tokenizer)</span>:</span></div><div class="line">        <span class="keyword">for</span> word, index <span class="keyword">in</span> tokenizer.word_index.items():</div><div class="line">            <span class="keyword">if</span> index == integer:</div><div class="line">                <span class="keyword">return</span> word</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">    </div><div class="line">    <span class="comment"># generate a description for an image</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">generate_desc</span><span class="params">(model, tokenizer, photo, max_length)</span>:</span></div><div class="line">        <span class="comment"># seed the generation process</span></div><div class="line">        in_text = <span class="string">'START'</span></div><div class="line">        <span class="comment"># iterate over the whole length of the sequence</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">900</span>):</div><div class="line">            <span class="comment"># integer encode input sequence</span></div><div class="line">            sequence = tokenizer.texts_to_sequences([in_text])[<span class="number">0</span>][<span class="number">-100</span>:]</div><div class="line">            <span class="comment"># pad input</span></div><div class="line">            sequence = pad_sequences([sequence], maxlen=max_length)</div><div class="line">            <span class="comment"># predict next word</span></div><div class="line">            yhat = model.predict([photo,sequence], verbose=<span class="number">0</span>)</div><div class="line">            <span class="comment"># convert probability to integer</span></div><div class="line">            yhat = np.argmax(yhat)</div><div class="line">            <span class="comment"># map integer to word</span></div><div class="line">            word = word_for_id(yhat, tokenizer)</div><div class="line">            <span class="comment"># stop if we cannot map the word</span></div><div class="line">            <span class="keyword">if</span> word <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">                <span class="keyword">break</span></div><div class="line">            <span class="comment"># append as input for generating the next word</span></div><div class="line">            in_text += <span class="string">' '</span> + word</div><div class="line">            <span class="comment"># Print the prediction</span></div><div class="line">            print(<span class="string">' '</span> + word, end=<span class="string">''</span>)</div><div class="line">            <span class="comment"># stop if we predict the end of the sequence</span></div><div class="line">            <span class="keyword">if</span> word == <span class="string">'END'</span>:</div><div class="line">                <span class="keyword">break</span></div><div class="line">        <span class="keyword">return</span></div><div class="line">    </div><div class="line">    <span class="comment"># Load and image, preprocess it for IR2, extract features and generate the HTML</span></div><div class="line">    test_image = img_to_array(load_img(<span class="string">'images/87.jpg'</span>, target_size=(<span class="number">299</span>, <span class="number">299</span>)))</div><div class="line">    test_image = np.array(test_image, dtype=float)</div><div class="line">    test_image = preprocess_input(test_image)</div><div class="line">    test_features = IR2.predict(np.array([test_image]))</div><div class="line">    generate_desc(model, tokenizer, np.array(test_features), <span class="number">100</span>)</div></pre></td></tr></table></figure>
+<img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/22.png" alt="22.png" title="">
+<p>生成网站链接<br><a href="https://emilwallner.github.io/html/250_epochs/" target="_blank" rel="external">250年时代</a><br><a href="https://emilwallner.github.io/html/350_epochs/" target="_blank" rel="external">350年时代</a><br><a href="https://emilwallner.github.io/html/450_epochs/" target="_blank" rel="external">450年时代</a><br><a href="https://emilwallner.github.io/html/550_epochs/" target="_blank" rel="external">550年时代</a><br>如果你在点击这些链接时看不到任何东西，你可以右键点击“查看页面源代码”。这是<a href="https://emilwallner.github.io/html/Original/" target="_blank" rel="external">原始的网站</a>供参考。<br>我犯了错误:<br>与CNNs相比，LSTMs对我的认知更重。当我打开所有的LSTMs时，它们变得更容易理解了。快。ai在RNNs上的视频非常有用。另外，在尝试理解它们如何工作之前，先关注输入和输出特性。<br>从头开始构建词汇比缩小词汇量要容易得多。这包括从字体、div大小、十六进制颜色到变量名和普通单词的所有内容。<br>大多数库是用来解析文本文档而不是代码的。在文档中，所有东西都由空格分隔，但是在代码中，您需要自定义解析。<br>您可以通过在Imagenet上训练的模型提取特性。这似乎是违反直觉的，因为Imagenet很少有web图像。但是，相比于从头开始训练的pix2code模型，损失要高出30%。我将会很有趣地使用基于web屏幕截图的预训练的基于感知器的模型。<br>引导程序版本<br>在我们的最终版本中，我们将使用来自pix2code文件的生成引导网站的数据集。通过使用Twitter的引导，我们可以结合HTML和CSS，减少词汇量。<br>我们将使它能够生成之前未见过的屏幕截图的标记。我们还将深入了解它是如何构建关于屏幕截图和标记的知识的。<br>我们将使用17个简化的标记，然后将它们转换成HTML和CSS，而不是在引导标记上进行培训。数据集包括1500个测试截图和250个验证图像。对于每个屏幕快照，平均有65个令牌，导致96925个训练示例。<br>通过对pix2code文件中的模型进行调整，该模型可以预测出97%的web组件(BLEU 4-ngram贪婪搜索，稍后会详细介绍)。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/23.gif" alt="23.gif" title=""></p>
+<p>一个端到端的方法<br>从预先训练的模型中提取特征在图像字幕模型中很有效。但经过几次实验，我意识到pix2code的端到端方法对这个问题更有效。预先训练的模型没有在web数据上进行训练，并且是为分类而定制的。<br>在这个模型中，我们用一个光卷积神经网络代替了预先训练的图像特征。我们不使用混合池来增加信息密度，而是增加了跨步。这保持了前端元素的位置和颜色。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/24.png" alt="24.png" title=""></p>
+<p>有两种核心模型可以实现:卷积神经网络(CNN)和递归神经网络(RNN)。最常见的递归神经网络是长期短期记忆(LSTM)，这就是我要提到的。<br>有很多很棒的CNN教程，我在前一篇文章中介绍过。在这里，我将关注LSTMs。<br>理解在LSTMs步伐<br>要掌握LSTMs的难点之一是时间步骤。一个普通的神经网络可以被认为是两个时间步骤。如果你给它“你好”，它会预测“世界”。但它很难预测更多的时间步骤。在下面的示例中，输入有4个时间步骤，一个用于每个单词。<br>LSTMs是用时间步骤进行输入的。这是一个为信息定制的神经网络。如果你展开我们的模型，它看起来是这样的。每个向下的步骤，都保持相同的权重。将一组权重应用到前面的输出，另一组用于新输入。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/25.png" alt="25.png" title=""><br>将加权输入和输出连接起来，并加上一个激活。这是那个timestep的输出。由于我们重用了权重，它们从多个输入中提取信息，并构建了序列的知识。<br>下面是一个LSTM中每个时间步骤的简化版本。<br><img src="/2018/01/16/译-利用深度学习将设计稿转换成前端代码/26.png" alt="26.png" title=""><br>为了理解这个逻辑，我建议用Andrew Trask的精彩教程从头开始构建一个RNN。<br>理解LSTM层中的单元。<br>每个LSTM层的单元数量决定了它的记忆能力。这也对应于每个输出特性的大小。同样，一个特性是一长串用于在层之间传输信息的数字。<br>LSTM层中的每个单元都学习跟踪语法的不同方面。下面是一个可视化的单元，它跟踪行div中的信息。这是我们用来训练bootstrap模型的简化标记。<br>lstm细胞激活<br>每个LSTM单元保持一个单元状态。把细胞状态想象成记忆。权重和激活被用来以不同的方式修改状态。这使得LSTM层可以对每个输入保留和丢弃的信息进行微调。<br>除了传递每个输入的输出特性外，它还会转发单元格状态，在LSTM中每个单元都有一个值。为了了解LSTM中的组件是如何交互的，我推荐Colah的教程、Jayasiri的Numpy实现，以及Karphay的演讲和文章。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      syean
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/" title="[译]利用深度学习将设计稿转换成前端代码">http://wsyks.github.io/2018/01/16/译-利用深度学习将设计稿转换成前端代码/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前沿技术/" rel="tag"># 前沿技术</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/30/vuejs用户认证实例/" rel="next" title="vuejs用户认证实例">
+                <i class="fa fa-chevron-left"></i> vuejs用户认证实例
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/26/electron入门实践总结/" rel="prev" title="electron入门实践总结">
+                electron入门实践总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+  
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          <!-- 
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+ -->
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="syean" />
+          <p class="site-author-name" itemprop="name">syean</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wsyks" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2949528583" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://simmin.github.io/" title="Simmin Blog" target="_blank">Simmin Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://phantom0301.cc/" title="零の杂货铺" target="_blank">零の杂货铺</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blackwolfsec.cc/" title="blackwolf" target="_blank">blackwolf</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ohroot.com/" title="半饱和" target="_blank">半饱和</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.sccsec.com/" title="胖胖的博客" target="_blank">胖胖的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jinglingshu.org/" title="精灵鼠" target="_blank">精灵鼠</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wps2015.jinglingshu.org/" title="wps2015" target="_blank">wps2015</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.pang0lin.com/" title="穿山甲" target="_blank">穿山甲</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ourren.com/" title="ourren" target="_blank">ourren</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#核心思想"><span class="nav-number">1.</span> <span class="nav-text">核心思想</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hello-World-Version"><span class="nav-number">2.</span> <span class="nav-text">Hello World Version</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#输出"><span class="nav-number">3.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">Hello World!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Hello World!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">Hello World!</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML版本"><span class="nav-number">7.</span> <span class="nav-text">HTML版本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概览"><span class="nav-number">8.</span> <span class="nav-text">概览</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">syean</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d7c45d8300d24d59927c5de653864f9c",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz", "Maz5zp1hIAmXtT3yBFdh18iM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

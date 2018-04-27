@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://wsyks.github.io/"/>
-  <updated>2018-04-26T04:12:07.913Z</updated>
+  <updated>2018-04-27T13:22:49.415Z</updated>
   <id>http://wsyks.github.io/</id>
   
   <author>
@@ -14,6 +14,71 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>动效神器Lottie初体验——把AE动画转换成WEB原生动画</title>
+    <link href="http://wsyks.github.io/2018/04/27/%E5%8A%A8%E6%95%88%E7%A5%9E%E5%99%A8Lottie%E5%88%9D%E4%BD%93%E9%AA%8C%E2%80%94%E2%80%94%E6%8A%8AAE%E5%8A%A8%E7%94%BB%E8%BD%AC%E6%8D%A2%E6%88%90WEB%E5%8E%9F%E7%94%9F%E5%8A%A8%E7%94%BB/"/>
+    <id>http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/</id>
+    <published>2018-04-27T08:53:58.000Z</published>
+    <updated>2018-04-27T13:22:49.415Z</updated>
+    
+    <content type="html"> &lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;
+&lt;p&gt;由 Airbnb 开发的 Lottie 是一个将 After Effects 动画提供给任意一个 iOS，macOS，Android 还有 React Native 原生 APP 的文件库。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;这些动画通过一个叫 Bodymovin 的开源 After Effects 插件，以 JSON 文件的形式进行输出。Lottie 通过 JSON 格式下载动画数据并实时提供给开发者。&lt;/p&gt;
+&lt;h1 id=&quot;下载安装&quot;&gt;&lt;a href=&quot;#下载安装&quot; class=&quot;headerlink&quot; title=&quot;下载安装&quot;&gt;&lt;/a&gt;下载安装&lt;/h1&gt;&lt;p&gt;1.首先你需要下载AE，这里就不多说了，自行下载&lt;br&gt;   我一般下载adobe的软件都是通过Adobe Creative Cloud，再用工具pj。&lt;br&gt;2.下载 &lt;a href=&quot;https://github.com/airbnb/lottie-web/blob/master/build/extension/bodymovin.zxp&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;bodymovin&lt;/a&gt;, 点击view raw即可&lt;/p&gt;
+&lt;h2 id=&quot;安装插件&quot;&gt;&lt;a href=&quot;#安装插件&quot; class=&quot;headerlink&quot; title=&quot;安装插件&quot;&gt;&lt;/a&gt;安装插件&lt;/h2&gt;&lt;p&gt;在windows下，用以下方式安装该插件:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;解压缩&lt;code&gt;bodymovin.zxp&lt;/code&gt;文件，到&lt;code&gt;C:\Program Files (x86)\Common Files\Adobe\CEP\extensions&lt;/code&gt;目录下，mac用户解压到以下目录&lt;br&gt;&lt;code&gt;/Library/Application\ Support/Adobe/CEP/extensions/bodymovin&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+ &lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/2.png&quot; alt=&quot;2.png&quot; title=&quot;&quot;&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;配置注册表，按&lt;code&gt;win+R&lt;/code&gt;，输入&lt;code&gt;regedit&lt;/code&gt;打开注册表，在注册表键值 &lt;code&gt;HKEY_CURRENT_USER/Software/Adobe/CSXS.6&lt;/code&gt; 增加一个类型为字符串(String)，键值名为 &lt;code&gt;PlayerDebugMode&lt;/code&gt; , 值设置为 1 。&lt;/p&gt;
+&lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;打开AE，在&lt;code&gt;编辑-&amp;gt;首选项-&amp;gt;常规&lt;/code&gt;中勾选&lt;code&gt;允许脚本写入文件和访问网络&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;安装成功后，会在AE&lt;code&gt;窗口-&amp;gt;扩展&lt;/code&gt;中看到bodymovin.&lt;/p&gt;
+&lt;h1 id=&quot;使用&quot;&gt;&lt;a href=&quot;#使用&quot; class=&quot;headerlink&quot; title=&quot;使用&quot;&gt;&lt;/a&gt;使用&lt;/h1&gt;&lt;p&gt;打开一个AE文件，例如&lt;a href=&quot;http://jadyoap.bj.bcebos.com/ife/mission8.aep&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AE文件&lt;/a&gt;&lt;br&gt;点击&lt;code&gt;窗口-&amp;gt;扩展-&amp;gt;bodymovin&lt;/code&gt;&lt;br&gt;设置好路径后，点击&lt;code&gt;render&lt;/code&gt;即可&lt;br&gt;&lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/3.png&quot; alt=&quot;3.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;生成完毕后，点击preview，还可以预览&lt;br&gt; &lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/4.png&quot; alt=&quot;4.png&quot; title=&quot;&quot;&gt;&lt;br&gt;  &lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/5.png&quot; alt=&quot;5.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h2 id=&quot;WEB应用实例&quot;&gt;&lt;a href=&quot;#WEB应用实例&quot; class=&quot;headerlink&quot; title=&quot;WEB应用实例&quot;&gt;&lt;/a&gt;WEB应用实例&lt;/h2&gt;&lt;p&gt;生成好JSON文件后，在html文件中&lt;br&gt;引入&lt;code&gt;lottie.js&lt;/code&gt;，下载地址在&lt;a href=&quot;https://github.com/airbnb/lottie-web/blob/master/build/player/lottie.min.js&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;div id=&quot;task&quot; style=&quot;width: 300px;background-color: cadetblue&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;script src=&quot;lottie.min.js&quot; type=&quot;text/javascript&quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;var animation = bodymovin.loadAnimation(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  container: document.getElementById(&#39;task&#39;),&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  renderer: &#39;svg&#39;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  loop: true,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  autoplay: true,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  path: &#39;task.json&#39;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;/script&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;注意，如果你也用的上面AE例子的话，因为该动画是白色的，所以一定要给容器设置背景颜色，要不然就会看到白茫茫一片&lt;br&gt;  &lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/2.gif&quot; alt=&quot;2.gif&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;还有一个要注意的点为，如果在本地测试，必须要在服务器上，否则会报错，因为它需要通过网络去请求动画文件。&lt;br&gt;  &lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/6.png&quot; alt=&quot;6.png&quot; title=&quot;&quot;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;除了上面的方式，官网还介绍了其他引用渲染方式&lt;br&gt;不过这种方式是生成的canvas。&lt;/p&gt;
+&lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;&lt;span class=&quot;selector-tag&quot;&gt;div&lt;/span&gt; style=&lt;span class=&quot;string&quot;&gt;&quot;width: 300px;background-color: cadetblue&quot;&lt;/span&gt; class=&lt;span class=&quot;string&quot;&gt;&quot;lottie&quot;&lt;/span&gt; data-&lt;span class=&quot;attribute&quot;&gt;animation&lt;/span&gt;-path=&lt;span class=&quot;string&quot;&gt;&quot;task.json&quot;&lt;/span&gt; data-anim-loop=&lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt; data-name=&lt;span class=&quot;string&quot;&gt;&quot;test&quot;&lt;/span&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这里有两个必需设置的东西&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;class要为“lottie”&lt;/li&gt;
+&lt;li&gt;data-animation-path为json路径&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&quot;lottie的一些方法&quot;&gt;&lt;a href=&quot;#lottie的一些方法&quot; class=&quot;headerlink&quot; title=&quot;lottie的一些方法&quot;&gt;&lt;/a&gt;lottie的一些方法&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/airbnb/lottie-web&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官网&lt;/a&gt; 上还介绍了其他一些方法&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;play&lt;/li&gt;
+&lt;li&gt;stop&lt;/li&gt;
+&lt;li&gt;pause&lt;/li&gt;
+&lt;li&gt;setLocationHref(href)&lt;/li&gt;
+&lt;li&gt;setSpeed(speed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;等等，这里不多讲啦。&lt;/p&gt;
+&lt;h2 id=&quot;方法应用小实例&quot;&gt;&lt;a href=&quot;#方法应用小实例&quot; class=&quot;headerlink&quot; title=&quot;方法应用小实例&quot;&gt;&lt;/a&gt;方法应用小实例&lt;/h2&gt;&lt;p&gt;在上面的基础上，做一个效果&lt;br&gt;  &lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/3.gif&quot; alt=&quot;3.gif&quot; title=&quot;&quot;&gt;&lt;br&gt;即鼠标放上去时才动画，离开则不动画了，比较简单，涉及一些方法的应用，直接上代码。&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;div id=&quot;bm&quot; style=&quot;width: 200px;height: 300px;background-color: cadetblue&quot;&amp;gt;&amp;lt;/div&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;script src=&quot;lottie.min.js&quot; type=&quot;text/javascript&quot;&amp;gt;&amp;lt;/script&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;lt;script&amp;gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;var bm = document.getElementById(&#39;bm&#39;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;var animation = lottie.loadAnimation(&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  container: bm,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  renderer: &#39;svg&#39;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  autoplay: false,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  path: &#39;task.json&#39;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  loop: true,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                 prerender: true,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;bm.addEventListener(&quot;mouseenter&quot;,function()&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	animation.play()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;bm.addEventListener(&quot;mouseleave&quot;,function()&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	animation.stop()&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;)&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;好啦，基础使用就是这些了，不过Lottie虽然好用，但是并不是能转换所有的动画的，这点心里要有点数哟。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;img src=&quot;/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/1.gif&quot; alt=&quot;1.gif&quot; title=&quot;&quot;&gt;
+&lt;p&gt;由 Airbnb 开发的 Lottie 是一个将 After Effects 动画提供给任意一个 iOS，macOS，Android 还有 React Native 原生 APP 的文件库。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="javascript" scheme="http://wsyks.github.io/tags/javascript/"/>
+    
+      <category term="动画" scheme="http://wsyks.github.io/tags/%E5%8A%A8%E7%94%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>Electron入门实践总结</title>
@@ -523,7 +588,7 @@
     <updated>2017-05-22T03:21:11.736Z</updated>
     
     <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。&lt;br&gt;   &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;   因为页面中有条件筛选的表单，所以想要完成的效果就是，输入条件后，分页跳转之后能维持所输入的条件。想了一下，自己的思路如下代码吧。&lt;/p&gt;
-&lt;h1 id=&quot;controller-代码&quot;&gt;&lt;a href=&quot;#controller-代码&quot; class=&quot;headerlink&quot; title=&quot;controller 代码&quot;&gt;&lt;/a&gt;controller 代码&lt;/h1&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;class Monitors extends CI_Controller &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;public function warning()&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config= array();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config[&#39;per_page&#39;] = 15; //每页显示的数据数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $current_page = intval($this-&amp;gt;input-&amp;gt;get(&quot;per_page&quot;)); //获取当前分页页码数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    	&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$status=$this-&amp;gt;input-&amp;gt;get(&quot;filter-status&quot;,TRUE);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$level=$this-&amp;gt;input-&amp;gt;get(&#39;filter-level&#39;,TRUE);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$timestamp=$this-&amp;gt;input-&amp;gt;get(&#39;filter-timestamp&#39;,TRUE);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $all = $this-&amp;gt;monitors_m-&amp;gt;getAllData($current_page,$config[&#39;per_page&#39;],$status,$timestamp,$level);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      //这里返回的有总条数和具体的数据，根据自己的情况略加修改即可&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$data[&#39;allevent&#39;] = $all[&#39;content&#39;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&#39;total_rows&#39;]     = $all[&#39;count&#39;];//总条数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config[&#39;num_links&#39;] = 3;//页码连接数&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&#39;use_page_numbers&#39;] = TRUE;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&#39;page_query_strings&#39;] = TRUE;//关键配置&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $config[&#39;enable_query_strings&#39;] = TRUE;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&#39;base_url&#39;] = base_url().&#39;index.php/monitors/warning?&#39;&amp;amp;filter-status=&#39;.$status.&#39;&amp;amp;filter-level=&#39;.$level.&#39;&amp;amp;filter-timestamp=&#39;.$timestamp;//关键配置&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;load-&amp;gt;library(&#39;pagination&#39;);//加载ci pagination类&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;pagination-&amp;gt;initialize($config);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$data[&#39;page&#39;] = $this-&amp;gt;pagination-&amp;gt;create_links();//关键代码&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;load-&amp;gt;view(&quot;monitors_v&quot;,$data);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h1 id=&quot;controller-代码&quot;&gt;&lt;a href=&quot;#controller-代码&quot; class=&quot;headerlink&quot; title=&quot;controller 代码&quot;&gt;&lt;/a&gt;controller 代码&lt;/h1&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Monitors&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;CI_Controller&lt;/span&gt; &lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;warning&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config= &lt;span class=&quot;keyword&quot;&gt;array&lt;/span&gt;();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config[&lt;span class=&quot;string&quot;&gt;&#39;per_page&#39;&lt;/span&gt;] = &lt;span class=&quot;number&quot;&gt;15&lt;/span&gt;; &lt;span class=&quot;comment&quot;&gt;//每页显示的数据数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $current_page = intval(&lt;span class=&quot;keyword&quot;&gt;$this&lt;/span&gt;-&amp;gt;input-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&quot;per_page&quot;&lt;/span&gt;)); &lt;span class=&quot;comment&quot;&gt;//获取当前分页页码数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    	&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$status=&lt;span class=&quot;keyword&quot;&gt;$this&lt;/span&gt;-&amp;gt;input-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&quot;filter-status&quot;&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$level=&lt;span class=&quot;keyword&quot;&gt;$this&lt;/span&gt;-&amp;gt;input-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;filter-level&#39;&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$timestamp=&lt;span class=&quot;keyword&quot;&gt;$this&lt;/span&gt;-&amp;gt;input-&amp;gt;get(&lt;span class=&quot;string&quot;&gt;&#39;filter-timestamp&#39;&lt;/span&gt;,&lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $all = &lt;span class=&quot;keyword&quot;&gt;$this&lt;/span&gt;-&amp;gt;monitors_m-&amp;gt;getAllData($current_page,$config[&lt;span class=&quot;string&quot;&gt;&#39;per_page&#39;&lt;/span&gt;],$status,$timestamp,$level);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;span class=&quot;comment&quot;&gt;//这里返回的有总条数和具体的数据，根据自己的情况略加修改即可&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$data[&lt;span class=&quot;string&quot;&gt;&#39;allevent&#39;&lt;/span&gt;] = $all[&lt;span class=&quot;string&quot;&gt;&#39;content&#39;&lt;/span&gt;];&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&lt;span class=&quot;string&quot;&gt;&#39;total_rows&#39;&lt;/span&gt;]     = $all[&lt;span class=&quot;string&quot;&gt;&#39;count&#39;&lt;/span&gt;];&lt;span class=&quot;comment&quot;&gt;//总条数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        $config[&lt;span class=&quot;string&quot;&gt;&#39;num_links&#39;&lt;/span&gt;] = &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//页码连接数&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&lt;span class=&quot;string&quot;&gt;&#39;use_page_numbers&#39;&lt;/span&gt;] = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&lt;span class=&quot;string&quot;&gt;&#39;page_query_strings&#39;&lt;/span&gt;] = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;;&lt;span class=&quot;comment&quot;&gt;//关键配置&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    $config[&lt;span class=&quot;string&quot;&gt;&#39;enable_query_strings&#39;&lt;/span&gt;] = &lt;span class=&quot;keyword&quot;&gt;TRUE&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$config[&lt;span class=&quot;string&quot;&gt;&#39;base_url&#39;&lt;/span&gt;] = base_url().&lt;span class=&quot;string&quot;&gt;&#39;index.php/monitors/warning?&#39;&lt;/span&gt;&amp;amp;filter-status=&lt;span class=&quot;string&quot;&gt;&#39;.$status.&#39;&lt;/span&gt;&amp;amp;filter-level=&lt;span class=&quot;string&quot;&gt;&#39;.$level.&#39;&lt;/span&gt;&amp;amp;filter-timestamp=&lt;span class=&quot;string&quot;&gt;&#39;.$timestamp;//关键配置&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;load-&amp;gt;library(&#39;pagination&lt;span class=&quot;string&quot;&gt;&#39;);//加载ci pagination类&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;pagination-&amp;gt;initialize($config);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$data[&#39;page&lt;span class=&quot;string&quot;&gt;&#39;] = $this-&amp;gt;pagination-&amp;gt;create_links();//关键代码&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	$this-&amp;gt;load-&amp;gt;view(&quot;monitors_v&quot;,$data);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h2 id=&quot;关键配置参数&quot;&gt;&lt;a href=&quot;#关键配置参数&quot; class=&quot;headerlink&quot; title=&quot;关键配置参数&quot;&gt;&lt;/a&gt;关键配置参数&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;$config[‘page_query_string’与$config[‘enable_query_strings’] &lt;/strong&gt;&lt;br&gt; 如果设置成true,则url则是”index.php/monitors/warning？per_page=20”这样的&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt; 【注】”per_page” 是默认传递的查询字符串，但也可以使用 $config[‘query_string_segment’] = ‘你的字符串’ 来配置&lt;/p&gt;
@@ -1203,143 +1268,6 @@
     
     
       <category term="html5" scheme="http://wsyks.github.io/tags/html5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>瓦片地图</title>
-    <link href="http://wsyks.github.io/2016/07/21/%E7%93%A6%E7%89%87%E5%9C%B0%E5%9B%BE/"/>
-    <id>http://wsyks.github.io/2016/07/21/瓦片地图/</id>
-    <published>2016-07-21T08:39:05.000Z</published>
-    <updated>2017-05-04T01:56:33.564Z</updated>
-    
-    <content type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;【小栗子】&lt;br&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--引入leaflet.js和css文件 --&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;link&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;rel&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;stylesheet&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/css&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;assets/css/leaflet.css&quot;&lt;/span&gt; /&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;type&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;text/javascript&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;assets/js/leaflet.js&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;undefined&quot;&gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;&amp;lt;!--设置一个div对象用于承载地图 --&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;id&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;map&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;leaflet-map&quot;&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;style&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;width:450px;height:300px&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;actionscript&quot;&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; map = L.map(&lt;span class=&quot;string&quot;&gt;&#39;map&#39;&lt;/span&gt;).setView([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;-0.09&lt;/span&gt;], &lt;span class=&quot;number&quot;&gt;3&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   	L.tileLayer(&lt;span class=&quot;string&quot;&gt;&#39;http://&amp;#123;s&amp;#125;.tile.osm.org/&amp;#123;z&amp;#125;/&amp;#123;x&amp;#125;/&amp;#123;y&amp;#125;.png&#39;&lt;/span&gt;, &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   	&lt;span class=&quot;comment&quot;&gt;// attribution: &#39;&amp;amp;copy; &amp;lt;a href=&quot;http://osm.org/copyright&quot;&amp;gt;OpenStreetMap&amp;lt;/a&amp;gt; contributors&#39;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   	&amp;#125;).addTo(map);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   	L.marker([&lt;span class=&quot;number&quot;&gt;51.505&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;-0.09&lt;/span&gt;]).addTo(map)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   	.bindPopup(&lt;span class=&quot;string&quot;&gt;&#39;A pretty CSS3 popup.&amp;lt;br&amp;gt; Easily customizable.&#39;&lt;/span&gt;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   	.openPopup();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————&lt;strong&gt;瓦片地图&lt;/strong&gt;。&lt;/p&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;瓦片地图概念&quot;&gt;&lt;a href=&quot;#瓦片地图概念&quot; class=&quot;headerlink&quot; title=&quot;瓦片地图概念&quot;&gt;&lt;/a&gt;瓦片地图概念&lt;/h1&gt;&lt;p&gt;地图瓦片地址栗子，以google为例：&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/lyrs=m@167000000&amp;amp;hl=zh-CN&amp;amp;gl=cn&amp;amp;x=420&amp;amp;y=193&amp;amp;z=9&amp;amp;s=Galil&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
-&lt;p&gt;现在就是要将一张张这类的地图瓦片，在客户端拼接成一幅完整的地图。&lt;br&gt;其中每一片的瓦片大小为：256像素x256像素&lt;/p&gt;
-&lt;h2 id=&quot;瓦片地图金字塔模型&quot;&gt;&lt;a href=&quot;#瓦片地图金字塔模型&quot; class=&quot;headerlink&quot; title=&quot;瓦片地图金字塔模型&quot;&gt;&lt;/a&gt;瓦片地图金字塔模型&lt;/h2&gt;&lt;p&gt;Q:为什么出现瓦片地图金字塔模型这个概念&lt;/p&gt;
-&lt;p&gt;现在，我假设我们的服务器上有一个1G的影像，需要将其在前端进行显示。我们传统的做法就是首先将服务器中的1G影像下载到前端，然后浏览器加载渲染出图。但是大家想想，首先客户端下载1G的影像需要的时间一定是个漫长的过程，其次浏览器加载这么大的文件也多半会导致其崩溃。而最重要的一个问题是，我们的需求仅仅是浏览全图中的某一个区域下的某几个级别，现在却将全图下载完毕了，而这同样还导致了数据的不安全性（下载到本地），同时我们的每一次放大和缩小以及拖拽都将会使浏览器花上足够长的时间去渲染。&lt;/p&gt;
-&lt;p&gt;可见，传统的方式是不符合实际需求的。到后来，又有了新的解决方法，比如arcgis的IMS版本中提出了动态出图的概念。也就是当前端发出的请求里包含了需要显示的范围、显示窗口的大小等参数后，后台动态的在原始数据中切出一个符合需求的瓦片，然后将这个数据返回给前台，并且在服务器中对这个瓦片做缓存。&lt;/p&gt;
-&lt;p&gt;但是，这个方法前端出图依旧很慢，并且使地图服务器的压力过大。终于，我们的瓦片金字塔模型解决方案出现了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;瓦片地图金字塔模型是一种多分辨率层次模型，从瓦片金字塔的底层到顶层，分辨率越来越低，但表示的地理范围不变。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src=&quot;http://support.supermap.com.cn/DataWarehouse/WebDocHelp/6.1.1/iServerJavaOnlineHelp/API/WMTS/TileMatrixSet.png&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;地图切图方式：&lt;br&gt;一幅地图由4^n个256&lt;em&gt;256的正方形组成，n为级别&lt;br&gt;例如：第0级为4^0个，即世界地图由一个256&lt;/em&gt;256图片表示。&lt;br&gt;      第1级世界地图应由4^1（4）个256图片组成，也就是将世界地图（上一级的单个图片）等分成4块256*256图片。&lt;br&gt;      往下每一级依此类推……&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;url中关键参数&quot;&gt;&lt;a href=&quot;#url中关键参数&quot; class=&quot;headerlink&quot; title=&quot;url中关键参数&quot;&gt;&lt;/a&gt;url中关键参数&lt;/h2&gt;&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;参数&lt;/th&gt;
-&lt;th&gt;描述&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;mt2.google.cn&lt;/td&gt;
-&lt;td&gt;Google瓦片服务服务器，可以尝试mt1.google.cn依然有效。Google提供多台瓦片服务器，减轻服务器负载，提高网络访问效率。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;x&lt;/td&gt;
-&lt;td&gt;瓦片的横向索引，起始位置为最左边，数值为0，向右+1递增。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;y&lt;/td&gt;
-&lt;td&gt;瓦片的纵向索引，起始位置为最上面，数值为0，向下+1递增。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;z&lt;/td&gt;
-&lt;td&gt;地图的级别，以Google为例，最上一级为0，向下依次递增。&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;比如说，1级下面，有两行和两列。这四张图片的地址如下：&lt;br&gt;&lt;a href=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1&quot; alt=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=1&amp;amp;z=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mt2.google.cn/vt/x=0&amp;amp;y=1&amp;amp;z=1&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/x=0&amp;amp;y=1&amp;amp;z=1&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://mt2.google.cn/vt/x=1&amp;amp;y=0&amp;amp;z=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mt2.google.cn/vt/x=1&amp;amp;y=0&amp;amp;z=1&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/x=1&amp;amp;y=0&amp;amp;z=1&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;&lt;a href=&quot;http://mt2.google.cn/vt/x=1&amp;amp;y=1&amp;amp;z=1&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://mt2.google.cn/vt/x=1&amp;amp;y=1&amp;amp;z=1&lt;/a&gt;&lt;br&gt;&lt;img src=&quot;http://mt2.google.cn/vt/x=1&amp;amp;y=1&amp;amp;z=1&quot; alt=&quot;enter description here&quot;&gt;&lt;br&gt;如果把这四张图片合在一起的话，就变成如下的图，这就是一个世界的地图了。&lt;br&gt;&lt;img src=&quot;http://images.cnitblog.com/blog/464760/201312/02214059-faf4aed17ee14678bd913aba4c691db1.png&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
-&lt;h2 id=&quot;涉及的一些概念与变量&quot;&gt;&lt;a href=&quot;#涉及的一些概念与变量&quot; class=&quot;headerlink&quot; title=&quot;涉及的一些概念与变量&quot;&gt;&lt;/a&gt;涉及的一些概念与变量&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;1）地图投影方式&lt;/strong&gt;： Web墨卡托——互联网地图通用的地图投影方式。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Q1：什么是墨卡托投影？&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;墨卡托(Mercator)投影，又名“等角正轴圆柱投影”，荷兰地图学家墨卡托（Mercator）在1569年拟定，假设地球被围在一个中空的圆柱里，其赤道与圆柱相接触，然后再假想地球中心有一盏灯，把球面上的图形投影到圆柱体上，再把圆柱体展开，这就是一幅标准纬线为零度（即赤道）的“墨卡托投影”绘制出的世界地图。&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20131028160043109&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Q2：Google们为什么选择墨卡托投影？&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;墨卡托投影的“等角”特性，保证了对象的形状的不变行，正方形的物体投影后不会变为长方形。“等角”也保证了方向和相互位置的正确性，因此在航海和航空中常常应用，而Google们在计算人们查询地物的方向时不会出错。&lt;/p&gt;
-&lt;p&gt;墨卡托投影的“圆柱”特性，保证了南北（纬线）和东西（经线）都是平行直线，并且相互垂直。而且经线间隔是相同的，纬线间隔从标准纬线（此处是赤道，也可能是其他纬线）向两级逐渐增大。&lt;br&gt;但是，“等角”不可避免的带来的面积的巨大变形，特别是两极地区，明显的如格陵兰岛比实际面积扩大了N倍。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;2）Bounds(地图范围)&lt;/strong&gt;： [ -20037508.3427892, -20037508.3427892, 20037508.3427892,20037508.3427892]，单位为米，20037508.3427892表示地图周长的一半，以地图中心点做为（0，0）坐标。&lt;br&gt;&lt;strong&gt;3）Levels：&lt;/strong&gt; 地图的级别，例如：0……22。&lt;br&gt;&lt;strong&gt;4）Resolutions：&lt;/strong&gt; 分辨率数组，与级别相对应，即一个级别对应一个分辨率，分辨率表示当前级别下单个像素代表的地理长度，即一像素代表多少米。Resolutions[n] = 20037508.3427892 &lt;em&gt; 2 / 256 / (2^n)&lt;br&gt;&lt;img src=&quot;/2016/07/21/瓦片地图/1.png&quot; alt=&quot;1.png&quot; title=&quot;&quot;&gt;&lt;br&gt;所以，低分辨率下面，显示洲名称和海洋名称。中分辨率下面，显示省名。高分辨率下面，就显示POI信息（每个POI包含四方面信息，名称、类别、经度、纬度，一个POI可以是一栋房子、一个商铺、一个邮筒、一个公交站等）&lt;br&gt;&lt;strong&gt;5）Center：&lt;/strong&gt; 地图显示中心点。&lt;br&gt;&lt;em&gt;*6）viewSize：&lt;/em&gt;&lt;/em&gt; 地图控件窗口的大小。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://images.cnitblog.com/blog/464760/201312/02214051-757df653dec644279956210f76705d50.jpg&quot; alt=&quot;enter description here&quot;&gt;&lt;/p&gt;
-&lt;h1 id=&quot;瓦片地图相关算法&quot;&gt;&lt;a href=&quot;#瓦片地图相关算法&quot; class=&quot;headerlink&quot; title=&quot;瓦片地图相关算法&quot;&gt;&lt;/a&gt;瓦片地图相关算法&lt;/h1&gt;&lt;p&gt;根据已知地图中心点、显示级别可以将地图显示范围计算出来:&lt;br&gt;viewBounds = [Center.x - Resolutions[l]&lt;em&gt;viewSize.width/2, Center.y - Resolutions[l]&lt;/em&gt;viewSize.height/2, Center.x + Resolutions[l].viewSize.width/w, Center.y + Resolutions[l].viewSize.height/h]
-　　&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;拼图算法剖析：&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;计算瓦片url&quot;&gt;&lt;a href=&quot;#计算瓦片url&quot; class=&quot;headerlink&quot; title=&quot;计算瓦片url&quot;&gt;&lt;/a&gt;计算瓦片url&lt;/h2&gt;&lt;p&gt;要想出图就发须知道地图控件可视范围起始点瓦片索引、末尾瓦片索引，中间区域的瓦片索引循环遍历即可得出。&lt;br&gt;下面看看如果计算出起始点、末尾瓦片url索引：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;已知：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;l(缩放级别)&lt;/li&gt;
-&lt;li&gt;bounds(地图范围——[ -20037508.3427892, -20037508.3427892, 20037508.3427892, 20037508.3427892])&lt;/li&gt;
-&lt;li&gt;viewBounds(地图控件可视范围)&lt;/li&gt;
-&lt;li&gt;分辨率（Resolutions[l]）&lt;/li&gt;
-&lt;li&gt;瓦片像素宽高（256）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;未知：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;startX（视图起始瓦片X方向索引）&lt;/li&gt;
-&lt;li&gt;startY（视图起始瓦片Y方向索引）&lt;/li&gt;
-&lt;li&gt;endX（视图未尾瓦片x方向索引）&lt;/li&gt;
-&lt;li&gt;endY（视图未尾瓦片y方向索引）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;求解：&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;startX = floor(((viewBounds.leftTop.x - bounds.leftTop.x) / Resolutions[l]) / 256);
-startY = floor(((viewBounds.leftTop.y - bounds.leftTop.y) / Resolutions[l]) / 256);
-endX = floor(((viewBounds.rightBottom.x - bounds.rightBottom.x) / Resolutions[l]) / 256);
-endY = floor(((viewBounds.rightBottom.y - bounds.rightBottom.y) / Resolutions[l]) / 256);
-firstTileUrl(起始瓦片Url) = http://**********?x=startX&amp;amp;y=startY&amp;amp;z=l;
-endTileUrl(末尾瓦片Url) = http://**********?x=endX&amp;amp;y=startY&amp;amp;z=l;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;中间部分的url循环遍历即可得出。&lt;br&gt;获得了所有瓦片的url，之后就是拼接瓦片的问题。&lt;/p&gt;
-&lt;h2 id=&quot;计算瓦片放在地图控件上的位置&quot;&gt;&lt;a href=&quot;#计算瓦片放在地图控件上的位置&quot; class=&quot;headerlink&quot; title=&quot;计算瓦片放在地图控件上的位置&quot;&gt;&lt;/a&gt;计算瓦片放在地图控件上的位置&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;分析：&lt;/strong&gt;&lt;br&gt;其实只要将起始位置的瓦片像素位置算出来就可以了，由于瓦片像素大小为256，后面的各瓦片位置也就明了了。所以这里只探讨一下起始瓦片的像素位置。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;已知：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;startX（视图起始瓦片X方向索引）&lt;/li&gt;
-&lt;li&gt;startY（视图起始瓦片Y方向索引）&lt;/li&gt;
-&lt;li&gt;分辨率（Resolutions[l]）&lt;/li&gt;
-&lt;li&gt;瓦片像素宽高（256）&lt;/li&gt;
-&lt;li&gt;bounds(地图范围)&lt;/li&gt;
-&lt;li&gt;viewBounds(地图控件可视范围)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;未知：&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;startTileX（起始瓦片左上角X方向地理坐标）&lt;/li&gt;
-&lt;li&gt;startTileY（起始瓦片左上角Y方向地理坐标）&lt;/li&gt;
-&lt;li&gt;distanceX（瓦片左边与地图控件左边相距的像素距离）&lt;/li&gt;
-&lt;li&gt;distanceY（瓦片上边与地图控件上边相距的像素距离）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;求解：&lt;/strong&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;startTileX = bounds.leftTop.x + (startX * 256 * Resolutions[l]);
-startTileY = bounds.rightBottom.y - (startY * 256 * Resolutions[l]);
-distanceX = (viewBounds.leftTop.x - startTileX) / Resolutions[l];
-distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;公式不是最简，以方便理解，相信看官此时已经知道起始瓦片在地图控件中的摆放位置了——设地图控件起始像素位置为（0，0），那么此瓦片的像素的位置就是（-distanceX、-distanceY）。其它瓦片依据256像素宽高的关系依次而出。&lt;/p&gt;
-&lt;p&gt;到此已经算出了各瓦片的url以及它们应该摆放的位置，准备工作已完成，直接帖图即可完成出图工作。&lt;/p&gt;
-&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;参考资料&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.cnblogs.com/ninemilli/archive/2011/12/26/2289285.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/ninemilli/archive/2011/12/26/2289285.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://blog.csdn.net/mygisforum/article/details/13295223&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/mygisforum/article/details/13295223&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.thinkgis.cn/topic/549973e5426db0c1549792fc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.thinkgis.cn/topic/549973e5426db0c1549792fc&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;   前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="技术" scheme="http://wsyks.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   

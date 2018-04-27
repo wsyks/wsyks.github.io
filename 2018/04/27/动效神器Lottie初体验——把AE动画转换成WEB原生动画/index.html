@@ -1,0 +1,1039 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript,动画," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Syean" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="由 Airbnb 开发的 Lottie 是一个将 After Effects 动画提供给任意一个 iOS，macOS，Android 还有 React Native 原生 APP 的文件库。">
+<meta name="keywords" content="javascript,动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动效神器Lottie初体验——把AE动画转换成WEB原生动画">
+<meta property="og:url" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/index.html">
+<meta property="og:site_name" content="Syean">
+<meta property="og:description" content="由 Airbnb 开发的 Lottie 是一个将 After Effects 动画提供给任意一个 iOS，macOS，Android 还有 React Native 原生 APP 的文件库。">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/1.gif">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/2.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/1.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/3.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/4.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/5.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/2.gif">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/6.png">
+<meta property="og:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/3.gif">
+<meta property="og:updated_time" content="2018-04-27T13:22:49.415Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="动效神器Lottie初体验——把AE动画转换成WEB原生动画">
+<meta name="twitter:description" content="由 Airbnb 开发的 Lottie 是一个将 After Effects 动画提供给任意一个 iOS，macOS，Android 还有 React Native 原生 APP 的文件库。">
+<meta name="twitter:image" content="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/1.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/"/>
+
+
+
+
+
+  <title>动效神器Lottie初体验——把AE动画转换成WEB原生动画 | Syean</title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?289e37e8938f67998453773bdd083085";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Syean</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">记录，分享，回忆</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="syean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Syean">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">动效神器Lottie初体验——把AE动画转换成WEB原生动画</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-04-27T16:53:58+08:00">
+                2018-04-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/" class="leancloud_visitors" data-flag-title="动效神器Lottie初体验——把AE动画转换成WEB原生动画">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+         <img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/1.gif" alt="1.gif" title="">
+<p>由 Airbnb 开发的 Lottie 是一个将 After Effects 动画提供给任意一个 iOS，macOS，Android 还有 React Native 原生 APP 的文件库。<br><a id="more"></a><br>这些动画通过一个叫 Bodymovin 的开源 After Effects 插件，以 JSON 文件的形式进行输出。Lottie 通过 JSON 格式下载动画数据并实时提供给开发者。</p>
+<h1 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h1><p>1.首先你需要下载AE，这里就不多说了，自行下载<br>   我一般下载adobe的软件都是通过Adobe Creative Cloud，再用工具pj。<br>2.下载 <a href="https://github.com/airbnb/lottie-web/blob/master/build/extension/bodymovin.zxp" target="_blank" rel="external">bodymovin</a>, 点击view raw即可</p>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><p>在windows下，用以下方式安装该插件:</p>
+<ol>
+<li>解压缩<code>bodymovin.zxp</code>文件，到<code>C:\Program Files (x86)\Common Files\Adobe\CEP\extensions</code>目录下，mac用户解压到以下目录<br><code>/Library/Application\ Support/Adobe/CEP/extensions/bodymovin</code></li>
+</ol>
+ <img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/2.png" alt="2.png" title="">
+<ol>
+<li><p>配置注册表，按<code>win+R</code>，输入<code>regedit</code>打开注册表，在注册表键值 <code>HKEY_CURRENT_USER/Software/Adobe/CSXS.6</code> 增加一个类型为字符串(String)，键值名为 <code>PlayerDebugMode</code> , 值设置为 1 。</p>
+<img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/1.png" alt="1.png" title="">
+</li>
+<li><p>打开AE，在<code>编辑-&gt;首选项-&gt;常规</code>中勾选<code>允许脚本写入文件和访问网络</code></p>
+</li>
+</ol>
+<p>安装成功后，会在AE<code>窗口-&gt;扩展</code>中看到bodymovin.</p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><p>打开一个AE文件，例如<a href="http://jadyoap.bj.bcebos.com/ife/mission8.aep" target="_blank" rel="external">AE文件</a><br>点击<code>窗口-&gt;扩展-&gt;bodymovin</code><br>设置好路径后，点击<code>render</code>即可<br><img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/3.png" alt="3.png" title=""></p>
+<p>生成完毕后，点击preview，还可以预览<br> <img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/4.png" alt="4.png" title=""><br>  <img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/5.png" alt="5.png" title=""></p>
+<h2 id="WEB应用实例"><a href="#WEB应用实例" class="headerlink" title="WEB应用实例"></a>WEB应用实例</h2><p>生成好JSON文件后，在html文件中<br>引入<code>lottie.js</code>，下载地址在<a href="https://github.com/airbnb/lottie-web/blob/master/build/player/lottie.min.js" target="_blank" rel="external">这里</a><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;div id="task" style="width: 300px;background-color: cadetblue"&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script src="lottie.min.js" type="text/javascript"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">var animation = bodymovin.loadAnimation(&#123;</div><div class="line">  container: document.getElementById('task'),</div><div class="line">  renderer: 'svg',</div><div class="line">  loop: true,</div><div class="line">  autoplay: true,</div><div class="line">  path: 'task.json'</div><div class="line">&#125;)</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>注意，如果你也用的上面AE例子的话，因为该动画是白色的，所以一定要给容器设置背景颜色，要不然就会看到白茫茫一片<br>  <img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/2.gif" alt="2.gif" title=""></p>
+<blockquote>
+<p>还有一个要注意的点为，如果在本地测试，必须要在服务器上，否则会报错，因为它需要通过网络去请求动画文件。<br>  <img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/6.png" alt="6.png" title=""></p>
+</blockquote>
+<p>除了上面的方式，官网还介绍了其他引用渲染方式<br>不过这种方式是生成的canvas。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;<span class="selector-tag">div</span> style=<span class="string">"width: 300px;background-color: cadetblue"</span> class=<span class="string">"lottie"</span> data-<span class="attribute">animation</span>-path=<span class="string">"task.json"</span> data-anim-loop=<span class="string">"true"</span> data-name=<span class="string">"test"</span>&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<p>这里有两个必需设置的东西</p>
+<ol>
+<li>class要为“lottie”</li>
+<li>data-animation-path为json路径</li>
+</ol>
+<h1 id="lottie的一些方法"><a href="#lottie的一些方法" class="headerlink" title="lottie的一些方法"></a>lottie的一些方法</h1><p><a href="https://github.com/airbnb/lottie-web" target="_blank" rel="external">官网</a> 上还介绍了其他一些方法</p>
+<ul>
+<li>play</li>
+<li>stop</li>
+<li>pause</li>
+<li>setLocationHref(href)</li>
+<li>setSpeed(speed)</li>
+</ul>
+<p>等等，这里不多讲啦。</p>
+<h2 id="方法应用小实例"><a href="#方法应用小实例" class="headerlink" title="方法应用小实例"></a>方法应用小实例</h2><p>在上面的基础上，做一个效果<br>  <img src="/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/3.gif" alt="3.gif" title=""><br>即鼠标放上去时才动画，离开则不动画了，比较简单，涉及一些方法的应用，直接上代码。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">&lt;div id="bm" style="width: 200px;height: 300px;background-color: cadetblue"&gt;&lt;/div&gt;</div><div class="line">&lt;script src="lottie.min.js" type="text/javascript"&gt;&lt;/script&gt;</div><div class="line">&lt;script&gt;</div><div class="line">var bm = document.getElementById('bm')</div><div class="line">var animation = lottie.loadAnimation(&#123;</div><div class="line">  container: bm,</div><div class="line">  renderer: 'svg',</div><div class="line">  autoplay: false,</div><div class="line">  path: 'task.json',</div><div class="line">  loop: true,</div><div class="line">                 prerender: true,</div><div class="line">&#125;)</div><div class="line"></div><div class="line">bm.addEventListener("mouseenter",function()&#123;</div><div class="line">	animation.play()</div><div class="line">&#125;)</div><div class="line">bm.addEventListener("mouseleave",function()&#123;</div><div class="line">	animation.stop()</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>好啦，基础使用就是这些了，不过Lottie虽然好用，但是并不是能转换所有的动画的，这点心里要有点数哟。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      syean
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/" title="动效神器Lottie初体验——把AE动画转换成WEB原生动画">http://wsyks.github.io/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+            <a href="/tags/动画/" rel="tag"># 动画</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/26/electron入门实践总结/" rel="next" title="Electron入门实践总结">
+                <i class="fa fa-chevron-left"></i> Electron入门实践总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+  
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+
+
+
+          </div>
+          
+
+
+          <!-- 
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+ -->
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="syean" />
+          <p class="site-author-name" itemprop="name">syean</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wsyks" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/2949528583" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://simmin.github.io/" title="Simmin Blog" target="_blank">Simmin Blog</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://phantom0301.cc/" title="零の杂货铺" target="_blank">零の杂货铺</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blackwolfsec.cc/" title="blackwolf" target="_blank">blackwolf</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://ohroot.com/" title="半饱和" target="_blank">半饱和</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.sccsec.com/" title="胖胖的博客" target="_blank">胖胖的博客</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.jinglingshu.org/" title="精灵鼠" target="_blank">精灵鼠</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://wps2015.jinglingshu.org/" title="wps2015" target="_blank">wps2015</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://www.pang0lin.com/" title="穿山甲" target="_blank">穿山甲</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.ourren.com/" title="ourren" target="_blank">ourren</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#下载安装"><span class="nav-number">1.</span> <span class="nav-text">下载安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装插件"><span class="nav-number">1.1.</span> <span class="nav-text">安装插件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#WEB应用实例"><span class="nav-number">2.1.</span> <span class="nav-text">WEB应用实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lottie的一些方法"><span class="nav-number">3.</span> <span class="nav-text">lottie的一些方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法应用小实例"><span class="nav-number">3.1.</span> <span class="nav-text">方法应用小实例</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">syean</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "d7c45d8300d24d59927c5de653864f9c",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script type="text/javascript">
+  new Valine({
+      av: AV,
+      el: '#comments' ,
+      app_id: 'ewXHpYVytCzoMByXMqxkHUIO-gzGzoHsz# your leancloud application appid',
+      app_key: '9oXemFro8W3RPF9yzDzhl0Sm# your leancloud application appkey',
+      placeholder: '你带来指教，我有幸得到', // 默认 null
+      notify: false, // 默认 false
+      verify: false, // 默认 false
+      path: , // 默认 window.location.pathname
+      avatar: '' // 默认 ''
+  });
+</script>
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz", "Maz5zp1hIAmXtT3yBFdh18iM");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

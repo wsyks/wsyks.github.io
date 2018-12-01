@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端,技术,生活">
+    <meta name="keyword" content="">
+    <link rel="shortcut icon" href="/img/ironman-draw.png">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <title>
+        
+          Syean的博客 | Syean&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wsyks.github.io/archives/2/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/home-bg.jpg') 
+            /*config*/
+        
+    }
+    
+    #signature{
+        background-image: url('/undefined');
+    }
+    
+</style>
+
+<header class="intro-header">
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="site-heading">
+                        <h1>Syean</h1>
+                        <!--<hr class="small">-->
+                        <span class="subheading">记录，分享，回忆</span>
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Syean</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Main Content -->
+<div class="container">
+    <div class="row">
+        
+
+<!-- USE SIDEBAR -->
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+            
+                <!-- Main Content -->
+
+
+<div class="post-preview">
+
+    <a href="/2017/05/10/css3实现卡片翻转动画效果/">
+        <h2 class="post-title">
+            CSS3实现卡片翻转动画效果
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。
+
+还是先放效果图，或者点击这里查看效果
+实现html1234&lt;div class="box"&gt;	&lt;div class="card front"&gt;&lt;/div&gt;	&lt;div class="card back"&gt;&lt;/div&gt;&lt;/div&gt;
+css1......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2017-05-10
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#css3" title="css3">css3</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/05/08/解锁新技能——入门剪辑/">
+        <h2 class="post-title">
+            解锁新技能——入门剪辑，四姑娘山
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            
+五一和小伙伴去了四姑娘山，最近摄影有点腻，想学学剪辑，在路上拍了很多小段视频，利用周末的时间，学习了一下PR，剪了一段视频，嘻嘻。
+
+
+
+
+
+...
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2017-05-08
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#人生百态" title="人生百态">人生百态</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/28/UI组件之色彩选择器/">
+        <h2 class="post-title">
+            UI组件之色彩选择器
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。先放上效果图，代码是基于jquery的，所以要引用上哟。  或者戳这里看效果，源码在这里
+功能需求
+可以通过点击左侧色彩区域选择色彩，在右侧的输入框中会显示对应的色值，包括RGB,HSL和HSV的值
+可以通过调节右侧输入框的......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2017-03-28
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#javascript" title="javascript">javascript</a>
+            
+              <a href="/tags/#canvas" title="canvas">canvas</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/17/JS实现RGB-HSL-HSB相互转换/">
+        <h2 class="post-title">
+            JS实现RGB,HSL,HSB相互转换
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！
+色彩模型关于色彩模型的相关知识，主要是整理了别人的分享主要参考了色彩模型介绍和HSL,HSV维基百科上的内容，这里简单做下整理
+RGB模型RGB模型也称为加色法混色模型......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2017-03-17
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#javascript" title="javascript">javascript</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/09/自定义右键菜单/">
+        <h2 class="post-title">
+            自定义右键菜单
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。          实现的效果如下或者点击这里      
+contextmenu法1234567891011&lt;div contextmenu="mymenu" &gt;		&lt;div class="context"&g......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2017-03-09
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#javascript" title="javascript">javascript</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/03/08/有趣的鼠标悬浮模糊效果/">
+        <h2 class="post-title">
+            有趣的鼠标悬浮模糊效果
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言最近一段时间，如果没啥事就会做一点百度前端学院2017的小任务，昨天呢，就做了一个有趣的鼠标悬浮模糊效果的一个东西，用到了一些css3的东西，做一下笔记与总结吧。效果图如下 或者点击这里
+效果描述
+实现文字的流光渐变动画
+背景图需要进行模糊处理
+实现按钮边框的从中间到两边扩展开
+
+关键属性文字流光渐变动画在实现文字的流光渐变动画中，需要用到
+
+-webkit-background-cli......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2017-03-08
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#css3" title="css3">css3</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/02/27/php中密码HASH的方方案——password-hash/">
+        <h2 class="post-title">
+            php中密码HASH的方案——Password Hashing
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。
+Password Hashing在php5.5中，增加了一种新的加密方式，那就是Password Hashi......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2017-02-27
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#php" title="php">php</a>
+            
+              <a href="/tags/#安全" title="安全">安全</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2017/02/16/CSS3实现进度条的几个姿势/">
+        <h2 class="post-title">
+            CSS3实现进度条的两个姿势
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            写在前面好久没更新博客啦，好像从没有在博客里分享CSS的一些东西，今天就分享两个用CSS3实现进度条的姿势。
+
+效果图如下：                
+第一个姿势先上代码
+123&lt;div id="progress"&gt;      &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+123456789101112131415161718192021222......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2017-02-16
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#css3" title="css3">css3</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/11/14/vue-js学习实例/">
+        <h2 class="post-title">
+            vue.js学习实例
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言–师姐说：我们这次项目前端用vue.js吧我说：好呀　　然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue的时候，......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2016-11-14
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#javascript" title="javascript">javascript</a>
+            
+              <a href="/tags/#vue.js" title="vue.js">vue.js</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
+    <a href="/2016/08/05/three-js学习笔记（一）/">
+        <h2 class="post-title">
+            three.js学习笔记（一）
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            三大组建在Three.js中，要渲染物体到网页中，我们需要3个组建：场景（scene）、相机（camera）和渲染器（renderer）。有了这三样东西，才能将物体渲染到网页中去。
+
+想要渲染的物体需要添加在scene变量中，camera变量定义了能够在渲染好的scene里看到什么，renderer则负责计算制定相机角度下，浏览器中scene的样子。
+
+1、创建这三要素的代码如下：1234v......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2016-08-05
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#javascript" title="javascript">javascript</a>
+            
+              <a href="/tags/#webgl" title="webgl">webgl</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+
+
+<!-- Pager -->
+
+<ul class="pager">
+    
+        <li class="previous">
+            <a href="/">&larr; Newer Posts</a>
+        </li>
+    
+    
+        <li class="next">
+            <a href="/archives/3/">Older Posts &rarr;</a>
+        </li>
+    
+</ul>
+
+
+
+                <!-- 如果开启评论功能 -->
+                
+            </div>
+
+          <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Featured Tags -->
+
+<section>
+    <!-- no hr -->
+    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+    <div class="tags">
+        
+            
+            <a href="/tags/#css3" title="css3" rel="3">css3</a>
+            
+        
+            
+            <a href="/tags/#html5" title="html5" rel="2">html5</a>
+            
+        
+            
+            <a href="/tags/#javascript" title="javascript" rel="11">javascript</a>
+            
+        
+            
+            <a href="/tags/#php" title="php" rel="5">php</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#electron" title="electron" rel="2">electron</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#mongodb" title="mongodb" rel="2">mongodb</a>
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#人生百态" title="人生百态" rel="2">人生百态</a>
+            
+        
+            
+        
+            
+        
+            
+            <a href="/tags/#读书笔记" title="读书笔记" rel="2">读书笔记</a>
+            
+        
+            
+        
+            
+        
+    </div>
+</section>
+
+        <hr>
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+    <h5><a href="/about/">ABOUT ME</a></h5>
+    <div class="short-about">
+
+        
+            <img id="avatar_pic" src="/img/avatar.jpg">
+        
+
+        
+            <p>愉快地跳舞，不小心把人生跳成电影</p>
+        
+
+        <!-- SNS Link -->
+        <ul class="list-inline">
+            
+            
+            
+
+            
+                <li>
+                    <a target="_blank" href="http://weibo.com/2949528583">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+
+            
+
+            
+                <li>
+                    <a target="_blank" href="https://github.com/wsyks">
+                        <span class="fa-stack fa-lg">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </li>
+            
+            
+            
+            
+        </ul>
+    </div>
+</section>
+        <hr>
+    
+        <!-- Friends Blog -->
+
+<h5>FRIENDS</h5>
+<ul class="list-inline">
+
+    
+        <li><a href="https://simmin.github.io/" target="_blank">Simmin Blog</a></li>
+    
+        <li><a href="http://phantom0301.cc/" target="_blank">零の杂货铺</a></li>
+    
+        <li><a href="http://blackwolfsec.cc/" target="_blank">blackwolf</a></li>
+    
+        <li><a href="http://wps2015.jinglingshu.org/" target="_blank">wps2015</a></li>
+    
+        <li><a href="http://www.jinglingshu.org/" target="_blank">精灵鼠</a></li>
+    
+        <li><a href="http://blog.ourren.com/" target="_blank">ourren</a></li>
+    
+</ul>
+
+        <hr>
+    
+</div>
+
+        
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/2949528583">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank" href="https://github.com/wsyks">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; syean 2018 
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a> | 
+                    <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true">
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('')
+            background-image: url('/img/article/electron.jpg')
             /*post*/
         
     }
@@ -90,11 +90,7 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
-                            
                               <a class="tag" href="/tags/#electron" title="electron">electron</a>
-                            
-                              <a class="tag" href="/tags/#nodejs" title="nodejs">nodejs</a>
                             
                         </div>
                         <h1>Electron入门实践总结</h1>
@@ -155,14 +151,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -218,15 +214,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                
-<p>最近，用Electron写了一个桌面应用，是一个比较简单的应用，所以用的东西都是最浅的，做一个总结吧。<br><a id="more"></a></p>
+                <p>最近，用Electron写了一个桌面应用，是一个比较简单的应用，所以用的东西都是最浅的，做一个总结吧。<br><a id="more"></a></p>
 <p>Electron是由Github开发，用HTML，CSS和JavaScript来构建跨平台桌面应用程序的一个开源库。 Electron通过将Chromium和Node.js合并到同一个运行时环境中，并将其打包为Mac，Windows和Linux系统下的应用来实现这一目的。</p>
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>因为是基于nodejs，所以先要安装nodejs，这就不多说了</p>
 <p>创建一个项目文件夹，执行</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure>
 <p>之后在安装electron<br>这里用的淘宝的镜像，所以是<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g electron</span><br></pre></td></tr></table></figure></p>
 <p>大体上，一个 Electron 应用的目录结构如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">your-app/</span><br><span class="line">├── package.json</span><br><span class="line">├── main.js</span><br><span class="line">└── index.html</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">your-app/</span><br><span class="line">├── package.json</span><br><span class="line">├── main.js</span><br><span class="line">└── index.html</span><br></pre></td></tr></table></figure>
 <p>package.json的格式和 Node 的完全一致，并且那个被 main 字段声明的脚本文件是你的应用的启动脚本，它运行在主进程上。你应用里的 package.json 看起来应该像：</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>    : <span class="string">"your-app"</span>,</span><br><span class="line">  <span class="attr">"version"</span> : <span class="string">"0.1.0"</span>,</span><br><span class="line">  <span class="attr">"main"</span>    : <span class="string">"main.js"</span> //这里要与目录的里的文件名保持一致</span><br><span class="line">  <span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"start"</span>: <span class="string">"electron ."</span>,</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" &amp;&amp; exit 1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -309,6 +304,17 @@
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
 
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#安装"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">安装</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#快速搭建"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">快速搭建</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#实现热更新"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">实现热更新</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#主进程和渲染进程通信"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">主进程和渲染进程通信</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#消息监听"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">消息监听</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#发送消息"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">发送消息</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#栗子"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">栗子</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#browserwindow的一些设置"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">BrowserWindow的一些设置</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#设置菜单"><span class="toc-nav-number">6.</span> <span class="toc-nav-text">设置菜单</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#设置任务栏"><span class="toc-nav-number">7.</span> <span class="toc-nav-text">设置任务栏</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
                 
             <!-- Sidebar Container -->
             <div class="
@@ -323,11 +329,7 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
-                        
                           <a class="tag" href="/tags/#electron" title="electron">electron</a>
-                        
-                          <a class="tag" href="/tags/#nodejs" title="nodejs">nodejs</a>
                         
                     </div>
                 </section>

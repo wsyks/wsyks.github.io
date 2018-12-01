@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('')
+            background-image: url('/img/article/webstorage.jpg')
             /*post*/
         
     }
@@ -151,14 +151,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -214,8 +214,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                
-<p>这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。<br><a id="more"></a></p>
+                <p>这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。<br><a id="more"></a></p>
 <h1 id="浏览器本地存储概述"><a href="#浏览器本地存储概述" class="headerlink" title="浏览器本地存储概述"></a>浏览器本地存储概述</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h3 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h3><p>cookie是指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。</p>
 <h3 id="webstorage"><a href="#webStorage" class="headerlink" title="webStorage"></a>webStorage</h3><p>webStorage是HTML5中本地存储的解决方案之一，包括sessionStorag和localStorage，两者差別就差在生命周期的不同而已。</p>
 <h3 id="websql和indexeddb"><a href="#websql和indexeddb" class="headerlink" title="websql和indexeddb"></a>websql和indexeddb</h3><p>IndexedDB 是一种低级API，用于客户端存储大量结构化数据。该API使用索引来实现对该数据的高性能搜索。webStorage 对于存储较少量的数据很有用，但对于存储更大量的结构化数据来说，这种方法不太有用。IndexedDB提供了一个解决方案。</p>
@@ -414,6 +413,17 @@
             
             <!-- Tabe of Content -->
             <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#浏览器本地存储概述"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">浏览器本地存储概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#简介"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">简介</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#cookie"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">cookie</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#webstorage"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">webStorage</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#websql和indexeddb"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">websql和indexeddb</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#四者对比"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">四者对比</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#webstorage和indexeddb的兼容性"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">webStorage和indexeddb的兼容性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#webstorage兼容性"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">webStorage兼容性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#indexeddb兼容性"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">indexeddb兼容性</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#webstorage-api"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">webStorage API</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#storage事件"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">storage事件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#storage-属性"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">storage 属性</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#多标签页面使用sessionstorage"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">多标签页面使用sessionStorage</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#indexeddb"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">IndexedDB</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
 
                 
             <!-- Sidebar Container -->

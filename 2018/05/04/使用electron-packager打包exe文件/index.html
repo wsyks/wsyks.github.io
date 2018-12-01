@@ -69,7 +69,7 @@
 <style type="text/css">
     header.intro-header{
         
-            background-image: url('/img/article/electron-package.jpg')
+            background-image: url('/img/article/electron.jpg')
             /*post*/
         
     }
@@ -89,8 +89,6 @@
                 
                     <div class="post-heading">
                         <div class="tags">
-                            
-                              <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
                             
                               <a class="tag" href="/tags/#electron" title="electron">electron</a>
                             
@@ -153,14 +151,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -216,8 +214,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <img src="/2018/05/04/使用electron-packager打包exe文件/1.png">
-<p> electron的项目写的差不错了，要打包成exe文件咯。<br> <a id="more"></a></p>
+                <p>electron的项目写的差不错了，要打包成exe文件咯。<br> <a id="more"></a></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在文件主目录下安装 electron-packager<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron-packager --save-dev</span><br></pre></td></tr></table></figure></p>
 <p>在package.json里添加”packager”，设置成如下</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"electron ."</span>,</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"</span><span class="keyword">Error</span>: <span class="keyword">no</span> <span class="keyword">test</span> specified\<span class="string">" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="string">"packager"</span>: <span class="string">"electron-packager . outapp --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/img/favicon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"</span>Electron <span class="keyword">Tutorial</span> <span class="keyword">App</span>\<span class="string">" --electron-version=1.6.2"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
@@ -299,8 +296,6 @@
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
-                        
                           <a class="tag" href="/tags/#electron" title="electron">electron</a>
                         
                     </div>

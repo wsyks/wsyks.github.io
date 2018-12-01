@@ -151,14 +151,14 @@
 
                         
                         <li>
-                            <a href="/tags/">Tags</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -214,7 +214,7 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。<br>     <a id="more"></a><br>     实现的效果如下或者<a href="https://wsyks.github.io/ife-2017/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" target="_blank" rel="noopener">点击这里</a><br>      </p>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。<br>     <a id="more"></a><br>     实现的效果如下或者<a href="https://wsyks.github.io/ife-2017/%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/">点击这里</a><br>      <img src="/2017/03/09/自定义右键菜单/1.gif"></p>
 <h1 id="contextmenu法"><a href="#contextmenu法" class="headerlink" title="contextmenu法"></a>contextmenu法</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">contextmenu</span>=<span class="string">"mymenu"</span> &gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"context"</span>&gt;</span>这里有一个菜单,请在firefox打开哟<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">menu</span> <span class="attr">id</span>=<span class="string">"mymenu"</span> <span class="attr">type</span>=<span class="string">"context"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">label</span>=<span class="string">"呼呼"</span> <span class="attr">icon</span>=<span class="string">"1.jpg"</span> <span class="attr">onclick</span>=<span class="string">"doSomething()"</span>&gt;</span><span class="tag">&lt;/<span class="name">menuitem</span>&gt;</span></span><br><span class="line">		  	<span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">label</span>=<span class="string">"嘻嘻"</span> <span class="attr">icon</span>=<span class="string">"2.jpg"</span> <span class="attr">onclick</span>=<span class="string">"doSomethingElse()"</span>&gt;</span><span class="tag">&lt;/<span class="name">menuitem</span>&gt;</span></span><br><span class="line">		  	<span class="tag">&lt;<span class="name">menu</span> <span class="attr">label</span>=<span class="string">"哈哈"</span>&gt;</span></span><br><span class="line">			  	<span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">label</span>=<span class="string">"呼呼"</span> <span class="attr">icon</span>=<span class="string">"1.jpg"</span> <span class="attr">onclick</span>=<span class="string">"doSomething()"</span>&gt;</span><span class="tag">&lt;/<span class="name">menuitem</span>&gt;</span></span><br><span class="line">			  	<span class="tag">&lt;<span class="name">menuitem</span> <span class="attr">label</span>=<span class="string">"嘻嘻"</span> <span class="attr">icon</span>=<span class="string">"2.jpg"</span> <span class="attr">onclick</span>=<span class="string">"doSomethingElse()"</span>&gt;</span><span class="tag">&lt;/<span class="name">menuitem</span>&gt;</span></span><br><span class="line">		  	<span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>使用小TIP</p>

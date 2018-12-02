@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://wsyks.github.io/archives/index.html</loc>
+    
+    <lastmod>2018-12-02T02:17:09.668Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://wsyks.github.io/about/index.html</loc>
     
     <lastmod>2018-12-01T09:00:23.564Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>http://wsyks.github.io/2017/03/08/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/</loc>
     
     <lastmod>2018-12-01T08:53:44.042Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://wsyks.github.io/archives/index.html</loc>
-    
-    <lastmod>2018-12-01T08:40:17.793Z</lastmod>
     
   </url>
   

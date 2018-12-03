@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="前端,技术,生活">
     <meta name="keyword" content="">
-    <link rel="shortcut icon" type="image/x-icon" href="/blog/img/ironman-draw.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
@@ -18,24 +18,24 @@
         
     </title>
 
-    <link rel="canonical" href="http://wsyks.github.io/blog/blog/2017/07/27/阿里巴巴iconfont正确的使用姿势/">
+    <link rel="canonical" href="http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/blog/css/beantech.min.css">
+    <link rel="stylesheet" href="/css/beantech.min.css">
     
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/blog/css/highlight.css">
+    <link rel="stylesheet" href="/css/highlight.css">
 
-    <link rel="stylesheet" href="/blog/css/widget.css">
+    <link rel="stylesheet" href="/css/widget.css">
 
-    <link rel="stylesheet" href="/blog/css/rocket.css">
+    <link rel="stylesheet" href="/css/rocket.css">
 
-    <link rel="stylesheet" href="/blog/css/signature.css">
+    <link rel="stylesheet" href="/css/signature.css">
 
-    <link rel="stylesheet" href="/blog/css/toc.css">
+    <link rel="stylesheet" href="/css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -75,7 +75,7 @@
     }
     
     #signature{
-        background-image: url('/blog/undefined');
+        background-image: url('/undefined');
     }
     
 </style>
@@ -90,9 +90,9 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/blog/tags/#css" title="css">css</a>
+                              <a class="tag" href="/tags/#css" title="css">css</a>
                             
-                              <a class="tag" href="/blog/tags/#设计" title="设计">设计</a>
+                              <a class="tag" href="/tags/#设计" title="设计">设计</a>
                             
                         </div>
                         <h1>阿里巴巴iconfont正确的使用姿势</h1>
@@ -123,7 +123,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/blog/">Syean</a>
+            <a class="navbar-brand" href="/">Syean</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -136,7 +136,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 
                     
@@ -146,21 +146,21 @@
 
                         
                         <li>
-                            <a href="/blog/about/">About</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/blog/archives/">Archives</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/blog/tags/">Tags</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -216,17 +216,29 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>以前一直用的是fontawesome字体，一直也就用它，觉得还比较齐全，偶尔有需要用到其他图标的时候，就会用阿里巴巴iconfont，在上面选择一个合适的图标下载一个png或者svg格式，如下图，单独引入也就是了。今天好好看了一下，发现以前真的是小看了这个字体库。<br><a id="more"></a><br><img src="/blog/2017/07/27/阿里巴巴iconfont正确的使用姿势/6.png"></p>
+                <p>以前一直用的是fontawesome字体，一直也就用它，觉得还比较齐全，偶尔有需要用到其他图标的时候，就会用阿里巴巴iconfont，在上面选择一个合适的图标下载一个png或者svg格式，如下图，单独引入也就是了。今天好好看了一下，发现以前真的是小看了这个字体库。</p>
+<a id="more"></a>
+<img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/6.png">
 <p>平时都是一个个下，如果要用一批里面的字体该如何做呢？follow me!</p>
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>进入<a href="http://www.iconfont.cn" target="_blank" rel="noopener">官网</a>，选择你需要的图标，“添加入库”<br><img src="/blog/2017/07/27/阿里巴巴iconfont正确的使用姿势/1.png"><br>选择完毕后，点击上方的购物车图标<br><img src="/blog/2017/07/27/阿里巴巴iconfont正确的使用姿势/2.png"><br>再点击“下载代码”即可<br><img src="/blog/2017/07/27/阿里巴巴iconfont正确的使用姿势/3.png"><br>下载下来的如图<br><img src="/blog/2017/07/27/阿里巴巴iconfont正确的使用姿势/4.png"></p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>其实下载的文件中包含了那个demo html文件，分别介绍了三种使用方式，阅读即可明白使用方法，讲的很清楚。</p>
+<h2 id="下载">下载</h2>
+<p>进入<a href="http://www.iconfont.cn" target="_blank" rel="noopener">官网</a>，选择你需要的图标，“添加入库”</p>
+<img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/1.png">
+<p>选择完毕后，点击上方的购物车图标</p>
+<img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/2.png">
+<p>再点击“下载代码”即可</p>
+<img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/3.png">
+<p>下载下来的如图</p>
+<img src="/2017/07/27/阿里巴巴iconfont正确的使用姿势/4.png">
+<h2 id="使用">使用</h2>
+<p>其实下载的文件中包含了那个demo html文件，分别介绍了三种使用方式，阅读即可明白使用方法，讲的很清楚。</p>
 <ul>
 <li>symbol引用 ：支持ie9+，可以使用彩色图标</li>
 <li>font-class 引用 ：兼容性不错，支持ie8+，书写直观（这点很不错），不过本质还是字体，所以只能是单色图标，推荐</li>
 <li>unicode 引用 ：兼容性最好（支持ie6+）,其他都比不上font-class。</li>
 </ul>
 <p>这里还是贴一下使用方式吧</p>
-<h3 id="font-class引用"><a href="#font-class引用" class="headerlink" title="font-class引用"></a>font-class引用</h3><p>使用步骤如下：</p>
+<h3 id="font-class引用">font-class引用</h3>
+<p>使用步骤如下：</p>
 <p>第一步：引入项目下面生成的fontclass代码：</p>
 <figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="attr">rel="stylesheet"</span> <span class="attr">type="text/css"</span> <span class="attr">href="./iconfont.css"&gt;</span></span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -234,14 +246,17 @@
 </blockquote>
 <p>第二步：挑选相应图标并获取类名，应用于页面：</p>
 <p><i class="iconfont icon-xxx"></i></p>
-<h3 id="symbol引用"><a href="#symbol引用" class="headerlink" title="symbol引用"></a>symbol引用</h3><p>使用步骤如下：</p>
+<h3 id="symbol引用">symbol引用</h3>
+<p>使用步骤如下：</p>
 <p>第一步：引入项目下面生成的symbol代码：</p>
 <figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./iconfont.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>第二步：加入通用css代码（引入一次就行）：</p>
 <figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">.icon &#123;</span></span><br><span class="line"><span class="xml">   width: 1em; height: 1em;</span></span><br><span class="line"><span class="xml">   vertical-align: -0.15em;</span></span><br><span class="line"><span class="xml">   fill: currentColor;</span></span><br><span class="line"><span class="xml">   overflow: hidden;</span></span><br><span class="line"><span class="xml">&#125;</span></span><br></pre></td></tr></table></figure>
-<p><br>第三步：挑选相应图标并获取类名，应用于页面：</p>
+
+第三步：挑选相应图标并获取类名，应用于页面：
 <figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">class</span>=<span class="string">"icon"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">use</span> <span class="attr">xlink:href</span>=<span class="string">"#icon-xxx"</span>&gt;</span><span class="tag">&lt;/<span class="name">use</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="unicode引用"><a href="#unicode引用" class="headerlink" title="unicode引用"></a>unicode引用</h3><p>第一步：拷贝项目下面生成的font-face</p>
+<h3 id="unicode引用">unicode引用</h3>
+<p>第一步：拷贝项目下面生成的font-face</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">font-face</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">'iconfont'</span>;</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'iconfont.eot'</span>);</span><br><span class="line">  <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">'iconfont.eot?#iefix'</span>) <span class="built_in">format</span>(<span class="string">'embedded-opentype'</span>),</span><br><span class="line">  <span class="built_in">url</span>(<span class="string">'iconfont.woff'</span>) <span class="built_in">format</span>(<span class="string">'woff'</span>),</span><br><span class="line">  <span class="built_in">url</span>(<span class="string">'iconfont.ttf'</span>) <span class="built_in">format</span>(<span class="string">'truetype'</span>),</span><br><span class="line">  <span class="built_in">url</span>(<span class="string">'iconfont.svg#iconfont'</span>) <span class="built_in">format</span>(<span class="string">'svg'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>第二步：定义使用iconfont的样式</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.iconfont</span>&#123;</span><br><span class="line">  <span class="attribute">font-family</span>:<span class="string">"iconfont"</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">font-size</span>:<span class="number">16px</span>;<span class="attribute">font-style</span>:normal;</span><br><span class="line">  <span class="attribute">-webkit-font-smoothing</span>: antialiased;</span><br><span class="line">  <span class="attribute">-webkit-text-stroke-width</span>: <span class="number">0.2px</span>;</span><br><span class="line">  <span class="attribute">-moz-osx-font-smoothing</span>: grayscale;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -255,12 +270,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/blog/2017/08/15/谈谈HTML5本地存储/" data-toggle="tooltip" data-placement="top" title="谈谈HTML5本地存储">&larr; Previous Post</a>
+                            <a href="/2017/08/15/谈谈HTML5本地存储/" data-toggle="tooltip" data-placement="top" title="谈谈HTML5本地存储">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/blog/2017/07/17/Mock-js初体验——模拟前后端交互/" data-toggle="tooltip" data-placement="top" title="Mock.js初体验——模拟前后端交互">Next Post &rarr;</a>
+                            <a href="/2017/07/17/Mock-js初体验——模拟前后端交互/" data-toggle="tooltip" data-placement="top" title="Mock.js初体验——模拟前后端交互">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -307,12 +322,12 @@
                 
                 <section>
                     <!-- no hr -->
-                    <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/blog/tags/#css" title="css">css</a>
+                          <a class="tag" href="/tags/#css" title="css">css</a>
                         
-                          <a class="tag" href="/blog/tags/#设计" title="设计">设计</a>
+                          <a class="tag" href="/tags/#设计" title="设计">设计</a>
                         
                     </div>
                 </section>
@@ -351,8 +366,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "http://wsyks.github.io/blog/2017/07/27/阿里巴巴iconfont正确的使用姿势/";
-    var disqus_url = "http://wsyks.github.io/blog/2017/07/27/阿里巴巴iconfont正确的使用姿势/";
+    var disqus_identifier = "http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/";
+    var disqus_url = "http://wsyks.github.io/2017/07/27/阿里巴巴iconfont正确的使用姿势/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -460,13 +475,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/hux-blog.min.js"></script>
+<script src="/js/hux-blog.min.js"></script>
 
 
 <!-- async load function -->
@@ -504,7 +519,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://wsyks.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -569,7 +584,7 @@
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://wsyks.github.io/blog/blog/img/icon_wechat.png" width="0" height="0" />
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>

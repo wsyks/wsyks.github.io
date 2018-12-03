@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="前端,技术,生活">
     <meta name="keyword" content="">
-    <link rel="shortcut icon" type="image/x-icon" href="/blog/img/ironman-draw.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
@@ -18,24 +18,24 @@
         
     </title>
 
-    <link rel="canonical" href="http://wsyks.github.io/blog/blog/2016/04/22/算法学习笔记（一）/">
+    <link rel="canonical" href="http://wsyks.github.io/2016/04/22/算法学习笔记（一）/">
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="/blog/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     <!-- Custom CSS --> 
-    <link rel="stylesheet" href="/blog/css/beantech.min.css">
+    <link rel="stylesheet" href="/css/beantech.min.css">
     
     <!-- Pygments Highlight CSS -->
-    <link rel="stylesheet" href="/blog/css/highlight.css">
+    <link rel="stylesheet" href="/css/highlight.css">
 
-    <link rel="stylesheet" href="/blog/css/widget.css">
+    <link rel="stylesheet" href="/css/widget.css">
 
-    <link rel="stylesheet" href="/blog/css/rocket.css">
+    <link rel="stylesheet" href="/css/rocket.css">
 
-    <link rel="stylesheet" href="/blog/css/signature.css">
+    <link rel="stylesheet" href="/css/signature.css">
 
-    <link rel="stylesheet" href="/blog/css/toc.css">
+    <link rel="stylesheet" href="/css/toc.css">
 
     <!-- Custom Fonts -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
@@ -75,7 +75,7 @@
     }
     
     #signature{
-        background-image: url('/blog/undefined');
+        background-image: url('/undefined');
     }
     
 </style>
@@ -90,7 +90,7 @@
                     <div class="post-heading">
                         <div class="tags">
                             
-                              <a class="tag" href="/blog/tags/#读书笔记" title="读书笔记">读书笔记</a>
+                              <a class="tag" href="/tags/#读书笔记" title="读书笔记">读书笔记</a>
                             
                         </div>
                         <h1>算法学习笔记（一）</h1>
@@ -121,7 +121,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/blog/">Syean</a>
+            <a class="navbar-brand" href="/">Syean</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -134,7 +134,7 @@
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="/blog/">Home</a>
+                        <a href="/">Home</a>
                     </li>
 
                     
@@ -144,21 +144,21 @@
 
                         
                         <li>
-                            <a href="/blog/about/">About</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/blog/archives/">Archives</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/blog/tags/">Tags</a>
+                            <a href="/tags/">Tags</a>
                         </li>
                         
                     
@@ -214,8 +214,13 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。<br><a id="more"></a></p>
-<h1 id="贪婪法"><a href="#贪婪法" class="headerlink" title="贪婪法"></a>贪婪法</h1><h2 id="贪婪法简介"><a href="#贪婪法简介" class="headerlink" title="贪婪法简介"></a>贪婪法简介</h2><p>贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对<strong>局部最有利</strong>的选择。<br>贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。</p>
+                <h1 id="前言">前言</h1>
+<p>虽然我是一个连jquery都用的不熟的人，但作为前端开发学习人员，总是要追求一下新的技术，所以最近就看了一下很火的React这个东西，但本篇文章并非讲的是React的内容，而是在学习React的过程中，其使用了DOM Diff算法，然后我又查到了Diff算法，然后Diff算法又属于动态规划的算法思想，然后我就打开了买来许久，不曾翻阅过的《算法的分析这本书》，好好了解一下算法设计中的常用思想，记录一下学习的内容吧。</p>
+<a id="more"></a>
+<h1 id="贪婪法">贪婪法</h1>
+<h2 id="贪婪法简介">贪婪法简介</h2>
+<p>贪婪法是寻找最优解问题的常用方法。这种方式一般将求解过程分为若干个步骤，每个步骤都使用贪心原则，选取对<strong>局部最有利</strong>的选择。<br>
+贪心算法不是对所有问题都能得到整体最优解，关键是贪心策略的选择，选择的贪心策略必须具备无后效性，即某个状态以前的过程不会影响以后的状态，只与当前状态有关。它是一种启发式辅助算法。</p>
 <p>与其他算法比较：</p>
 <ul>
 <li>相同点：对问题进行分解，定义最优解的子结构</li>
@@ -232,7 +237,9 @@
 <li>分析：子问题的最优解结构就是在之前的步骤中已经选的硬币上加上当前选择的硬币。即在币值不超过41的前提下选择币值最大的一枚硬币。则根据贪婪法，第一次选25分，之后依次选择10分，5分，1分。需要4枚，确实是最优解。</li>
 <li>但是若换成25分、20分、5分、1分四种硬币，则这时候最优解应该是2枚20分1枚1分。但是根据贪婪法得到的结果则为1枚25分3枚5分1枚1分共5枚硬币。</li>
 </ul>
-<h1 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h1><h2 id="分治法简介"><a href="#分治法简介" class="headerlink" title="分治法简介"></a>分治法简介</h2><p>将无法着手解决的问题分解成一系列规模较小的相同问题，反复使用分治方法，知道能够被直接求解为止</p>
+<h1 id="分治法">分治法</h1>
+<h2 id="分治法简介">分治法简介</h2>
+<p>将无法着手解决的问题分解成一系列规模较小的相同问题，反复使用分治方法，知道能够被直接求解为止</p>
 <p>应用：</p>
 <ul>
 <li>最大最小问题，如在一堆形状相同的物品中找到最重或最轻的一个</li>
@@ -243,7 +250,9 @@
 <li>最难和最灵活的部分就是对问题的分解和结果的合并</li>
 <li>经常使用递归的方法</li>
 </ul>
-<h1 id="动态规划法"><a href="#动态规划法" class="headerlink" title="动态规划法"></a>动态规划法</h1><h2 id="动态规划法简介"><a href="#动态规划法简介" class="headerlink" title="动态规划法简介"></a>动态规划法简介</h2><p>将多阶段决策过程转化为一系列的单阶段决策问题，利用各个阶段之间的递推关系，逐个确定每个阶段的最优化决策，最终堆叠出多阶段决策的最优化决策结果</p>
+<h1 id="动态规划法">动态规划法</h1>
+<h2 id="动态规划法简介">动态规划法简介</h2>
+<p>将多阶段决策过程转化为一系列的单阶段决策问题，利用各个阶段之间的递推关系，逐个确定每个阶段的最优化决策，最终堆叠出多阶段决策的最优化决策结果</p>
 <p>应用：</p>
 <ul>
 <li>最短路线、库存管理、资源分配等</li>
@@ -262,12 +271,12 @@
                 <ul class="pager">
                     
                         <li class="previous">
-                            <a href="/blog/2016/07/21/瓦片地图/" data-toggle="tooltip" data-placement="top" title="瓦片地图">&larr; Previous Post</a>
+                            <a href="/2016/07/21/瓦片地图/" data-toggle="tooltip" data-placement="top" title="瓦片地图">&larr; Previous Post</a>
                         </li>
                     
                     
                         <li class="next">
-                            <a href="/blog/2016/04/09/分享两篇游记/" data-toggle="tooltip" data-placement="top" title="分享两篇游记">Next Post &rarr;</a>
+                            <a href="/2016/04/09/分享两篇游记/" data-toggle="tooltip" data-placement="top" title="分享两篇游记">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -314,10 +323,10 @@
                 
                 <section>
                     <!-- no hr -->
-                    <h5><a href="/blog/tags/">FEATURED TAGS</a></h5>
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
                        
-                          <a class="tag" href="/blog/tags/#读书笔记" title="读书笔记">读书笔记</a>
+                          <a class="tag" href="/tags/#读书笔记" title="读书笔记">读书笔记</a>
                         
                     </div>
                 </section>
@@ -356,8 +365,8 @@
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = "your-disqus-ID";
-    var disqus_identifier = "http://wsyks.github.io/blog/2016/04/22/算法学习笔记（一）/";
-    var disqus_url = "http://wsyks.github.io/blog/2016/04/22/算法学习笔记（一）/";
+    var disqus_identifier = "http://wsyks.github.io/2016/04/22/算法学习笔记（一）/";
+    var disqus_url = "http://wsyks.github.io/2016/04/22/算法学习笔记（一）/";
 
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -465,13 +474,13 @@
 </footer>
 
 <!-- jQuery -->
-<script src="/blog/js/jquery.min.js"></script>
+<script src="/js/jquery.min.js"></script>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="/blog/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="/blog/js/hux-blog.min.js"></script>
+<script src="/js/hux-blog.min.js"></script>
 
 
 <!-- async load function -->
@@ -509,7 +518,7 @@
 <script>
     // only load tagcloud.js in tag.html
     if($('#tag_cloud').length !== 0){
-        async("http://wsyks.github.io/blog/blog/js/jquery.tagcloud.js",function(){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
             $.fn.tagcloud.defaults = {
                 //size: {start: 1, end: 1, unit: 'em'},
                 color: {start: '#bbbbee', end: '#0085a1'},
@@ -574,7 +583,7 @@
 	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
     <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
 <!-- Image to hack wechat -->
-<img src="http://wsyks.github.io/blog/blog/img/icon_wechat.png" width="0" height="0" />
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 </body>

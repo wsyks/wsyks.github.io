@@ -67,7 +67,7 @@
 }
 .toc-nav-child {
   margin-left: 0em;
-  padding-inline-start: 20px;
+  padding: 0 20px;
 }
 #sidebar {
   display: inline;

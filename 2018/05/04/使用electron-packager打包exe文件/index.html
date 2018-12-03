@@ -214,12 +214,9 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>electron的项目写的差不错了，要打包成exe文件咯。</p>
- <a id="more"></a>
-<h2 id="安装">安装</h2>
-<p>在文件主目录下安装 electron-packager</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron-packager --save-dev</span><br></pre></td></tr></table></figure>
-<p>在package.json里添加&quot;packager&quot;，设置成如下</p>
+                <p>electron的项目写的差不错了，要打包成exe文件咯。<br> <a id="more"></a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在文件主目录下安装 electron-packager<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install electron-packager --save-dev</span><br></pre></td></tr></table></figure></p>
+<p>在package.json里添加”packager”，设置成如下</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"electron ."</span>,</span><br><span class="line">    <span class="string">"test"</span>: <span class="string">"echo \"</span><span class="keyword">Error</span>: <span class="keyword">no</span> <span class="keyword">test</span> specified\<span class="string">" &amp;&amp; exit 1"</span>,</span><br><span class="line">    <span class="string">"packager"</span>: <span class="string">"electron-packager . outapp --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/img/favicon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"</span>Electron <span class="keyword">Tutorial</span> <span class="keyword">App</span>\<span class="string">" --electron-version=1.6.2"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>platform：设置平台，window，linux还是Mac</li>
@@ -228,23 +225,14 @@
 <li>electron-version：electron的版本，必须要指定，这里设置为1.6.2</li>
 <li>icon 图标地址</li>
 </ul>
-<p>之后运行即可</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run packager</span><br></pre></td></tr></table></figure>
+<p>之后运行即可<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run packager</span><br></pre></td></tr></table></figure></p>
 <p>第一次打包会慢一点，要去下载electron-version对应的版本的electron</p>
-<h2 id="可能报错的几种情况及对应方案">可能报错的几种情况及对应方案</h2>
-<ol>
-<li>
-<p>出现以下报错：<br>
-<code>electron ELOOP: too many symbolic links encountered</code><br>
-解决方案：将node_modules文件删掉，然后用<code>npm install</code>重新安装依赖包，不要用<code>cnpm</code>安装</p>
+<h2 id="可能报错的几种情况及对应方案"><a href="#可能报错的几种情况及对应方案" class="headerlink" title="可能报错的几种情况及对应方案"></a>可能报错的几种情况及对应方案</h2><ol>
+<li><p>出现以下报错：<br><code>electron ELOOP: too many symbolic links encountered</code><br>解决方案：将node_modules文件删掉，然后用<code>npm install</code>重新安装依赖包，不要用<code>cnpm</code>安装</p>
 </li>
-<li>
-<p>electron打包只会打包<code>dependencies</code>中的依赖包，如果文件中用到了<code>devDependencies</code>，之后可能会报错，找不到对应的模块。</p>
+<li><p>electron打包只会打包<code>dependencies</code>中的依赖包，如果文件中用到了<code>devDependencies</code>，之后可能会报错，找不到对应的模块。</p>
 </li>
-<li>
-<p>在打包好后，打开exe文件，出现如下错误：<br>
-<code>Uncaught Exception: TypeError: Error processing argument at index 0, conversion failure from assets/img/logo.jpg</code><br>
-原因在 tray的图标应该设置成绝对路径，不要用相对路径。</p>
+<li><p>在打包好后，打开exe文件，出现如下错误：<br><code>Uncaught Exception: TypeError: Error processing argument at index 0, conversion failure from assets/img/logo.jpg</code><br>原因在 tray的图标应该设置成绝对路径，不要用相对路径。</p>
 </li>
 </ol>
 <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> iconPath = path.<span class="keyword">join</span>(__dirname,<span class="string">'assets/img/logo.jpg'</span>)</span><br><span class="line">appIcon = <span class="keyword">new</span> Tray(iconPath);</span><br></pre></td></tr></table></figure>

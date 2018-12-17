@@ -24,7 +24,7 @@ var precacheUrls = [];
 
   precacheUrls.push('/');
 
-  precacheUrls.push('/2016/08/05/three-js学习笔记（一）/');
+  precacheUrls.push('/2016/11/14/vue-js学习实例/');
 
   precacheUrls.push('/2017/07/27/阿里巴巴iconfont正确的使用姿势/');
 

@@ -534,6 +534,14 @@
 
 
 
+<script>
+window.addEventListener('beforeinstallprompt', event => {
+  event.userChoice.then(result => {console.log(result.outcome)
+  })
+})
+</script>
+
+
 
 
 
@@ -545,7 +553,7 @@
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545037486999')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545037875974')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

@@ -218,13 +218,35 @@
              <!-- 归档列表 -->
 
 
-            <!-- <h2>共 29 篇</h2> -->
+            <!-- <h2>共 30 篇</h2> -->
             
             <div class="one-tag-list">
                 <span class="fa fa-calendar-times-o listing-seperator" id="2018">
                     <span class="tag-text" style="font-size:16px">2018</span>
                 </span>
                 <ul style="list-style: none;padding: 0;">
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <!-- <li > -->
+                    
+                    <!-- <i class="fa fa-angle-double-right" aria-hidden="true"></i> -->
+                 
+                    <div class="post-preview">
+                            <span style="font-size:16px">12-17&nbsp;</span>
+                            <a href="/2018/12/17/hexo博客配置PWA/" style="display: inline-block">
+                               <h2 class="post-title">
+                                   Hexo博客配置PWA
+                               </h2>
+                               
+                           </a>
+                           <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                       </div>
+                       <hr style="margin-top:10px;margin-bottom: 10px">
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                <!-- </li> -->
                 
                   <!-- <li class="listing-item">
                   <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
@@ -1077,7 +1099,7 @@ window.addEventListener('beforeinstallprompt', event => {
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545037875974')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545052262091')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

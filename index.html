@@ -213,6 +213,38 @@
 
 <div class="post-preview">
 
+    <a href="/2018/12/17/hexo博客配置PWA/">
+        <h2 class="post-title">
+            Hexo博客配置PWA
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            想要实践一下pwa，就拿自己的博客来试验一下。
+配置https想要实现网站的pwa，需要将网站配置成https，主要是因为service worker只能下https下，本地localhost和127.0.0.1也是可以的。 
+ssl证书购买的腾讯云的服务器，可以免费申请ssl证书，申请完后，下载证书得到一个压缩文件。解压缩后有好几个目录，因为是nginx的环境，把nginx下的证书和key......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2018-12-17
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#hexo" title="hexo">hexo</a>
+            
+              <a href="/tags/#pwa" title="pwa">pwa</a>
+            
+        </div>
+    
+
+</div>
+<hr>
+
+<div class="post-preview">
+
     <a href="/2018/05/04/使用electron-packager打包exe文件/">
         <h2 class="post-title">
             使用electron-packager打包exe文件
@@ -496,35 +528,6 @@ webStoragewebStorage是HTML5中本地存储的解决方案之一，包括session
 </div>
 <hr>
 
-<div class="post-preview">
-
-    <a href="/2017/05/19/php-CodeIgniter分页及多条件查询解决方案/">
-        <h2 class="post-title">
-            PHP CodeIgniter分页实例及多条件查询解决方案
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            前言最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。      因为页面中有条件筛选的表单，所以想要完成的效果就是，输入条件后，分页跳转之后能维持所输入的条件。想了一下，自己的思路如下代码吧。
-controller 代码123456789101112131415161718192021222324252627class......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by syean on
-            2017-05-19
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#php" title="php">php</a>
-            
-        </div>
-    
-
-</div>
-<hr>
-
 
 
 <!-- Pager -->
@@ -561,11 +564,11 @@ controller 代码123456789101112131415161718192021222324252627class......
     <div class="tags">
         
             
-            <a href="/tags/#html5" title="html5" rel="2">html5</a>
+            <a href="/tags/#css" title="css" rel="4">css</a>
             
         
             
-            <a href="/tags/#css" title="css" rel="4">css</a>
+            <a href="/tags/#html5" title="html5" rel="2">html5</a>
             
         
             
@@ -591,9 +594,15 @@ controller 代码123456789101112131415161718192021222324252627class......
             
         
             
+            <a href="/tags/#hexo" title="hexo" rel="2">hexo</a>
+            
+        
+            
         
             
             <a href="/tags/#mongodb" title="mongodb" rel="2">mongodb</a>
+            
+        
             
         
             
@@ -605,11 +614,9 @@ controller 代码123456789101112131415161718192021222324252627class......
             
         
             
-        
-            
-        
-            
             <a href="/tags/#旅行" title="旅行" rel="2">旅行</a>
+            
+        
             
         
             
@@ -882,7 +889,7 @@ window.addEventListener('beforeinstallprompt', event => {
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545037875974')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545052262091')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

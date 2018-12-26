@@ -10,6 +10,7 @@
     <meta name="description" content="前端,技术,生活">
     <meta name="keyword" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <title>
@@ -408,6 +409,7 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
                 <!-- Friends Blog -->
                 
                 <hr>
+                <!-- 
                 <h5>FRIENDS</h5>
                 <ul class="list-inline">
 
@@ -425,6 +427,9 @@ distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
                         <li><a href="http://blog.ourren.com/" target="_blank">ourren</a></li>
                     
                 </ul>
+                 -->
+                
+                <div id="gitmentContainer"></div>
                 
             </div>
         </div>
@@ -669,6 +674,21 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: location.href, // 可选。默认为 location.href
+  owner: 'wsyks',
+  repo: 'wsyks.github.io',
+  oauth: {
+    client_id: '006665b575e45d4a90ff',
+    client_secret: '8c9e10392a55056c35066fcb25ef72372cf4831b',
+  },
+})
+//document.body.appendChild(gitment.render())
+gitment.render(document.getElementById("gitmentContainer"))
+</script>
+
 
 
 
@@ -681,7 +701,7 @@ window.addEventListener('beforeinstallprompt', event => {
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545828659383')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545831997448')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

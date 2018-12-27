@@ -26,13 +26,13 @@ var precacheUrls = [];
 
   precacheUrls.push('/2016/08/05/three-js学习笔记（一）/');
 
+  precacheUrls.push('/2017/07/27/阿里巴巴iconfont正确的使用姿势/');
+
   precacheUrls.push('/2017/08/15/谈谈HTML5本地存储/');
 
   precacheUrls.push('/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/');
 
   precacheUrls.push('/2018/05/04/使用electron-packager打包exe文件/');
-
-  precacheUrls.push('/2017/09/03/一步步实现微信小程序——仿豆瓣电影/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};

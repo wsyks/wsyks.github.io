@@ -231,11 +231,11 @@
                         <sup style="margin-left:-2px;font-weight: 700">3</sup></a>
                     
                 
-                    <a href="#electron" title="electron" rel="2">electron
+                    <a href="#hexo" title="hexo" rel="2">hexo
                         <sup style="margin-left:-2px;font-weight: 700">2</sup></a>
                     
                 
-                    <a href="#hexo" title="hexo" rel="2">hexo
+                    <a href="#electron" title="electron" rel="2">electron
                         <sup style="margin-left:-2px;font-weight: 700">2</sup></a>
                     
                 
@@ -720,43 +720,6 @@
             </div>
             
             <div class="one-tag-list">
-                <span class="fa fa-tag listing-seperator" id="electron">
-                    <span class="tag-text">electron</span>
-                </span>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/05/04/使用electron-packager打包exe文件/">
-                        <h2 class="post-title">
-                            使用electron-packager打包exe文件
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-                  <!-- <li class="listing-item">
-                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-                  </li> -->
-                 <div class="post-preview">
-                     <a href="/2018/04/26/electron入门实践总结/">
-                        <h2 class="post-title">
-                            Electron入门实践总结
-                        </h2>
-                        
-                    </a>
-                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
-                </div>
-                <hr>
-                
-            </div>
-            
-            <div class="one-tag-list">
                 <span class="fa fa-tag listing-seperator" id="hexo">
                     <span class="tag-text">hexo</span>
                 </span>
@@ -784,6 +747,43 @@
                      <a href="/2016/03/30/hexo博客搭建/">
                         <h2 class="post-title">
                             hexo博客搭建
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+            </div>
+            
+            <div class="one-tag-list">
+                <span class="fa fa-tag listing-seperator" id="electron">
+                    <span class="tag-text">electron</span>
+                </span>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/05/04/使用electron-packager打包exe文件/">
+                        <h2 class="post-title">
+                            使用electron-packager打包exe文件
+                        </h2>
+                        
+                    </a>
+                    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
+                </div>
+                <hr>
+                
+                  <!-- <li class="listing-item">
+                  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+                  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+                  </li> -->
+                 <div class="post-preview">
+                     <a href="/2018/04/26/electron入门实践总结/">
+                        <h2 class="post-title">
+                            Electron入门实践总结
                         </h2>
                         
                     </a>
@@ -1239,9 +1239,9 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script src="/js/gitment.browser.js"></script>
 <script>
-var gitment = new Gitment({
+var gitment = new Gitment.construct({
   id: location.href, // 可选。默认为 location.href
   owner: 'wsyks',
   repo: 'wsyks.github.io',
@@ -1266,7 +1266,7 @@ gitment.render(document.getElementById("gitmentContainer"))
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545831997448')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545877041402')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

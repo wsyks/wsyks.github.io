@@ -32,7 +32,7 @@ var precacheUrls = [];
 
   precacheUrls.push('/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/');
 
-  precacheUrls.push('/2018/05/04/使用electron-packager打包exe文件/');
+  precacheUrls.push('/2017/09/03/一步步实现微信小程序——仿豆瓣电影/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};

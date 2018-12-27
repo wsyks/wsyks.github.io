@@ -613,11 +613,11 @@ index.php//登......
             
         
             
-            <a href="/tags/#electron" title="electron" rel="2">electron</a>
+            <a href="/tags/#hexo" title="hexo" rel="2">hexo</a>
             
         
             
-            <a href="/tags/#hexo" title="hexo" rel="2">hexo</a>
+            <a href="/tags/#electron" title="electron" rel="2">electron</a>
             
         
             
@@ -912,9 +912,9 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script src="/js/gitment.browser.js"></script>
 <script>
-var gitment = new Gitment({
+var gitment = new Gitment.construct({
   id: location.href, // 可选。默认为 location.href
   owner: 'wsyks',
   repo: 'wsyks.github.io',
@@ -939,7 +939,7 @@ gitment.render(document.getElementById("gitmentContainer"))
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545831997448')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545877041402')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

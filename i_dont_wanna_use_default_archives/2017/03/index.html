@@ -1100,14 +1100,15 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
 <script>
         new Valine({
+            av:AV,
             el: '#vcomments',
             appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
             appKey: 'Maz5zp1hIAmXtT3yBFdh18iM'
-            placeholder:""
+            placeholder:"",
+            avatar:"https://syean.cn/img/avatar.jpg"
         })
     </script>
 
@@ -1121,7 +1122,7 @@ window.addEventListener('beforeinstallprompt', event => {
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545879913267')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545880287773')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

@@ -221,23 +221,15 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="前言">前言</h1>
-<p>最近一段时间，如果没啥事就会做一点百度前端学院2017的小任务，昨天呢，就做了一个有趣的鼠标悬浮模糊效果的一个东西，用到了一些css3的东西，做一下笔记与总结吧。</p>
-<a id="more"></a>
-<p>效果图如下</p>
- <img src="/2017/03/08/有趣的鼠标悬浮模糊效果/1.gif">
-<p>或者<a href="https://wsyks.github.io/ife-2017/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/">点击这里</a></p>
-<h1 id="效果描述">效果描述</h1>
-<ul>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近一段时间，如果没啥事就会做一点百度前端学院2017的小任务，昨天呢，就做了一个有趣的鼠标悬浮模糊效果的一个东西，用到了一些css3的东西，做一下笔记与总结吧。<br><a id="more"></a><br>效果图如下<br> <img src="/2017/03/08/有趣的鼠标悬浮模糊效果/1.gif"><br>或者<a href="https://wsyks.github.io/ife-2017/%E6%9C%89%E8%B6%A3%E7%9A%84%E9%BC%A0%E6%A0%87%E6%82%AC%E6%B5%AE%E6%A8%A1%E7%B3%8A%E6%95%88%E6%9E%9C/">点击这里</a></p>
+<h1 id="效果描述"><a href="#效果描述" class="headerlink" title="效果描述"></a>效果描述</h1><ul>
 <li>实现文字的流光渐变动画</li>
 <li>背景图需要进行模糊处理</li>
 <li>实现按钮边框的从中间到两边扩展开</li>
 </ul>
-<h1 id="关键属性">关键属性</h1>
-<h2 id="文字流光渐变动画">文字流光渐变动画</h2>
-<p>在实现文字的流光渐变动画中，需要用到</p>
+<h1 id="关键属性"><a href="#关键属性" class="headerlink" title="关键属性"></a>关键属性</h1><h2 id="文字流光渐变动画"><a href="#文字流光渐变动画" class="headerlink" title="文字流光渐变动画"></a>文字流光渐变动画</h2><p>在实现文字的流光渐变动画中，需要用到</p>
 <ul>
-<li>-webkit-background-clip</li>
+<li>-webkit-background-clip </li>
 <li>background-image</li>
 <li>background-size</li>
 </ul>
@@ -246,14 +238,10 @@
 <blockquote>
 <p>用linear-gradient来作为背景图片，将文字颜色变成透明，在使用-webkit-background-clip: text;属性即可获得文字的渐变。但是该属性值仅在chrome中有效，有局限性，动画效果则是使用background-size扩大渐变的区间，再改变background-position来得到。</p>
 </blockquote>
-<h2 id="图片模糊">图片模糊</h2>
-<p>主要用到 filter 这个属性<br>
-鼠标放上去后，为图片设置</p>
+<h2 id="图片模糊"><a href="#图片模糊" class="headerlink" title="图片模糊"></a>图片模糊</h2><p>主要用到 filter 这个属性<br>鼠标放上去后，为图片设置</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">img</span>&#123;</span><br><span class="line">	filter: blur(2px); //2px可根据效果自行定义</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="边框的从中间到两边扩展开">边框的从中间到两边扩展开</h2>
-<blockquote>
-<p>这里使用伪元素：before和：after<br>
-：before实现左右两个边框，：after实现上下两个边框，要分成上下左右两部分是由于之后的动画效果实现所需。</p>
+<h2 id="边框的从中间到两边扩展开"><a href="#边框的从中间到两边扩展开" class="headerlink" title="边框的从中间到两边扩展开"></a>边框的从中间到两边扩展开</h2><blockquote>
+<p>这里使用伪元素：before和：after<br>：before实现左右两个边框，：after实现上下两个边框，要分成上下左右两部分是由于之后的动画效果实现所需。</p>
 </blockquote>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> <span class="selector-class">.content</span><span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">top</span>:<span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">3px</span> solid <span class="number">#BBD1C3</span>;</span><br><span class="line">	<span class="attribute">border-width</span>:<span class="number">0</span> <span class="number">3px</span>; </span><br><span class="line">	<span class="attribute">visibility</span>: hidden;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-class">.content</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">	<span class="attribute">position</span>: absolute;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">	<span class="attribute">top</span>:<span class="number">0%</span>;</span><br><span class="line">	<span class="attribute">border</span>: <span class="number">3px</span> solid <span class="number">#BBD1C3</span>;</span><br><span class="line">	<span class="attribute">border-width</span>:<span class="number">3px</span> <span class="number">0px</span>; </span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">	<span class="attribute">transition</span>: all <span class="number">1s</span>;</span><br><span class="line">	<span class="attribute">box-sizing</span>: border-box</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.content</span><span class="selector-pseudo">:before</span>&#123;</span><br><span class="line">	<span class="attribute">top</span>: <span class="number">0%</span>;</span><br><span class="line">	<span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">	<span class="attribute">visibility</span>: visible;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.container</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.content</span><span class="selector-pseudo">:after</span>&#123;</span><br><span class="line">	<span class="attribute">content</span>: <span class="string">""</span>;</span><br><span class="line">	<span class="attribute">left</span>: <span class="number">0px</span>;</span><br><span class="line">	<span class="attribute">visibility</span>: visible;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
@@ -598,14 +586,15 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
 <script>
         new Valine({
+            av:AV,
             el: '#vcomments',
             appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
             appKey: 'Maz5zp1hIAmXtT3yBFdh18iM'
-            placeholder:""
+            placeholder:"",
+            avatar:"https://syean.cn/img/avatar.jpg"
         })
     </script>
 
@@ -619,7 +608,7 @@ window.addEventListener('beforeinstallprompt', event => {
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545879913267')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545880287773')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

@@ -10,9 +10,10 @@
     <meta name="description" content="前端,技术,生活">
     <meta name="keyword" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
     <title>
         
           Archives - Syean的博客 | Syean&#39;s Blog
@@ -1099,22 +1100,16 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="/js/gitment.browser.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-var gitment = new Gitment.construct({
-  id: location.href, // 可选。默认为 location.href
-  owner: 'wsyks',
-  repo: 'wsyks.github.io',
-  oauth: {
-    client_id: '006665b575e45d4a90ff',
-    client_secret: '8c9e10392a55056c35066fcb25ef72372cf4831b',
-  },
-})
-//document.body.appendChild(gitment.render())
-gitment.render(document.getElementById("gitmentContainer"))
-</script>
-
-
+        new Valine({
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM'
+            placeholder:""
+        })
+    </script>
 
 
 
@@ -1126,7 +1121,7 @@ gitment.render(document.getElementById("gitmentContainer"))
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545877041402')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545879913267')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

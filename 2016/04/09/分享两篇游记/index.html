@@ -10,9 +10,10 @@
     <meta name="description" content="前端,技术,生活">
     <meta name="keyword" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
     <title>
         
           分享两篇游记 - Syean的博客 | Syean&#39;s Blog
@@ -220,10 +221,14 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <p>一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。<br><a id="more"></a><br>    所谓身未动，心已远大抵便是如此吧。</p>
+                <p>一直很喜欢蚂蜂窝这个网站，经常时不时的去上面看一篇游记，每当看到优秀的游记，一颗向往外面世界的心总是飞的好远。</p>
+<a id="more"></a>
+<pre><code>所谓身未动，心已远大抵便是如此吧。
+</code></pre>
 <p>今天清明终于去了心动已久的泸沽湖，简直是摄影师的天堂，花了心思写了一篇游记，给大家~，还有一篇是今年寒假去厦门的，可以对比，我的摄影功力简直大增。</p>
 <hr>
-<p><a href="http://www.mafengwo.cn/i/5452843.html" target="_blank" rel="noopener">西游记之女儿国———泸沽湖，西昌邛海之旅</a><br><a href="http://www.mafengwo.cn/i/5452321.html" target="_blank" rel="noopener">漫漫浪——厦门篇（鼓浪屿，曾厝垵，厦大，南普陀）</a></p>
+<p><a href="http://www.mafengwo.cn/i/5452843.html" target="_blank" rel="noopener">西游记之女儿国———泸沽湖，西昌邛海之旅</a><br>
+<a href="http://www.mafengwo.cn/i/5452321.html" target="_blank" rel="noopener">漫漫浪——厦门篇（鼓浪屿，曾厝垵，厦大，南普陀）</a></p>
 
                 
 
@@ -304,8 +309,8 @@
                     
                 </ul>
                  -->
+                 <div id="vcomments"></div>
                 
-                <div id="gitmentContainer"></div>
                 
             </div>
         </div>
@@ -550,22 +555,16 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="/js/gitment.browser.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-var gitment = new Gitment.construct({
-  id: location.href, // 可选。默认为 location.href
-  owner: 'wsyks',
-  repo: 'wsyks.github.io',
-  oauth: {
-    client_id: '006665b575e45d4a90ff',
-    client_secret: '8c9e10392a55056c35066fcb25ef72372cf4831b',
-  },
-})
-//document.body.appendChild(gitment.render())
-gitment.render(document.getElementById("gitmentContainer"))
-</script>
-
-
+        new Valine({
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM'
+            placeholder:""
+        })
+    </script>
 
 
 
@@ -577,7 +576,7 @@ gitment.render(document.getElementById("gitmentContainer"))
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545877041402')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545879913267')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

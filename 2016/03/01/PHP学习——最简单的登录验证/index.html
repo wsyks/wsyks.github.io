@@ -10,9 +10,10 @@
     <meta name="description" content="前端,技术,生活">
     <meta name="keyword" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
     <title>
         
           PHP学习——登录验证（第一级） - Syean的博客 | Syean&#39;s Blog
@@ -220,51 +221,72 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。<br><a id="more"></a></p>
-<h1 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h1><p>话不多说，上代码先~~~</p>
-<h2 id="代码目录结构"><a href="#代码目录结构" class="headerlink" title="代码目录结构"></a>代码目录结构</h2><p>在同一个目录下三个文件：</p>
+                <h1 id="前言">前言</h1>
+<p>最近一段时间在学php，昨天和今天又在W3C上快速的过了一遍HTML,CSS，有些东西总是记不住，然后之前又快速的过了一边php，打算写一个登录验证的小代码练练手，也记录一下过程中新学习到的一些知识点，一级级往上升。</p>
+<a id="more"></a>
+<h1 id="代码结构">代码结构</h1>
+<p>话不多说，上代码先~~~</p>
+<h2 id="代码目录结构">代码目录结构</h2>
+<p>在同一个目录下三个文件：</p>
 <pre><code>index.html//登录页面
 login_auth.php//验证页面
 index.php//登录成功页面
-</code></pre><h2 id="数据库结构"><a href="#数据库结构：" class="headerlink" title="数据库结构："></a>数据库结构：</h2><pre><code>user:数据库
+</code></pre>
+<h2 id="数据库结构">数据库结构：</h2>
+<pre><code>user:数据库
   =》username表
     =&gt;username 字段名
     =&gt;password 字段名
-</code></pre><h2 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h2><p>ndex.html代码</p>
-<p>该页面代码如下，比较简单，我就不多说啦。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>login<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">            <span class="selector-tag">body</span> &#123;<span class="attribute">text-align</span>: center;<span class="attribute">position</span>: relative;&#125;</span></span><br><span class="line"><span class="undefined">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">"login"</span> <span class="attr">action</span>=<span class="string">"login_auth.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">            username:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"user"</span>/&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">            password:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span>/&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"submit"</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+</code></pre>
+<h2 id="具体代码">具体代码</h2>
+<p>ndex.html代码</p>
+<p>该页面代码如下，比较简单，我就不多说啦。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>login<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">            <span class="selector-tag">body</span> &#123;<span class="attribute">text-align</span>: center;<span class="attribute">position</span>: relative;&#125;</span></span><br><span class="line"><span class="undefined">        </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">"login"</span> <span class="attr">action</span>=<span class="string">"login_auth.php"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">            username:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"user"</span>/&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">            password:</span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span>/&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">class</span>=<span class="string">"submit"</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"登录"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>点击登录后，会触发表单动作，跳转到login_auth.php页面认证</p>
-<p>login_auth.php：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">"Content-Type: text/html;charset=utf-8"</span>);</span><br><span class="line">    $username=$_POST[<span class="string">'user'</span>]; <span class="comment">//$_POST 变量是一个数组，内容是由 HTTPPOST方法发送的变量名称和值</span></span><br><span class="line">    $password=$_POST[<span class="string">'pwd'</span>];</span><br><span class="line">    <span class="keyword">if</span>($username==<span class="string">""</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"请输入用户名"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;a href='index.html'&gt;返回&lt;/a&gt;"</span>;</span><br><span class="line">    &#125;<span class="keyword">elseif</span>($password==<span class="string">""</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span>  <span class="string">"请输入密码"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;a href='index.html'&gt;返回&lt;/a&gt;"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $link=mysql_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">""</span>)<span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"不能连接数据库"</span>);</span><br><span class="line">        mysql_select_db(<span class="string">"user"</span>,$link)<span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"选择错误"</span>);</span><br><span class="line">        $sql=<span class="string">"select * from username where username='$username' AND password='$password'"</span>;</span><br><span class="line">        $result=mysql_query($sql,$link);</span><br><span class="line">        $news=mysql_fetch_assoc($result);</span><br><span class="line">        mysql_free_result($result);</span><br><span class="line">    <span class="keyword">if</span>($news)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"登陆成功"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;a href='index.php'&gt;登陆&lt;/a&gt;"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"密码错误或用户名不正确"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;a href='index.html'&gt;返回&lt;/a&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>login_auth.php：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    header(<span class="string">"Content-Type: text/html;charset=utf-8"</span>);</span><br><span class="line">    $username=$_POST[<span class="string">'user'</span>]; <span class="comment">//$_POST 变量是一个数组，内容是由 HTTPPOST方法发送的变量名称和值</span></span><br><span class="line">    $password=$_POST[<span class="string">'pwd'</span>];</span><br><span class="line">    <span class="keyword">if</span>($username==<span class="string">""</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"请输入用户名"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;a href='index.html'&gt;返回&lt;/a&gt;"</span>;</span><br><span class="line">    &#125;<span class="keyword">elseif</span>($password==<span class="string">""</span>)&#123;</span><br><span class="line">        <span class="keyword">echo</span>  <span class="string">"请输入密码"</span>;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;a href='index.html'&gt;返回&lt;/a&gt;"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        $link=mysql_connect(<span class="string">"localhost"</span>,<span class="string">"root"</span>,<span class="string">""</span>)<span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"不能连接数据库"</span>);</span><br><span class="line">        mysql_select_db(<span class="string">"user"</span>,$link)<span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">"选择错误"</span>);</span><br><span class="line">        $sql=<span class="string">"select * from username where username='$username' AND password='$password'"</span>;</span><br><span class="line">        $result=mysql_query($sql,$link);</span><br><span class="line">        $news=mysql_fetch_assoc($result);</span><br><span class="line">        mysql_free_result($result);</span><br><span class="line">    <span class="keyword">if</span>($news)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"登陆成功"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;a href='index.php'&gt;登陆&lt;/a&gt;"</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"密码错误或用户名不正确"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;a href='index.html'&gt;返回&lt;/a&gt;"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 <p>由于页面中有中文，为防止乱码，需要在头部增加一句：</p>
 <pre><code>header(&quot;Content-Type: text/html;charset=utf-8&quot;);
-</code></pre><h1 id="相关函数"><a href="#相关函数" class="headerlink" title="相关函数"></a>相关函数</h1><p>以上用了一个php中与mysql数据库有关的函数<br>1、mysql_connect:连接一个数据库<br>语法：</p>
+</code></pre>
+<h1 id="相关函数">相关函数</h1>
+<p>以上用了一个php中与mysql数据库有关的函数<br>
+1、mysql_connect:连接一个数据库<br>
+语法：</p>
 <pre><code>mysql_connect(servername,username,password);
 servername  可选。规定要连接的服务器。默认是 &quot;localhost:3306&quot;。
 username    可选。规定登录所使用的用户名。默认值是拥有服务器进程的用户的名称。
 password    可选。规定登录所用的密码。默认是 &quot;&quot;。
-</code></pre><p>2、mysql_select_db:选择数据库</p>
+</code></pre>
+<p>2、mysql_select_db:选择数据库</p>
 <pre><code>mysql_select_db(database,connection)
 database    必需。规定要选择的数据库。
 connection  可选。规定 MySQL 连接。如果未指定，则使用上一个连接。
-</code></pre><p>如果成功，则该函数返回 true。如果失败，则返回 false。<br>3、mysql_query:执行一条 MySQL 查询。</p>
+</code></pre>
+<p>如果成功，则该函数返回 true。如果失败，则返回 false。<br>
+3、mysql_query:执行一条 MySQL 查询。</p>
 <pre><code>mysql_query(query,connection)
 query 必需。规定要发送的 SQL 查询。注释：查询字符串不应以分号结束。
 connection 可选。规定 SQL 连接标识符。如果未规定，则使用上一个打开的连接。
-</code></pre><p>4、mysql_fetch_assoc:从结果集中取得一行作为关联数组。返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false。如</p>
+</code></pre>
+<p>4、mysql_fetch_assoc:从结果集中取得一行作为关联数组。返回根据从结果集取得的行生成的关联数组，如果没有更多行，则返回 false。如</p>
 <pre><code>Array
 (
 [userame] =&gt; admin
 [password] =&gt; 123456
 )
  mysql_fetch_assoc(data)
-</code></pre><p>5、mysql_free_result:释放结果内存。如果成功，则返回 true，如果失败，则返回 false。</p>
-<p>所以有了以上的代码啦~<br>还有，die() 函数输出一条消息，并退出当前脚本。该函数是 exit() 函数的别名。<br>这里特地在说一下 or这个语法：之所以 用 or 可以达到，当函数错误后，执行or后面的函数是因为:</p>
+</code></pre>
+<p>5、mysql_free_result:释放结果内存。如果成功，则返回 true，如果失败，则返回 false。</p>
+<p>所以有了以上的代码啦~<br>
+还有，die() 函数输出一条消息，并退出当前脚本。该函数是 exit() 函数的别名。<br>
+这里特地在说一下 or这个语法：之所以 用 or 可以达到，当函数错误后，执行or后面的函数是因为:</p>
 <ol>
 <li>逻辑运算的运算顺序是从左向右</li>
 <li>or运算符的左结合性</li>
 <li>or运算中，如果运算时有值为真了，则整个表达式为真，后面不需要运算</li>
 </ol>
-<p>终合上面三个因素，当or左侧函数运行正常(返回非假值)，则不会执行后面的函数。这里利用了or的这个特性，将die(终止并输出函数)用于此处，巧妙的实现了函数异常而报错的功能。 </p>
-<p>根据上面的分析，想到如果左侧函数就是返回假的函数，或者无返回值的函数，应该也是执行后面的函数mysql_connect()执行错误,并不是这个函数本身执行错误了,如果是它本身执行错误是PHP的系统错误，它仅仅是返回了一个假值而已。 </p>
+<p>终合上面三个因素，当or左侧函数运行正常(返回非假值)，则不会执行后面的函数。这里利用了or的这个特性，将die(终止并输出函数)用于此处，巧妙的实现了函数异常而报错的功能。</p>
+<p>根据上面的分析，想到如果左侧函数就是返回假的函数，或者无返回值的函数，应该也是执行后面的函数mysql_connect()执行错误,并不是这个函数本身执行错误了,如果是它本身执行错误是PHP的系统错误，它仅仅是返回了一个假值而已。</p>
 <p>那这是一个非常简陋的代码,时间不早啦，今天就先写到这，下一次介绍一下其中存在的一些隐患与改进的地方~~</p>
 
                 
@@ -342,8 +364,8 @@ connection 可选。规定 SQL 连接标识符。如果未规定，则使用上�
                     
                 </ul>
                  -->
+                 <div id="vcomments"></div>
                 
-                <div id="gitmentContainer"></div>
                 
             </div>
         </div>
@@ -588,22 +610,16 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="/js/gitment.browser.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-var gitment = new Gitment.construct({
-  id: location.href, // 可选。默认为 location.href
-  owner: 'wsyks',
-  repo: 'wsyks.github.io',
-  oauth: {
-    client_id: '006665b575e45d4a90ff',
-    client_secret: '8c9e10392a55056c35066fcb25ef72372cf4831b',
-  },
-})
-//document.body.appendChild(gitment.render())
-gitment.render(document.getElementById("gitmentContainer"))
-</script>
-
-
+        new Valine({
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM'
+            placeholder:""
+        })
+    </script>
 
 
 
@@ -615,7 +631,7 @@ gitment.render(document.getElementById("gitmentContainer"))
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545877041402')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545879913267')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

@@ -10,9 +10,10 @@
     <meta name="description" content="前端,技术,生活">
     <meta name="keyword" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
     <title>
         
           Hexo博客配置PWA - Syean的博客 | Syean&#39;s Blog
@@ -223,26 +224,45 @@
                 post-container">
 
                 <p>想要实践一下pwa，就拿自己的博客来试验一下。</p>
-<h1 id="配置https"><a href="#配置https" class="headerlink" title="配置https"></a>配置https</h1><p>想要实现网站的pwa，需要将网站配置成https，主要是因为service worker只能下https下，本地localhost和127.0.0.1也是可以的。 </p>
-<h2 id="ssl证书"><a href="#ssl证书" class="headerlink" title="ssl证书"></a>ssl证书</h2><p>购买的腾讯云的服务器，可以免费申请ssl证书，申请完后，下载证书得到一个压缩文件。解压缩后有好几个目录，因为是nginx的环境，把nginx下的证书和key复制出来，放到服务器上的目录即可。</p>
-<h2 id="nginx配置https"><a href="#nginx配置https" class="headerlink" title="nginx配置https"></a>nginx配置https</h2><p>编辑nginx.conf文件，添加如下配置，设置证书的路径，此外，将http重定向https，如果想要http和https同时使用，也可以不需要重定向和上面的add_header配置。<br><img src="/2018/12/17/hexo博客配置PWA/3.png"></p>
-<h1 id="配置hexo-pwa"><a href="#配置hexo-pwa" class="headerlink" title="配置hexo pwa"></a>配置hexo pwa</h1><h2 id="安装hexo-pwa"><a href="#安装hexo-pwa" class="headerlink" title="安装hexo-pwa"></a>安装hexo-pwa</h2><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm hexo-pwa --<span class="keyword">save</span></span><br><span class="line"><span class="comment">//或</span></span><br><span class="line">cnpm hexo-pwa --<span class="keyword">save</span></span><br></pre></td></tr></table></figure>
-<h2 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h2><p>在hexo博客根目录的.config.yml里添加如下配置</p>
+<h1 id="配置https">配置https</h1>
+<p>想要实现网站的pwa，需要将网站配置成https，主要是因为service worker只能下https下，本地localhost和127.0.0.1也是可以的。</p>
+<h2 id="ssl证书">ssl证书</h2>
+<p>购买的腾讯云的服务器，可以免费申请ssl证书，申请完后，下载证书得到一个压缩文件。解压缩后有好几个目录，因为是nginx的环境，把nginx下的证书和key复制出来，放到服务器上的目录即可。</p>
+<h2 id="nginx配置https">nginx配置https</h2>
+<p>编辑nginx.conf文件，添加如下配置，设置证书的路径，此外，将http重定向https，如果想要http和https同时使用，也可以不需要重定向和上面的add_header配置。</p>
+<img src="/2018/12/17/hexo博客配置PWA/3.png">
+<h1 id="配置hexo-pwa">配置hexo pwa</h1>
+<h2 id="安装hexo-pwa">安装hexo-pwa</h2>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm hexo-pwa --<span class="keyword">save</span></span><br><span class="line"><span class="comment">//或</span></span><br><span class="line">cnpm hexo-pwa --<span class="keyword">save</span></span><br></pre></td></tr></table></figure>
+<h2 id="配置文件">配置文件</h2>
+<p>在hexo博客根目录的.config.yml里添加如下配置</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">pwa:</span></span><br><span class="line"><span class="attr">  manifest:</span></span><br><span class="line"><span class="attr">    path:</span> <span class="string">/manifest.json</span></span><br><span class="line"><span class="attr">    body:</span></span><br><span class="line"><span class="attr">      "name":</span> <span class="string">"Syean"</span></span><br><span class="line"><span class="attr">      "short_name":</span> <span class="string">"Syean"</span></span><br><span class="line"><span class="attr">      "theme_color":</span> <span class="string">"#2a6cb1"</span></span><br><span class="line"><span class="attr">      "background_color":</span> <span class="string">"#ffffff"</span></span><br><span class="line"><span class="attr">      "display":</span> <span class="string">"standalone"</span></span><br><span class="line"><span class="attr">      "Scope":</span> <span class="string">"/"</span></span><br><span class="line"><span class="attr">      "start_url":</span> <span class="string">"/"</span></span><br><span class="line"><span class="attr">      icons:</span></span><br><span class="line"><span class="attr">        - src:</span> <span class="string">img/icon_144.png</span></span><br><span class="line"><span class="attr">          sizes:</span> <span class="number">144</span><span class="string">x144</span></span><br><span class="line"><span class="attr">          type:</span> <span class="string">image/png</span></span><br><span class="line"><span class="attr">        - src:</span> <span class="string">img/icon_128.png</span></span><br><span class="line"><span class="attr">          sizes:</span> <span class="number">128</span><span class="string">x128</span></span><br><span class="line"><span class="attr">          type:</span> <span class="string">image/png</span></span><br><span class="line"><span class="attr">        - src:</span> <span class="string">img/icon_96.png</span></span><br><span class="line"><span class="attr">          sizes:</span> <span class="number">96</span><span class="string">x96</span></span><br><span class="line"><span class="attr">          type:</span> <span class="string">image/png</span></span><br><span class="line"><span class="attr">  serviceWorker:</span></span><br><span class="line"><span class="attr">    path:</span> <span class="string">/serviceworker.js</span></span><br><span class="line"><span class="attr">    preload:</span></span><br><span class="line"><span class="attr">      urls:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">/</span></span><br><span class="line"><span class="attr">      posts:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">    opts:</span></span><br><span class="line"><span class="attr">      networkTimeoutSeconds:</span> <span class="number">5</span></span><br><span class="line"><span class="attr">    routes:</span></span><br><span class="line"><span class="attr">      - pattern:</span> <span class="type">!!js</span><span class="string">/regexp</span> <span class="string">/hm.baidu.com/</span></span><br><span class="line"><span class="attr">        strategy:</span> <span class="string">networkOnly</span></span><br><span class="line"><span class="attr">      - pattern:</span> <span class="type">!!js</span><span class="string">/regexp</span> <span class="string">/.*\.(js|css|jpg|jpeg|png|gif)$/</span></span><br><span class="line"><span class="attr">        strategy:</span> <span class="string">cacheFirst</span></span><br><span class="line"><span class="attr">      - pattern:</span> <span class="type">!!js</span><span class="string">/regexp</span> <span class="string">/\//</span></span><br><span class="line"><span class="attr">        strategy:</span> <span class="string">networkFirst</span></span><br><span class="line"><span class="attr">  priority:</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
 <p>具体的配置项内容可以参考看<a href="https://developer.mozilla.org/zh-CN/docs/Web/Manifest" target="_blank" rel="noopener">mozilla文档</a></p>
-<h2 id="添加manifest和serviceworker文件"><a href="#添加manifest和serviceworker文件" class="headerlink" title="添加manifest和serviceworker文件"></a>添加manifest和serviceworker文件</h2><p>在根目录下添加manifest.json和serviceworker.js，或者其他目录也可以，与.config.yml的目录统一即可。<br>manifest.json文件内容</p>
+<h2 id="添加manifest和serviceworker文件">添加manifest和serviceworker文件</h2>
+<p>在根目录下添加manifest.json和serviceworker.js，或者其他目录也可以，与.config.yml的目录统一即可。<br>
+manifest.json文件内容</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Syean"</span>,</span><br><span class="line">  <span class="attr">"short_name"</span>: <span class="string">"Syean"</span>,</span><br><span class="line">  <span class="attr">"theme_color"</span>: <span class="string">"#2a6cb1"</span>,</span><br><span class="line">  <span class="attr">"background_color"</span>: <span class="string">"#ffffff"</span>,</span><br><span class="line">  <span class="attr">"display"</span>: <span class="string">"standalone"</span>,</span><br><span class="line">  <span class="attr">"scope"</span>: <span class="string">"/"</span>,</span><br><span class="line">  <span class="attr">"start_url"</span>: <span class="string">"/"</span>,</span><br><span class="line">  <span class="attr">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"img/icon_96.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"96x96"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"img/icon_128.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"128x128"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"img/icon_144.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>serviceworker.js</p>
 <figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">importScripts(<span class="string">'https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (workbox) &#123;</span><br><span class="line">    workbox.setConfig(&#123; modulePathPrefix: <span class="string">'https://g.alicdn.com/kg/workbox/3.3.0/'</span> &#125;);</span><br><span class="line"></span><br><span class="line">    workbox.precaching.precache([<span class="string">'/'</span>, <span class="string">'/index.html'</span>]);</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'^https?://syean.cn/?$'</span>), workbox.strategies.networkFirst());</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'.*.html'</span>), workbox.strategies.networkFirst());</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'.*.(?:js|css|jpg|png|gif)'</span>), workbox.strategies.staleWhileRevalidate());</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="chrome-配置pwa选项"><a href="#chrome-配置pwa选项" class="headerlink" title="chrome 配置pwa选项"></a>chrome 配置pwa选项</h2><ol>
+<h2 id="chrome-配置pwa选项">chrome 配置pwa选项</h2>
+<ol>
 <li>地址栏输入: Chrome://flags</li>
 <li>启用以下项目: Desktop PWAs(桌面PWAs)、App Banners(应用横幅)、Experimental App Banners(实验性应用横幅)</li>
 <li>重启浏览器</li>
 </ol>
 <p>这样点击地址栏旁的工具栏下可以看到”创建快捷方式…“这个选项了。</p>
-<p>此外，F12打开chrome调试工具，可以看到一些文件是from service worker，这样表示service worker注册成功了。<br>点击network，可以选择offline选项模拟离线环境。<br><img src="/2018/12/17/hexo博客配置PWA/1.png"></p>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>用hexo-offline插件也可以实现pwa<br>手机上浏览器也使用chrome，可以看到弹出框“添加至主屏幕”<br>也可以点击工具栏添加到主屏幕<br><img src="/2018/12/17/hexo博客配置PWA/2.png"></p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://segmentfault.com/a/1190000004976222" target="_blank" rel="noopener">Nginx+Https配置</a><br><a href="https://juejin.im/post/5b8ff410e51d450e7b16d7ba" target="_blank" rel="noopener">hexo博客简单支持PWA</a><br><a href="https://crs.mainstars.net/burogu/post/hexo-pwa/" target="_blank" rel="noopener">为Hexo添加简单的PWA支持</a></p>
+<p>此外，F12打开chrome调试工具，可以看到一些文件是from service worker，这样表示service worker注册成功了。<br>
+点击network，可以选择offline选项模拟离线环境。</p>
+<img src="/2018/12/17/hexo博客配置PWA/1.png">
+<h1 id="其他">其他</h1>
+<p>用hexo-offline插件也可以实现pwa<br>
+手机上浏览器也使用chrome，可以看到弹出框“添加至主屏幕”<br>
+也可以点击工具栏添加到主屏幕</p>
+<img src="/2018/12/17/hexo博客配置PWA/2.png">
+<h1 id="参考">参考</h1>
+<p><a href="https://segmentfault.com/a/1190000004976222" target="_blank" rel="noopener">Nginx+Https配置</a><br>
+<a href="https://juejin.im/post/5b8ff410e51d450e7b16d7ba" target="_blank" rel="noopener">hexo博客简单支持PWA</a><br>
+<a href="https://crs.mainstars.net/burogu/post/hexo-pwa/" target="_blank" rel="noopener">为Hexo添加简单的PWA支持</a></p>
 
                 
 
@@ -332,8 +352,8 @@
                     
                 </ul>
                  -->
+                 <div id="vcomments"></div>
                 
-                <div id="gitmentContainer"></div>
                 
             </div>
         </div>
@@ -578,22 +598,16 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="/js/gitment.browser.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-var gitment = new Gitment.construct({
-  id: location.href, // 可选。默认为 location.href
-  owner: 'wsyks',
-  repo: 'wsyks.github.io',
-  oauth: {
-    client_id: '006665b575e45d4a90ff',
-    client_secret: '8c9e10392a55056c35066fcb25ef72372cf4831b',
-  },
-})
-//document.body.appendChild(gitment.render())
-gitment.render(document.getElementById("gitmentContainer"))
-</script>
-
-
+        new Valine({
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM'
+            placeholder:""
+        })
+    </script>
 
 
 
@@ -605,7 +619,7 @@ gitment.render(document.getElementById("gitmentContainer"))
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545877041402')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545879913267')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

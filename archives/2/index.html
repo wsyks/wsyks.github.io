@@ -10,9 +10,10 @@
     <meta name="description" content="前端,技术,生活">
     <meta name="keyword" content="">
     <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
-    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
     <title>
         
           Syean的博客 | Syean&#39;s Blog
@@ -225,8 +226,12 @@
             
         </h3>
         <div class="post-content-preview">
-            前言最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。      因为页面中有条件筛选的表单，所以想要完成的效果就是，输入条件后，分页跳转之后能维持所输入的条件。想了一下，自己的思路如下代码吧。
-controller 代码123456789101112131415161718192021222324252627class......
+            前言
+最近在用CI框架的时候，用了CI的分页类，以前是用前端整分页，这次干脆用用框架自带的，自己这个健忘的脑袋，还是记录一下吧。
+   
+因为页面中有条件筛选的表单，所以想要完成的效果就是，输入条件后，分页跳转之后能维持所输入的条件。想了一下，自己的思路如下代码吧。
+controller 代码
+123456789101112131415161718192021222324252627clas......
         </div>
     </a>
     
@@ -254,11 +259,15 @@ controller 代码123456789101112131415161718192021222324252627class......
             
         </h3>
         <div class="post-content-preview">
-            前言今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。
+            前言
+今天写项目的时候，想要实现卡片翻转的这样的一个效果，学习了一下，做个小笔记吧。
 
 还是先放效果图，或者点击这里查看效果
-实现html1234&lt;div class="box"&gt;	&lt;div class="card front"&gt;&lt;/div&gt;	&lt;div class="card back"&gt;&lt;/div&gt;&lt;/div&gt;
-css1......
+
+实现
+html
+1234&lt;div class="box"&gt;	&lt;div class="card front"&gt;&lt;/div&gt;	&lt;div class="card back"&gt;&lt;/div&gt;&lt;/div&gt;
+......
         </div>
     </a>
     
@@ -292,6 +301,8 @@ css1......
 
 
 
+
+
 ...
         </div>
     </a>
@@ -320,10 +331,16 @@ css1......
             
         </h3>
         <div class="post-content-preview">
-            前言今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。先放上效果图，代码是基于jquery的，所以要引用上哟。  或者戳这里看效果，源码在这里
+            前言
+今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。
+
+先放上效果图，代码是基于jquery的，所以要引用上哟。
+ 
+或者戳这里看效果，源码在这里
 功能需求
+
 可以通过点击左侧色彩区域选择色彩，在右侧的输入框中会显示对应的色值，包括RGB,HSL和HSV的值
-可以通过调节右侧输入框的......
+可以通过调节右......
         </div>
     </a>
     
@@ -353,9 +370,13 @@ css1......
             
         </h3>
         <div class="post-content-preview">
-            前言最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！
-色彩模型关于色彩模型的相关知识，主要是整理了别人的分享主要参考了色彩模型介绍和HSL,HSV维基百科上的内容，这里简单做下整理
-RGB模型RGB模型也称为加色法混色模型......
+            前言
+最近呢，在写色彩选择器小插件的时候需要用到RGB,HSL,HSB相互转换的一些东西，就想着好好整理一下这方面的内容，顺便用js实现一下三者之间的转换，通过对色彩转换的学习，对平时整整ps，摄影也是有一定的基础帮助的,恩！
+
+色彩模型
+关于色彩模型的相关知识，主要是整理了别人的分享主要参考了色彩模型介绍和HSL,HSV维基百科上的内容，这里简单做下整理
+RGB模型
+RGB模型也称为加色法......
         </div>
     </a>
     
@@ -385,8 +406,13 @@ RGB模型RGB模型也称为加色法混色模型......
             
         </h3>
         <div class="post-content-preview">
-            前言  　分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。          实现的效果如下或者点击这里      
-contextmenu法1234567891011&lt;div contextmenu="mymenu" &gt;		&lt;div class="context"&g......
+            前言
+分享一下今天下午做的一个小东西,就是自定义右键菜单了，代码呢，写的比较粗糙，但是大致完成了需求，恩，其实师姐也分享过，但是呢，自己动手之后才更掌握的更好。
+
+实现的效果如下或者点击这里
+
+contextmenu法
+1234567891011&lt;div contextmenu="mymenu" &gt;		&lt;div class="context"&gt;这里有一个菜单,请在fi......
         </div>
     </a>
     
@@ -414,15 +440,23 @@ contextmenu法1234567891011&lt;div contextmenu="mymenu" &gt;		&lt;div class="con
             
         </h3>
         <div class="post-content-preview">
-            前言最近一段时间，如果没啥事就会做一点百度前端学院2017的小任务，昨天呢，就做了一个有趣的鼠标悬浮模糊效果的一个东西，用到了一些css3的东西，做一下笔记与总结吧。效果图如下 或者点击这里
+            前言
+最近一段时间，如果没啥事就会做一点百度前端学院2017的小任务，昨天呢，就做了一个有趣的鼠标悬浮模糊效果的一个东西，用到了一些css3的东西，做一下笔记与总结吧。
+
+效果图如下
+ 
+或者点击这里
 效果描述
+
 实现文字的流光渐变动画
 背景图需要进行模糊处理
 实现按钮边框的从中间到两边扩展开
 
-关键属性文字流光渐变动画在实现文字的流光渐变动画中，需要用到
+关键属性
+文字流光渐变动画
+在实现文字的流光渐变动画中，需要用到
 
--webkit-background-cli......
+-webkit-backgr......
         </div>
     </a>
     
@@ -450,8 +484,11 @@ contextmenu法1234567891011&lt;div contextmenu="mymenu" &gt;		&lt;div class="con
             
         </h3>
         <div class="post-content-preview">
-            前言以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。
-Password Hashing在php5.5中，增加了一种新的加密方式，那就是Password Hashi......
+            前言
+以前在写php的身份验证的时候，一般采用md5，对密码hash一下，偶尔也会加个salt，但是目前来说md5，sha1都已经不算安全，今天再写某项目的身份验证时，打算好好看看php的密码hash方案，发现了password_hash这个东西，认真的看了一下其中一些东西，做下总结。
+
+Password Hashing
+在php5.5中，增加了一种新的加密方式，那就是Password Ha......
         </div>
     </a>
     
@@ -481,12 +518,16 @@ Password Hashing在php5.5中，增加了一种新的加密方式，那就是Pass
             
         </h3>
         <div class="post-content-preview">
-            写在前面好久没更新博客啦，好像从没有在博客里分享CSS的一些东西，今天就分享两个用CSS3实现进度条的姿势。
+            写在前面
+好久没更新博客啦，好像从没有在博客里分享CSS的一些东西，今天就分享两个用CSS3实现进度条的姿势。
 
-效果图如下：                
-第一个姿势先上代码
+效果图如下：
+
+
+第一个姿势
+先上代码
 123&lt;div id="progress"&gt;      &lt;span&gt;&lt;/span&gt;&lt;/div&gt;
-123456789101112131415161718192021222......
+123456789101112131415161718192021222324252627/*对......
         </div>
     </a>
     
@@ -514,7 +555,13 @@ Password Hashing在php5.5中，增加了一种新的加密方式，那就是Pass
             
         </h3>
         <div class="post-content-preview">
-            前言–师姐说：我们这次项目前端用vue.js吧我说：好呀　　然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue的时候，......
+            前言
+–
+师姐说：我们这次项目前端用vue.js吧
+我说：好呀
+
+然后就进入了vue.js的学习中，这几年的大势前端框架Angular.js和react.js之前都略微涉及了一下，但是缺乏小项目的实战，属于看了就忘，这次通过使用vue来完成一个小项目，加深了对其熟悉，所以说，动手做点东西虽然慢了，但是学习的快了。
+　　这次是用百度前端学院中的一个“微型问卷调查平台”来进行练手，当时学习vue......
         </div>
     </a>
     
@@ -590,9 +637,9 @@ Password Hashing在php5.5中，增加了一种新的加密方式，那就是Pass
             
         
             
-            <a href="/tags/#php" title="php" rel="5">php</a>
-            
         
+            
+            <a href="/tags/#php" title="php" rel="5">php</a>
             
         
             
@@ -600,11 +647,11 @@ Password Hashing在php5.5中，增加了一种新的加密方式，那就是Pass
             
         
             
-            <a href="/tags/#hexo" title="hexo" rel="2">hexo</a>
+            <a href="/tags/#electron" title="electron" rel="2">electron</a>
             
         
             
-            <a href="/tags/#electron" title="electron" rel="2">electron</a>
+            <a href="/tags/#hexo" title="hexo" rel="2">hexo</a>
             
         
             
@@ -899,22 +946,16 @@ window.addEventListener('beforeinstallprompt', event => {
 })
 </script>
 
-<script src="/js/gitment.browser.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
 <script>
-var gitment = new Gitment.construct({
-  id: location.href, // 可选。默认为 location.href
-  owner: 'wsyks',
-  repo: 'wsyks.github.io',
-  oauth: {
-    client_id: '006665b575e45d4a90ff',
-    client_secret: '8c9e10392a55056c35066fcb25ef72372cf4831b',
-  },
-})
-//document.body.appendChild(gitment.render())
-gitment.render(document.getElementById("gitmentContainer"))
-</script>
-
-
+        new Valine({
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM'
+            placeholder:""
+        })
+    </script>
 
 
 
@@ -926,7 +967,7 @@ gitment.render(document.getElementById("gitmentContainer"))
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545877041402')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545879913267')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

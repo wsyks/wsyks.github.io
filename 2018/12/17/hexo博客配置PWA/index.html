@@ -153,14 +153,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -234,7 +234,7 @@
 <h2 id="添加manifest和serviceworker文件"><a href="#添加manifest和serviceworker文件" class="headerlink" title="添加manifest和serviceworker文件"></a>添加manifest和serviceworker文件</h2><p>在根目录下添加manifest.json和serviceworker.js，或者其他目录也可以，与.config.yml的目录统一即可。<br>manifest.json文件内容</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Syean"</span>,</span><br><span class="line">  <span class="attr">"short_name"</span>: <span class="string">"Syean"</span>,</span><br><span class="line">  <span class="attr">"theme_color"</span>: <span class="string">"#2a6cb1"</span>,</span><br><span class="line">  <span class="attr">"background_color"</span>: <span class="string">"#ffffff"</span>,</span><br><span class="line">  <span class="attr">"display"</span>: <span class="string">"standalone"</span>,</span><br><span class="line">  <span class="attr">"scope"</span>: <span class="string">"/"</span>,</span><br><span class="line">  <span class="attr">"start_url"</span>: <span class="string">"/"</span>,</span><br><span class="line">  <span class="attr">"icons"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"img/icon_96.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"96x96"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"img/icon_128.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"128x128"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">"src"</span>: <span class="string">"img/icon_144.png"</span>,</span><br><span class="line">      <span class="attr">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">      <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>serviceworker.js</p>
-<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">importScripts(<span class="string">'https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (workbox) &#123;</span><br><span class="line">    workbox.setConfig(&#123; modulePathPrefix: <span class="string">'https://g.alicdn.com/kg/workbox/3.3.0/'</span> &#125;);</span><br><span class="line"></span><br><span class="line">    workbox.precaching.precache([<span class="string">'/'</span>, <span class="string">'/index.html'</span>]);</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'^https?://syean.cn/?$'</span>), workbox.strategies.networkFirst());</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'.*.html'</span>), workbox.strategies.networkFirst());</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'.*.(?:js|css|jpg|png|gif)'</span>), workbox.strategies.staleWhileRevalidate());</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">importScripts(<span class="string">'https://g.alicdn.com/kg/workbox/3.3.0/workbox-sw.js'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (workbox) &#123;</span><br><span class="line">    workbox.setConfig(&#123; <span class="attr">modulePathPrefix</span>: <span class="string">'https://g.alicdn.com/kg/workbox/3.3.0/'</span> &#125;);</span><br><span class="line"></span><br><span class="line">    workbox.precaching.precache([<span class="string">'/'</span>, <span class="string">'/index.html'</span>]);</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'^https?://syean.cn/?$'</span>), workbox.strategies.networkFirst());</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'.*.html'</span>), workbox.strategies.networkFirst());</span><br><span class="line"></span><br><span class="line">    workbox.routing.registerRoute(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'.*.(?:js|css|jpg|png|gif)'</span>), workbox.strategies.staleWhileRevalidate());</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="chrome-配置pwa选项"><a href="#chrome-配置pwa选项" class="headerlink" title="chrome 配置pwa选项"></a>chrome 配置pwa选项</h2><ol>
 <li>地址栏输入: Chrome://flags</li>
 <li>启用以下项目: Desktop PWAs(桌面PWAs)、App Banners(应用横幅)、Experimental App Banners(实验性应用横幅)</li>
@@ -250,6 +250,10 @@
                 <hr>
                 <!-- Pager -->
                 <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2018/12/27/2018年前端开发校招面试总结/" data-toggle="tooltip" data-placement="top" title="2018年前端开发校招面试总结">&larr; Previous Post</a>
+                        </li>
                     
                     
                         <li class="next">
@@ -599,7 +603,7 @@ window.addEventListener('beforeinstallprompt', event => {
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545890938472')
+  navigator.serviceWorker.register('/serviceworker.js?t=1545967164863')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

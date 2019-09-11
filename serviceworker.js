@@ -24,13 +24,13 @@ var precacheUrls = [];
 
   precacheUrls.push('/');
 
-  precacheUrls.push('/2017/02/27/php中密码HASH的方方案——password-hash/');
+  precacheUrls.push('/2018/04/27/动效神器Lottie初体验——把AE动画转换成WEB原生动画/');
 
   precacheUrls.push('/2018/12/27/2018年前端开发校招面试总结/');
 
-  precacheUrls.push('/2016/08/05/three-js学习笔记（一）/');
+  precacheUrls.push('/2019/09/11/微信小程序上传照片后旋转问题解决/');
 
-  precacheUrls.push('/2017/07/27/阿里巴巴iconfont正确的使用姿势/');
+  precacheUrls.push('/2017/07/17/Mock-js初体验——模拟前后端交互/');
 
   precacheUrls.push('/2017/08/15/谈谈HTML5本地存储/');
 

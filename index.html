@@ -138,14 +138,14 @@
 
                         
                         <li>
-                            <a href="/about/">About</a>
+                            <a href="/archives/">Archives</a>
                         </li>
                         
                     
 
                         
                         <li>
-                            <a href="/archives/">Archives</a>
+                            <a href="/about/">About</a>
                         </li>
                         
                     
@@ -215,6 +215,37 @@
 
                 <!-- Main Content -->
 
+
+<div class="post-preview">
+
+    <a href="/2019/09/11/微信小程序上传照片后旋转问题解决/">
+        <h2 class="post-title">
+            微信小程序上传照片后旋转问题解决
+        </h2>
+        <h3 class="post-subtitle">
+            
+        </h3>
+        <div class="post-content-preview">
+            前言又是好久好久好久没更新了，太懒了
+这次记录一下在做mini项目中遇到的一个问题，当时没时间解决，mini结束后还是打算看看这个问题。
+问题说明当时是这样的，微信小程序在上传照片后，会有一定概率旋转，查阅了资料之后，发现是和图片中携带的exif信息中的orientation这个参数有关。
+这里有一个关于EXIF 和 Orientation 相关的传送门：使用 JavaScript 读取 J......
+        </div>
+    </a>
+    
+        <p class="post-meta" style="margin: 10px 0;">
+            Posted by syean on
+            2019-09-11
+        </p>
+        <div class="tags">
+            
+              <a href="/tags/#微信小程序" title="微信小程序">微信小程序</a>
+            
+        </div>
+    
+
+</div>
+<hr>
 
 <div class="post-preview">
 
@@ -493,38 +524,9 @@ webStoragewebStorage是HTML5中本地存储的解决方案之一，包括session
         </p>
         <div class="tags">
             
-              <a href="/tags/#css" title="css">css</a>
-            
               <a href="/tags/#设计" title="设计">设计</a>
             
-        </div>
-    
-
-</div>
-<hr>
-
-<div class="post-preview">
-
-    <a href="/2017/07/17/Mock-js初体验——模拟前后端交互/">
-        <h2 class="post-title">
-            Mock.js初体验——模拟前后端交互
-        </h2>
-        <h3 class="post-subtitle">
-            
-        </h3>
-        <div class="post-content-preview">
-            虽然很早之前就已经知道mock，但是从未使用，一般自己构造几个数据也就得了。这次在做项目的时候，想想学学新东西，也是极好的，就用了一下，确实是个非常好上手的好东西呀。
-直接上实例用法很简单，原理就是你使用ajax请求时，会进行拦截，然后根据你的配置，给你返回构造好的随机数据。啦啦啦，不多说。1234567891011121314151617181920212223&lt;script src......
-        </div>
-    </a>
-    
-        <p class="post-meta" style="margin: 10px 0;">
-            Posted by syean on
-            2017-07-17
-        </p>
-        <div class="tags">
-            
-              <a href="/tags/#javascript" title="javascript">javascript</a>
+              <a href="/tags/#css" title="css">css</a>
             
         </div>
     
@@ -574,10 +576,6 @@ webStoragewebStorage是HTML5中本地存储的解决方案之一，包括session
             
         
             
-            <a href="/tags/#css" title="css" rel="4">css</a>
-            
-        
-            
             <a href="/tags/#javascript" title="javascript" rel="8">javascript</a>
             
         
@@ -586,17 +584,15 @@ webStoragewebStorage是HTML5中本地存储的解决方案之一，包括session
             
         
             
-        
-            
             <a href="/tags/#php" title="php" rel="5">php</a>
             
         
             
-            <a href="/tags/#可视化" title="可视化" rel="3">可视化</a>
+            <a href="/tags/#css" title="css" rel="4">css</a>
             
         
             
-            <a href="/tags/#electron" title="electron" rel="2">electron</a>
+            <a href="/tags/#可视化" title="可视化" rel="3">可视化</a>
             
         
             
@@ -612,11 +608,11 @@ webStoragewebStorage是HTML5中本地存储的解决方案之一，包括session
             
         
             
-        
-            
             <a href="/tags/#Vue.js" title="Vue.js" rel="2">Vue.js</a>
             
         
+            
+            <a href="/tags/#electron" title="electron" rel="2">electron</a>
             
         
             
@@ -626,7 +622,15 @@ webStoragewebStorage是HTML5中本地存储的解决方案之一，包括session
             
         
             
+            <a href="/tags/#微信小程序" title="微信小程序" rel="2">微信小程序</a>
+            
+        
+            
             <a href="/tags/#读书笔记" title="读书笔记" rel="2">读书笔记</a>
+            
+        
+            
+        
             
         
     </div>
@@ -751,7 +755,7 @@ webStoragewebStorage是HTML5中本地存储的解决方案之一，包括session
 
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright &copy; syean 2018&nbsp;蜀ICP备17010174号
+                    Copyright &copy; syean 2019&nbsp;蜀ICP备17010174号
                     <br>
 
                     <br>
@@ -915,7 +919,7 @@ window.addEventListener('beforeinstallprompt', event => {
 <!-- Migrate from head to bottom, no longer block render and still work -->
 
 <script>if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/serviceworker.js?t=1545967412796')
+  navigator.serviceWorker.register('/serviceworker.js?t=1568206387084')
     .then(function () {console.log('ServiceWorker Register Successfully.')})
     .catch(function (e) {console.error(e)});
 }

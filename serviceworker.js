@@ -28,11 +28,11 @@ var precacheUrls = [];
 
   precacheUrls.push('/2018/12/27/2018年前端开发校招面试总结/');
 
+  precacheUrls.push('/2019/09/26/Less自用笔记/');
+
   precacheUrls.push('/2019/09/11/微信小程序上传照片后旋转问题解决/');
 
-  precacheUrls.push('/2017/07/17/Mock-js初体验——模拟前后端交互/');
-
-  precacheUrls.push('/2017/08/15/谈谈HTML5本地存储/');
+  precacheUrls.push('/2017/03/08/有趣的鼠标悬浮模糊效果/');
 
 toolbox.precache(precacheUrls);
 toolbox.options = {"networkTimeoutSeconds":5};

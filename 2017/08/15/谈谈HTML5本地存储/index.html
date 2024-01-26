@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><link rel=manifest href=/manifest.json><meta name="generator" content="Hexo 3.9.0"><link rel="manifest" href="/manifest.json">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端,技术,生活">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <title>
+        
+          谈谈HTML5本地存储 - Syean的博客 | Syean&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article/webstorage.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/undefined');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#html5" title="html5">html5</a>
+                            
+                        </div>
+                        <h1>谈谈HTML5本地存储</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            <!--Posted by syean on -->
+                            Posted on
+                            2017-08-15 
+                            <span id="busuanzi_container_page_pv"> |&nbsp;&nbsp;
+  <i class="fa fa-eye" ></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+</span>
+                        </span>
+                        
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Syean</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>这次在写项目的登录认证过程中，碰到了一点小问题，是关于浏览器存储方面的东西，就仔细查了资料，总结一下。</p>
+<a id="more"></a>
+<h1><span id="浏览器本地存储概述">浏览器本地存储概述</span></h1>
+<h2><span id="简介">简介</span></h2>
+<h3><span id="cookie">cookie</span></h3>
+<p>cookie是指某些网站为了辨别用户身份、进行 session 跟踪而储存在用户本地终端上的数据（通常经过加密）。</p>
+<h3><span id="webstorage">webStorage</span></h3>
+<p>webStorage是HTML5中本地存储的解决方案之一，包括sessionStorag和localStorage，两者差別就差在生命周期的不同而已。</p>
+<h3><span id="websql和indexeddb">websql和indexeddb</span></h3>
+<p>IndexedDB 是一种低级API，用于客户端存储大量结构化数据。该API使用索引来实现对该数据的高性能搜索。webStorage 对于存储较少量的数据很有用，但对于存储更大量的结构化数据来说，这种方法不太有用。IndexedDB提供了一个解决方案。</p>
+<p>websql是早期的存储标准，目前已经不再维护，转向indexeddb，不过websql的兼容性更好。不过indexeddb是未来，所以接下来主要讲indexeddb</p>
+<h2><span id="四者对比">四者对比</span></h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>生命周期</th>
+<th>存储大小</th>
+<th>与服务器通信</th>
+<th>作用域</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cookie</td>
+<td>一般由服务器生成，可设置过期时间，默认是关闭浏览器后失效</td>
+<td>4k左右</td>
+<td>可每次携带在http头部中，但保存过多数据会带来性能问题</td>
+<td>可通过.setDomain设置主域名共享</td>
+<td>不建议在cookie里存储数据，必要时存储同步访问页面时必须要被带到服务端的信息，例如网站的用户登录信息</td>
+</tr>
+<tr>
+<td>localStorage</td>
+<td>永久保存，除非被清除</td>
+<td>5m左右</td>
+<td>只能存储在浏览器端</td>
+<td>子域名之间相互独立</td>
+<td>存储用户的一些状态和数据，缓解服务器压力</td>
+</tr>
+<tr>
+<td>sessionStorage</td>
+<td>仅存在当前标签页下，关闭浏览器或者新建标签页都为空</td>
+<td>5m左右</td>
+<td>只能存储在浏览器端</td>
+<td>不同tab之间无法共享</td>
+<td>建议存储一些当前页面刷新需要存储，且不需要在tab关闭时候留下的信息，可根据这个来判断用户是否刷新进入，恢复音乐视频播放进度等</td>
+</tr>
+<tr>
+<td>indexeddb</td>
+<td>永久保存，除非被清除</td>
+<td>一个单独的数据库没有大小限制，不过可能限制每个Indexeddb数据库的大小，例如firefox在用户界面上只会针对存储超过 50 MB 大小的 BLOB（二进制大对象）请求权限，总体基本没有大小限制</td>
+<td>只能存储在浏览器端</td>
+<td>子域名之间相互独立</td>
+<td>离线应用或webapp可以考虑使用indexeddb或者websql中存取数据</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>【tip】sessionStorage只能在一个标签页下共享，即如果你从当前标签页下新打开一个该网页的页面，sessionStorage数据也是清空的。不过如果你恢复关闭的页面的话，在chrome和firefox下sessionStorage也会被恢复，不过safari不会。</p>
+</blockquote>
+<h2><span id="webstorage和indexeddb的兼容性">webStorage和indexeddb的兼容性</span></h2>
+<h3><span id="webstorage兼容性">webStorage兼容性</span></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Firefox</th>
+<th>IE</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>localStorage</td>
+<td>4</td>
+<td>3.5</td>
+<td>8</td>
+<td>10.50</td>
+<td>4</td>
+</tr>
+<tr>
+<td>sessionStorage</td>
+<td>5</td>
+<td>2</td>
+<td>8</td>
+<td>10.50</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>基本浏览器都是支持的</p>
+<h3><span id="indexeddb兼容性">indexeddb兼容性</span></h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Chrome</th>
+<th>Firefox</th>
+<th>IE</th>
+<th>Opera</th>
+<th>Safari</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>l异步 API</td>
+<td>12 【webkit 】</td>
+<td>16.0 (16.0)     4.0 (2.0)【 moz】</td>
+<td>10 【ms】</td>
+<td>未实现</td>
+<td>未实现</td>
+</tr>
+<tr>
+<td>同步 API</td>
+<td>未实现</td>
+<td>未实现</td>
+<td>未实现</td>
+<td>未实现</td>
+<td>未实现</td>
+</tr>
+</tbody>
+</table>
+<p>目前兼容性较差</p>
+<h1><span id="webstorage-api">webStorage API</span></h1>
+<p>localStorage和sessionStorage的用法是一样的，下面展示sessionStorage的使用例子。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保存数据到sessionStorage</span></span><br><span class="line">sessionStorage.setItem('key', 'value');</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从sessionStorage获取数据</span></span><br><span class="line">var data = sessionStorage.getItem('key');</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从sessionStorage删除保存的数据</span></span><br><span class="line">sessionStorage.removeItem('key');</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从sessionStorage删除所有保存的数据</span></span><br><span class="line">sessionStorage.<span class="attribute">clear</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//枚举sessionStorage的方法</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">for</span><span class="params">(var i=<span class="number">0</span>;i&lt;sessionStorage.length;i++)</span></span>&#123;</span><br><span class="line">     var key = sessionStorage.key(i);</span><br><span class="line">     var value =sessionStorage.getItem(key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，你也可以直接用对象的赋值方式来设置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage[<span class="string">'colorSetting'</span>] = <span class="string">'#a4509b'</span>;</span><br><span class="line">sessionStorage.setItem(<span class="string">'colorSetting'</span>, <span class="string">'#a4509b'</span>);</span><br></pre></td></tr></table></figure>
+<p>不过，官方建议只用webStorage API(getItem, removeItem, key, length),来避免使用对象键值存储的一些缺陷，缺陷详情请点击<a href="http://2ality.com/2012/01/objects-as-maps.html" target="_blank" rel="noopener">这里</a></p>
+<h2><span id="storage事件">storage事件</span></h2>
+<p>webStorage还有storage事件。当storage发生改变，storage事件就会被触发。<br>
+这里的的条件是数据发生了变化，如果当前的存储区域是空的，即使再调用clear()也不会触发事件。或者你通过setItem()来设置一个与现有值相同的值，事件也是不会触发的。</p>
+<h3><span id="storage-属性">storage 属性</span></h3>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>代表属性名发生变化.当被clear()方法清除之后所有属性名变为null. Read only（只读）.</td>
+</tr>
+<tr>
+<td>newValue</td>
+<td>新添加进的值.当被clear()方法执行过或者被属性名被删除，值会成为null Read only（只读）.</td>
+</tr>
+<tr>
+<td>oldValue</td>
+<td>原始值.被clear()方法执行过则变为null，或者被新值取代。 Read only（只读）.</td>
+</tr>
+<tr>
+<td>storageArea</td>
+<td>被操作的storage对象. Read only（只读）.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>key发生改变的对象所对应的文档的URL地址.。 Read only（只读）.</td>
+</tr>
+</tbody>
+</table>
+<p>下面介绍多标签页面使用sessionStorage时会有使用栗子。</p>
+<h1><span id="多标签页面使用sessionstorage">多标签页面使用sessionStorage</span></h1>
+<p>在最近使用vuejs写完全前后端分离的项目时，在做登录认证的时候，在想到底怎么存储用户认证信息。</p>
+<p>因为系统安全要求等级比较高，要求用户关闭标签页的时候会话立刻到期，使用cookie来保存敏感的token就不太合适了。如果使用localstorage，页面关闭后localstorage数据还在，也不太满足要求。<br>
+想着只能使用sessionStorage。</p>
+<p>不过尴尬的是，使用sessionStorage是无法再多标签页面共享的。每次打开新标签页，就会跳转到登录页面，用户体验不太友好，查了一下资料，看到一博客是翻译了一外国小哥使用storage事件实现跨标签页共享sessionStorage的文章，学习了，点击<a href="http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">这里看该博客</a>。</p>
+<p>简单来讲就是，如果新标签页如果没有sessionStorage数据，就会触发一个localstorage修改事件，那么在已存在的标签里收到这个事件后，就会将当前页的sessionStorage数据保存在localstorage中，但是马上移除。但是在新标签页里会监听到该事件，可以获取到这个sessionStorage数据，那这样就保证了新标签页也能获取sessionStorage，也保证localstorage中不存在token信息。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (!sessionStorage.length) &#123;</span><br><span class="line">		<span class="comment">// 如果当前页没有sessionStorage数据，就触发一个事件。</span></span><br><span class="line">		localStorage.setItem(<span class="string">'getSessionStorage'</span>, <span class="built_in">Date</span>.now());</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">window</span>.addEventListener(<span class="string">'storage'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//console.log('storage event', event);</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (event.key == <span class="string">'getSessionStorage'</span>) &#123;</span><br><span class="line">			<span class="comment">// 已存在的标签页收到该事件后，讲sessionStorage数据存到localstorage中，并马上移除。</span></span><br><span class="line"></span><br><span class="line">			localStorage.setItem(<span class="string">'sessionStorage'</span>, <span class="built_in">JSON</span>.stringify(sessionStorage));</span><br><span class="line">			localStorage.removeItem(<span class="string">'sessionStorage'</span>);</span><br><span class="line"></span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (event.key == <span class="string">'sessionStorage'</span> &amp;&amp; !sessionStorage.length) &#123;</span><br><span class="line">			<span class="comment">// 新标签页会在这里监听到事件，通过newValue这个属性获取当时存储在localstorage的sessionStorage数据</span></span><br><span class="line"></span><br><span class="line">			<span class="keyword">var</span> data = <span class="built_in">JSON</span>.parse(event.newValue),value;</span><br><span class="line">			<span class="built_in">console</span>.log(data,<span class="string">"111"</span>);</span><br><span class="line">			<span class="keyword">for</span> (key <span class="keyword">in</span> data) &#123;</span><br><span class="line">				sessionStorage.setItem(key, data[key]);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<h1><span id="indexeddb">IndexedDB</span></h1>
+<p>用法不像sessionStorage那么简单，不过以下两篇文章把基本indexeddb用法都讲的比较清楚了。就不额外做整理了。</p>
+<blockquote>
+<p><a href="http://www.cnblogs.com/dolphinX/p/3415761.html" target="_blank" rel="noopener">HTML5本地存储——IndexedDB（一：基本使用）</a><br>
+<a href="http://www.cnblogs.com/dolphinX/p/3416889.html" target="_blank" rel="noopener">HTML5本地存储——IndexedDB（二：索引）</a></p>
+</blockquote>
+<p>【参考】<br>
+<a href="http://blog.kazaff.me/2016/09/09/%E8%AF%91-%E5%9C%A8%E5%A4%9A%E4%B8%AA%E6%A0%87%E7%AD%BE%E9%A1%B5%E4%B9%8B%E9%97%B4%E5%85%B1%E4%BA%ABsessionStorage/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="noopener">http://blog.kazaff.me/2016/09/09/译-在多个标签页之间共享sessionStorage/?utm_source=tuicool&amp;utm_medium=referral</a><br>
+<a href="https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/" target="_blank" rel="noopener">https://blog.guya.net/2015/06/12/sharing-sessionstorage-between-tabs-for-secure-multi-tab-authentication/</a><br>
+<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage</a><br>
+<a href="https://segmentfault.com/a/1190000005927232#articleHeader3" target="_blank" rel="noopener">https://segmentfault.com/a/1190000005927232#articleHeader3</a></p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/" data-toggle="tooltip" data-placement="top" title="一步步实现微信小程序——仿豆瓣电影">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/07/27/阿里巴巴iconfont正确的使用姿势/" data-toggle="tooltip" data-placement="top" title="阿里巴巴iconfont正确的使用姿势">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">浏览器本地存储概述</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.</span> <span class="toc-nav-text">简介</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.1.</span> <span class="toc-nav-text">cookie</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.2.</span> <span class="toc-nav-text">webStorage</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.1.3.</span> <span class="toc-nav-text">websql和indexeddb</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.2.</span> <span class="toc-nav-text">四者对比</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.</span> <span class="toc-nav-text">webStorage和indexeddb的兼容性</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.1.</span> <span class="toc-nav-text">webStorage兼容性</span></a></li><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.3.2.</span> <span class="toc-nav-text">indexeddb兼容性</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">webStorage API</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">storage事件</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-3"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.1.1.</span> <span class="toc-nav-text">storage 属性</span></a></li></ol></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">多标签页面使用sessionStorage</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">IndexedDB</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#html5" title="html5">html5</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <!-- 
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://simmin.github.io/" target="_blank">Simmin Blog</a></li>
+                    
+                        <li><a href="http://phantom0301.cc/" target="_blank">零の杂货铺</a></li>
+                    
+                        <li><a href="http://blackwolfsec.cc/" target="_blank">blackwolf</a></li>
+                    
+                        <li><a href="http://wps2015.jinglingshu.org/" target="_blank">wps2015</a></li>
+                    
+                        <li><a href="http://www.jetmuffin.com/" target="_blank">jetmuffin</a></li>
+                    
+                </ul>
+                 -->
+                 <div id="vcomments"></div>
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储/";
+    var disqus_url = "http://wsyks.github.io/2017/08/15/谈谈HTML5本地存储/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/2949528583">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/wsyks">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; syean 2024&nbsp;蜀ICP备17010174号
+                    <br>
+
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a>
+                     <br>
+
+                        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                        <span id="busuanzi_container_site_uv">
+                          <i class="fa fa-user"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_uv"></span>
+                        </span>&nbsp;|&nbsp;
+                        <span id="busuanzi_container_site_pv">
+                            <i class="fa fa-eye">&nbsp;&nbsp;</i><span id="busuanzi_value_site_pv"></span>
+                        </span>
+
+                        
+                     <!-- | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'a752ba5e82dfa1b0ba76d0a4e2dc9dfa';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<script>
+window.addEventListener('beforeinstallprompt', event => {
+  event.userChoice.then(result => {console.log(result.outcome)
+  })
+})
+</script>
+
+
+<script>
+        new Valine({
+            av:AV,
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM',
+            placeholder:"╰(*′︶`*)╯，哟呼",
+            avatar:"identicon"
+        })
+    </script>
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/serviceworker.js?t=1706236750314')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+
+</html>

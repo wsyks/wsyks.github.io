@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><link rel=manifest href=/manifest.json><meta name="generator" content="Hexo 3.9.0"><link rel="manifest" href="/manifest.json">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端,技术,生活">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <title>
+        
+          瓦片地图 - Syean的博客 | Syean&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wsyks.github.io/2016/07/21/瓦片地图/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article/wapian.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/undefined');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#可视化" title="可视化">可视化</a>
+                            
+                        </div>
+                        <h1>瓦片地图</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            <!--Posted by syean on -->
+                            Posted on
+                            2016-07-21 
+                            <span id="busuanzi_container_page_pv"> |&nbsp;&nbsp;
+  <i class="fa fa-eye" ></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+</span>
+                        </span>
+                        
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Syean</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="前言">前言</span></h1>
+<p>前一段时间在写项目的时候，使用了一个轻量级的可视化库，专用于打造一个交互性良好的地图。下面放一个使用小栗子。</p>
+<a id="more"></a>
+<p>【小栗子】</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--引入leaflet.js和css文件 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"assets/css/leaflet.css"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"assets/js/leaflet.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--设置一个div对象用于承载地图 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"map"</span> <span class="attr">class</span>=<span class="string">"leaflet-map"</span> <span class="attr">style</span>=<span class="string">"width:450px;height:300px"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> map = L.map(<span class="string">'map'</span>).setView([<span class="number">51.505</span>, <span class="number">-0.09</span>], <span class="number">3</span>);</span></span><br><span class="line"><span class="actionscript">   	L.tileLayer(<span class="string">'http://&#123;s&#125;.tile.osm.org/&#123;z&#125;/&#123;x&#125;/&#123;y&#125;.png'</span>, &#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">   	// attribution: '<span class="symbol">&amp;copy;</span> <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://osm.org/copyright"</span>&gt;</span>OpenStreetMap<span class="tag">&lt;/<span class="name">a</span>&gt;</span> contributors'</span></span></span><br><span class="line">   	&#125;).addTo(map);</span><br><span class="line"></span><br><span class="line">   	L.marker([51.505, -0.09]).addTo(map)</span><br><span class="line"><span class="actionscript">   	.bindPopup(<span class="string">'A pretty CSS3 popup.&lt;br&gt; Easily customizable.'</span>)</span></span><br><span class="line">   	.openPopup();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>但是今天并不是分享这个可视化库，而是里面所采用到的一个技术之一————<strong>瓦片地图</strong>。</p>
+<hr>
+<h1><span id="瓦片地图概念">瓦片地图概念</span></h1>
+<p>地图瓦片地址栗子，以google为例：<br>
+<img src="http://mt2.google.cn/vt/lyrs=m@167000000&amp;hl=zh-CN&amp;gl=cn&amp;x=420&amp;y=193&amp;z=9&amp;s=Galil" alt="enter description here"></p>
+<p>现在就是要将一张张这类的地图瓦片，在客户端拼接成一幅完整的地图。<br>
+其中每一片的瓦片大小为：256像素x256像素</p>
+<h2><span id="瓦片地图金字塔模型">瓦片地图金字塔模型</span></h2>
+<p>Q:为什么出现瓦片地图金字塔模型这个概念</p>
+<p>现在，我假设我们的服务器上有一个1G的影像，需要将其在前端进行显示。我们传统的做法就是首先将服务器中的1G影像下载到前端，然后浏览器加载渲染出图。但是大家想想，首先客户端下载1G的影像需要的时间一定是个漫长的过程，其次浏览器加载这么大的文件也多半会导致其崩溃。而最重要的一个问题是，我们的需求仅仅是浏览全图中的某一个区域下的某几个级别，现在却将全图下载完毕了，而这同样还导致了数据的不安全性（下载到本地），同时我们的每一次放大和缩小以及拖拽都将会使浏览器花上足够长的时间去渲染。</p>
+<p>可见，传统的方式是不符合实际需求的。到后来，又有了新的解决方法，比如arcgis的IMS版本中提出了动态出图的概念。也就是当前端发出的请求里包含了需要显示的范围、显示窗口的大小等参数后，后台动态的在原始数据中切出一个符合需求的瓦片，然后将这个数据返回给前台，并且在服务器中对这个瓦片做缓存。</p>
+<p>但是，这个方法前端出图依旧很慢，并且使地图服务器的压力过大。终于，我们的瓦片金字塔模型解决方案出现了。</p>
+<blockquote>
+<p>瓦片地图金字塔模型是一种多分辨率层次模型，从瓦片金字塔的底层到顶层，分辨率越来越低，但表示的地理范围不变。</p>
+</blockquote>
+<p><img src="http://support.supermap.com.cn/DataWarehouse/WebDocHelp/6.1.1/iServerJavaOnlineHelp/API/WMTS/TileMatrixSet.png" alt="enter description here"></p>
+<blockquote>
+<p>地图切图方式：<br>
+一幅地图由4^n个256<em>256的正方形组成，n为级别<br>
+例如：第0级为4^0个，即世界地图由一个256</em>256图片表示。<br>
+第1级世界地图应由4^1（4）个256图片组成，也就是将世界地图（上一级的单个图片）等分成4块256*256图片。<br>
+往下每一级依此类推……</p>
+</blockquote>
+<h2><span id="url中关键参数">url中关键参数</span></h2>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="http://mt2.google.cn" target="_blank" rel="noopener">mt2.google.cn</a></td>
+<td>Google瓦片服务服务器，可以尝试mt1.google.cn依然有效。Google提供多台瓦片服务器，减轻服务器负载，提高网络访问效率。</td>
+</tr>
+<tr>
+<td>x</td>
+<td>瓦片的横向索引，起始位置为最左边，数值为0，向右+1递增。</td>
+</tr>
+<tr>
+<td>y</td>
+<td>瓦片的纵向索引，起始位置为最上面，数值为0，向下+1递增。</td>
+</tr>
+<tr>
+<td>z</td>
+<td>地图的级别，以Google为例，最上一级为0，向下依次递增。</td>
+</tr>
+</tbody>
+</table>
+<p>比如说，1级下面，有两行和两列。这四张图片的地址如下：<br>
+<a href="http://mt2.google.cn/vt/x=0&amp;y=0&amp;z=1" target="_blank" rel="noopener">http://mt2.google.cn/vt/x=0&amp;y=0&amp;z=1</a><br>
+<img src="http://mt2.google.cn/vt/x=0&amp;y=0&amp;z=1" alt="http://mt2.google.cn/vt/x=0&amp;amp;y=0&amp;amp;z=1"><br>
+<a href="http://mt2.google.cn/vt/x=0&amp;y=1&amp;z=1" target="_blank" rel="noopener">http://mt2.google.cn/vt/x=0&amp;y=1&amp;z=1</a><br>
+<img src="http://mt2.google.cn/vt/x=0&amp;y=1&amp;z=1" alt="enter description here"><br>
+<a href="http://mt2.google.cn/vt/x=1&amp;y=0&amp;z=1" target="_blank" rel="noopener">http://mt2.google.cn/vt/x=1&amp;y=0&amp;z=1</a><br>
+<img src="http://mt2.google.cn/vt/x=1&amp;y=0&amp;z=1" alt="enter description here"><br>
+<a href="http://mt2.google.cn/vt/x=1&amp;y=1&amp;z=1" target="_blank" rel="noopener">http://mt2.google.cn/vt/x=1&amp;y=1&amp;z=1</a><br>
+<img src="http://mt2.google.cn/vt/x=1&amp;y=1&amp;z=1" alt="enter description here"><br>
+如果把这四张图片合在一起的话，就变成如下的图，这就是一个世界的地图了。<br>
+<img src="http://images.cnitblog.com/blog/464760/201312/02214059-faf4aed17ee14678bd913aba4c691db1.png" alt="enter description here"></p>
+<h2><span id="涉及的一些概念与变量">涉及的一些概念与变量</span></h2>
+<p><strong>1）地图投影方式</strong>： Web墨卡托——互联网地图通用的地图投影方式。</p>
+<p><strong>Q1：什么是墨卡托投影？</strong></p>
+<blockquote>
+<p>墨卡托(Mercator)投影，又名“等角正轴圆柱投影”，荷兰地图学家墨卡托（Mercator）在1569年拟定，假设地球被围在一个中空的圆柱里，其赤道与圆柱相接触，然后再假想地球中心有一盏灯，把球面上的图形投影到圆柱体上，再把圆柱体展开，这就是一幅标准纬线为零度（即赤道）的“墨卡托投影”绘制出的世界地图。<br>
+<img src="http://img.blog.csdn.net/20131028160043109" alt="enter description here"></p>
+</blockquote>
+<p><strong>Q2：Google们为什么选择墨卡托投影？</strong></p>
+<blockquote>
+<p>墨卡托投影的“等角”特性，保证了对象的形状的不变行，正方形的物体投影后不会变为长方形。“等角”也保证了方向和相互位置的正确性，因此在航海和航空中常常应用，而Google们在计算人们查询地物的方向时不会出错。</p>
+<p>墨卡托投影的“圆柱”特性，保证了南北（纬线）和东西（经线）都是平行直线，并且相互垂直。而且经线间隔是相同的，纬线间隔从标准纬线（此处是赤道，也可能是其他纬线）向两级逐渐增大。<br>
+但是，“等角”不可避免的带来的面积的巨大变形，特别是两极地区，明显的如格陵兰岛比实际面积扩大了N倍。</p>
+</blockquote>
+<p><strong>2）Bounds(地图范围)</strong>： [ -20037508.3427892, -20037508.3427892, 20037508.3427892,20037508.3427892]，单位为米，20037508.3427892表示地图周长的一半，以地图中心点做为（0，0）坐标。<br>
+<strong>3）Levels：</strong> 地图的级别，例如：0……22。<br>
+<strong>4）Resolutions：</strong> 分辨率数组，与级别相对应，即一个级别对应一个分辨率，分辨率表示当前级别下单个像素代表的地理长度，即一像素代表多少米。Resolutions[n] = 20037508.3427892 * 2 / 256 / (2^n)</p>
+<img src="/2016/07/21/瓦片地图/1.png">
+<p>所以，低分辨率下面，显示洲名称和海洋名称。中分辨率下面，显示省名。高分辨率下面，就显示POI信息（每个POI包含四方面信息，名称、类别、经度、纬度，一个POI可以是一栋房子、一个商铺、一个邮筒、一个公交站等）<br>
+<strong>5）Center：</strong> 地图显示中心点。<br>
+<strong>6）viewSize：</strong> 地图控件窗口的大小。</p>
+<p><img src="http://images.cnitblog.com/blog/464760/201312/02214051-757df653dec644279956210f76705d50.jpg" alt="enter description here"></p>
+<h1><span id="瓦片地图相关算法">瓦片地图相关算法</span></h1>
+<p>根据已知地图中心点、显示级别可以将地图显示范围计算出来:<br>
+viewBounds = [Center.x - Resolutions[l]*viewSize.width/2, Center.y - Resolutions[l]*viewSize.height/2, Center.x + Resolutions[l].viewSize.width/w, Center.y + Resolutions[l].viewSize.height/h]</p>
+<blockquote>
+<p>拼图算法剖析：</p>
+</blockquote>
+<h2><span id="计算瓦片url">计算瓦片url</span></h2>
+<p>要想出图就发须知道地图控件可视范围起始点瓦片索引、末尾瓦片索引，中间区域的瓦片索引循环遍历即可得出。<br>
+下面看看如果计算出起始点、末尾瓦片url索引：</p>
+<p><strong>已知：</strong></p>
+<ul>
+<li>l(缩放级别)</li>
+<li>bounds(地图范围——[ -20037508.3427892, -20037508.3427892, 20037508.3427892, 20037508.3427892])</li>
+<li>viewBounds(地图控件可视范围)</li>
+<li>分辨率（Resolutions[l]）</li>
+<li>瓦片像素宽高（256）。</li>
+</ul>
+<p><strong>未知：</strong></p>
+<ul>
+<li>startX（视图起始瓦片X方向索引）</li>
+<li>startY（视图起始瓦片Y方向索引）</li>
+<li>endX（视图未尾瓦片x方向索引）</li>
+<li>endY（视图未尾瓦片y方向索引）。</li>
+</ul>
+<p><strong>求解：</strong></p>
+<pre><code>startX = floor(((viewBounds.leftTop.x - bounds.leftTop.x) / Resolutions[l]) / 256);
+startY = floor(((viewBounds.leftTop.y - bounds.leftTop.y) / Resolutions[l]) / 256);
+endX = floor(((viewBounds.rightBottom.x - bounds.rightBottom.x) / Resolutions[l]) / 256);
+endY = floor(((viewBounds.rightBottom.y - bounds.rightBottom.y) / Resolutions[l]) / 256);
+firstTileUrl(起始瓦片Url) = http://**********?x=startX&amp;y=startY&amp;z=l;
+endTileUrl(末尾瓦片Url) = http://**********?x=endX&amp;y=startY&amp;z=l;
+</code></pre>
+<p>中间部分的url循环遍历即可得出。<br>
+获得了所有瓦片的url，之后就是拼接瓦片的问题。</p>
+<h2><span id="计算瓦片放在地图控件上的位置">计算瓦片放在地图控件上的位置</span></h2>
+<p><strong>分析：</strong><br>
+其实只要将起始位置的瓦片像素位置算出来就可以了，由于瓦片像素大小为256，后面的各瓦片位置也就明了了。所以这里只探讨一下起始瓦片的像素位置。</p>
+<p><strong>已知：</strong></p>
+<ul>
+<li>startX（视图起始瓦片X方向索引）</li>
+<li>startY（视图起始瓦片Y方向索引）</li>
+<li>分辨率（Resolutions[l]）</li>
+<li>瓦片像素宽高（256）</li>
+<li>bounds(地图范围)</li>
+<li>viewBounds(地图控件可视范围)</li>
+</ul>
+<p><strong>未知：</strong></p>
+<ul>
+<li>startTileX（起始瓦片左上角X方向地理坐标）</li>
+<li>startTileY（起始瓦片左上角Y方向地理坐标）</li>
+<li>distanceX（瓦片左边与地图控件左边相距的像素距离）</li>
+<li>distanceY（瓦片上边与地图控件上边相距的像素距离）。</li>
+</ul>
+<p><strong>求解：</strong></p>
+<pre><code>startTileX = bounds.leftTop.x + (startX * 256 * Resolutions[l]);
+startTileY = bounds.rightBottom.y - (startY * 256 * Resolutions[l]);
+distanceX = (viewBounds.leftTop.x - startTileX) / Resolutions[l];
+distanceY = (startTileY - viewBounds.rightBottom.y) / Resolutions[l]
+</code></pre>
+<p>公式不是最简，以方便理解，相信看官此时已经知道起始瓦片在地图控件中的摆放位置了——设地图控件起始像素位置为（0，0），那么此瓦片的像素的位置就是（-distanceX、-distanceY）。其它瓦片依据256像素宽高的关系依次而出。</p>
+<p>到此已经算出了各瓦片的url以及它们应该摆放的位置，准备工作已完成，直接帖图即可完成出图工作。</p>
+<hr>
+<blockquote>
+<p>参考资料</p>
+</blockquote>
+<ul>
+<li><a href="http://www.cnblogs.com/ninemilli/archive/2011/12/26/2289285.html" target="_blank" rel="noopener">http://www.cnblogs.com/ninemilli/archive/2011/12/26/2289285.html</a></li>
+<li><a href="http://blog.csdn.net/mygisforum/article/details/13295223" target="_blank" rel="noopener">http://blog.csdn.net/mygisforum/article/details/13295223</a></li>
+<li><a href="http://www.thinkgis.cn/topic/549973e5426db0c1549792fc" target="_blank" rel="noopener">http://www.thinkgis.cn/topic/549973e5426db0c1549792fc</a></li>
+</ul>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2016/07/28/HTML5-拖放/" data-toggle="tooltip" data-placement="top" title="HTML5_拖放">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/04/22/算法学习笔记（一）/" data-toggle="tooltip" data-placement="top" title="算法学习笔记（一）">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">瓦片地图概念</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">瓦片地图金字塔模型</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">url中关键参数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.3.</span> <span class="toc-nav-text">涉及的一些概念与变量</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">瓦片地图相关算法</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">计算瓦片url</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">计算瓦片放在地图控件上的位置</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#可视化" title="可视化">可视化</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <!-- 
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://simmin.github.io/" target="_blank">Simmin Blog</a></li>
+                    
+                        <li><a href="http://phantom0301.cc/" target="_blank">零の杂货铺</a></li>
+                    
+                        <li><a href="http://blackwolfsec.cc/" target="_blank">blackwolf</a></li>
+                    
+                        <li><a href="http://wps2015.jinglingshu.org/" target="_blank">wps2015</a></li>
+                    
+                        <li><a href="http://www.jetmuffin.com/" target="_blank">jetmuffin</a></li>
+                    
+                </ul>
+                 -->
+                 <div id="vcomments"></div>
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://wsyks.github.io/2016/07/21/瓦片地图/";
+    var disqus_url = "http://wsyks.github.io/2016/07/21/瓦片地图/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/2949528583">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/wsyks">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; syean 2024&nbsp;蜀ICP备17010174号
+                    <br>
+
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a>
+                     <br>
+
+                        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                        <span id="busuanzi_container_site_uv">
+                          <i class="fa fa-user"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_uv"></span>
+                        </span>&nbsp;|&nbsp;
+                        <span id="busuanzi_container_site_pv">
+                            <i class="fa fa-eye">&nbsp;&nbsp;</i><span id="busuanzi_value_site_pv"></span>
+                        </span>
+
+                        
+                     <!-- | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'a752ba5e82dfa1b0ba76d0a4e2dc9dfa';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<script>
+window.addEventListener('beforeinstallprompt', event => {
+  event.userChoice.then(result => {console.log(result.outcome)
+  })
+})
+</script>
+
+
+<script>
+        new Valine({
+            av:AV,
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM',
+            placeholder:"╰(*′︶`*)╯，哟呼",
+            avatar:"identicon"
+        })
+    </script>
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/serviceworker.js?t=1706236750314')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+
+</html>

@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><link rel=manifest href=/manifest.json><meta name="generator" content="Hexo 3.9.0"><link rel="manifest" href="/manifest.json">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端,技术,生活">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <title>
+        
+          UI组件之色彩选择器 - Syean的博客 | Syean&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article/colorpicker.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/undefined');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                            
+                              <a class="tag" href="/tags/#canvas" title="canvas">canvas</a>
+                            
+                        </div>
+                        <h1>UI组件之色彩选择器</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            <!--Posted by syean on -->
+                            Posted on
+                            2017-03-28 
+                            <span id="busuanzi_container_page_pv"> |&nbsp;&nbsp;
+  <i class="fa fa-eye" ></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+</span>
+                        </span>
+                        
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Syean</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="前言">前言</span></h1>
+<p>今天来讲一下如何用javascript写一个色彩选择器。上一篇写到用JS实现RGB,HSL,HSV之间的相互转换，而那一篇写的代码呢，就是为写这个色彩选择器而准备的。</p>
+<a id="more"></a>
+<p>先放上效果图，代码是基于jquery的，所以要引用上哟。</p>
+ <img src="/2017/03/28/UI组件之色彩选择器/GIF.gif">
+<p>或者戳<a href="http://syean.cn/ife-2017/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8/colorpicker.html" target="_blank" rel="noopener">这里看效果</a>，源码在<a href="https://github.com/wsyks/ife-2017/tree/master/%E8%89%B2%E5%BD%A9%E9%80%89%E6%8B%A9%E5%99%A8" target="_blank" rel="noopener">这里</a></p>
+<h1><span id="功能需求">功能需求</span></h1>
+<ul>
+<li>可以通过点击左侧色彩区域选择色彩，在右侧的输入框中会显示对应的色值，包括RGB,HSL和HSV的值</li>
+<li>可以通过调节右侧输入框的各数值，来查看对应的颜色</li>
+<li>可以通过在中间的色带上点击来确定大致的颜色区域</li>
+<li>提供设定颜色值的接口，指定具体颜色，左侧色区和右侧输入框显示对应数值</li>
+<li>提供获取颜色值的接口，可获取色彩选择器选中的颜色值，可返回CSS color、RGB、HSL、HSB四种格式的色值</li>
+</ul>
+<h1><span id="总体思路">总体思路</span></h1>
+<h2><span id="左边色彩区域">左边色彩区域</span></h2>
+<p>通过效果图，你可以试着多取色，看看数值的一些规律。</p>
+<blockquote>
+<p>从HSV数值上来看(如有不了解，请戳<a href="http://syean.cn/2017/03/17/JS%E5%AE%9E%E7%8E%B0RGB-HSL-HSB%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/" target="_blank" rel="noopener">上篇</a>)。</p>
+</blockquote>
+<ul>
+<li>左边取色渐变色块的色相是一直保持不变的</li>
+<li>从左到右，饱和度是从低到高的趋势</li>
+<li>从上到下，色彩明度是从高到低的。</li>
+<li>即从左到右，S值从0%到100%，从上到下，V值从100%到0%。</li>
+</ul>
+<blockquote>
+<p>从RGB模型角度来说</p>
+</blockquote>
+<ul>
+<li>点击最上边一排水平来看，会发现最左上角的数值永远都是rgb（255,255,255），即是白色（用上HSV数值也可解释，饱和度最低，明度最高，即是白色）。</li>
+<li>而最右上方的数值则与我们中间的色带上的颜色是一致的。即该色相下，饱和度最高，明度最高的颜色。</li>
+<li>从最左边垂直而下看，会发现RGB的值由（255,255,255）到（0,0,0）变化，即从白到黑。</li>
+</ul>
+<h2><span id="中间色带">中间色带</span></h2>
+<ul>
+<li>至于中间的色带，是用来选择色彩的色相的。从上到下，H值从0-360渐变。</li>
+<li>从HSV值来看，会发现S值一直为100%，V值也为100%；从上面即可解释这一原因。</li>
+<li>而对于HSL值，S值一直为100%，L值也为50%；这也是两者本身定义不同产生的。</li>
+</ul>
+<p>知道这些之后，就大概知道如何下手了。</p>
+<h1><span id="关键代码">关键代码</span></h1>
+<h2><span id="html">HTML</span></h2>
+<p>额…代码写的比较粗糙，html和css都写的比较死，不灵活，对于写成一个真正的插件而言，还需要加入很多样式方面的考虑，笔者比较懒，这先这样吧。整体html如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"colorpicker"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"colorbox"</span>&gt;</span> <span class="comment">&lt;!-- 左边渐变区块 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">"canvas"</span> <span class="attr">height</span>=<span class="string">"300"</span> <span class="attr">width</span>=<span class="string">"300"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"colorpicker-circle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"colorslide"</span> <span class="attr">id</span>=<span class="string">"colorpicker-slide"</span>&gt;</span> <span class="comment">&lt;!-- 中间的色带 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"colorslide-circle"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"colorcontent"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"pickerbox"</span> <span class="attr">id</span>=<span class="string">"pickercolor"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- 取色后显示颜色的区块 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">span</span>&gt;</span>hex:<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"hex"</span>&gt;</span><span class="comment">&lt;!-- 显示颜色的hex值 --&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"rgbbox"</span>&gt;</span><span class="comment">&lt;!-- 显示颜色的rgb值 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span>R<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"R"</span> <span class="attr">id</span>=<span class="string">"colorpicker-rgbr"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"255"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span>G<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"G"</span> <span class="attr">id</span>=<span class="string">"colorpicker-rgbg"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"255"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">li</span>&gt;</span>B<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"B"</span> <span class="attr">id</span>=<span class="string">"colorpicker-rgbb"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"255"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">hr</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"hslvbox"</span>&gt;</span><span class="comment">&lt;!-- 显示颜色的hsl值 --&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"hslbox"</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>H<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"H"</span> <span class="attr">id</span>=<span class="string">"colorpicker-hslh"</span> <span class="attr">step</span>=<span class="string">"1"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"360"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>S<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"S"</span> <span class="attr">id</span>=<span class="string">"colorpicker-hsls"</span> <span class="attr">step</span>=<span class="string">"1"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"100"</span>&gt;</span>%<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>L<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"L"</span> <span class="attr">id</span>=<span class="string">"colorpicker-hsll"</span> <span class="attr">step</span>=<span class="string">"1"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"100"</span>&gt;</span>%<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line">			<span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"hsvbox"</span>&gt;</span><span class="comment">&lt;!-- 显示颜色的hsv值 --&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>H<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"HH"</span> <span class="attr">id</span>=<span class="string">"colorpicker-hsvh"</span> <span class="attr">step</span>=<span class="string">"1"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"360"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>S<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"SS"</span> <span class="attr">id</span>=<span class="string">"colorpicker-hsvs"</span> <span class="attr">step</span>=<span class="string">"1"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"100"</span>&gt;</span>%<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span>V<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="name">td</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"number"</span> <span class="attr">name</span>=<span class="string">"V"</span> <span class="attr">id</span>=<span class="string">"colorpicker-hsvv"</span> <span class="attr">step</span>=<span class="string">"1"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"100"</span>&gt;</span>%<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2><span id="新建colorpicker对象">新建colorPicker对象</span></h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> colorPicker= <span class="function"><span class="keyword">function</span>(<span class="params">id,config</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.element=$(<span class="string">"#"</span>+id)[<span class="number">0</span>];<span class="comment">//左边取色区域的DOM对象</span></span><br><span class="line">	<span class="keyword">this</span>.jqelement=$(<span class="string">"#"</span>+id);<span class="comment">//左边取色区域的jq对象</span></span><br><span class="line">	<span class="keyword">this</span>.slide=$(<span class="string">"#colorpicker-slide"</span>)[<span class="number">0</span>];<span class="comment">//中间色带的DOM对象</span></span><br><span class="line">	<span class="keyword">this</span>.jqslide=$(<span class="string">"#colorpicker-slide"</span>);</span><br><span class="line">	<span class="keyword">this</span>.width = <span class="keyword">this</span>.element.width || <span class="number">300</span>;<span class="comment">//左边取色区域的宽度</span></span><br><span class="line">	<span class="keyword">this</span>.height = <span class="keyword">this</span>.element.height ||<span class="number">300</span>;<span class="comment">//左边取色区域的高度</span></span><br><span class="line">	<span class="keyword">this</span>.pickercircle=$(<span class="string">"#colorpicker-circle"</span>);<span class="comment">//左边取色小圆点</span></span><br><span class="line">	<span class="keyword">this</span>.context = <span class="keyword">this</span>.element.getContext(<span class="string">"2d"</span>); </span><br><span class="line">	<span class="keyword">this</span>._init();</span><br><span class="line">&#125;</span><br><span class="line">colorPicker.prototype = &#123;</span><br><span class="line">  _init:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.canvasX=<span class="number">0</span>;<span class="comment">//左边取色区域相对于canvas画布水平位置</span></span><br><span class="line">	<span class="keyword">this</span>.canvasY=<span class="number">0</span>;<span class="comment">//左边取色区域相对于canvas画布垂直位置</span></span><br><span class="line">	<span class="keyword">this</span>.hsl=[<span class="number">0</span>,<span class="number">100</span>,<span class="number">50</span>];<span class="comment">//初始化hsl</span></span><br><span class="line">	<span class="keyword">this</span>.rgb=[<span class="number">255</span>,<span class="number">0</span>,<span class="number">0</span>];<span class="comment">//初始化rgb</span></span><br><span class="line">	<span class="keyword">this</span>.hsv=[<span class="number">0</span>,<span class="number">100</span>,<span class="number">100</span>];<span class="comment">//初始化hsv</span></span><br><span class="line">	<span class="keyword">this</span>.hex=<span class="string">"#ffffff"</span>;<span class="comment">//初始化hex</span></span><br><span class="line">	<span class="keyword">this</span>._drawbg();<span class="comment">//绘制左边取色渐变区域的函数</span></span><br><span class="line">	<span class="keyword">this</span>._pickcolor();<span class="comment">//在左边点击取色的函数</span></span><br><span class="line">	<span class="keyword">this</span>._slidecolor();<span class="comment">//在中间色块点击取色相的函数</span></span><br><span class="line">	<span class="keyword">this</span>._updatergb();<span class="comment">//更新rgb，hex的数值</span></span><br><span class="line">	<span class="keyword">this</span>._updatehslv();<span class="comment">//更新hsl，hsv的数值</span></span><br><span class="line">	<span class="keyword">this</span>._contentchange();<span class="comment">//监听表单的输入，并作出相应的更新</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="色彩转换函数">色彩转换函数</span></h2>
+<p>不多说了，看上一篇或者源码</p>
+<ul>
+<li>rgbtohsl(r,g,b)</li>
+<li>rgbtohsv(r,g,b)</li>
+<li>rgbtohex(r,g,b)</li>
+<li>hsltorgb(h,s,l)</li>
+<li>hsvtorgb(h,s,v)</li>
+<li>hextorgb(hex)</li>
+</ul>
+<h2><span id="绘制左边取色渐变区块">绘制左边取色渐变区块</span></h2>
+<p>左边的渐变区块我是采用canvas绘图的方式来绘制渐变的效果。用canvas有什么好处呢，canvas可以确定某个画布位置的颜色，返回该点的rgb颜色，这样省事不少。</p>
+<p>【注意】这里绘制渐变时要注意需要绘制两个渐变，一个是水平的渐变，一个是垂直的渐变，垂直的渐变是对rgb(0,0,0)的透明度进行改变，一定是透明的改变，因为只有这样，才能叠加上颜色，否则便是灰色的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//填充左边颜色的渐变</span></span><br><span class="line">_drawbg:<span class="function"><span class="keyword">function</span>(<span class="params">color</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> x1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">var</span> y1 = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//水平的渐变</span></span><br><span class="line">	<span class="keyword">var</span> linear_gradient_hori = <span class="keyword">this</span>.context.createLinearGradient(x1, y1, <span class="keyword">this</span>.width, <span class="number">0</span>);</span><br><span class="line">	linear_gradient_hori.addColorStop(<span class="number">0</span>, <span class="string">'rgba(255,255,255,1)'</span>); </span><br><span class="line">	linear_gradient_hori.addColorStop(<span class="number">1</span>,color?color:<span class="string">'rgba(255,0,0,1)'</span>);<span class="comment">//添加上颜色</span></span><br><span class="line">	<span class="keyword">this</span>.context.fillStyle=linear_gradient_hori;</span><br><span class="line">	<span class="keyword">this</span>.context.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.width, <span class="keyword">this</span>.height); </span><br><span class="line">	<span class="comment">//垂直的渐变</span></span><br><span class="line">	<span class="keyword">var</span> linear_gradient_ver = <span class="keyword">this</span>.context.createLinearGradient(x1, y1, <span class="number">0</span>, <span class="keyword">this</span>.height);</span><br><span class="line">	linear_gradient_ver.addColorStop(<span class="number">0</span>, <span class="string">'rgba(0,0,0,0)'</span>); </span><br><span class="line">	linear_gradient_ver.addColorStop(<span class="number">1</span>,<span class="string">'rgba(0,0,0,1)'</span>);</span><br><span class="line">	<span class="keyword">this</span>.context.fillStyle=linear_gradient_ver;</span><br><span class="line">	<span class="keyword">this</span>.context.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">this</span>.width, <span class="keyword">this</span>.height); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在前期看别人写的插件时，发现很多都是用了一个这样一个灰色的渐变的透明背景图片，然后在父级的div设置一个背景颜色，该背景颜色就是来自中间色带，两者叠加来形成渐变区域，其实细细想来与上面用的原理都是一样的。</p>
+ <img src="/2017/03/28/UI组件之色彩选择器/colorpicker_overlay.png">
+<p>戳<a href="http://www.eyecon.ro/colorpicker/" target="_blank" rel="noopener">这里</a>是别人写的一个色彩选择器插件，它就是用的这个方法。</p>
+<h2><span id="绘制中间色带">绘制中间色带</span></h2>
+<p>用css的渐变来绘制，这里方法有很多，就不多说了。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.colorslide&#123;</span><br><span class="line">	<span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">	<span class="attribute">width</span>: <span class="number">28px</span>;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">background</span>: linear-gradient(to bottom, hsla(<span class="number">0</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">10%</span>,hsla(<span class="number">36</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">20%</span>,hsla(<span class="number">72</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">30%</span>,hsla(<span class="number">108</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">40%</span>,hsla(<span class="number">180</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">50%</span>,hsla(<span class="number">216</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">60%</span>,hsla(<span class="number">252</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">70%</span>,hsla(<span class="number">288</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">80%</span>,hsla(<span class="number">324</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">90%</span>, hsla(<span class="number">360</span>,<span class="number">100%</span>,<span class="number">50%</span>,<span class="number">1</span>) <span class="number">100%</span>);</span><br><span class="line">	<span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="点击左边区域取色">点击左边区域取色</span></h2>
+<p>在左边取色区域点击之后，首先获取点击的位置，通过canvas的getImageData方法获得该位置的rgb颜色，进行转换等到相应hex，hsl，hsv的值，更新表达的值，把取色小圆圈的位置设置到该点位置上去。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">_pickcolor:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> that=<span class="keyword">this</span>;</span><br><span class="line">	that.jqelement.bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">var</span> canvasrect=that.element.getBoundingClientRect();</span><br><span class="line">		that.canvasX = e.clientX-canvasrect.left*(that.width/canvasrect.width);<span class="comment">//获取点击的位置</span></span><br><span class="line">		that.canvasY = e.clientY-canvasrect.top*(that.height/canvasrect.height);</span><br><span class="line">		<span class="keyword">var</span> imageData = that.context.getImageData(that.canvasX, that.canvasY, <span class="number">1</span>, <span class="number">1</span>);<span class="comment">//用canvas的getImageData方法来获得该处的颜色</span></span><br><span class="line">		<span class="keyword">var</span> pixel = imageData.data;</span><br><span class="line">		that.rgb=pixel.slice(<span class="number">0</span>,<span class="number">3</span>);</span><br><span class="line">		that.hex=rgbtohex(pixel[<span class="number">0</span>],pixel[<span class="number">1</span>],pixel[<span class="number">2</span>]);</span><br><span class="line">		that.hsl=rgbtohsl(pixel[<span class="number">0</span>],pixel[<span class="number">1</span>],pixel[<span class="number">2</span>]);</span><br><span class="line">		that.hsv=rgbtohsv(pixel[<span class="number">0</span>],pixel[<span class="number">1</span>],pixel[<span class="number">2</span>]);</span><br><span class="line">		that._updatergb();</span><br><span class="line">		that._updatehslv();</span><br><span class="line">		that.pickercircle.show();</span><br><span class="line">		that.pickercircle.css(&#123;<span class="string">"top"</span>:that.canvasY<span class="number">-5</span>,<span class="string">"left"</span>:that.canvasX<span class="number">-5</span>&#125;);<span class="comment">//设置取色小圆圈的位置。-5是因为是圆形，需要减去宽高和边框;</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="中间色带点击取色相">中间色带点击取色相</span></h2>
+<p>点击之后，由于中间色带的色相是递增的，获取取色相小圆圈相对于整个中间色带的高度即可获取色相，此时需要重新绘制左边的渐变区域，由于这里只变化了h值，即可知hsl值，根据hsl值获得其他格式的颜色值更新即可。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">_slidecolor:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> that=<span class="keyword">this</span>;</span><br><span class="line">	that.jqslide.bind(<span class="string">"click"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(e.target.id==<span class="string">"colorpicker-slide"</span>)&#123;</span><br><span class="line">			$(<span class="string">"#colorslide-circle"</span>).css(&#123;<span class="string">"top"</span>:e.offsetY<span class="number">-8</span>&#125;);<span class="comment">//减去圆圈本身的高度和边框;</span></span><br><span class="line">			that.hsl[<span class="number">0</span>]=that.hsv[<span class="number">0</span>]=<span class="built_in">Math</span>.round(e.offsetY/that.height*<span class="number">360</span>);<span class="comment">//在这里选择只是变化了h值</span></span><br><span class="line">			<span class="keyword">var</span> hsl=that.hsl[<span class="number">0</span>]+<span class="string">",100%,50%,1"</span>;</span><br><span class="line">			that._drawbg(<span class="string">"hsla("</span>+hsl+<span class="string">")"</span>);<span class="comment">//重新绘制左边的渐变图;</span></span><br><span class="line">			that.rgb=hsltorgb(that.hsl[<span class="number">0</span>],that.hsl[<span class="number">1</span>],that.hsl[<span class="number">2</span>]);</span><br><span class="line">			that._updatergb();</span><br><span class="line">			$(<span class="string">"#colorpicker-hslh"</span>).val(that.hsl[<span class="number">0</span>]);</span><br><span class="line">			$(<span class="string">"#colorpicker-hsvh"</span>).val(that.hsv[<span class="number">0</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="更新颜色表单的数值">更新颜色表单的数值</span></h2>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//更新rgb ，hex 和颜色块数据</span></span><br><span class="line">_updatergb:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	$(<span class="string">"#colorpicker-rgbr"</span>).val(<span class="keyword">this</span>.rgb[<span class="number">0</span>]);</span><br><span class="line">	$(<span class="string">"#colorpicker-rgbg"</span>).val(<span class="keyword">this</span>.rgb[<span class="number">1</span>]);</span><br><span class="line">	$(<span class="string">"#colorpicker-rgbb"</span>).val(<span class="keyword">this</span>.rgb[<span class="number">2</span>]);</span><br><span class="line">	<span class="keyword">this</span>.hex=rgbtohex(<span class="keyword">this</span>.rgb[<span class="number">0</span>],<span class="keyword">this</span>.rgb[<span class="number">1</span>],<span class="keyword">this</span>.rgb[<span class="number">2</span>]);</span><br><span class="line">	$(<span class="string">"#hex"</span>).val(<span class="keyword">this</span>.hex);</span><br><span class="line">	$(<span class="string">"#pickercolor"</span>).css(&#123;<span class="string">"background-color"</span>:<span class="keyword">this</span>.hex&#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//更新hsl和hsv的数据</span></span><br><span class="line">_updatehslv:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.hsv=rgbtohsv(<span class="keyword">this</span>.rgb[<span class="number">0</span>],<span class="keyword">this</span>.rgb[<span class="number">1</span>],<span class="keyword">this</span>.rgb[<span class="number">2</span>]);</span><br><span class="line">	$(<span class="string">"#colorpicker-hsvh"</span>).val(<span class="keyword">this</span>.hsv[<span class="number">0</span>]);</span><br><span class="line">	$(<span class="string">"#colorpicker-hsvs"</span>).val(<span class="keyword">this</span>.hsv[<span class="number">1</span>]);</span><br><span class="line">	$(<span class="string">"#colorpicker-hsvv"</span>).val(<span class="keyword">this</span>.hsv[<span class="number">2</span>]);</span><br><span class="line">	$(<span class="string">"#colorpicker-hslh"</span>).val(<span class="keyword">this</span>.hsl[<span class="number">0</span>]);</span><br><span class="line">	$(<span class="string">"#colorpicker-hsls"</span>).val(<span class="keyword">this</span>.hsl[<span class="number">1</span>]);</span><br><span class="line">	$(<span class="string">"#colorpicker-hsll"</span>).val(<span class="keyword">this</span>.hsl[<span class="number">2</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="监听表单的数值变化">监听表单的数值变化</span></h2>
+<p>这里提一下，改变了某一表单数值后，其他格式的颜色数值相对应改变，还需要改变左边区域取色小圆圈的位置，让其跳转到对一个颜色的像素上，中间色带的取色相小圆圈也需要转到对应的色相颜色上。<br>
+思路是：表单改变后，得到所有格式的颜色数值，根据h值来使得中间色带的取色相小圆圈变化到对应的色相颜色上。而根据hsv中的s和v可以获取左边区域取色小圆圈应该在位置（渐变的原理）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//监听表单数据变化并做更新</span></span><br><span class="line">_contentchange()&#123;</span><br><span class="line">	<span class="keyword">var</span> that=<span class="keyword">this</span>;</span><br><span class="line">	$(<span class="string">"#hex"</span>).bind(<span class="string">"change"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">	<span class="comment">// $("#hex").change=function()&#123;</span></span><br><span class="line">		<span class="keyword">var</span> hex=$(<span class="string">"#hex"</span>).val();</span><br><span class="line">		<span class="keyword">var</span> rgb;</span><br><span class="line">		<span class="keyword">if</span>(rgb=hextorgb(hex))&#123;</span><br><span class="line">			that.hex=hex;</span><br><span class="line">			that.rgb=rgb;</span><br><span class="line">			that.hsl=rgbtohsl(rgb[<span class="number">0</span>],rgb[<span class="number">1</span>],rgb[<span class="number">2</span>]);</span><br><span class="line">			that.hsv=rgbtohsv(that.rgb[<span class="number">0</span>],that.rgb[<span class="number">1</span>],that.rgb[<span class="number">2</span>]);</span><br><span class="line">			that._updatechange();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	$(<span class="string">".rgbbox input"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,obj</span>)</span>&#123;</span><br><span class="line">		$(obj).bind(<span class="string">"change"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> value=<span class="built_in">parseInt</span>($(obj).val());</span><br><span class="line">			<span class="keyword">if</span>(value&gt;<span class="number">0</span> &amp;&amp; value&lt;=<span class="number">255</span>)&#123;</span><br><span class="line">				that.rgb[index]=value;</span><br><span class="line">				that.hex=rgbtohex(that.rgb[<span class="number">0</span>],that.rgb[<span class="number">1</span>],that.rgb[<span class="number">2</span>]);</span><br><span class="line">				that.hsl=rgbtohsl(that.rgb[<span class="number">0</span>],that.rgb[<span class="number">1</span>],that.rgb[<span class="number">2</span>]);</span><br><span class="line">				that.hsv=rgbtohsv(that.rgb[<span class="number">0</span>],that.rgb[<span class="number">1</span>],that.rgb[<span class="number">2</span>]);</span><br><span class="line">				that._updatechange();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">		</span><br><span class="line">	&#125;)</span><br><span class="line">	$(<span class="string">".hslbox input"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,obj</span>)</span>&#123;</span><br><span class="line">		$(obj).bind(<span class="string">"change"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> value=<span class="built_in">parseInt</span>($(obj).val());</span><br><span class="line">			<span class="keyword">if</span>((index==<span class="number">0</span> &amp;&amp; value&lt;=<span class="number">360</span> &amp;&amp; value&gt;=<span class="number">0</span>)||(value&lt;=<span class="number">100</span> &amp;&amp; value&gt;=<span class="number">0</span>))&#123;</span><br><span class="line">				that.hsl[index]=value;</span><br><span class="line">				that.rgb=hsltorgb(that.hsl[<span class="number">0</span>],that.hsl[<span class="number">1</span>],that.hsl[<span class="number">2</span>]);</span><br><span class="line">				that.hsv=rgbtohsv(that.rgb[<span class="number">0</span>],that.rgb[<span class="number">1</span>],that.rgb[<span class="number">2</span>]);</span><br><span class="line">				that.hex=rgbtohex(that.rgb[<span class="number">0</span>],that.rgb[<span class="number">1</span>],that.rgb[<span class="number">2</span>]);</span><br><span class="line">				that._updatechange();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">		</span><br><span class="line">	&#125;)</span><br><span class="line">	$(<span class="string">".hsvbox input"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index,obj</span>)</span>&#123;</span><br><span class="line">		$(obj).bind(<span class="string">"change"</span>,<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">			<span class="keyword">var</span> value=<span class="built_in">parseInt</span>($(obj).val());</span><br><span class="line">			<span class="keyword">if</span>((index==<span class="number">0</span> &amp;&amp; value&lt;=<span class="number">360</span> &amp;&amp; value&gt;=<span class="number">0</span>)||(value&lt;=<span class="number">100</span> &amp;&amp; value&gt;=<span class="number">0</span>))&#123;</span><br><span class="line">				that.hsv[index]=value;</span><br><span class="line">				that.rgb=hsvtorgb(that.hsv[<span class="number">0</span>],that.hsv[<span class="number">1</span>],that.hsv[<span class="number">2</span>]);</span><br><span class="line">				that.hsl=rgbtohsl(that.rgb[<span class="number">0</span>],that.rgb[<span class="number">1</span>],that.rgb[<span class="number">2</span>]);</span><br><span class="line">				that.hex=rgbtohex(that.rgb[<span class="number">0</span>],that.rgb[<span class="number">1</span>],that.rgb[<span class="number">2</span>]);</span><br><span class="line">				that._updatechange();</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">		</span><br><span class="line">	&#125;)</span><br><span class="line">	</span><br><span class="line">&#125;，</span><br><span class="line"><span class="comment">// 更新表单输入而产生的变化</span></span><br><span class="line">_updatechange()&#123;</span><br><span class="line">	<span class="keyword">this</span>._updatergb();</span><br><span class="line">	<span class="keyword">this</span>._updatehslv();</span><br><span class="line">	<span class="keyword">var</span> offestheight=<span class="keyword">this</span>.hsl[<span class="number">0</span>]/<span class="number">360</span>*<span class="keyword">this</span>.height;</span><br><span class="line">	<span class="comment">//改变颜色条选择圆圈的位置</span></span><br><span class="line">	$(<span class="string">"#colorslide-circle"</span>).show();</span><br><span class="line">	<span class="keyword">this</span>.pickercircle.show();</span><br><span class="line">	$(<span class="string">"#colorslide-circle"</span>).css(&#123;<span class="string">"top"</span>:offestheight<span class="number">-8</span>&#125;);</span><br><span class="line">	<span class="keyword">var</span> hsl=<span class="keyword">this</span>.hsl[<span class="number">0</span>]+<span class="string">",100%,50%,1"</span>;</span><br><span class="line">	<span class="keyword">this</span>._drawbg(<span class="string">"hsla("</span>+hsl+<span class="string">")"</span>);<span class="comment">//重新绘制左边的渐变图;</span></span><br><span class="line">	<span class="comment">// 根据hsb来确定渐变区域选色圆圈的位置</span></span><br><span class="line">	<span class="keyword">this</span>.hsv=rgbtohsv(<span class="keyword">this</span>.rgb[<span class="number">0</span>],<span class="keyword">this</span>.rgb[<span class="number">1</span>],<span class="keyword">this</span>.rgb[<span class="number">2</span>]);</span><br><span class="line">	<span class="keyword">var</span> canvaswidth=<span class="keyword">this</span>.hsv[<span class="number">1</span>]/<span class="number">100</span>*<span class="keyword">this</span>.width;</span><br><span class="line">	<span class="keyword">var</span> canvasheight=(<span class="number">1</span>-<span class="keyword">this</span>.hsv[<span class="number">2</span>]/<span class="number">100</span>)*<span class="keyword">this</span>.height;</span><br><span class="line">	<span class="keyword">this</span>.pickercircle.css(&#123;<span class="string">"top"</span>:canvasheight<span class="number">-5</span>,<span class="string">"left"</span>:canvaswidth<span class="number">-5</span>&#125;);<span class="comment">//-5是因为是圆形，需要减去宽高和边框;</span></span><br><span class="line">&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>代码写的有点乱，还有很多需要改进的地方，暂时就先这样吧。</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/05/08/解锁新技能——入门剪辑/" data-toggle="tooltip" data-placement="top" title="解锁新技能——入门剪辑，四姑娘山">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/03/17/JS实现RGB-HSL-HSB相互转换/" data-toggle="tooltip" data-placement="top" title="JS实现RGB,HSL,HSB相互转换">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">功能需求</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">总体思路</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">左边色彩区域</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">中间色带</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">关键代码</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">HTML</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">新建colorPicker对象</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">色彩转换函数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.4.</span> <span class="toc-nav-text">绘制左边取色渐变区块</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.5.</span> <span class="toc-nav-text">绘制中间色带</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.6.</span> <span class="toc-nav-text">点击左边区域取色</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.7.</span> <span class="toc-nav-text">中间色带点击取色相</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.8.</span> <span class="toc-nav-text">更新颜色表单的数值</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.9.</span> <span class="toc-nav-text">监听表单的数值变化</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                          <a class="tag" href="/tags/#canvas" title="canvas">canvas</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <!-- 
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://simmin.github.io/" target="_blank">Simmin Blog</a></li>
+                    
+                        <li><a href="http://phantom0301.cc/" target="_blank">零の杂货铺</a></li>
+                    
+                        <li><a href="http://blackwolfsec.cc/" target="_blank">blackwolf</a></li>
+                    
+                        <li><a href="http://wps2015.jinglingshu.org/" target="_blank">wps2015</a></li>
+                    
+                        <li><a href="http://www.jetmuffin.com/" target="_blank">jetmuffin</a></li>
+                    
+                </ul>
+                 -->
+                 <div id="vcomments"></div>
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/";
+    var disqus_url = "http://wsyks.github.io/2017/03/28/UI组件之色彩选择器/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/2949528583">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/wsyks">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; syean 2024&nbsp;蜀ICP备17010174号
+                    <br>
+
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a>
+                     <br>
+
+                        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                        <span id="busuanzi_container_site_uv">
+                          <i class="fa fa-user"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_uv"></span>
+                        </span>&nbsp;|&nbsp;
+                        <span id="busuanzi_container_site_pv">
+                            <i class="fa fa-eye">&nbsp;&nbsp;</i><span id="busuanzi_value_site_pv"></span>
+                        </span>
+
+                        
+                     <!-- | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'a752ba5e82dfa1b0ba76d0a4e2dc9dfa';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<script>
+window.addEventListener('beforeinstallprompt', event => {
+  event.userChoice.then(result => {console.log(result.outcome)
+  })
+})
+</script>
+
+
+<script>
+        new Valine({
+            av:AV,
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM',
+            placeholder:"╰(*′︶`*)╯，哟呼",
+            avatar:"identicon"
+        })
+    </script>
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script>if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/serviceworker.js?t=1706236750314')
+    .then(function () {console.log('ServiceWorker Register Successfully.')})
+    .catch(function (e) {console.error(e)});
+}
+</script></body>
+
+</html>

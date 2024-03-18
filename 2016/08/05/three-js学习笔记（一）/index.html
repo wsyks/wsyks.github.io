@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端,技术,生活">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <title>
+        
+          three.js学习笔记（一） - Syean的博客 | Syean&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wsyks.github.io/2016/08/05/three-js学习笔记（一）/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article/threejs.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/undefined');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                            
+                              <a class="tag" href="/tags/#可视化" title="可视化">可视化</a>
+                            
+                              <a class="tag" href="/tags/#webgl" title="webgl">webgl</a>
+                            
+                        </div>
+                        <h1>three.js学习笔记（一）</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            <!--Posted by syean on -->
+                            Posted on
+                            2016-08-05 
+                            <span id="busuanzi_container_page_pv"> |&nbsp;&nbsp;
+  <i class="fa fa-eye" ></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+</span>
+                        </span>
+                        
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Syean</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="三大组建">三大组建</span></h1>
+<p>在Three.js中，要渲染物体到网页中，我们需要3个组建：场景（scene）、相机（camera）和渲染器（renderer）。有了这三样东西，才能将物体渲染到网页中去。</p>
+<a id="more"></a>
+<blockquote>
+<p>想要渲染的物体需要添加在scene变量中，camera变量定义了能够在渲染好的scene里看到什么，renderer则负责计算制定相机角度下，浏览器中scene的样子。</p>
+</blockquote>
+<p><strong>1、创建这三要素的代码如下：</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var scene = new THREE.Scene();  // 场景</span><br><span class="line">var camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);// 透视相机</span><br><span class="line">var renderer = new THREE.WebGLRenderer();   // 渲染器</span><br><span class="line">renderer.setSize(window.innerWidth, window.innerHeight);    // 设置渲染器的大小为窗口的内宽度，也就是内容区的宽度</span><br></pre></td></tr></table></figure>
+<p><strong>2、创建好三要素后，只是一个空白的画面，还需要添加需要渲染的东西。</strong></p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line"><span class="built_in">var</span> <span class="built_in">axes</span> = <span class="built_in">new</span> THREE.AxisHelper(<span class="number">20</span>);</span><br><span class="line"><span class="built_in">scene</span>.add(<span class="built_in">axes</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">var</span> planeGeometry = <span class="built_in">new</span> THREE.PlaneGeometry(<span class="number">60</span>, <span class="number">20</span>);</span><br><span class="line"><span class="built_in">var</span> planeMaterial = <span class="built_in">new</span> THREE.MeshBasicMaterial(&#123;<span class="built_in">color</span>: <span class="number">0xcccccc</span>&#125;);</span><br><span class="line"><span class="built_in">var</span> plane = <span class="built_in">new</span> THREE.Mesh(planeGeometry, planeMaterial);</span><br><span class="line"></span><br><span class="line">plane.rotation.x = -<span class="number">0.5</span> * Math.PI;</span><br><span class="line">plane.<span class="built_in">position</span>.x = <span class="number">15</span>;</span><br><span class="line">plane.<span class="built_in">position</span>.y = <span class="number">0</span>;</span><br><span class="line">plane.<span class="built_in">position</span>.z = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">scene</span>.add(plane);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>【解读】</p>
+<ul>
+<li>首先创建了一个axes（坐标轴）对象，并使用scene.add0函数将这些坐标轴<br>
+添加到我们的场景中。</li>
+<li>用THREE.PlaneGeometry(x,y)定义平面的尺寸。</li>
+<li>使用MeshBasicMaterialO方法创建一个基本的材质，且颜色是Oxcccccc。</li>
+<li>接下来把定义的平面尺寸与材质对象合并到一个名为plane （平面）的Mesh（网格）对象中。</li>
+<li>之后将它放置到合适的位置</li>
+<li>最后，我们要把这个plane添加到scene。<br>
+可以依照同样的方法添加cube（方块）和sphere（球体），但是要把wireframe（线框）属性设为true。</li>
+</ul>
+</blockquote>
+<p><strong>3、添加立方体小栗子</strong><br>
+在上面代码的基础上，再添加一个立方体到场景中</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> cubeGeometry = <span class="built_in">new</span> THREE.BoxGeometry(<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line"> <span class="built_in">var</span> cubeMaterial = <span class="built_in">new</span> THREE.MeshBasicMaterial(&#123;<span class="built_in">color</span>: <span class="number">0xff0000</span>, <span class="built_in">wireframe</span>: <span class="literal">true</span>&#125;);</span><br><span class="line"> <span class="built_in">var</span> <span class="built_in">cube</span> = <span class="built_in">new</span> THREE.Mesh(cubeGeometry, cubeMaterial);</span><br><span class="line"></span><br><span class="line"> // <span class="built_in">position</span> the <span class="built_in">cube</span></span><br><span class="line"> <span class="built_in">cube</span>.<span class="built_in">position</span>.x = -<span class="number">4</span>;</span><br><span class="line"> <span class="built_in">cube</span>.<span class="built_in">position</span>.y = <span class="number">3</span>;</span><br><span class="line"> <span class="built_in">cube</span>.<span class="built_in">position</span>.z = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"> // add the <span class="built_in">cube</span> to the <span class="built_in">scene</span></span><br><span class="line"> <span class="built_in">scene</span>.add(<span class="built_in">cube</span>);</span><br></pre></td></tr></table></figure>
+<p>4、使用renderer通过相机渲染scene</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">camera</span>.position.x = <span class="number">-30</span>;</span><br><span class="line"><span class="keyword">camera</span>.position.y = <span class="number">40</span>;</span><br><span class="line"><span class="keyword">camera</span>.position.z = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">camera</span>.lookAt(scene.position);</span><br><span class="line"></span><br><span class="line"><span class="comment">// add the output of the renderer to the html element</span></span><br><span class="line">document.getElementById(<span class="string">"WebGL-output"</span>).appendChild(<span class="keyword">renderer</span>.domElement);</span><br><span class="line"></span><br><span class="line"><span class="comment">// render the scene</span></span><br><span class="line"><span class="keyword">renderer</span>.<span class="keyword">render</span>(scene, <span class="keyword">camera</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>【解释】<br>
+使用x、 y和z这三个position属性指定相机的位置，即悬挂在场景的上方。 为确保相机能够拍摄到这些物体，使用lookAt()函数指向场景的中心。 之后将renderer的输出挂接到HTML页面框架中的＜div＞元素；并告诉renderer用设置好的相机来渲染scene。</p>
+</blockquote>
+<p>【完整栗子】</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>First Scene<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"three.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line">        body &#123;</span><br><span class="line">            margin: 0;</span><br><span class="line">            overflow: hidden;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"WebGL-output"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> scene = <span class="keyword">new</span> THREE.Scene();</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> camera = <span class="keyword">new</span> THREE.PerspectiveCamera(<span class="number">45</span>, <span class="built_in">window</span>.innerWidth / <span class="built_in">window</span>.innerHeight, <span class="number">0.1</span>, <span class="number">1000</span>);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> renderer = <span class="keyword">new</span> THREE.WebGLRenderer();</span></span><br><span class="line">        renderer.setClearColorHex();</span><br><span class="line"><span class="actionscript">        renderer.setClearColor(<span class="keyword">new</span> THREE.Color(<span class="number">0xEEEEEE</span>));</span></span><br><span class="line"><span class="javascript">        renderer.setSize(<span class="built_in">window</span>.innerWidth, <span class="built_in">window</span>.innerHeight);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> axes = <span class="keyword">new</span> THREE.AxisHelper(<span class="number">20</span>);</span></span><br><span class="line">        scene.add(axes);</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> planeGeometry = <span class="keyword">new</span> THREE.PlaneGeometry(<span class="number">60</span>, <span class="number">20</span>);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> planeMaterial = <span class="keyword">new</span> THREE.MeshBasicMaterial(&#123;color: <span class="number">0xcccccc</span>&#125;);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> plane = <span class="keyword">new</span> THREE.Mesh(planeGeometry, planeMaterial);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        plane.rotation.x = <span class="number">-0.5</span> * <span class="built_in">Math</span>.PI;</span></span><br><span class="line">        plane.position.x = 15;</span><br><span class="line">        plane.position.y = 0;</span><br><span class="line">        plane.position.z = 0;</span><br><span class="line"></span><br><span class="line">        scene.add(plane);</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> cubeGeometry = <span class="keyword">new</span> THREE.BoxGeometry(<span class="number">4</span>, <span class="number">4</span>, <span class="number">4</span>);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> cubeMaterial = <span class="keyword">new</span> THREE.MeshBasicMaterial(&#123;color: <span class="number">0xff0000</span>, wireframe: <span class="literal">true</span>&#125;);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> cube = <span class="keyword">new</span> THREE.Mesh(cubeGeometry, cubeMaterial);</span></span><br><span class="line"></span><br><span class="line">        cube.position.x = -4;</span><br><span class="line">        cube.position.y = 3;</span><br><span class="line">        cube.position.z = 0;</span><br><span class="line"></span><br><span class="line">        scene.add(cube);</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> sphereGeometry = <span class="keyword">new</span> THREE.SphereGeometry(<span class="number">4</span>, <span class="number">20</span>, <span class="number">20</span>);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> sphereMaterial = <span class="keyword">new</span> THREE.MeshBasicMaterial(&#123;color: <span class="number">0x7777ff</span>, wireframe: <span class="literal">true</span>&#125;);</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> sphere = <span class="keyword">new</span> THREE.Mesh(sphereGeometry, sphereMaterial);</span></span><br><span class="line"></span><br><span class="line">        sphere.position.x = 20;</span><br><span class="line">        sphere.position.y = 4;</span><br><span class="line">        sphere.position.z = 2;</span><br><span class="line"></span><br><span class="line">        scene.add(sphere);</span><br><span class="line"></span><br><span class="line">        camera.position.x = -30;</span><br><span class="line">        camera.position.y = 40;</span><br><span class="line">        camera.position.z = 30;</span><br><span class="line">        camera.lookAt(scene.position);</span><br><span class="line"></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">"WebGL-output"</span>).appendChild(renderer.domElement);</span></span><br><span class="line"></span><br><span class="line">        renderer.render(scene, camera);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = init;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>[效果图]</p>
+<img src="/2016/08/05/three-js学习笔记（一）/1.png">
+<h1><span id="添加材质-灯光和阴影">添加材质、灯光和阴影</span></h1>
+<p>基础材质(调用MeshBasicMaterial()方法)不会对场景中的光源产生反应，只会以指定的颜色渲染物体。</p>
+<p><strong>【改变材质】</strong></p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> planeGeometry = <span class="keyword">new</span> <span class="type">THREE</span>.PlaneGeometry(<span class="number">60</span>, <span class="number">20</span>);</span><br><span class="line"><span class="keyword">var</span> planeMaterial = <span class="keyword">new</span> <span class="type">THREE</span>.MeshLambertMaterial(&#123;color: <span class="type">0xffffff</span>&#125;);</span><br><span class="line"><span class="keyword">var</span> plane = <span class="keyword">new</span> <span class="type">THREE</span>.Mesh(planeGeometry, planeMaterial);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>three.js有两种材质可以对光源产生反应：MeshLambertMaterial,MeshPhongMaterial。</p>
+</blockquote>
+<p><strong>【添加阴影】</strong></p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//告诉renderer我们需要阴影</span></span><br><span class="line">renderer.shadowMapEnabled = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义哪个物体接受阴影</span></span><br><span class="line">plane.receiveShadow = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//定义哪个物体投射阴影</span></span><br><span class="line"><span class="built_in">cube</span>.castShadow = <span class="literal">true</span>;</span><br><span class="line"><span class="built_in">sphere</span>.castShadow = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>【添加光源】</strong></p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加光源</span></span><br><span class="line">var <span class="built_in">spotLight</span> = <span class="keyword">new</span> THREE.SpotLight(<span class="number">0xffffff</span>);</span><br><span class="line"><span class="built_in">spotLight</span>.position.<span class="built_in">set</span>(<span class="number">-40</span>, <span class="number">60</span>, <span class="number">-10</span>);</span><br><span class="line"><span class="built_in">spotLight</span>.castShadow = <span class="keyword">true</span>;</span><br><span class="line">scene.<span class="built_in">add</span>(<span class="built_in">spotLight</span>);</span><br></pre></td></tr></table></figure>
+<p>[效果图]</p>
+<img src="/2016/08/05/three-js学习笔记（一）/2.png">
+<h1><span id="添加动画">添加动画</span></h1>
+<blockquote>
+<p>加入动画，需要使得场景可以以一定的时间间隔渲染，之前使用的方式是setInterval方法，但是它并不考虑浏览器中发生的事情，且没有跟显示器的重画同步，CPU使用率较高，降低系统效率。</p>
+</blockquote>
+<blockquote>
+<p>目前就则引入了requestAnimationFrame()方法，可以按照浏览器定义的时间间隔调用，且绘画效果平滑、高校。</p>
+</blockquote>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">function</span> <span class="selector-tag">renderScene</span>() &#123;</span><br><span class="line">    <span class="selector-tag">requestAnimationFrame</span>(renderScene);<span class="comment">//让动画持续运行</span></span><br><span class="line">    <span class="selector-tag">renderer</span><span class="selector-class">.render</span>(scene, camera);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">renderScene</span>();<span class="comment">//启动动画</span></span><br></pre></td></tr></table></figure>
+<p>让方块绕所有轴旋转：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">renderScene</span><span class="params">()</span> &#123;</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cube</span>.rotation.x += <span class="number">0.02</span>;</span><br><span class="line">    <span class="built_in">cube</span>.rotation.y += <span class="number">0.02</span>;</span><br><span class="line">    <span class="built_in">cube</span>.rotation.z += <span class="number">0.02</span>;</span><br><span class="line"></span><br><span class="line">    requestAnimationFrame(renderScene);</span><br><span class="line">    renderer.<span class="built_in">render</span>(scene, camera);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>弹跳球：</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">var</span> <span class="keyword">step</span> = <span class="number">0</span>;</span><br><span class="line">function renderScene() &#123;</span><br><span class="line">    <span class="keyword">step</span> += <span class="number">0.01</span>;//定义弹跳速度</span><br><span class="line">    <span class="built_in">sphere</span>.<span class="built_in">position</span>.x = <span class="number">20</span> + ( <span class="number">10</span> * (Math.<span class="built_in">cos</span>(<span class="keyword">step</span>)));//用<span class="built_in">cos</span>和<span class="built_in">sin</span>使弹跳轨迹光滑</span><br><span class="line">    <span class="built_in">sphere</span>.<span class="built_in">position</span>.y = <span class="number">2</span> + ( <span class="number">10</span> * Math.<span class="built_in">abs</span>(Math.<span class="built_in">sin</span>(<span class="keyword">step</span>)));</span><br><span class="line"></span><br><span class="line">    requestAnimationFrame(renderScene);</span><br><span class="line">    renderer.render(<span class="built_in">scene</span>, camera);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>[效果图]</p>
+<img src="/2016/08/05/three-js学习笔记（一）/4.png">
+<h1><span id="监测动画运行帧频fps">监测动画运行帧频(FPS)</span></h1>
+<p>three.js的作者还提供了一个小的辅助库stats.js，这个辅助坑可以检测动画运行的帧频。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">//引入库</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../libs/stats.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//增加div元素用于显示统计图形</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"Stats-output"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="comment">//该函数用于初始化统计对象</span></span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">initStats</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> stats = <span class="keyword">new</span> Stats();</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        stats.setMode(<span class="number">0</span>); <span class="comment">// 如果设置为0: fps, 1: ms(渲染时间)</span></span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        stats.domElement.style.position = <span class="string">'absolute'</span>;</span></span><br><span class="line"><span class="actionscript">        stats.domElement.style.left = <span class="string">'0px'</span>;</span></span><br><span class="line"><span class="actionscript">        stats.domElement.style.top = <span class="string">'0px'</span>;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.getElementById(<span class="string">"Stats-output"</span>).appendChild(stats.domElement);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="keyword">return</span> stats;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="comment">//调用该函数，使开始拥有统计功能。</span></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> stats = initStats();</span></span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">renderScene</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">//在渲染函数里告诉stats对象每次渲染开始的时间。</span></span></span><br><span class="line">        stats.update();</span><br><span class="line">        </span><br><span class="line"><span class="actionscript">        <span class="comment">//其他code</span></span></span><br><span class="line">        requestAnimationFrame(renderScene);</span><br><span class="line">        renderer.render(scene, camera);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    renderScene();</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>[效果图]</p>
+<img src="/2016/08/05/three-js学习笔记（一）/3.png">
+<h1><span id="使用datgui库简化试验">使用dat.GUI库简化试验</span></h1>
+<p>在该库的帮助下，很容易创建一个简单的界面组建，用以修改代码中的变量。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../libs/dat.gui.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span>    </span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> controls = <span class="keyword">new</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.rotationSpeed = <span class="number">0.02</span>;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.bouncingSpeed = <span class="number">0.03</span>;</span></span><br><span class="line">    &#125;;</span><br><span class="line">    </span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> gui = <span class="keyword">new</span> dat.GUI();</span></span><br><span class="line"><span class="actionscript">    gui.add(controls, <span class="string">'rotationSpeed'</span>, <span class="number">0</span>, <span class="number">0.5</span>);</span></span><br><span class="line"><span class="actionscript">    gui.add(controls, <span class="string">'bouncingSpeed'</span>, <span class="number">0</span>, <span class="number">0.5</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">render</span><span class="params">()</span> </span>&#123;</span></span><br><span class="line">        stats.update();</span><br><span class="line"><span class="actionscript">        <span class="comment">// rotate the cube around its axes</span></span></span><br><span class="line">        cube.rotation.x += controls.rotationSpeed;</span><br><span class="line">        cube.rotation.y += controls.rotationSpeed;</span><br><span class="line">        cube.rotation.z += controls.rotationSpeed;</span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// bounce the sphere up and down</span></span></span><br><span class="line">        step += controls.bouncingSpeed;</span><br><span class="line"><span class="javascript">        sphere.position.x = <span class="number">20</span> + ( <span class="number">10</span> * (<span class="built_in">Math</span>.cos(step)));</span></span><br><span class="line"><span class="javascript">        sphere.position.y = <span class="number">2</span> + ( <span class="number">10</span> * <span class="built_in">Math</span>.abs(<span class="built_in">Math</span>.sin(step)));</span></span><br><span class="line"></span><br><span class="line"><span class="actionscript">        <span class="comment">// render using requestAnimationFrame</span></span></span><br><span class="line">        requestAnimationFrame(render);</span><br><span class="line">        renderer.render(scene, camera);</span><br><span class="line">    &#125;</span><br><span class="line"><span class="handlebars"><span class="xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+<p>[效果图]</p>
+<img src="/2016/08/05/three-js学习笔记（一）/5.png">
+<hr>
+<blockquote>
+<p>参考<br>
+<a href="http://www.hewebgl.com/article/getarticle/50" target="_blank" rel="noopener">http://www.hewebgl.com/article/getarticle/50</a><br>
+《three.js开发指南》</p>
+</blockquote>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2016/11/14/vue-js学习实例/" data-toggle="tooltip" data-placement="top" title="vue.js学习实例">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2016/07/28/HTML5-拖放/" data-toggle="tooltip" data-placement="top" title="HTML5_拖放">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">三大组建</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">添加材质、灯光和阴影</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">添加动画</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">监测动画运行帧频(FPS)</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">5.</span> <span class="toc-nav-text">使用dat.GUI库简化试验</span></a></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#javascript" title="javascript">javascript</a>
+                        
+                          <a class="tag" href="/tags/#可视化" title="可视化">可视化</a>
+                        
+                          <a class="tag" href="/tags/#webgl" title="webgl">webgl</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <!-- 
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://simmin.github.io/" target="_blank">Simmin Blog</a></li>
+                    
+                        <li><a href="http://phantom0301.cc/" target="_blank">零の杂货铺</a></li>
+                    
+                        <li><a href="http://blackwolfsec.cc/" target="_blank">blackwolf</a></li>
+                    
+                        <li><a href="http://wps2015.jinglingshu.org/" target="_blank">wps2015</a></li>
+                    
+                        <li><a href="http://www.jetmuffin.com/" target="_blank">jetmuffin</a></li>
+                    
+                </ul>
+                 -->
+                 <div id="vcomments"></div>
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://wsyks.github.io/2016/08/05/three-js学习笔记（一）/";
+    var disqus_url = "http://wsyks.github.io/2016/08/05/three-js学习笔记（一）/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/2949528583">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/wsyks">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; syean 2024&nbsp;蜀ICP备17010174号
+                    <br>
+
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a>
+                     <br>
+
+                        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                        <span id="busuanzi_container_site_uv">
+                          <i class="fa fa-user"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_uv"></span>
+                        </span>&nbsp;|&nbsp;
+                        <span id="busuanzi_container_site_pv">
+                            <i class="fa fa-eye">&nbsp;&nbsp;</i><span id="busuanzi_value_site_pv"></span>
+                        </span>
+
+                        
+                     <!-- | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'a752ba5e82dfa1b0ba76d0a4e2dc9dfa';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<script>
+window.addEventListener('beforeinstallprompt', event => {
+  event.userChoice.then(result => {console.log(result.outcome)
+  })
+})
+</script>
+
+
+<script>
+        new Valine({
+            av:AV,
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM',
+            placeholder:"╰(*′︶`*)╯，哟呼",
+            avatar:"identicon"
+        })
+    </script>
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

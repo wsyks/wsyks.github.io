@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端,技术,生活">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <title>
+        
+          一步步实现微信小程序——仿豆瓣电影 - Syean的博客 | Syean&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article/weixin.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/undefined');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#微信小程序" title="微信小程序">微信小程序</a>
+                            
+                        </div>
+                        <h1>一步步实现微信小程序——仿豆瓣电影</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            <!--Posted by syean on -->
+                            Posted on
+                            2017-09-03 
+                            <span id="busuanzi_container_page_pv"> |&nbsp;&nbsp;
+  <i class="fa fa-eye" ></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+</span>
+                        </span>
+                        
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Syean</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p>最近不想写论文，就想捣鼓点新东西吧，就边看官方文档，花了3天时间写了一个简单的仿豆瓣电影的微信小程序，给大家分享一下教程吧。</p>
+<a id="more"></a>
+<h1><span id="源码amp效果图">源码&amp;效果图</span></h1>
+<p>源码点击<a href="https://github.com/wsyks/douban-film" target="_blank" rel="noopener">这里</a>，欢迎star</p>
+<p>运行方法：</p>
+<ul>
+<li>下载微信web开发者工具</li>
+<li>新建项目，项目目录为代码存放目录</li>
+<li>点击开发者工具中的编译即可在模拟器里看到</li>
+</ul>
+<p>效果图如下<br>
+<img src="http://7xsgg1.com1.z0.glb.clouddn.com/douban1.gif" alt="效果1"><img src="http://7xsgg1.com1.z0.glb.clouddn.com/douban3.gif" alt="效果2"><br>
+<img src="http://7xsgg1.com1.z0.glb.clouddn.com/douban2.gif" alt="效果3"><img src="http://7xsgg1.com1.z0.glb.clouddn.com/douban4.gif" alt="效果4"></p>
+<h1><span id="开发环境与项目简介">开发环境与项目简介</span></h1>
+<p>微信提供了一个微信开发者工具，可以完成小程序的 API 和页面的开发调试、代码查看和编辑、小程序预览和发布等功能。<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html" target="_blank" rel="noopener">下载地址</a><br>
+下载后，打开该工具，选择代码目录和申请的AppID，勾选quickStart选项，这样会创建几个基础页面。</p>
+<img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/5.png">
+<p>正好在写代码的第二天，微信开发者工具就全新改版，比原来好多了，原来的console调试界面与编辑代码不在同一个页面，十分麻烦，现在就像平时前端调试一样，调试界面与代码编辑页面在同一个界面，方便多了。</p>
+<img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/2.png">
+<h2><span id="项目代码结构">项目代码结构</span></h2>
+<img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/4.png">
+<p>这里说一下，在新建目录后，可以选择添加page,js,wxml,wxss,json文件，如果直接添加page文件的话，会直接在该目录下生成与目录相同名字的四个不同后缀文件的组成，如：index.js、index.wxml、index.wxss、index.json。.js后缀的文件是脚本文件，.json后缀的文件是配置文件，.wxss后缀的是样式表文件，.wxml后缀的文件是页面结构文件。</p>
+<h2><span id="豆瓣电影api">豆瓣电影API</span></h2>
+<ul>
+<li>【获取正在上映电影】<br>
+<a href="https://api.douban.com/v2/movie/in_theaters" target="_blank" rel="noopener">https://api.douban.com/v2/movie/in_theaters</a></li>
+<li>【获取豆瓣TOP250电影】<br>
+<a href="https://api.douban.com/v2/movie/top250" target="_blank" rel="noopener">https://api.douban.com/v2/movie/top250</a></li>
+<li>【 获取即将上映电影】<br>
+<a href="https://api.douban.com/v2/movie/coming_soon" target="_blank" rel="noopener">https://api.douban.com/v2/movie/coming_soon</a></li>
+<li>【获取具体某一电影信息】<br>
+<a href="https://api.douban.com/v2/movie/subject/:id" target="_blank" rel="noopener">https://api.douban.com/v2/movie/subject/:id</a><br>
+详细数据情况可看<br>
+<a href="https://developers.douban.com/wiki/?title=movie_v2" target="_blank" rel="noopener">https://developers.douban.com/wiki/?title=movie_v2</a></li>
+</ul>
+<p>其实前三个API返回的数据都是一致的，只是返回的电影类型数据不一样而已，所以在<strong>list</strong>页面，我们只要传入不同的类型即可。在电影列表页和首页，都有展示电影的基础信息（海报，名字，评分），所以可以把这个部分拿出来做一个模板公用。<br>
+大体的思路就是这样，比较简单。</p>
+<h1><span id="配置小程序窗口和导航栏">配置小程序窗口和导航栏</span></h1>
+<p>在根目录下的app.json文件中配置小程序的窗口样式和导航栏</p>
+<img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/6.png">
+<p>属性信息如图，来自<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/config.html" target="_blank" rel="noopener">官网</a></p>
+ <img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/config1.png">
+ <img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/config2.png">
+<p>点击上方的“编译”，就可以看到效果</p>
+  <img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/res1.png">
+<p>我们在调试具体某一个页面的时候，可以添加面板上方中间的&quot;添加编译模式&quot;，填写相关参数，这样就不用从首页进去调试了。</p>
+<img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/3.png">
+<h1><span id="具体代码编写">具体代码编写</span></h1>
+<p>这里只讲一下首页代码的情况，其他页面用到的属性基本雷同。这里不介绍小程序的使用语法，请先在<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/framework/MINA.html" target="_blank" rel="noopener">官网上</a>浏览个大概</p>
+<h2><span id="wxshowloading">wx.showLoading()</span></h2>
+<p>在最开始进入页面时，还没加载完数据时，我们想要有一个loading效果，可直接使用小程序的api<br>
+wx.showLoading(OBJECT)<br>
+显示 loading 提示框, 需主动调用 wx.hideLoading 才能关闭提示框</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">onLoad: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    wx.showLoading(&#123;</span><br><span class="line">      title: <span class="string">'全力加载中...'</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>加载完，需要关闭时，就只需要调用即可<code>wx.hideLoading();</code><br>
+onLoad 表示监听页面加载</p>
+<h2><span id="wxrequest">wx.request()</span></h2>
+<p>请求数据调用wx.request();<br>
+详细属性介绍点击<a href="https://mp.weixin.qq.com/debug/wxadoc/dev/api/network-request.html#wxrequestobject" target="_blank" rel="noopener">这里</a></p>
+<p>因为请求电影列表在list和index页面都需要用到，所以我在app.js作为一个全局的方法来写</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">getFilminfo:function(pageType,start,count,cb) &#123;<span class="comment">//电影列表类型，开始数据下标，请求总数，callback函数</span></span><br><span class="line">    var that = this;</span><br><span class="line"></span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: that<span class="selector-class">.globalData</span><span class="selector-class">.basicUrl</span> +<span class="string">"/"</span> + pageType + <span class="string">'?start='</span> + start + <span class="string">'&amp;count='</span> + count,</span><br><span class="line">      <span class="comment">// url:url,</span></span><br><span class="line">      <span class="selector-tag">header</span>: &#123;</span><br><span class="line">        <span class="string">"Content-Type"</span>: <span class="string">"json"</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      success: function (res) &#123;</span><br><span class="line">        cb(res);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;) </span><br><span class="line">  &#125;,</span><br><span class="line">  globalData: &#123;</span><br><span class="line">    userInfo: null,</span><br><span class="line">    basicUrl:<span class="string">"https://api.douban.com/v2/movie"</span>,</span><br><span class="line">    pageTypelist: &#123;<span class="string">"coming_soon"</span>:<span class="string">"即将上映"</span>,<span class="string">"in_theaters"</span>:<span class="string">"正在热映"</span>,<span class="string">"top250"</span>:<span class="string">"TOP250电影"</span>&#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>然而，在调用接口的时候发现了这样的错误</p>
+<img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api1.png">
+<p>原因是我在开发配置里，没有豆瓣api的域名添加到request合法域名里，<br>
+所以只要在配置里加上需要的即可</p>
+<img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api2.png">
+<img src="/2017/09/03/一步步实现微信小程序——仿豆瓣电影/api3.png">
+<p>所以在index.js中，调用这个全局方法如下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取应用实例</span></span><br><span class="line"><span class="selector-tag">var</span> app = getApp()</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">Page(&#123;</span><br><span class="line">  data: &#123;</span><br><span class="line">    motto: <span class="string">'Hello World'</span>,</span><br><span class="line">    userInfo: &#123;&#125;,</span><br><span class="line">    films:[&#123;&#125;,&#123;&#125;,&#123;&#125;]</span><br><span class="line">  &#125;,</span><br><span class="line">  onLoad: function () &#123;</span><br><span class="line">    wx.showLoading(&#123;</span><br><span class="line">      title: <span class="string">'全力加载中...'</span>,</span><br><span class="line">    &#125;)</span><br><span class="line">    console.log(<span class="string">'onLoad'</span>)</span><br><span class="line">    var that = this;</span><br><span class="line">    var typelist = ["in_theaters","coming_soon","top250"];</span><br><span class="line">    var titlelist = ["正在热映","即将上映", "TOP250电影"];</span><br><span class="line">    for(let i = 0;i&lt;typelist.length;i++)&#123;</span><br><span class="line">      var type = typelist[i];</span><br><span class="line">      app.getFilminfo(type, <span class="number">0</span>, <span class="number">8</span>, function (res) &#123;</span><br><span class="line">        wx.hideLoading();</span><br><span class="line">        var data = res.data;</span><br><span class="line">        data<span class="selector-class">.subjects</span>.map(function (item) &#123;</span><br><span class="line">          <span class="keyword">if</span> (item<span class="selector-class">.title</span><span class="selector-class">.length</span> &gt; <span class="number">8</span>) &#123;</span><br><span class="line">            item.title = item.title.slice(0, 7) + "...";</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> (item<span class="selector-class">.rating</span>.average&gt;=<span class="number">9.5</span>)&#123;</span><br><span class="line">            item.rating.star = "star10";</span><br><span class="line">          &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            item.rating.star = "star" + Math.round(item.rating.average);</span><br><span class="line">          &#125;</span><br><span class="line">          console.log(item.rating.star);</span><br><span class="line">        &#125;)</span><br><span class="line">        that.data.films[i] = &#123;title:titlelist[i],data:data.subjects,type:typelist[i]&#125;;</span><br><span class="line">        that.setData(&#123;</span><br><span class="line">          films: that<span class="selector-class">.data</span>.films</span><br><span class="line">        &#125;);</span><br><span class="line">        console.log(that.data.films);</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>我们通过“更多”按钮跳转到对应的电影列表list页面，所以需要绑定事件</p>
+<p>在index.wxml中，</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">button</span> bindtap=<span class="string">"toView"</span> data-type=<span class="string">"&#123;&#123;filminfo.type&#125;&#125;"</span> class=<span class="string">"more-btn"</span> plain=<span class="string">"false"</span>&gt;更多&gt;&lt;/button&gt;</span><br></pre></td></tr></table></figure>
+<p>bindtap就是对应是事件名字，同时我们需要设置data-type属性，属性值即是电影列表类型<br>
+在index.js中</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">toView: function(e) &#123;</span><br><span class="line">    var temp = e.currentTarget.dataset;//获取当前组件上由data-开头的自定义属性组成的集合</span><br><span class="line">    wx.navigateTo(&#123;</span><br><span class="line">      url: <span class="string">'../list/list?type='</span> + temp.type<span class="comment">//temp.type即是当时data-type属性值</span></span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+<p>wx.navigateTo(）就是路由跳转的api</p>
+<h2><span id="模板">模板</span></h2>
+<p>因为电影的基础信息展示在多个页面中都有用到，我们单独提出来写个电影预览模板</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;template name=<span class="string">"movieThumb"</span>&gt;  </span><br><span class="line">&lt;view wx:key=<span class="string">"id"</span> class=<span class="string">"film-item"</span> data-title=<span class="string">"&#123;&#123;title&#125;&#125;"</span> data-id=<span class="string">"&#123;&#123;id&#125;&#125;"</span>  bindtap=<span class="string">"detail"</span>&gt;</span><br><span class="line">  &lt;image src=<span class="string">"&#123;&#123;images.medium&#125;&#125;"</span> alt=<span class="string">"&#123;&#123;alt&#125;&#125;"</span> class=<span class="string">"film-image"</span>&gt;&lt;/image&gt;  </span><br><span class="line">  &lt;text class=<span class="string">"film-title"</span>&gt;&#123;&#123;title&#125;&#125;&lt;/text&gt;  </span><br><span class="line">  &lt;view class=<span class="string">"film-rate"</span> wx:<span class="keyword">if</span>=<span class="string">"&#123;&#123;rating.average!=0&#125;&#125;"</span>&gt;</span><br><span class="line">    &lt;view class=<span class="string">"film-star &#123;&#123;rating.star&#125;&#125;"</span>&gt;&lt;/view&gt;</span><br><span class="line">    &lt;text&gt;&#123;&#123;rating.average&#125;&#125;&lt;/text&gt;</span><br><span class="line">  &lt;/view&gt;</span><br><span class="line">  &lt;text class=<span class="string">"film-rate"</span> wx:<span class="keyword">else</span>&gt;暂无评分&lt;/text&gt;  </span><br><span class="line">&lt;/view&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+<p>模板名字设置为“movieThumb”</p>
+<p>例如在首页中有用到该模块，那在index.wxml中如下调用即可</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;import src=<span class="string">"../template/movieThumb.wxml"</span> /&gt;</span><br><span class="line"> </span><br><span class="line"> &lt;scroll-view scroll-x=<span class="string">"true"</span> class=<span class="string">"filmlist"</span>&gt;</span><br><span class="line">        &lt;template is=<span class="string">"movieThumb"</span> wx:<span class="keyword">for</span>-items=<span class="string">"&#123;&#123;filminfo.data&#125;&#125;"</span>  wx:<span class="keyword">for</span>-item=<span class="string">"film"</span> wx:key=<span class="string">"id"</span> data=<span class="string">"&#123;&#123;...film&#125;&#125;"</span>&gt;   </span><br><span class="line">        &lt;/template&gt;</span><br><span class="line">&lt;/scroll-view&gt;</span><br></pre></td></tr></table></figure>
+<p>先写到这里吧，其他代码看<a href="https://github.com/wsyks/douban-film" target="_blank" rel="noopener">github</a>上的即可，具体还是要多看文档，写个项目练练，就很容易上手啦</p>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2017/11/30/vuejs用户认证实例/" data-toggle="tooltip" data-placement="top" title="vuejs用户认证实例">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2017/08/15/谈谈HTML5本地存储/" data-toggle="tooltip" data-placement="top" title="谈谈HTML5本地存储">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">源码&amp;效果图</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">开发环境与项目简介</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.1.</span> <span class="toc-nav-text">项目代码结构</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.2.</span> <span class="toc-nav-text">豆瓣电影API</span></a></li></ol></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">配置小程序窗口和导航栏</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.</span> <span class="toc-nav-text">具体代码编写</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.1.</span> <span class="toc-nav-text">wx.showLoading()</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.2.</span> <span class="toc-nav-text">wx.request()</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">4.3.</span> <span class="toc-nav-text">模板</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#微信小程序" title="微信小程序">微信小程序</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <!-- 
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://simmin.github.io/" target="_blank">Simmin Blog</a></li>
+                    
+                        <li><a href="http://phantom0301.cc/" target="_blank">零の杂货铺</a></li>
+                    
+                        <li><a href="http://blackwolfsec.cc/" target="_blank">blackwolf</a></li>
+                    
+                        <li><a href="http://wps2015.jinglingshu.org/" target="_blank">wps2015</a></li>
+                    
+                        <li><a href="http://www.jetmuffin.com/" target="_blank">jetmuffin</a></li>
+                    
+                </ul>
+                 -->
+                 <div id="vcomments"></div>
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/";
+    var disqus_url = "http://wsyks.github.io/2017/09/03/一步步实现微信小程序——仿豆瓣电影/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/2949528583">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/wsyks">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; syean 2024&nbsp;蜀ICP备17010174号
+                    <br>
+
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a>
+                     <br>
+
+                        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                        <span id="busuanzi_container_site_uv">
+                          <i class="fa fa-user"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_uv"></span>
+                        </span>&nbsp;|&nbsp;
+                        <span id="busuanzi_container_site_pv">
+                            <i class="fa fa-eye">&nbsp;&nbsp;</i><span id="busuanzi_value_site_pv"></span>
+                        </span>
+
+                        
+                     <!-- | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'a752ba5e82dfa1b0ba76d0a4e2dc9dfa';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<script>
+window.addEventListener('beforeinstallprompt', event => {
+  event.userChoice.then(result => {console.log(result.outcome)
+  })
+})
+</script>
+
+
+<script>
+        new Valine({
+            av:AV,
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM',
+            placeholder:"╰(*′︶`*)╯，哟呼",
+            avatar:"identicon"
+        })
+    </script>
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>

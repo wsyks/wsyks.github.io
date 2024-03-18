@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="前端,技术,生活">
+    <meta name="keyword" content>
+    <link rel="shortcut icon" type="image/x-icon" href="/img/ironman-draw.ico">
+    <!-- Place this tag in your head or just before your close body tag. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+    <title>
+        
+          微信小程序上传照片后旋转问题解决 - Syean的博客 | Syean&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://wsyks.github.io/2019/09/11/微信小程序上传照片后旋转问题解决/">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS --> 
+    <link rel="stylesheet" href="/css/beantech.min.css">
+    
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+
+    <link rel="stylesheet" href="/css/widget.css">
+
+    <link rel="stylesheet" href="/css/rocket.css">
+
+    <link rel="stylesheet" href="/css/signature.css">
+
+    <link rel="stylesheet" href="/css/toc.css">
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+	<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        
+            background-image: url('/img/article/weixinrotate.jpg')
+            /*post*/
+        
+    }
+    
+    #signature{
+        background-image: url('/undefined');
+    }
+    
+</style>
+
+<header class="intro-header" >
+    <!-- Signature -->
+    <div id="signature">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                
+                    <div class="post-heading">
+                        <div class="tags">
+                            
+                              <a class="tag" href="/tags/#微信小程序" title="微信小程序">微信小程序</a>
+                            
+                        </div>
+                        <h1>微信小程序上传照片后旋转问题解决</h1>
+                        <h2 class="subheading"></h2>
+                        <span class="meta">
+                            <!--Posted by syean on -->
+                            Posted on
+                            2019-09-11 
+                            <span id="busuanzi_container_page_pv"> |&nbsp;&nbsp;
+  <i class="fa fa-eye" ></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+</span>
+                        </span>
+                        
+                    </div>
+                
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+	
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Syean</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    <!-- Modify by Yu-Hsuan Yen -->
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1><span id="前言">前言</span></h1>
+<p>又是好久好久好久没更新了，太懒了</p>
+<p>这次记录一下在做mini项目中遇到的一个问题，当时没时间解决，mini结束后还是打算看看这个问题。</p>
+<h1><span id="问题说明">问题说明</span></h1>
+<p>当时是这样的，微信小程序在上传照片后，会有一定概率旋转，查阅了资料之后，发现是和图片中携带的exif信息中的orientation这个参数有关。</p>
+<p>这里有一个关于EXIF 和 Orientation 相关的传送门：<br>
+<a href="https://zhuanlan.zhihu.com/p/25216999" target="_blank" rel="noopener">使用 JavaScript 读取 JPEG 文件 EXIF 信息中的 Orientation 值</a></p>
+<p>当时是让想让后端进行解析并旋转的，不过后端说有时候能拿到这个信息，有时候拿不到，这个是可能小程序在上传时设置是否压缩有关，如果压缩了，会将exif信息给删除。</p>
+<p>后面由于图片上传到服务器前也需要预览，所以在后端进行旋转是不合适的。</p>
+<p>前端旋转的话看了一下，小程序中通过<strong>getImageInfo</strong>这个接口中可以获得<strong>orientation</strong> 的信息，喜大普奔，那我们只要知道旋转的角度，再旋转回来即可。</p>
+<h1><span id="解决方案">解决方案</span></h1>
+<h2><span id="小程序-orientation-参数">小程序 orientation 参数</span></h2>
+<p>小程序 orientation 参数情况如下所示：</p>
+<img src="/2019/09/11/微信小程序上传照片后旋转问题解决/1.png">
+<h2><span id="小程序图片旋转关键代码">小程序图片旋转关键代码</span></h2>
+<p>图片的旋转处理这里用到了canvas</p>
+<p>在wxml文件中添加canvas元素，这里id我就设置的为canvas</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">canvas</span> <span class="attr">canvas-id</span>=<span class="string">"canvas"</span> <span class="attr">style</span>=<span class="string">"width:</span></span></span><span class="template-variable">&#123;&#123;imageWidth&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">px;height:</span></span></span><span class="template-variable">&#123;&#123;imageHeight&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">px;position:absolute;top:200%"</span> &gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>这里具体讲一下旋转180度的情况</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">wx.getImageInfo(&#123;</span><br><span class="line">  src: tempFilePaths[<span class="number">0</span>],</span><br><span class="line">  success:(res)=&gt;&#123;</span><br><span class="line">    <span class="comment">//获得exif中的orientation信息   </span></span><br><span class="line">    <span class="keyword">if</span>(res.orientation==<span class="string">"up"</span>)&#123;</span><br><span class="line">      <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">        chosenImage: tempFilePaths[<span class="number">0</span>],</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      let canvasContext = wx.createCanvasContext(<span class="string">'canvas'</span>)</span><br><span class="line">      <span class="keyword">switch</span> (res.orientation) &#123;</span><br><span class="line">        <span class="keyword">case</span> (<span class="string">"down"</span>):</span><br><span class="line">          var <span class="built_in">width</span> = res.<span class="built_in">width</span>;</span><br><span class="line">          var <span class="built_in">height</span> = res.<span class="built_in">height</span></span><br><span class="line">          <span class="comment">//需要旋转180度</span></span><br><span class="line">          <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">            imageWidth: <span class="built_in">width</span>,</span><br><span class="line">            imageHeight: <span class="built_in">height</span>,</span><br><span class="line">          &#125;)</span><br><span class="line">          canvasContext.<span class="built_in">translate</span>(<span class="built_in">width</span> / <span class="number">2</span>, <span class="built_in">height</span> / <span class="number">2</span>)</span><br><span class="line">          canvasContext.<span class="built_in">rotate</span>(<span class="number">180</span> * Math.<span class="literal">PI</span> / <span class="number">180</span>)</span><br><span class="line">          canvasContext.drawImage(tempFilePaths[<span class="number">0</span>], -<span class="built_in">width</span> / <span class="number">2</span>, -<span class="built_in">height</span> / <span class="number">2</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">      canvasContext.<span class="title">draw</span>()</span><br><span class="line">      <span class="keyword">this</span>.drawImage()</span><br><span class="line">    &#125;      </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>三步走：</p>
+<p>1、这里通过<strong>translate</strong>将原点设置为图像中心<br>
+2、通过<strong>rotate</strong>进行旋转相应的角度，这里rotate是以刚刚设置的原点为中心进行旋转的<br>
+3、通过<strong>drawImage</strong>绘制图片</p>
+<p>这样图片就旋转好了吗？<br>
+当然还没有，这只是在canvas上完成了旋转，需要将canvas生成图片</p>
+<p>【注】由于canvas的绘制（<strong>draw()</strong>）需要一定的时间，所以这里设置了一个定时器，这里设置了2秒，如果没有这个定时器，可能会发生图片并没有绘制结束就转为图片的情况，那图片可能就是空白的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">drawImage:<span class="function"><span class="keyword">function</span>(<span class="params">path</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">    setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">      <span class="comment">// 将生成的canvas图片，转为真实图片</span></span><br><span class="line">      wx.canvasToTempFilePath(&#123;</span><br><span class="line">        x: <span class="number">0</span>,</span><br><span class="line">        y: <span class="number">0</span>,</span><br><span class="line">        canvasId: <span class="string">'canvas'</span>,</span><br><span class="line">        success(res) &#123;</span><br><span class="line">          <span class="keyword">let</span> shareImg = res.tempFilePath;</span><br><span class="line">          that.setData(&#123;</span><br><span class="line">            chosenImage: res.tempFilePath,</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        fail: <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>【注】有关canvas的旋转，你需要了解一下canvas的坐标系的问题，一开始没有先看这方面的内容，想当然了，导致绘制出来的东西是空白的，后面了解了之后发现就是坐标系没弄清楚，导致设定绘制的图片时，坐标系的值弄错了，画到了画布外面，导致空白，这里给一个传送门，大家可以看这篇文章：<br>
+<a href="https://aotu.io/notes/2017/05/25/canvas-img-rotate-and-flip/index.html" target="_blank" rel="noopener">canvas 图像旋转与翻转姿势解锁</a></p>
+<p>旋转90度和旋转270度同理，这里不再赘述</p>
+<h2><span id="贴一下完整代码">贴一下完整代码</span></h2>
+<p>当然，可能还有镜像翻转的情况，这里比较懒，就没弄了，也是差不多的。</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">style</span>=<span class="string">""</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">bindtap</span>=<span class="string">"chooseImage"</span>&gt;</span>上传<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">view</span> <span class="attr">style</span>=<span class="string">""</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;chosenImage&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">mode</span>=<span class="string">"widthFix"</span> <span class="attr">bindtap</span>=<span class="string">""</span> <span class="attr">style</span>=<span class="string">"width:300px;"</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">canvas-id</span>=<span class="string">"canvas"</span> <span class="attr">style</span>=<span class="string">"width:</span></span></span><span class="template-variable">&#123;&#123;imageWidth&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">px;height:</span></span></span><span class="template-variable">&#123;&#123;imageHeight&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">px;position:absolute;top:200%"</span> &gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line">chooseImage:function()&#123;</span><br><span class="line">    wx.chooseImage(&#123;</span><br><span class="line">      count: <span class="number">1</span>,</span><br><span class="line">      sizeType: [<span class="string">'compressed'</span>],</span><br><span class="line">      sourceType: [<span class="string">'album'</span>, <span class="string">'camera'</span>],</span><br><span class="line">      success: (res) =&gt; &#123;</span><br><span class="line">        <span class="comment">// tempFilePath可以作为img标签的src属性显示图片</span></span><br><span class="line">        <span class="keyword">const</span> tempFilePaths = res.tempFilePaths</span><br><span class="line">        wx.getImageInfo(&#123;</span><br><span class="line">          src: tempFilePaths[<span class="number">0</span>],</span><br><span class="line">          success:(res)=&gt;&#123;</span><br><span class="line">            <span class="comment">//获得exif中的orientation信息   </span></span><br><span class="line">            <span class="keyword">if</span>(res.orientation==<span class="string">"up"</span>)&#123;</span><br><span class="line">              <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">                chosenImage: tempFilePaths[<span class="number">0</span>],</span><br><span class="line">              &#125;)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">              let canvasContext = wx.createCanvasContext(<span class="string">'canvas'</span>)</span><br><span class="line">              console.<span class="built_in">log</span>(res.orientation)</span><br><span class="line">              <span class="keyword">switch</span> (res.orientation) &#123;</span><br><span class="line">                <span class="keyword">case</span> (<span class="string">"down"</span>):</span><br><span class="line">                  var <span class="built_in">width</span> = res.<span class="built_in">width</span>;</span><br><span class="line">                  var <span class="built_in">height</span> = res.<span class="built_in">height</span></span><br><span class="line">                  <span class="comment">//需要旋转180度</span></span><br><span class="line">                  <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">                    imageWidth: <span class="built_in">width</span>,</span><br><span class="line">                    imageHeight: <span class="built_in">height</span>,</span><br><span class="line">                  &#125;)</span><br><span class="line">                  canvasContext.<span class="built_in">translate</span>(<span class="built_in">width</span> / <span class="number">2</span>, <span class="built_in">height</span> / <span class="number">2</span>)</span><br><span class="line">                  canvasContext.<span class="built_in">rotate</span>(<span class="number">180</span> * Math.<span class="literal">PI</span> / <span class="number">180</span>)</span><br><span class="line">                  canvasContext.drawImage(tempFilePaths[<span class="number">0</span>], -<span class="built_in">width</span> / <span class="number">2</span>, -<span class="built_in">height</span> / <span class="number">2</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</span><br><span class="line">                  <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> (<span class="string">"left"</span>):</span><br><span class="line">                  var <span class="built_in">width</span> = res.<span class="built_in">width</span>;</span><br><span class="line">                  var <span class="built_in">height</span> = res.<span class="built_in">height</span>;</span><br><span class="line">                  canvasContext.<span class="built_in">translate</span>(<span class="built_in">height</span> / <span class="number">2</span>, <span class="built_in">width</span> / <span class="number">2</span>)</span><br><span class="line">                  <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">                    imageWidth: <span class="built_in">height</span>,</span><br><span class="line">                    imageHeight: <span class="built_in">width</span>,</span><br><span class="line">                  &#125;)</span><br><span class="line">                  <span class="comment">//顺时针旋转270度</span></span><br><span class="line">                  canvasContext.<span class="built_in">rotate</span>(<span class="number">270</span> * Math.<span class="literal">PI</span> / <span class="number">180</span>)</span><br><span class="line">                  canvasContext.drawImage(tempFilePaths[<span class="number">0</span>], - <span class="built_in">width</span> / <span class="number">2</span>, - <span class="built_in">height</span> / <span class="number">2</span>, <span class="built_in">width</span> , <span class="built_in">height</span>);</span><br><span class="line">                  <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">case</span> (<span class="string">"right"</span>):</span><br><span class="line">                  var <span class="built_in">width</span> = res.<span class="built_in">width</span>;</span><br><span class="line">                  var <span class="built_in">height</span> = res.<span class="built_in">height</span>;</span><br><span class="line">                  <span class="keyword">this</span>.setData(&#123;</span><br><span class="line">                    imageWidth: <span class="built_in">height</span>,</span><br><span class="line">                    imageHeight: <span class="built_in">width</span>,</span><br><span class="line">                  &#125;)</span><br><span class="line">                  canvasContext.<span class="built_in">translate</span>(<span class="built_in">height</span> / <span class="number">2</span>, <span class="built_in">width</span> / <span class="number">2</span>)                 </span><br><span class="line">                  <span class="comment">//顺时针旋转90度</span></span><br><span class="line">                  canvasContext.<span class="built_in">rotate</span>(<span class="number">90</span> * Math.<span class="literal">PI</span> / <span class="number">180</span>)</span><br><span class="line">                  canvasContext.drawImage(tempFilePaths[<span class="number">0</span>], - <span class="built_in">width</span> / <span class="number">2</span>, - <span class="built_in">height</span> / <span class="number">2</span>, <span class="built_in">width</span>, <span class="built_in">height</span>);</span><br><span class="line">                  <span class="keyword">break</span>;</span><br><span class="line">              &#125;</span><br><span class="line">              canvasContext.<span class="title">draw</span>()</span><br><span class="line">              <span class="keyword">this</span>.drawImage()</span><br><span class="line">            &#125;      </span><br><span class="line"></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;,</span><br><span class="line">  drawImage:function(path) &#123;</span><br><span class="line">    var that = <span class="keyword">this</span>;</span><br><span class="line">    setTimeout(()=&gt;&#123;</span><br><span class="line">      <span class="comment">// 将生成的canvas图片，转为真实图片</span></span><br><span class="line">      wx.canvasToTempFilePath(&#123;</span><br><span class="line">        x: <span class="number">0</span>,</span><br><span class="line">        y: <span class="number">0</span>,</span><br><span class="line">        canvasId: <span class="string">'canvas'</span>,</span><br><span class="line">        success(res) &#123;</span><br><span class="line">          let shareImg = res.tempFilePath;</span><br><span class="line">          that.setData(&#123;</span><br><span class="line">            chosenImage: res.tempFilePath,</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;,</span><br><span class="line">        fail: function (res) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;, <span class="number">2000</span>)</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+                
+
+                <hr>
+                <!-- Pager -->
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2019/09/26/Less自用笔记/" data-toggle="tooltip" data-placement="top" title="Less自用笔记">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2018/12/27/2018年前端开发校招面试总结/" data-toggle="tooltip" data-placement="top" title="2018年前端开发校招面试总结">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                <!-- duoshuo Share start -->
+                
+                <!-- 多说 Share end-->
+
+                <!-- 多说评论框 start -->
+                
+                <!-- 多说评论框 end -->
+
+                <!-- disqus comment start -->
+                
+                    <div class="comment">
+                        <div id="disqus_thread" class="disqus-thread"></div>
+                    </div>
+                
+                <!-- disqus comment end -->
+            </div>
+            
+            <!-- Tabe of Content -->
+            <!-- Table of Contents -->
+
+    
+      <aside id="sidebar">
+        <div id="toc" class="toc-article">
+        <strong class="toc-title">Contents</strong>
+        
+          <ol class="toc-nav"><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">1.</span> <span class="toc-nav-text">前言</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">2.</span> <span class="toc-nav-text">问题说明</span></a></li><li class="toc-nav-item toc-nav-level-1"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.</span> <span class="toc-nav-text">解决方案</span></a><ol class="toc-nav-child"><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.1.</span> <span class="toc-nav-text">小程序 orientation 参数</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.2.</span> <span class="toc-nav-text">小程序图片旋转关键代码</span></a></li><li class="toc-nav-item toc-nav-level-2"><a class="toc-nav-link" href="#null"><span class="toc-nav-number">3.3.</span> <span class="toc-nav-text">贴一下完整代码</span></a></li></ol></li></ol>
+        
+        </div>
+      </aside>
+    
+
+                
+            <!-- Sidebar Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#微信小程序" title="微信小程序">微信小程序</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <!-- 
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://simmin.github.io/" target="_blank">Simmin Blog</a></li>
+                    
+                        <li><a href="http://phantom0301.cc/" target="_blank">零の杂货铺</a></li>
+                    
+                        <li><a href="http://blackwolfsec.cc/" target="_blank">blackwolf</a></li>
+                    
+                        <li><a href="http://wps2015.jinglingshu.org/" target="_blank">wps2015</a></li>
+                    
+                        <li><a href="http://www.jetmuffin.com/" target="_blank">jetmuffin</a></li>
+                    
+                </ul>
+                 -->
+                 <div id="vcomments"></div>
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<!-- disqus embedded js code start (one page only need to embed once) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "your-disqus-ID";
+    var disqus_identifier = "http://wsyks.github.io/2019/09/11/微信小程序上传照片后旋转问题解决/";
+    var disqus_url = "http://wsyks.github.io/2019/09/11/微信小程序上传照片后旋转问题解决/";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus embedded js code start end -->
+
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+<!-- anchor-js, Doc:http://bryanbraun.github.io/anchorjs/ -->
+<script>
+    async("https://cdn.bootcss.com/anchor-js/1.1.1/anchor.min.js",function(){
+        anchors.options = {
+          visible: 'hover',
+          placement: 'left',
+          icon: 'ℬ'
+        };
+        anchors.add().remove('.intro-header h1').remove('.subheading').remove('.sidebar-container h5');
+    })
+</script>
+<style>
+    /* place left on bigger screen */
+    @media all and (min-width: 800px) {
+        .anchorjs-link{
+            position: absolute;
+            left: -0.75em;
+            font-size: 1.1em;
+            margin-top : -0.1em;
+        }
+    }
+</style>
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+                    <li>
+                        <a target="_blank" href="http://weibo.com/2949528583">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/wsyks">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; syean 2024&nbsp;蜀ICP备17010174号
+                    <br>
+
+                    <br>
+                    Theme by <a href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    re-Ported by <a href="http://beantech.org">BeanTech</a>
+                     <br>
+
+                        <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+                        <span id="busuanzi_container_site_uv">
+                          <i class="fa fa-user"></i>&nbsp;&nbsp;<span id="busuanzi_value_site_uv"></span>
+                        </span>&nbsp;|&nbsp;
+                        <span id="busuanzi_container_site_pv">
+                            <i class="fa fa-eye">&nbsp;&nbsp;</i><span id="busuanzi_value_site_pv"></span>
+                        </span>
+
+                        
+                     <!-- | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=YenYuHsuan&repo=hexo-theme-beantech&type=star&count=true" >
+                    </iframe> -->
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+<script src="/js/jquery.min.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/js/hux-blog.min.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://wsyks.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+<script>
+    // dynamic User by Hux
+    var _gaId = 'UA-XXXXXXXX-X';
+    var _gaDomain = 'yoursite';
+
+    // Originial
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', _gaId, _gaDomain);
+    ga('send', 'pageview');
+</script>
+
+
+
+
+<!-- Baidu Tongji -->
+
+<script>
+    // dynamic User by Hux
+    var _baId = 'a752ba5e82dfa1b0ba76d0a4e2dc9dfa';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<script>
+window.addEventListener('beforeinstallprompt', event => {
+  event.userChoice.then(result => {console.log(result.outcome)
+  })
+})
+</script>
+
+
+<script>
+        new Valine({
+            av:AV,
+            el: '#vcomments',
+            appId: 'KyC8huDPEIcQUcor3VHGk0Jx-gzGzoHsz',
+            appKey: 'Maz5zp1hIAmXtT3yBFdh18iM',
+            placeholder:"╰(*′︶`*)╯，哟呼",
+            avatar:"identicon"
+        })
+    </script>
+
+
+
+	<a id="rocket" href="#top" class=""></a>
+	<script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+    <script type="text/javascript" src="/js/toc.js?v=1.0.0" async=""></script>
+<!-- Image to hack wechat -->
+<img src="http://wsyks.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+</body>
+
+</html>
